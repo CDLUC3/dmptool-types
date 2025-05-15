@@ -2,6 +2,18 @@
 
 This package provides Types, Zod schemas and JSON schemas to aide in integrations with the DMP Tool.
 
+## Usage
+
+To run tests: `npm run test`
+
+To run linter checks: `npm run lint`
+
+To generate JSON schemas from the Zod schemas: `npm run generate`
+
+To build the Types, Zod schemas and JSON schemas: `npm run build`
+
+## Types/Schemas
+
 If you want to work with DMP Templates or Answers to template questions, the following :
   - CURRENT_SCHEMA_VERSION (the current version of the schemas)
   - QuestionTypesEnum (Contains the `type` for each Question/Answer below)
@@ -22,10 +34,8 @@ If you want to work with DMP Templates or Answers to template questions, the fol
   - TypeaheadSearchQuestion & TypeaheadSearchAnswer
   - URLQuestion & URLAnswer
 
-To run tests: `npm run test`
+### Coming soon
 
-To run linter checks: `npm run lint`
+RDA Common Standard for DMPs
 
-To generate JSON schemas from the Zod schemas: `npm run generate`
-
-To build the Types, Zod schemas and JSON schemas: `npm run build`
+DMP Tool specific extensions to the RDA Common Standard for DMPs
