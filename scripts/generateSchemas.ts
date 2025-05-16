@@ -1,9 +1,9 @@
 import fs from 'fs';
 import { zodToJsonSchema } from 'zod-to-json-schema';
-import { DatePickerQuestion, DateRangeQuestion } from "./src/dateQuestions";
-import { CheckboxesQuestion, RadioButtonsQuestion, SelectBoxQuestion } from './src/optionBasedQuestions'
-import { FilteredSearchQuestion, TypeaheadSearchQuestion } from './src/graphQLQuestions'
-import { TableQuestion, AnyQuestion } from './src/tableQuestions'
+import { DatePickerQuestion, DateRangeQuestion } from "../src/dateQuestions";
+import { CheckboxesQuestion, RadioButtonsQuestion, SelectBoxQuestion } from '../src/optionBasedQuestions'
+import { FilteredSearchQuestion, TypeaheadSearchQuestion } from '../src/graphQLQuestions'
+import { TableQuestion, AnyQuestion } from '../src/tableQuestions'
 import {
   BooleanQuestion,
   CurrencyQuestion,
@@ -12,7 +12,7 @@ import {
   TextAreaQuestion,
   TextQuestion,
   URLQuestion
-} from "./src/primitiveQuestions";
+} from "../src/primitiveQuestions";
 import {
   AnyAnswer,
   BooleanAnswer,
@@ -30,7 +30,7 @@ import {
   TextAnswer,
   TypeaheadSearchAnswer,
   URLAnswer,
-} from './src/answers';
+} from '../src/answers';
 
 // Convert the Zod schemas to JSON schemas and then write them to the /schemas folder
 const AnyQuestionSchema = zodToJsonSchema(AnyQuestion, 'AnyQuestion');
