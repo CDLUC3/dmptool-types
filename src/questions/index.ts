@@ -14,6 +14,7 @@ import { FilteredSearchQuestion, TypeaheadSearchQuestion } from './graphQLQuesti
 import { TableQuestion } from './tableQuestions';
 
 // Export all the questions
+export * from './question';
 export * from './dateQuestions';
 export * from './graphQLQuestions';
 export * from './optionBasedQuestions';

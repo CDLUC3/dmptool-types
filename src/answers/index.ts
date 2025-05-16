@@ -14,6 +14,7 @@ import {
 import { TableAnswer } from './tableAnswers';
 
 // reexport everything
+export * from './answer';
 export * from './dateAnswers';
 export * from './graphQLAnswers';
 export * from './optionBasedAnswers';
