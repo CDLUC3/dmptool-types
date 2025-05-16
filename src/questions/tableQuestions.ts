@@ -1,6 +1,5 @@
 import { z } from "zod";
 import {
-  Question,
   BooleanQuestion,
   CurrencyQuestion,
   EmailQuestion,
@@ -12,9 +11,10 @@ import {
 import { DatePickerQuestion, DateRangeQuestion } from "./dateQuestions";
 import { CheckboxesQuestion, RadioButtonsQuestion, SelectBoxQuestion } from './optionBasedQuestions';
 import { FilteredSearchQuestion, TypeaheadSearchQuestion } from './graphQLQuestions';
+import { Question } from "./question";
 
 // Union types for all questions and answers (tables cannot be nested so no TableQuestion here!)
-const ColumnQuestions = z.discriminatedUnion('type', [
+export const AnyTableColumnQuestion = z.discriminatedUnion('type', [
   BooleanQuestion,
   CheckboxesQuestion,
   CurrencyQuestion,
@@ -34,7 +34,7 @@ const ColumnQuestions = z.discriminatedUnion('type', [
 // Table question and answer
 export const TableQuestion = Question.merge(z.object({
   type: z.literal('table'),                                 // The type of question
-  columns: z.array(ColumnQuestions),                        // The columns of the table (note: tables cannot be nested)
+  columns: z.array(AnyTableColumnQuestion),                // The columns of the table (note: tables cannot be nested)
   attributes: z.object({
     canAddRows: z.boolean().optional(),                     // Whether to allow adding rows (default is true)
     canRemoveRows: z.boolean().optional(),                  // Whether to allow removing rows (default is true)
@@ -44,26 +44,6 @@ export const TableQuestion = Question.merge(z.object({
   })
 }));
 
-// All of the possible questions
-export const AnyQuestion = z.discriminatedUnion('type', [
-  BooleanQuestion,
-  CheckboxesQuestion,
-  CurrencyQuestion,
-  DatePickerQuestion,
-  DateRangeQuestion,
-  EmailQuestion,
-  FilteredSearchQuestion,
-  NumberQuestion,
-  RadioButtonsQuestion,
-  SelectBoxQuestion,
-  TableQuestion,
-  TextAreaQuestion,
-  TextQuestion,
-  TypeaheadSearchQuestion,
-  URLQuestion
-]);
-
 // This will ensure that object validations are against the Zod schemas defined above
 export type TableQuestionType = z.infer<typeof TableQuestion>;
-export type AnyQuestionType = z.infer<typeof AnyQuestion>;
-
+export type AnyTableColumnQuestionType = z.infer<typeof AnyTableColumnQuestion>;

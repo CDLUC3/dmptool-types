@@ -1,9 +1,10 @@
 import fs from 'fs';
 import { zodToJsonSchema } from 'zod-to-json-schema';
-import { DatePickerQuestion, DateRangeQuestion } from "../src/dateQuestions";
-import { CheckboxesQuestion, RadioButtonsQuestion, SelectBoxQuestion } from '../src/optionBasedQuestions'
-import { FilteredSearchQuestion, TypeaheadSearchQuestion } from '../src/graphQLQuestions'
-import { TableQuestion, AnyQuestion } from '../src/tableQuestions'
+import { DatePickerQuestion, DateRangeQuestion } from "../src/questions/dateQuestions";
+import { CheckboxesQuestion, RadioButtonsQuestion, SelectBoxQuestion } from '../src/questions/optionBasedQuestions'
+import { FilteredSearchQuestion, TypeaheadSearchQuestion } from '../src/questions/graphQLQuestions'
+import { AnyTableColumnQuestion, TableQuestion } from '../src/questions/tableQuestions'
+import { AnyQuestion } from '../src/questions/index';
 import {
   BooleanQuestion,
   CurrencyQuestion,
@@ -12,31 +13,32 @@ import {
   TextAreaQuestion,
   TextQuestion,
   URLQuestion
-} from "../src/primitiveQuestions";
+} from "../src/questions/primitiveQuestions";
+import { DatePickerAnswer, DateRangeAnswer } from '../src/answers/dateAnswers';
+import { AnyAnswer } from '../src/answers/index';
+import { FilteredSearchAnswer, TypeaheadSearchAnswer } from '../src/answers/graphQLAnswers';
+import { CheckboxesAnswer, RadioButtonsAnswer, SelectBoxAnswer } from '../src/answers/optionBasedAnswers';
+import { AnyTableColumnAnswer, TableAnswer } from '../src/answers/tableAnswers';
 import {
-  AnyAnswer,
   BooleanAnswer,
-  CheckboxesAnswer,
   CurrencyAnswer,
-  DatePickerAnswer,
-  DateRangeAnswer,
   EmailAnswer,
-  FilteredSearchAnswer,
   NumberAnswer,
-  RadioButtonsAnswer,
-  SelectBoxAnswer,
-  TableAnswer,
   TextAreaAnswer,
   TextAnswer,
-  TypeaheadSearchAnswer,
   URLAnswer,
-} from '../src/answers';
+} from '../src/answers/primitiveAnswers';
 
 // Convert the Zod schemas to JSON schemas and then write them to the /schemas folder
 const AnyQuestionSchema = zodToJsonSchema(AnyQuestion, 'AnyQuestion');
 fs.writeFileSync('./schemas/anyQuestion.schema.json', JSON.stringify(AnyQuestionSchema, null, 2));
 const AnyAnswerSchema = zodToJsonSchema(AnyAnswer, 'AnyAnswer');
 fs.writeFileSync('./schemas/anyAnswer.schema.json', JSON.stringify(AnyAnswerSchema, null, 2));
+
+const AnyTableColumnQuestionSchema = zodToJsonSchema(AnyTableColumnQuestion, 'AnyTableColumnQuestion');
+fs.writeFileSync('./schemas/anyTableColumnQuestion.schema.json', JSON.stringify(AnyTableColumnQuestionSchema, null, 2));
+const AnyTableColumnAnswerSchema = zodToJsonSchema(AnyTableColumnAnswer, 'AnyTableColumnAnswer');
+fs.writeFileSync('./schemas/anyTableColumnAnswer.schema.json', JSON.stringify(AnyTableColumnAnswerSchema, null, 2));
 
 const BooleanSchema = zodToJsonSchema(BooleanQuestion, 'BooleanQuestion');
 fs.writeFileSync('./schemas/booleanQuestion.schema.json', JSON.stringify(BooleanSchema, null, 2));

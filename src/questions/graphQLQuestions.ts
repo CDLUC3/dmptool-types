@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { Question } from "./primitiveQuestions";
+import { Question } from "./question";
 
 // An input variable for a GraphQL query
 const GraphQLVariable = z.object({

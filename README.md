@@ -2,6 +2,8 @@
 
 This package provides Types, Zod schemas and JSON schemas to aide in integrations with the DMP Tool.
 
+[Zod](https://www.npmjs.com/package/zod) schemas and Typescript Types can be found in the `src/` directory and JSON schemas can be found in the `schemas/` directory.
+
 ## Usage
 
 To run tests: `npm run test`
@@ -46,6 +48,7 @@ If you want to work with DMP Templates or Answers to template questions, the fol
   - CURRENT_SCHEMA_VERSION (the current version of the schemas)
   - QuestionTypesEnum (Contains the `type` for each Question/Answer below)
   - AnyQuestion & AnyAnswer (Union of all types below)
+  - AnyTableColumnQuestion & AnyTableColumnAnswer (Union of all types except table. Tables cannot be nested)
   - BooleanQuestion & Boolean Answer
   - CheckboxesQuestion & Checkboxes Answer
   - CurrencyQuestion & CurrencyAnswer

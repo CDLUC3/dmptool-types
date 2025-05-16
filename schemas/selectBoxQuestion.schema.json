@@ -1,0 +1,83 @@
+{
+  "$ref": "#/definitions/SelectBoxQuestion",
+  "definitions": {
+    "SelectBoxQuestion": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "const": "selectBox"
+        },
+        "meta": {
+          "type": "object",
+          "properties": {
+            "schemaVersion": {
+              "type": "string",
+              "const": "1.0"
+            },
+            "labelTranslationKey": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "schemaVersion"
+          ],
+          "additionalProperties": false
+        },
+        "options": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "const": "option"
+              },
+              "attributes": {
+                "type": "object",
+                "properties": {
+                  "label": {
+                    "type": "string"
+                  },
+                  "value": {
+                    "type": "string"
+                  },
+                  "selected": {
+                    "type": "boolean"
+                  }
+                },
+                "required": [
+                  "label",
+                  "value"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "type",
+              "attributes"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "attributes": {
+          "type": "object",
+          "properties": {
+            "multiple": {
+              "type": "boolean"
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "type",
+        "meta",
+        "options",
+        "attributes"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}
