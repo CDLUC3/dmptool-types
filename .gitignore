@@ -9,4 +9,5 @@ dist
 node_modules
 
 # Ignore the schema directory (they are automatically generated during build)
-schemas
+schemas/*.json
+
