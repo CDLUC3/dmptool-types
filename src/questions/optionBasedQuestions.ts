@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { Question } from "./primitiveQuestions";
+import { Question } from "./question";
 
 // A select box, radio buttons, or checkboxes option
 const Option = z.object({

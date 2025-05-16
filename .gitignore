@@ -8,6 +8,4 @@ dist
 # Ignore the dependency directory
 node_modules
 
-# Ignore the schema directory (they are automatically generated during build)
-schemas/*.json
 

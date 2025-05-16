@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { Question } from "./primitiveQuestions";
+import { Question } from "./question";
 
 // Date picker question and answer
 export const DatePickerQuestion = Question.merge(z.object({
