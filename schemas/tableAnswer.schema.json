@@ -21,11 +21,25 @@
                   },
                   "answer": {
                     "type": "boolean"
+                  },
+                  "meta": {
+                    "type": "object",
+                    "properties": {
+                      "schemaVersion": {
+                        "type": "string",
+                        "const": "1.0"
+                      }
+                    },
+                    "required": [
+                      "schemaVersion"
+                    ],
+                    "additionalProperties": false
                   }
                 },
                 "required": [
                   "type",
-                  "answer"
+                  "answer",
+                  "meta"
                 ],
                 "additionalProperties": false
               },
@@ -41,11 +55,15 @@
                     "items": {
                       "type": "string"
                     }
+                  },
+                  "meta": {
+                    "$ref": "#/definitions/TableAnswer/properties/answer/items/anyOf/0/properties/meta"
                   }
                 },
                 "required": [
                   "type",
-                  "answer"
+                  "answer",
+                  "meta"
                 ],
                 "additionalProperties": false
               },
@@ -58,11 +76,15 @@
                   },
                   "answer": {
                     "type": "number"
+                  },
+                  "meta": {
+                    "$ref": "#/definitions/TableAnswer/properties/answer/items/anyOf/0/properties/meta"
                   }
                 },
                 "required": [
                   "type",
-                  "answer"
+                  "answer",
+                  "meta"
                 ],
                 "additionalProperties": false
               },
@@ -75,11 +97,15 @@
                   },
                   "answer": {
                     "type": "string"
+                  },
+                  "meta": {
+                    "$ref": "#/definitions/TableAnswer/properties/answer/items/anyOf/0/properties/meta"
                   }
                 },
                 "required": [
                   "type",
-                  "answer"
+                  "answer",
+                  "meta"
                 ],
                 "additionalProperties": false
               },
@@ -105,11 +131,15 @@
                       "end"
                     ],
                     "additionalProperties": false
+                  },
+                  "meta": {
+                    "$ref": "#/definitions/TableAnswer/properties/answer/items/anyOf/0/properties/meta"
                   }
                 },
                 "required": [
                   "type",
-                  "answer"
+                  "answer",
+                  "meta"
                 ],
                 "additionalProperties": false
               },
@@ -122,11 +152,15 @@
                   },
                   "answer": {
                     "type": "string"
+                  },
+                  "meta": {
+                    "$ref": "#/definitions/TableAnswer/properties/answer/items/anyOf/0/properties/meta"
                   }
                 },
                 "required": [
                   "type",
-                  "answer"
+                  "answer",
+                  "meta"
                 ],
                 "additionalProperties": false
               },
@@ -142,11 +176,15 @@
                     "items": {
                       "type": "string"
                     }
+                  },
+                  "meta": {
+                    "$ref": "#/definitions/TableAnswer/properties/answer/items/anyOf/0/properties/meta"
                   }
                 },
                 "required": [
                   "type",
-                  "answer"
+                  "answer",
+                  "meta"
                 ],
                 "additionalProperties": false
               },
@@ -159,11 +197,15 @@
                   },
                   "answer": {
                     "type": "number"
+                  },
+                  "meta": {
+                    "$ref": "#/definitions/TableAnswer/properties/answer/items/anyOf/0/properties/meta"
                   }
                 },
                 "required": [
                   "type",
-                  "answer"
+                  "answer",
+                  "meta"
                 ],
                 "additionalProperties": false
               },
@@ -176,11 +218,15 @@
                   },
                   "answer": {
                     "type": "string"
+                  },
+                  "meta": {
+                    "$ref": "#/definitions/TableAnswer/properties/answer/items/anyOf/0/properties/meta"
                   }
                 },
                 "required": [
                   "type",
-                  "answer"
+                  "answer",
+                  "meta"
                 ],
                 "additionalProperties": false
               },
@@ -192,12 +238,19 @@
                     "const": "selectBox"
                   },
                   "answer": {
-                    "type": "string"
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "meta": {
+                    "$ref": "#/definitions/TableAnswer/properties/answer/items/anyOf/0/properties/meta"
                   }
                 },
                 "required": [
                   "type",
-                  "answer"
+                  "answer",
+                  "meta"
                 ],
                 "additionalProperties": false
               },
@@ -210,11 +263,15 @@
                   },
                   "answer": {
                     "type": "string"
+                  },
+                  "meta": {
+                    "$ref": "#/definitions/TableAnswer/properties/answer/items/anyOf/0/properties/meta"
                   }
                 },
                 "required": [
                   "type",
-                  "answer"
+                  "answer",
+                  "meta"
                 ],
                 "additionalProperties": false
               },
@@ -227,11 +284,15 @@
                   },
                   "answer": {
                     "type": "string"
+                  },
+                  "meta": {
+                    "$ref": "#/definitions/TableAnswer/properties/answer/items/anyOf/0/properties/meta"
                   }
                 },
                 "required": [
                   "type",
-                  "answer"
+                  "answer",
+                  "meta"
                 ],
                 "additionalProperties": false
               },
@@ -244,11 +305,15 @@
                   },
                   "answer": {
                     "type": "string"
+                  },
+                  "meta": {
+                    "$ref": "#/definitions/TableAnswer/properties/answer/items/anyOf/0/properties/meta"
                   }
                 },
                 "required": [
                   "type",
-                  "answer"
+                  "answer",
+                  "meta"
                 ],
                 "additionalProperties": false
               },
@@ -261,21 +326,29 @@
                   },
                   "answer": {
                     "type": "string"
+                  },
+                  "meta": {
+                    "$ref": "#/definitions/TableAnswer/properties/answer/items/anyOf/0/properties/meta"
                   }
                 },
                 "required": [
                   "type",
-                  "answer"
+                  "answer",
+                  "meta"
                 ],
                 "additionalProperties": false
               }
             ]
           }
+        },
+        "meta": {
+          "$ref": "#/definitions/TableAnswer/properties/answer/items/anyOf/0/properties/meta"
         }
       },
       "required": [
         "type",
-        "answer"
+        "answer",
+        "meta"
       ],
       "additionalProperties": false
     }

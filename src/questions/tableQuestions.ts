@@ -1,40 +1,40 @@
 import { z } from "zod";
 import {
-  BooleanQuestion,
-  CurrencyQuestion,
-  EmailQuestion,
-  NumberQuestion,
-  TextAreaQuestion,
-  TextQuestion,
-  URLQuestion,
+  BooleanQuestionSchema,
+  CurrencyQuestionSchema,
+  EmailQuestionSchema,
+  NumberQuestionSchema,
+  TextAreaQuestionSchema,
+  TextQuestionSchema,
+  URLQuestionSchema,
 } from "./primitiveQuestions";
-import { DatePickerQuestion, DateRangeQuestion } from "./dateQuestions";
-import { CheckboxesQuestion, RadioButtonsQuestion, SelectBoxQuestion } from './optionBasedQuestions';
-import { FilteredSearchQuestion, TypeaheadSearchQuestion } from './graphQLQuestions';
-import { Question } from "./question";
+import { DatePickerQuestionSchema, DateRangeQuestionSchema } from "./dateQuestions";
+import { CheckboxesQuestionSchema, RadioButtonsQuestionSchema, SelectBoxQuestionSchema } from './optionBasedQuestions';
+import { FilteredSearchQuestionSchema, TypeaheadSearchQuestionSchema } from './graphQLQuestions';
+import { QuestionSchema } from "./question";
 
 // Union types for all questions and answers (tables cannot be nested so no TableQuestion here!)
-export const AnyTableColumnQuestion = z.discriminatedUnion('type', [
-  BooleanQuestion,
-  CheckboxesQuestion,
-  CurrencyQuestion,
-  DatePickerQuestion,
-  DateRangeQuestion,
-  EmailQuestion,
-  FilteredSearchQuestion,
-  NumberQuestion,
-  RadioButtonsQuestion,
-  SelectBoxQuestion,
-  TextAreaQuestion,
-  TextQuestion,
-  TypeaheadSearchQuestion,
-  URLQuestion
+export const AnyTableColumnQuestionSchema = z.discriminatedUnion('type', [
+  BooleanQuestionSchema,
+  CheckboxesQuestionSchema,
+  CurrencyQuestionSchema,
+  DatePickerQuestionSchema,
+  DateRangeQuestionSchema,
+  EmailQuestionSchema,
+  FilteredSearchQuestionSchema,
+  NumberQuestionSchema,
+  RadioButtonsQuestionSchema,
+  SelectBoxQuestionSchema,
+  TextAreaQuestionSchema,
+  TextQuestionSchema,
+  TypeaheadSearchQuestionSchema,
+  URLQuestionSchema
 ]);
 
 // Table question and answer
-export const TableQuestion = Question.merge(z.object({
+export const TableQuestionSchema = QuestionSchema.merge(z.object({
   type: z.literal('table'),                                 // The type of question
-  columns: z.array(AnyTableColumnQuestion),                // The columns of the table (note: tables cannot be nested)
+  columns: z.array(AnyTableColumnQuestionSchema),           // The columns of the table (note: tables cannot be nested)
   attributes: z.object({
     canAddRows: z.boolean().optional(),                     // Whether to allow adding rows (default is true)
     canRemoveRows: z.boolean().optional(),                  // Whether to allow removing rows (default is true)
@@ -45,5 +45,5 @@ export const TableQuestion = Question.merge(z.object({
 }));
 
 // This will ensure that object validations are against the Zod schemas defined above
-export type TableQuestionType = z.infer<typeof TableQuestion>;
-export type AnyTableColumnQuestionType = z.infer<typeof AnyTableColumnQuestion>;
+export type TableQuestionType = z.infer<typeof TableQuestionSchema>;
+export type AnyTableColumnQuestionType = z.infer<typeof AnyTableColumnQuestionSchema>;

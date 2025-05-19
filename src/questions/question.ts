@@ -12,7 +12,6 @@ export const QuestionTypesEnum = z.enum([
   'email',
   'filteredSearch',
   'number',
-  'option',
   'radioButtons',
   'selectBox',
   'table',
@@ -23,7 +22,7 @@ export const QuestionTypesEnum = z.enum([
 ]);
 
 // Base abstract type for all questions
-export const Question = z.object({
+export const QuestionSchema = z.object({
   type: QuestionTypesEnum,                                  // The type of question
   meta: z.object({                                          // The metadata for the question
     schemaVersion: z.literal(CURRENT_SCHEMA_VERSION),       // The schema version (default is CURRENT_SCHEMA_VERSION)
@@ -32,4 +31,4 @@ export const Question = z.object({
 });
 
 // This will ensure that object validations are against the Zod schemas defined above
-export type QuestionType = z.infer<typeof Question>;
+export type QuestionType = z.infer<typeof QuestionSchema>;

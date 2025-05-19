@@ -1,17 +1,18 @@
 import { z } from 'zod';
-import { DatePickerAnswer, DateRangeAnswer } from './dateAnswers';
-import { FilteredSearchAnswer, TypeaheadSearchAnswer } from './graphQLAnswers';
-import { CheckboxesAnswer, RadioButtonsAnswer, SelectBoxAnswer } from './optionBasedAnswers';
+import { DatePickerAnswerSchema, DateRangeAnswerSchema } from './dateAnswers';
+import { FilteredSearchAnswerSchema, TypeaheadSearchAnswerSchema } from './graphQLAnswers';
+import { CheckboxesAnswerSchema, RadioButtonsAnswerSchema, SelectBoxAnswerSchema } from './optionBasedAnswers';
 import {
-  BooleanAnswer,
-  CurrencyAnswer,
-  EmailAnswer,
-  NumberAnswer,
-  TextAnswer,
-  TextAreaAnswer,
-  URLAnswer
+  BooleanAnswerSchema,
+  CurrencyAnswerSchema,
+  EmailAnswerSchema,
+  NumberAnswerSchema,
+  TextAnswerSchema,
+  TextAreaAnswerSchema,
+  URLAnswerSchema
 } from './primitiveAnswers';
-import { TableAnswer } from './tableAnswers';
+import { TableAnswerSchema } from './tableAnswers';
+import { QuestionTypesEnum } from '../questions';
 
 // reexport everything
 export * from './answer';
@@ -22,23 +23,42 @@ export * from './primitiveAnswers';
 export * from './tableAnswers';
 
 // Union of all possible answers
-export const AnyAnswer = z.discriminatedUnion('type', [
-  BooleanAnswer,
-  CheckboxesAnswer,
-  CurrencyAnswer,
-  DatePickerAnswer,
-  DateRangeAnswer,
-  EmailAnswer,
-  FilteredSearchAnswer,
-  NumberAnswer,
-  RadioButtonsAnswer,
-  SelectBoxAnswer,
-  TableAnswer,
-  TextAnswer,
-  TextAreaAnswer,
-  TypeaheadSearchAnswer,
-  URLAnswer
+export const AnyAnswerSchema = z.discriminatedUnion('type', [
+  BooleanAnswerSchema,
+  CheckboxesAnswerSchema,
+  CurrencyAnswerSchema,
+  DatePickerAnswerSchema,
+  DateRangeAnswerSchema,
+  EmailAnswerSchema,
+  FilteredSearchAnswerSchema,
+  NumberAnswerSchema,
+  RadioButtonsAnswerSchema,
+  SelectBoxAnswerSchema,
+  TableAnswerSchema,
+  TextAnswerSchema,
+  TextAreaAnswerSchema,
+  TypeaheadSearchAnswerSchema,
+  URLAnswerSchema
 ]);
 
+// Export a mapping between question types and their corresponding answer schemas
+export const AnswerSchemaMap: Record<z.infer<typeof QuestionTypesEnum>, z.ZodTypeAny> = {
+  boolean: BooleanAnswerSchema,
+  checkBoxes: CheckboxesAnswerSchema,
+  currency: CurrencyAnswerSchema,
+  datePicker: DatePickerAnswerSchema,
+  dateRange: DateRangeAnswerSchema,
+  email: EmailAnswerSchema,
+  filteredSearch: FilteredSearchAnswerSchema,
+  number: NumberAnswerSchema,
+  radioButtons: RadioButtonsAnswerSchema,
+  selectBox: SelectBoxAnswerSchema,
+  table: TableAnswerSchema,
+  text: TextAnswerSchema,
+  textArea: TextAreaAnswerSchema,
+  typeaheadSearch: TypeaheadSearchAnswerSchema,
+  url: URLAnswerSchema
+};
+
 // This will ensure that object validations are against the Zod schemas defined above
-export type AnyAnswerType = z.infer<typeof AnyAnswer>;
+export type AnyAnswerType = z.infer<typeof AnyAnswerSchema>;

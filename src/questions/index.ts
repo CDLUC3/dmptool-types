@@ -1,17 +1,18 @@
 import { z } from 'zod';
 import {
-  BooleanQuestion,
-  CurrencyQuestion,
-  EmailQuestion,
-  NumberQuestion,
-  TextAreaQuestion,
-  TextQuestion,
-  URLQuestion,
+  BooleanQuestionSchema,
+  CurrencyQuestionSchema,
+  EmailQuestionSchema,
+  NumberQuestionSchema,
+  TextAreaQuestionSchema,
+  TextQuestionSchema,
+  URLQuestionSchema,
 } from "./primitiveQuestions";
-import { DatePickerQuestion, DateRangeQuestion } from "./dateQuestions";
-import { CheckboxesQuestion, RadioButtonsQuestion, SelectBoxQuestion } from './optionBasedQuestions';
-import { FilteredSearchQuestion, TypeaheadSearchQuestion } from './graphQLQuestions';
-import { TableQuestion } from './tableQuestions';
+import { DatePickerQuestionSchema, DateRangeQuestionSchema } from "./dateQuestions";
+import { CheckboxesQuestionSchema, RadioButtonsQuestionSchema, SelectBoxQuestionSchema } from './optionBasedQuestions';
+import { FilteredSearchQuestionSchema, TypeaheadSearchQuestionSchema } from './graphQLQuestions';
+import { TableQuestionSchema } from './tableQuestions';
+import { QuestionTypesEnum } from './question';
 
 // Export all the questions
 export * from './question';
@@ -22,23 +23,42 @@ export * from './primitiveQuestions';
 export * from './tableQuestions';
 
 // All of the possible questions
-export const AnyQuestion = z.discriminatedUnion('type', [
-  BooleanQuestion,
-  CheckboxesQuestion,
-  CurrencyQuestion,
-  DatePickerQuestion,
-  DateRangeQuestion,
-  EmailQuestion,
-  FilteredSearchQuestion,
-  NumberQuestion,
-  RadioButtonsQuestion,
-  SelectBoxQuestion,
-  TableQuestion,
-  TextAreaQuestion,
-  TextQuestion,
-  TypeaheadSearchQuestion,
-  URLQuestion
+export const AnyQuestionSchema = z.discriminatedUnion('type', [
+  BooleanQuestionSchema,
+  CheckboxesQuestionSchema,
+  CurrencyQuestionSchema,
+  DatePickerQuestionSchema,
+  DateRangeQuestionSchema,
+  EmailQuestionSchema,
+  FilteredSearchQuestionSchema,
+  NumberQuestionSchema,
+  RadioButtonsQuestionSchema,
+  SelectBoxQuestionSchema,
+  TableQuestionSchema,
+  TextAreaQuestionSchema,
+  TextQuestionSchema,
+  TypeaheadSearchQuestionSchema,
+  URLQuestionSchema
 ]);
 
+// Export a mapping between question types and their corresponding question schemas
+export const QuestionSchemaMap: Record<z.infer<typeof QuestionTypesEnum>, z.ZodTypeAny> = {
+  boolean: BooleanQuestionSchema,
+  checkBoxes: CheckboxesQuestionSchema,
+  currency: CurrencyQuestionSchema,
+  datePicker: DatePickerQuestionSchema,
+  dateRange: DateRangeQuestionSchema,
+  email: EmailQuestionSchema,
+  filteredSearch: FilteredSearchQuestionSchema,
+  number: NumberQuestionSchema,
+  radioButtons: RadioButtonsQuestionSchema,
+  selectBox: SelectBoxQuestionSchema,
+  table: TableQuestionSchema,
+  text: TextQuestionSchema,
+  textArea: TextAreaQuestionSchema,
+  typeaheadSearch: TypeaheadSearchQuestionSchema,
+  url: URLQuestionSchema
+};
+
 // This will ensure that object validations are against the Zod schemas defined above
-export type AnyQuestionType = z.infer<typeof AnyQuestion>;
+export type AnyQuestionType = z.infer<typeof AnyQuestionSchema>;

@@ -1,8 +1,8 @@
 import { z } from "zod";
-import { Question } from "./question";
+import { QuestionSchema } from "./question";
 
 // Date picker question and answer
-export const DatePickerQuestion = Question.merge(z.object({
+export const DatePickerQuestionSchema = QuestionSchema.merge(z.object({
   type: z.literal('datePicker'),                            // The type of question
   attributes: z.object({
     max: z.string().optional(),                             // The maximum date (no default)
@@ -12,15 +12,15 @@ export const DatePickerQuestion = Question.merge(z.object({
 }));
 
 // Date range question and answer
-export const DateRangeQuestion = Question.merge(z.object({
+export const DateRangeQuestionSchema = QuestionSchema.merge(z.object({
   type: z.literal('dateRange'),                             // The type of question
   columns: z.object({
-    start: DatePickerQuestion.merge(z.object({
+    start: DatePickerQuestionSchema.merge(z.object({
       attributes: z.object({
         label: z.string()                                   // The label for the start date picker
       })
     })),
-    end: DatePickerQuestion.merge(z.object({
+    end: DatePickerQuestionSchema.merge(z.object({
       attributes: z.object({
         label: z.string()                                   // The label for the end date picker
       })
@@ -29,5 +29,5 @@ export const DateRangeQuestion = Question.merge(z.object({
 }));
 
 // This will ensure that object validations are against the Zod schemas defined above
-export type DatePickerQuestionType = z.infer<typeof DatePickerQuestion>;
-export type DateRangeQuestionType = z.infer<typeof DateRangeQuestion>;
+export type DatePickerQuestionType = z.infer<typeof DatePickerQuestionSchema>;
+export type DateRangeQuestionType = z.infer<typeof DateRangeQuestionSchema>;

@@ -1,5 +1,5 @@
 import { describe, it, expect } from "@jest/globals";
-import { FilteredSearchQuestion, TypeaheadSearchQuestion } from "../graphQLQuestions";
+import { FilteredSearchQuestionSchema, TypeaheadSearchQuestionSchema } from "../graphQLQuestions";
 
 describe("FilteredSearchQuestion schema", () => {
   it("should validate a correct FilteredSearchQuestion object", () => {
@@ -25,7 +25,7 @@ describe("FilteredSearchQuestion schema", () => {
       }
     };
 
-    expect(() => FilteredSearchQuestion.parse(validData)).not.toThrow();
+    expect(() => FilteredSearchQuestionSchema.parse(validData)).not.toThrow();
   });
 
   it("should throw an error for an invalid FilteredSearchQuestion object", () => {
@@ -48,7 +48,7 @@ describe("FilteredSearchQuestion schema", () => {
       }
     };
 
-    expect(() => FilteredSearchQuestion.parse(invalidData)).toThrow();
+    expect(() => FilteredSearchQuestionSchema.parse(invalidData)).toThrow();
   });
 });
 
@@ -71,7 +71,7 @@ describe("TypeaheadSearchQuestion schema", () => {
       }
     };
 
-    expect(() => TypeaheadSearchQuestion.parse(validData)).not.toThrow();
+    expect(() => TypeaheadSearchQuestionSchema.parse(validData)).not.toThrow();
   });
 
   it("should throw an error for an invalid TypeaheadSearchQuestion object", () => {
@@ -88,6 +88,6 @@ describe("TypeaheadSearchQuestion schema", () => {
       },
     };
 
-    expect(() => TypeaheadSearchQuestion.parse(invalidData)).toThrow();
+    expect(() => TypeaheadSearchQuestionSchema.parse(invalidData)).toThrow();
   });
 });

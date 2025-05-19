@@ -69,8 +69,9 @@ DMP Tool specific extensions to the RDA Common Standard for DMPs
 Add the DMP Tool types to your `package.json` by running `npm add @dmptool/types`
 
 Once added, you can then import the Types and Zod shemas like this:
-`import { BooleanQuestion, BooleanQuestionType, CURRENT_SCHEMA_VERSION } from '@dmptool/types';`
+`import { BooleanQuestionSchema, BooleanQuestionType, CURRENT_SCHEMA_VERSION } from '@dmptool/types';`
 
+// Use the available Type to help define the JSON object
 const boolQ: BooleanQuestionType = {
   type: "boolean",
   attributes: {
@@ -81,13 +82,34 @@ const boolQ: BooleanQuestionType = {
   }
 }
 
-const isBoolQ = BooleanQuestion.parse(boolQ);
+// Use the Zod Schema to validate the JSON 
+const isBoolQ = BooleanQuestionSchema.parse(boolQ);
 console.log('isBoolQ', isBoolQ);
-console.log(BooleanQuestion.parse(123));
+
+// Force an error to see (see below for what a Zod error message looks like)
+try {
+  BooleanQuestionSchema.parse(123);
+} catch (e) {
+  console.log(e.message);
+}
+
+// Use the Schema Maps to get the correct Schema for the specificed question type
+try {
+  // Validate the questionJSON against the Zod schema
+  QuestionSchemaMap[boolQ.type]?.parse(boolQ);
+} catch (e) {
+  console.log(e.message);
+}
+
+// Use the Any unions to generically define a Question or Answer type
+public questionJSON: AnyQuestionType;
+
+// Use the QuestionTypesEnum to fetch a list of all the valid question types
+console.log(QuestionTypeEnums);
+```
 
 
-
-
+Example Zod error:
 ```
 ZodError: [
   {

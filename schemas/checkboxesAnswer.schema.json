@@ -13,11 +13,25 @@
           "items": {
             "type": "string"
           }
+        },
+        "meta": {
+          "type": "object",
+          "properties": {
+            "schemaVersion": {
+              "type": "string",
+              "const": "1.0"
+            }
+          },
+          "required": [
+            "schemaVersion"
+          ],
+          "additionalProperties": false
         }
       },
       "required": [
         "type",
-        "answer"
+        "answer",
+        "meta"
       ],
       "additionalProperties": false
     }

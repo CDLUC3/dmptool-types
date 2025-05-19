@@ -1,8 +1,8 @@
 import { describe, it, expect } from "@jest/globals";
 import {
-  CheckboxesQuestion,
-  RadioButtonsQuestion,
-  SelectBoxQuestion,
+  CheckboxesQuestionSchema,
+  RadioButtonsQuestionSchema,
+  SelectBoxQuestionSchema,
   CheckboxesQuestionType,
   RadioButtonsQuestionType,
   SelectBoxQuestionType,
@@ -34,7 +34,7 @@ describe("CheckboxesQuestion", () => {
       }
     };
 
-    expect(() => CheckboxesQuestion.parse(validCheckboxesQuestion)).not.toThrow();
+    expect(() => CheckboxesQuestionSchema.parse(validCheckboxesQuestion)).not.toThrow();
   });
 
   it("should throw an error for an invalid CheckboxesQuestion object", () => {
@@ -55,7 +55,7 @@ describe("CheckboxesQuestion", () => {
       }
     };
 
-    expect(() => CheckboxesQuestion.parse(invalidCheckboxesQuestion)).toThrow();
+    expect(() => CheckboxesQuestionSchema.parse(invalidCheckboxesQuestion)).toThrow();
   });
 });
 
@@ -85,7 +85,7 @@ describe("RadioButtonsQuestion", () => {
       }
     };
 
-    expect(() => RadioButtonsQuestion.parse(validRadioButtonsQuestion)).not.toThrow();
+    expect(() => RadioButtonsQuestionSchema.parse(validRadioButtonsQuestion)).not.toThrow();
   });
 
   it("should throw an error for an invalid RadioButtonsQuestion object", () => {
@@ -106,7 +106,7 @@ describe("RadioButtonsQuestion", () => {
       }
     };
 
-    expect(() => RadioButtonsQuestion.parse(invalidRadioButtonsQuestion)).toThrow();
+    expect(() => RadioButtonsQuestionSchema.parse(invalidRadioButtonsQuestion)).toThrow();
   });
 });
 
@@ -139,7 +139,7 @@ describe("SelectBoxQuestion", () => {
       }
     };
 
-    expect(() => SelectBoxQuestion.parse(validSelectBoxQuestion)).not.toThrow();
+    expect(() => SelectBoxQuestionSchema.parse(validSelectBoxQuestion)).not.toThrow();
   });
 
   it("should throw an error for an invalid SelectBoxQuestion object", () => {
@@ -164,6 +164,6 @@ describe("SelectBoxQuestion", () => {
       }
     };
 
-    expect(() => SelectBoxQuestion.parse(invalidSelectBoxQuestion)).toThrow();
+    expect(() => SelectBoxQuestionSchema.parse(invalidSelectBoxQuestion)).toThrow();
   });
 });

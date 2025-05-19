@@ -1,11 +1,11 @@
 import {
-  BooleanQuestion,
-  CurrencyQuestion,
-  EmailQuestion,
-  NumberQuestion,
-  TextAreaQuestion,
-  TextQuestion,
-  URLQuestion,
+  BooleanQuestionSchema,
+  CurrencyQuestionSchema,
+  EmailQuestionSchema,
+  NumberQuestionSchema,
+  TextAreaQuestionSchema,
+  TextQuestionSchema,
+  URLQuestionSchema,
 } from "../primitiveQuestions";
 
 describe("Primitive Questions Zod Schemas", () => {
@@ -19,7 +19,7 @@ describe("Primitive Questions Zod Schemas", () => {
         checked: true,
       },
     };
-    expect(() => BooleanQuestion.parse(validBooleanQuestion)).not.toThrow();
+    expect(() => BooleanQuestionSchema.parse(validBooleanQuestion)).not.toThrow();
   });
 
   it("should invalidate an invalid BooleanQuestion", () => {
@@ -32,7 +32,7 @@ describe("Primitive Questions Zod Schemas", () => {
         checked: "true", // Invalid type
       },
     };
-    expect(() => BooleanQuestion.parse(invalidBooleanQuestion)).toThrow();
+    expect(() => BooleanQuestionSchema.parse(invalidBooleanQuestion)).toThrow();
   });
 
   it("should validate a valid CurrencyQuestion", () => {
@@ -48,7 +48,7 @@ describe("Primitive Questions Zod Schemas", () => {
         step: 0.01,
       },
     };
-    expect(() => CurrencyQuestion.parse(validCurrencyQuestion)).not.toThrow();
+    expect(() => CurrencyQuestionSchema.parse(validCurrencyQuestion)).not.toThrow();
   });
 
   it("should invalidate an invalid CurrencyQuestion", () => {
@@ -61,7 +61,7 @@ describe("Primitive Questions Zod Schemas", () => {
         max: "100", // Invalid type
       },
     };
-    expect(() => CurrencyQuestion.parse(invalidCurrencyQuestion)).toThrow();
+    expect(() => CurrencyQuestionSchema.parse(invalidCurrencyQuestion)).toThrow();
   });
 
   it("should validate a valid EmailQuestion", () => {
@@ -77,7 +77,7 @@ describe("Primitive Questions Zod Schemas", () => {
         pattern: "^[^@\\s]+@[^@\\s]+\\.[^@\\s]+$",
       },
     };
-    expect(() => EmailQuestion.parse(validEmailQuestion)).not.toThrow();
+    expect(() => EmailQuestionSchema.parse(validEmailQuestion)).not.toThrow();
   });
 
   it("should invalidate an invalid EmailQuestion", () => {
@@ -90,7 +90,7 @@ describe("Primitive Questions Zod Schemas", () => {
         maxLength: "50", // Invalid type
       },
     };
-    expect(() => EmailQuestion.parse(invalidEmailQuestion)).toThrow();
+    expect(() => EmailQuestionSchema.parse(invalidEmailQuestion)).toThrow();
   });
 
   it("should validate a valid NumberQuestion", () => {
@@ -105,7 +105,7 @@ describe("Primitive Questions Zod Schemas", () => {
         step: 1,
       },
     };
-    expect(() => NumberQuestion.parse(validNumberQuestion)).not.toThrow();
+    expect(() => NumberQuestionSchema.parse(validNumberQuestion)).not.toThrow();
   });
 
   it("should invalidate an invalid NumberQuestion", () => {
@@ -118,7 +118,7 @@ describe("Primitive Questions Zod Schemas", () => {
         step: "1", // Invalid type
       },
     };
-    expect(() => NumberQuestion.parse(invalidNumberQuestion)).toThrow();
+    expect(() => NumberQuestionSchema.parse(invalidNumberQuestion)).toThrow();
   });
 
   it("should validate a valid TextAreaQuestion", () => {
@@ -135,7 +135,7 @@ describe("Primitive Questions Zod Schemas", () => {
         minLength: 10,
       },
     };
-    expect(() => TextAreaQuestion.parse(validTextAreaQuestion)).not.toThrow();
+    expect(() => TextAreaQuestionSchema.parse(validTextAreaQuestion)).not.toThrow();
   });
 
   it("should invalidate an invalid TextAreaQuestion", () => {
@@ -148,7 +148,7 @@ describe("Primitive Questions Zod Schemas", () => {
         cols: "30", // Invalid type
       },
     };
-    expect(() => TextAreaQuestion.parse(invalidTextAreaQuestion)).toThrow();
+    expect(() => TextAreaQuestionSchema.parse(invalidTextAreaQuestion)).toThrow();
   });
 
   it("should validate a valid TextQuestion", () => {
@@ -163,7 +163,7 @@ describe("Primitive Questions Zod Schemas", () => {
         pattern: "^[a-zA-Z]+$",
       },
     };
-    expect(() => TextQuestion.parse(validTextQuestion)).not.toThrow();
+    expect(() => TextQuestionSchema.parse(validTextQuestion)).not.toThrow();
   });
 
   it("should invalidate an invalid TextQuestion", () => {
@@ -176,7 +176,7 @@ describe("Primitive Questions Zod Schemas", () => {
         maxLength: "100", // Invalid type
       },
     };
-    expect(() => TextQuestion.parse(invalidTextQuestion)).toThrow();
+    expect(() => TextQuestionSchema.parse(invalidTextQuestion)).toThrow();
   });
 
   it("should validate a valid URLQuestion", () => {
@@ -191,7 +191,7 @@ describe("Primitive Questions Zod Schemas", () => {
         pattern: "https?://.+",
       },
     };
-    expect(() => URLQuestion.parse(validURLQuestion)).not.toThrow();
+    expect(() => URLQuestionSchema.parse(validURLQuestion)).not.toThrow();
   });
 
   it("should invalidate an invalid URLQuestion", () => {
@@ -204,6 +204,6 @@ describe("Primitive Questions Zod Schemas", () => {
         maxLength: "200", // Invalid type
       },
     };
-    expect(() => URLQuestion.parse(invalidURLQuestion)).toThrow();
+    expect(() => URLQuestionSchema.parse(invalidURLQuestion)).toThrow();
   });
 });
