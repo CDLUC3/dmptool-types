@@ -1,8 +1,8 @@
 import { z } from "zod";
-import { Question } from "./primitiveQuestions";
+import { QuestionSchema } from "./question";
 
 // A select box, radio buttons, or checkboxes option
-const Option = z.object({
+const OptionSchema = z.object({
   type: z.literal('option'),                                // The type of option
   attributes: z.object({
     label: z.string(),                                      // The label of the option
@@ -10,16 +10,16 @@ const Option = z.object({
   }),
 });
 
-const BaseOptionAttributes = Option.shape.attributes;
+const BaseOptionAttributes = OptionSchema.shape.attributes;
 
-const CheckedOption = z.object({
+const CheckedOptionSchema = z.object({
   type: z.literal('option'),
   attributes: BaseOptionAttributes.extend({
     checked: z.boolean().optional(),
   }),
 });
 
-const SelectedOption = z.object({
+const SelectedOptionSchema = z.object({
   type: z.literal('option'),
   attributes: BaseOptionAttributes.extend({
     selected: z.boolean().optional(),
@@ -27,27 +27,27 @@ const SelectedOption = z.object({
 });
 
 // Check boxes question and answer
-export const CheckboxesQuestion = Question.merge(z.object({
+export const CheckboxesQuestionSchema = QuestionSchema.merge(z.object({
   type: z.literal('checkBoxes'),                            // The type of question
-  options: z.array(CheckedOption)
+  options: z.array(CheckedOptionSchema)
 }));
 
 // Radio buttons question and answer
-export const RadioButtonsQuestion = Question.merge(z.object({
+export const RadioButtonsQuestionSchema = QuestionSchema.merge(z.object({
   type: z.literal('radioButtons'),                          // The type of question
-  options: z.array(SelectedOption)
+  options: z.array(SelectedOptionSchema)
 }));
 
 // Select box question and answer
-export const SelectBoxQuestion = Question.merge(z.object({
+export const SelectBoxQuestionSchema = QuestionSchema.merge(z.object({
   type: z.literal('selectBox'),                             // The type of question
-  options: z.array(SelectedOption),
+  options: z.array(SelectedOptionSchema),
   attributes: z.object({
     multiple: z.boolean().optional()                        // Whether to allow multiple selections (default is false)
   })
 }));
 
 // This will ensure that object validations are against the Zod schemas defined above
-export type CheckboxesQuestionType = z.infer<typeof CheckboxesQuestion>;
-export type RadioButtonsQuestionType = z.infer<typeof RadioButtonsQuestion>;
-export type SelectBoxQuestionType = z.infer<typeof SelectBoxQuestion>;
+export type CheckboxesQuestionType = z.infer<typeof CheckboxesQuestionSchema>;
+export type RadioButtonsQuestionType = z.infer<typeof RadioButtonsQuestionSchema>;
+export type SelectBoxQuestionType = z.infer<typeof SelectBoxQuestionSchema>;

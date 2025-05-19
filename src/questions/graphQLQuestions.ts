@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { Question } from "./primitiveQuestions";
+import { QuestionSchema } from "./question";
 
 // An input variable for a GraphQL query
 const GraphQLVariable = z.object({
@@ -29,7 +29,7 @@ const GraphQLQuery = z.object({
 
 
 // Filtered search question and answer
-export const FilteredSearchQuestion = Question.merge(z.object({
+export const FilteredSearchQuestionSchema = QuestionSchema.merge(z.object({
   type: z.literal('filteredSearch'),                        // The type of question
   graphQL: GraphQLQuery,                                    // The GraphQL query options for the filtered search
   attributes: z.object({
@@ -38,11 +38,11 @@ export const FilteredSearchQuestion = Question.merge(z.object({
 }));
 
 // Typeahead search question and answer
-export const TypeaheadSearchQuestion = Question.merge(z.object({
+export const TypeaheadSearchQuestionSchema = QuestionSchema.merge(z.object({
   type: z.literal('typeaheadSearch'),                       // The type of question
   graphQL: GraphQLQuery,                                    // The GraphQL query options for the typeahead search
 }));
 
 // This will ensure that object validations are against the Zod schemas defined above
-export type FilteredSearchQuestionType = z.infer<typeof FilteredSearchQuestion>;
-export type TypeaheadSearchQuestionType = z.infer<typeof TypeaheadSearchQuestion>;
+export type FilteredSearchQuestionType = z.infer<typeof FilteredSearchQuestionSchema>;
+export type TypeaheadSearchQuestionType = z.infer<typeof TypeaheadSearchQuestionSchema>;

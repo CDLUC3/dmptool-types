@@ -1,0 +1,110 @@
+{
+  "$ref": "#/definitions/TypeaheadSearchQuestion",
+  "definitions": {
+    "TypeaheadSearchQuestion": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "const": "typeaheadSearch"
+        },
+        "meta": {
+          "type": "object",
+          "properties": {
+            "schemaVersion": {
+              "type": "string",
+              "const": "1.0"
+            },
+            "labelTranslationKey": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "schemaVersion"
+          ],
+          "additionalProperties": false
+        },
+        "graphQL": {
+          "type": "object",
+          "properties": {
+            "displayFields": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "propertyName": {
+                    "type": "string"
+                  },
+                  "label": {
+                    "type": "string"
+                  },
+                  "labelTranslationKey": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "propertyName",
+                  "label"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "localQueryId": {
+              "type": "string"
+            },
+            "query": {
+              "type": "string"
+            },
+            "responseField": {
+              "type": "string"
+            },
+            "variables": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "minLength": {
+                    "type": "number"
+                  },
+                  "label": {
+                    "type": "string"
+                  },
+                  "labelTranslationKey": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "type": {
+                    "type": "string"
+                  },
+                  "defaultValue": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "name",
+                  "type"
+                ],
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": [
+            "displayFields",
+            "responseField",
+            "variables"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "type",
+        "meta",
+        "graphQL"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}

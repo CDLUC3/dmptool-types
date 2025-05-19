@@ -1,39 +1,8 @@
 import { z } from "zod";
-
-export const CURRENT_SCHEMA_VERSION = '1.0';                // The current schema version
-
-// The type of question
-export const QuestionTypesEnum = z.enum([
-  'boolean',
-  'checkBoxes',
-  'currency',
-  'datePicker',
-  'dateRange',
-  'email',
-  'filteredSearch',
-  'number',
-  'option',
-  'radioButtons',
-  'selectBox',
-  'table',
-  'text',
-  'textArea',
-  'typeaheadSearch',
-  'url'
-]);
-
-// Base abstract type for all questions
-export const Question = z.object({
-  type: QuestionTypesEnum,                                  // The type of question
-  meta: z.object({                                          // The metadata for the question
-    schemaVersion: z.literal(CURRENT_SCHEMA_VERSION),       // The schema version (default is CURRENT_SCHEMA_VERSION)
-    labelTranslationKey: z.string().optional()              // The translation key for the label (DMP Tool only)
-  }),
-});
-
+import { QuestionSchema } from "./question";
 
 // A Yes/No True/False question and answer
-export const BooleanQuestion = Question.merge(z.object({
+export const BooleanQuestionSchema = QuestionSchema.merge(z.object({
   type: z.literal('boolean'),                               // The type of question
   attributes: z.object({
     checked: z.boolean().optional()                         // If it is checked by default when rendered (default is false)
@@ -41,7 +10,7 @@ export const BooleanQuestion = Question.merge(z.object({
 }));
 
 // A number question and answer
-export const NumberQuestion = Question.merge(z.object({
+export const NumberQuestionSchema = QuestionSchema.merge(z.object({
   type: z.literal('number'),                                // The type of question
   attributes: z.object({
     max: z.number().optional(),                             // The maximum value (no default)
@@ -51,7 +20,7 @@ export const NumberQuestion = Question.merge(z.object({
 }));
 
 // Currency question and answer
-export const CurrencyQuestion = NumberQuestion.merge(z.object({
+export const CurrencyQuestionSchema = NumberQuestionSchema.merge(z.object({
   type: z.literal('currency'),                              // The type of question
   meta: z.object({
     denomination: z.string().optional()                     // The currency denomination (default is USD)
@@ -59,7 +28,7 @@ export const CurrencyQuestion = NumberQuestion.merge(z.object({
 }));
 
 // Email question and answer
-export const EmailQuestion = Question.merge(z.object({
+export const EmailQuestionSchema = QuestionSchema.merge(z.object({
   type: z.literal('email'),                                 // The type of question
   attributes: z.object({
     maxLength: z.number().optional(),                       // The maximum length of the email (no default)
@@ -70,7 +39,7 @@ export const EmailQuestion = Question.merge(z.object({
 }));
 
 // Text area question and answer
-export const TextAreaQuestion = Question.merge(z.object({
+export const TextAreaQuestionSchema = QuestionSchema.merge(z.object({
   type: z.literal('textArea'),                              // The type of question
   attributes: z.object({
     cols: z.number().optional(),                            // The number of columns (default is 20)
@@ -84,7 +53,7 @@ export const TextAreaQuestion = Question.merge(z.object({
 }));
 
 // Text question and answer
-export const TextQuestion = Question.merge(z.object({
+export const TextQuestionSchema = QuestionSchema.merge(z.object({
   type: z.literal('text'),                                  // The type of question
   attributes: z.object({
     maxLength: z.number().optional(),                       // The maximum length of the text (no default)
@@ -94,7 +63,7 @@ export const TextQuestion = Question.merge(z.object({
 }));
 
 // URL question and answer
-export const URLQuestion = Question.merge(z.object({
+export const URLQuestionSchema = QuestionSchema.merge(z.object({
   type: z.literal('url'),                                   // The type of question
   attributes: z.object({
     maxLength: z.number().optional(),                       // The maximum length of the URL (no default)
@@ -104,10 +73,10 @@ export const URLQuestion = Question.merge(z.object({
 }));
 
 // This will ensure that object validations are against the Zod schemas defined above
-export type BooleanQuestionType = z.infer<typeof BooleanQuestion>;
-export type CurrencyQuestionType = z.infer<typeof CurrencyQuestion>;
-export type EmailQuestionType = z.infer<typeof EmailQuestion>;
-export type NumberQuestionType = z.infer<typeof NumberQuestion>;
-export type TextAreaQuestionType = z.infer<typeof TextAreaQuestion>;
-export type TextQuestionType = z.infer<typeof TextQuestion>;
-export type URLQuestionType = z.infer<typeof URLQuestion>;
+export type BooleanQuestionType = z.infer<typeof BooleanQuestionSchema>;
+export type CurrencyQuestionType = z.infer<typeof CurrencyQuestionSchema>;
+export type EmailQuestionType = z.infer<typeof EmailQuestionSchema>;
+export type NumberQuestionType = z.infer<typeof NumberQuestionSchema>;
+export type TextAreaQuestionType = z.infer<typeof TextAreaQuestionSchema>;
+export type TextQuestionType = z.infer<typeof TextQuestionSchema>;
+export type URLQuestionType = z.infer<typeof URLQuestionSchema>;

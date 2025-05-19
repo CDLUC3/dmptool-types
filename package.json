@@ -1,6 +1,6 @@
 {
   "name": "@dmptool/types",
-  "version": "1.0.0",
+  "version": "1.0.4",
   "description": "TypeScript types for DMPTool",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -8,6 +8,13 @@
   "files": [
     "dist"
   ],
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
   "publishConfig": {
     "access": "public"
   },

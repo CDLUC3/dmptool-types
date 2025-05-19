@@ -1,4 +1,4 @@
-import { DatePickerQuestion, DateRangeQuestion } from "../dateQuestions";
+import { DatePickerQuestionSchema, DateRangeQuestionSchema } from "../dateQuestions";
 
 describe("DatePickerQuestion", () => {
   it("should validate a valid DatePickerQuestion object", () => {
@@ -14,7 +14,7 @@ describe("DatePickerQuestion", () => {
       }
     };
 
-    expect(() => DatePickerQuestion.parse(validDatePicker)).not.toThrow();
+    expect(() => DatePickerQuestionSchema.parse(validDatePicker)).not.toThrow();
   });
 
   it("should throw an error for an invalid DatePickerQuestion object", () => {
@@ -30,7 +30,7 @@ describe("DatePickerQuestion", () => {
       }
     };
 
-    expect(() => DatePickerQuestion.parse(invalidDatePicker)).toThrow();
+    expect(() => DatePickerQuestionSchema.parse(invalidDatePicker)).toThrow();
   });
 
   it("should allow optional attributes in DatePickerQuestion", () => {
@@ -42,7 +42,7 @@ describe("DatePickerQuestion", () => {
       }
     };
 
-    expect(() => DatePickerQuestion.parse(validDatePicker)).not.toThrow();
+    expect(() => DatePickerQuestionSchema.parse(validDatePicker)).not.toThrow();
   });
 });
 
@@ -81,7 +81,7 @@ describe("DateRangeQuestion", () => {
       }
     };
 
-    expect(() => DateRangeQuestion.parse(validDateRange)).not.toThrow();
+    expect(() => DateRangeQuestionSchema.parse(validDateRange)).not.toThrow();
   });
 
   it("should throw an error for an invalid DateRangeQuestion object", () => {
@@ -118,7 +118,7 @@ describe("DateRangeQuestion", () => {
       }
     };
 
-    expect(() => DateRangeQuestion.parse(invalidDateRange)).toThrow();
+    expect(() => DateRangeQuestionSchema.parse(invalidDateRange)).toThrow();
   });
 
   it("should require labels for start and end date pickers", () => {
@@ -154,6 +154,6 @@ describe("DateRangeQuestion", () => {
       }
     };
 
-    expect(() => DateRangeQuestion.parse(invalidDateRange)).toThrow();
+    expect(() => DateRangeQuestionSchema.parse(invalidDateRange)).toThrow();
   });
 });
