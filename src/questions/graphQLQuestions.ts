@@ -24,7 +24,7 @@ const GraphQLQuery = z.object({
   localQueryId: z.string().optional(),                      // The ID of the query (required if no query)
   query: z.string().optional(),                             // The GraphQL query to execute (required if no localQueryId)
   responseField: z.string(),                                // How to get at the location of displayFields in the response
-  variables: z.array(GraphQLVariable)                       // The variables for the query
+  variables: z.array(GraphQLVariable).optional()            // The variables for the query
 });
 
 
