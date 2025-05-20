@@ -35,8 +35,7 @@
       },
       "required": [
         "type",
-        "meta",
-        "attributes"
+        "meta"
       ],
       "additionalProperties": false
     }

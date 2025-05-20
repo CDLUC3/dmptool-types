@@ -38,8 +38,7 @@
           },
           "required": [
             "type",
-            "meta",
-            "attributes"
+            "meta"
           ],
           "additionalProperties": false
         },
@@ -131,8 +130,7 @@
           },
           "required": [
             "type",
-            "meta",
-            "attributes"
+            "meta"
           ],
           "additionalProperties": false
         },
@@ -164,8 +162,7 @@
           },
           "required": [
             "type",
-            "meta",
-            "attributes"
+            "meta"
           ],
           "additionalProperties": false
         },
@@ -286,8 +283,7 @@
           },
           "required": [
             "type",
-            "meta",
-            "attributes"
+            "meta"
           ],
           "additionalProperties": false
         },
@@ -369,8 +365,7 @@
               },
               "required": [
                 "displayFields",
-                "responseField",
-                "variables"
+                "responseField"
               ],
               "additionalProperties": false
             },
@@ -408,8 +403,7 @@
           },
           "required": [
             "type",
-            "meta",
-            "attributes"
+            "meta"
           ],
           "additionalProperties": false
         },
@@ -496,8 +490,7 @@
           "required": [
             "type",
             "meta",
-            "options",
-            "attributes"
+            "options"
           ],
           "additionalProperties": false
         },
@@ -582,8 +575,7 @@
                     },
                     "required": [
                       "type",
-                      "meta",
-                      "attributes"
+                      "meta"
                     ],
                     "additionalProperties": false
                   },
@@ -615,8 +607,7 @@
                     },
                     "required": [
                       "type",
-                      "meta",
-                      "attributes"
+                      "meta"
                     ],
                     "additionalProperties": false
                   },
@@ -669,8 +660,7 @@
                     },
                     "required": [
                       "type",
-                      "meta",
-                      "attributes"
+                      "meta"
                     ],
                     "additionalProperties": false
                   }
@@ -702,8 +692,7 @@
           "required": [
             "type",
             "meta",
-            "columns",
-            "attributes"
+            "columns"
           ],
           "additionalProperties": false
         },

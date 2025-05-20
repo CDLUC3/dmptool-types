@@ -1,6 +1,8 @@
 import { z } from "zod";
 import { QuestionSchema } from "./question";
 
+const BaseMeta = QuestionSchema.shape.meta;
+
 // A Yes/No True/False question and answer
 export const BooleanQuestionSchema = QuestionSchema.merge(z.object({
   type: z.literal('boolean'),                               // The type of question
@@ -22,7 +24,7 @@ export const NumberQuestionSchema = QuestionSchema.merge(z.object({
 // Currency question and answer
 export const CurrencyQuestionSchema = NumberQuestionSchema.merge(z.object({
   type: z.literal('currency'),                              // The type of question
-  meta: z.object({
+  meta: BaseMeta.extend({
     denomination: z.string().optional()                     // The currency denomination (default is USD)
   })
 }));
@@ -47,7 +49,7 @@ export const TextAreaQuestionSchema = QuestionSchema.merge(z.object({
     minLength: z.number().optional(),                       // The minimum length of the text (no default)
     rows: z.number().optional()                             // The number of rows (default is 2)
   }).optional(),
-  meta: z.object({
+  meta: BaseMeta.extend({
     asRichText: z.boolean().optional()                      // Whether to use rich text (default is false)
   })
 }));

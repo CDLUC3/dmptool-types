@@ -92,8 +92,7 @@
           },
           "required": [
             "displayFields",
-            "responseField",
-            "variables"
+            "responseField"
           ],
           "additionalProperties": false
         },
