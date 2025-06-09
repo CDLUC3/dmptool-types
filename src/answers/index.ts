@@ -1,5 +1,5 @@
 import { z } from 'zod';
-import { DatePickerAnswerSchema, DateRangeAnswerSchema } from './dateAnswers';
+import { DateAnswerSchema, DateRangeAnswerSchema } from './dateAnswers';
 import { FilteredSearchAnswerSchema, TypeaheadSearchAnswerSchema } from './graphQLAnswers';
 import { CheckboxesAnswerSchema, RadioButtonsAnswerSchema, SelectBoxAnswerSchema } from './optionBasedAnswers';
 import {
@@ -7,6 +7,7 @@ import {
   CurrencyAnswerSchema,
   EmailAnswerSchema,
   NumberAnswerSchema,
+  NumberRangeAnswerSchema,
   TextAnswerSchema,
   TextAreaAnswerSchema,
   URLAnswerSchema
@@ -27,7 +28,7 @@ export const AnyAnswerSchema = z.discriminatedUnion('type', [
   BooleanAnswerSchema,
   CheckboxesAnswerSchema,
   CurrencyAnswerSchema,
-  DatePickerAnswerSchema,
+  DateAnswerSchema,
   DateRangeAnswerSchema,
   EmailAnswerSchema,
   FilteredSearchAnswerSchema,
@@ -46,11 +47,12 @@ export const AnswerSchemaMap: Record<z.infer<typeof QuestionTypesEnum>, z.ZodTyp
   boolean: BooleanAnswerSchema,
   checkBoxes: CheckboxesAnswerSchema,
   currency: CurrencyAnswerSchema,
-  datePicker: DatePickerAnswerSchema,
+  date: DateAnswerSchema,
   dateRange: DateRangeAnswerSchema,
   email: EmailAnswerSchema,
   filteredSearch: FilteredSearchAnswerSchema,
   number: NumberAnswerSchema,
+  numberRange: NumberRangeAnswerSchema,
   radioButtons: RadioButtonsAnswerSchema,
   selectBox: SelectBoxAnswerSchema,
   table: TableAnswerSchema,

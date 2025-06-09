@@ -1,12 +1,28 @@
 {
-  "$ref": "#/definitions/DateQuestion",
+  "$ref": "#/definitions/NumberRangeAnswer",
   "definitions": {
-    "DateQuestion": {
+    "NumberRangeAnswer": {
       "type": "object",
       "properties": {
         "type": {
           "type": "string",
-          "const": "date"
+          "const": "numberRange"
+        },
+        "answer": {
+          "type": "object",
+          "properties": {
+            "start": {
+              "type": "number"
+            },
+            "end": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "start",
+            "end"
+          ],
+          "additionalProperties": false
         },
         "meta": {
           "type": "object",
@@ -14,36 +30,18 @@
             "schemaVersion": {
               "type": "string",
               "const": "1.0"
-            },
-            "labelTranslationKey": {
-              "type": "string"
             }
           },
           "required": [
             "schemaVersion"
           ],
           "additionalProperties": false
-        },
-        "attributes": {
-          "type": "object",
-          "properties": {
-            "max": {
-              "type": "string"
-            },
-            "min": {
-              "type": "string"
-            },
-            "step": {
-              "type": "number"
-            }
-          },
-          "additionalProperties": false
         }
       },
       "required": [
         "type",
-        "meta",
-        "attributes"
+        "answer",
+        "meta"
       ],
       "additionalProperties": false
     }

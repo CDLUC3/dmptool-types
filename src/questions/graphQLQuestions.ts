@@ -24,7 +24,7 @@ const GraphQLQuery = z.object({
   localQueryId: z.string().optional(),                      // The ID of the query (required if no query)
   query: z.string().optional(),                             // The GraphQL query to execute (required if no localQueryId)
   responseField: z.string(),                                // How to get at the location of displayFields in the response
-  variables: z.array(GraphQLVariable)                       // The variables for the query
+  variables: z.array(GraphQLVariable).optional()            // The variables for the query
 });
 
 
@@ -34,7 +34,7 @@ export const FilteredSearchQuestionSchema = QuestionSchema.merge(z.object({
   graphQL: GraphQLQuery,                                    // The GraphQL query options for the filtered search
   attributes: z.object({
     multiple: z.boolean().optional()                        // Whether to allow multiple selections (default is true)
-  })
+  }).optional()
 }));
 
 // Typeahead search question and answer

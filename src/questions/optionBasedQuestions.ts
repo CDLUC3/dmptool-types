@@ -44,7 +44,7 @@ export const SelectBoxQuestionSchema = QuestionSchema.merge(z.object({
   options: z.array(SelectedOptionSchema),
   attributes: z.object({
     multiple: z.boolean().optional()                        // Whether to allow multiple selections (default is false)
-  })
+  }).optional()
 }));
 
 // This will ensure that object validations are against the Zod schemas defined above

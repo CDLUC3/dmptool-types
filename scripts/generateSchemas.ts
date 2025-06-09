@@ -1,6 +1,6 @@
 import fs from 'fs';
 import { zodToJsonSchema } from 'zod-to-json-schema';
-import { DatePickerQuestionSchema, DateRangeQuestionSchema } from "../src/questions/dateQuestions";
+import { DateQuestionSchema, DateRangeQuestionSchema } from "../src/questions/dateQuestions";
 import { CheckboxesQuestionSchema, RadioButtonsQuestionSchema, SelectBoxQuestionSchema } from '../src/questions/optionBasedQuestions'
 import { FilteredSearchQuestionSchema, TypeaheadSearchQuestionSchema } from '../src/questions/graphQLQuestions'
 import { AnyTableColumnQuestionSchema, TableQuestionSchema } from '../src/questions/tableQuestions'
@@ -10,11 +10,12 @@ import {
   CurrencyQuestionSchema,
   EmailQuestionSchema,
   NumberQuestionSchema,
+  NumberRangeQuestionSchema,
   TextAreaQuestionSchema,
   TextQuestionSchema,
   URLQuestionSchema
 } from "../src/questions/primitiveQuestions";
-import { DatePickerAnswerSchema, DateRangeAnswerSchema } from '../src/answers/dateAnswers';
+import { DateAnswerSchema, DateRangeAnswerSchema } from '../src/answers/dateAnswers';
 import { AnyAnswerSchema } from '../src/answers/index';
 import { FilteredSearchAnswerSchema, TypeaheadSearchAnswerSchema } from '../src/answers/graphQLAnswers';
 import { CheckboxesAnswerSchema, RadioButtonsAnswerSchema, SelectBoxAnswerSchema } from '../src/answers/optionBasedAnswers';
@@ -27,6 +28,7 @@ import {
   TextAreaAnswerSchema,
   TextAnswerSchema,
   URLAnswerSchema,
+  NumberRangeAnswerSchema,
 } from '../src/answers/primitiveAnswers';
 
 // Convert the Zod schemas to JSON schemas and then write them to the /schemas folder
@@ -55,10 +57,10 @@ fs.writeFileSync('./schemas/currencyQuestion.schema.json', JSON.stringify(Curren
 const CurrencyAnswerOutput = zodToJsonSchema(CurrencyAnswerSchema, 'CurrencyAnswer');
 fs.writeFileSync('./schemas/currencyAnswer.schema.json', JSON.stringify(CurrencyAnswerOutput, null, 2));
 
-const DatePickerOutput = zodToJsonSchema(DatePickerQuestionSchema, 'DatePickerQuestion');
-fs.writeFileSync('./schemas/datePickerQuestion.schema.json', JSON.stringify(DatePickerOutput, null, 2));
-const DatePickerAnswerOutput = zodToJsonSchema(DatePickerAnswerSchema, 'DatePickerAnswer');
-fs.writeFileSync('./schemas/datePickerAnswer.schema.json', JSON.stringify(DatePickerAnswerOutput, null, 2));
+const DateOutput = zodToJsonSchema(DateQuestionSchema, 'DateQuestion');
+fs.writeFileSync('./schemas/dateQuestion.schema.json', JSON.stringify(DateOutput, null, 2));
+const DateAnswerOutput = zodToJsonSchema(DateAnswerSchema, 'DateAnswer');
+fs.writeFileSync('./schemas/dateAnswer.schema.json', JSON.stringify(DateAnswerOutput, null, 2));
 
 const DateRangeOutput = zodToJsonSchema(DateRangeQuestionSchema, 'DateRangeQuestion');
 fs.writeFileSync('./schemas/dateRangeQuestion.schema.json', JSON.stringify(DateRangeOutput, null, 2));
@@ -79,6 +81,11 @@ const NumberOutput = zodToJsonSchema(NumberQuestionSchema, 'NumberQuestion');
 fs.writeFileSync('./schemas/numberQuestion.schema.json', JSON.stringify(NumberOutput, null, 2));
 const NumberAnswerOutput = zodToJsonSchema(NumberAnswerSchema, 'NumberAnswer');
 fs.writeFileSync('./schemas/numberAnswer.schema.json', JSON.stringify(NumberAnswerOutput, null, 2));
+
+const NumberRangeOutput = zodToJsonSchema(NumberRangeQuestionSchema, 'NumberRangeQuestion');
+fs.writeFileSync('./schemas/numberRangeQuestion.schema.json', JSON.stringify(NumberRangeOutput, null, 2));
+const NumberRangeAnswerOutput = zodToJsonSchema(NumberRangeAnswerSchema, 'NumberRangeAnswer');
+fs.writeFileSync('./schemas/numberRangeAnswer.schema.json', JSON.stringify(NumberRangeAnswerOutput, null, 2));
 
 const RadioButtonsOutput = zodToJsonSchema(RadioButtonsQuestionSchema, 'RadioButtonsQuestion');
 fs.writeFileSync('./schemas/radioButtonsQuestion.schema.json', JSON.stringify(RadioButtonsOutput, null, 2));

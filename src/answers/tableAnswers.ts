@@ -1,7 +1,7 @@
 import { z } from 'zod';
 import { AnswerSchema } from './answer';
 import { CheckboxesAnswerSchema, RadioButtonsAnswerSchema, SelectBoxAnswerSchema } from './optionBasedAnswers';
-import { DatePickerAnswerSchema, DateRangeAnswerSchema } from './dateAnswers';
+import { DateAnswerSchema, DateRangeAnswerSchema } from './dateAnswers';
 import { FilteredSearchAnswerSchema, TypeaheadSearchAnswerSchema } from './graphQLAnswers';
 import {
   BooleanAnswerSchema,
@@ -18,7 +18,7 @@ export const AnyTableColumnAnswerSchema = z.discriminatedUnion('type', [
   BooleanAnswerSchema,
   CheckboxesAnswerSchema,
   CurrencyAnswerSchema,
-  DatePickerAnswerSchema,
+  DateAnswerSchema,
   DateRangeAnswerSchema,
   EmailAnswerSchema,
   FilteredSearchAnswerSchema,
@@ -31,10 +31,19 @@ export const AnyTableColumnAnswerSchema = z.discriminatedUnion('type', [
   URLAnswerSchema
 ]);
 
+export const TableColumnAnswerSchema = z.object({
+  heading: z.string(),                                        // The heading of the column
+  content: AnyTableColumnAnswerSchema                          // The answer to the column (based on the type)
+});
+
+export const TableRowAnswerSchema = z.object({
+  columns: z.array(TableColumnAnswerSchema)                 // The answers for each column in the row
+});
+
 // Answers to Table Question Types
 export const TableAnswerSchema = AnswerSchema.merge(z.object({
   type: z.literal('table'),                                   // The type of answer
-  answer: z.array(AnyTableColumnAnswerSchema)                 // The answer to the question (array of answers)
+  answer: z.array(TableRowAnswerSchema)                       // The answers to the question (array of rows containing an array of columns)
 }));
 
 // This will ensure that object validations are against the Zod schemas defined above

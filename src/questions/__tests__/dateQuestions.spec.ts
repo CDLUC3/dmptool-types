@@ -1,9 +1,9 @@
-import { DatePickerQuestionSchema, DateRangeQuestionSchema } from "../dateQuestions";
+import { DateQuestionSchema, DateRangeQuestionSchema } from "../dateQuestions";
 
-describe("DatePickerQuestion", () => {
-  it("should validate a valid DatePickerQuestion object", () => {
-    const validDatePicker = {
-      type: "datePicker",
+describe("DateQuestion", () => {
+  it("should validate a valid DateQuestion object", () => {
+    const validDate = {
+      type: "date",
       attributes: {
         max: "2023-12-31",
         min: "2023-01-01",
@@ -14,12 +14,12 @@ describe("DatePickerQuestion", () => {
       }
     };
 
-    expect(() => DatePickerQuestionSchema.parse(validDatePicker)).not.toThrow();
+    expect(() => DateQuestionSchema.parse(validDate)).not.toThrow();
   });
 
-  it("should throw an error for an invalid DatePickerQuestion object", () => {
-    const invalidDatePicker = {
-      type: "datePicker",
+  it("should throw an error for an invalid DateQuestion object", () => {
+    const invalidDate = {
+      type: "date",
       attributes: {
         max: 123, // Invalid type for max
         min: "2023-01-01",
@@ -30,19 +30,19 @@ describe("DatePickerQuestion", () => {
       }
     };
 
-    expect(() => DatePickerQuestionSchema.parse(invalidDatePicker)).toThrow();
+    expect(() => DateQuestionSchema.parse(invalidDate)).toThrow();
   });
 
-  it("should allow optional attributes in DatePickerQuestion", () => {
-    const validDatePicker = {
-      type: "datePicker",
+  it("should allow optional attributes in DateQuestion", () => {
+    const validDate = {
+      type: "date",
       attributes: {},
       meta: {
         schemaVersion: "1.0"
       }
     };
 
-    expect(() => DatePickerQuestionSchema.parse(validDatePicker)).not.toThrow();
+    expect(() => DateQuestionSchema.parse(validDate)).not.toThrow();
   });
 });
 
@@ -52,7 +52,7 @@ describe("DateRangeQuestion", () => {
       type: "dateRange",
       columns: {
         start: {
-          type: "datePicker",
+          type: "date",
           attributes: {
             label: "Start Date",
             max: "2023-12-31",
@@ -64,7 +64,7 @@ describe("DateRangeQuestion", () => {
           }
         },
         end: {
-          type: "datePicker",
+          type: "date",
           attributes: {
             label: "End Date",
             max: "2023-12-31",
@@ -89,7 +89,7 @@ describe("DateRangeQuestion", () => {
       type: "dateRange",
       columns: {
         start: {
-          type: "datePicker",
+          type: "date",
           attributes: {
             label: "Start Date",
             max: "2023-12-31",
@@ -101,7 +101,7 @@ describe("DateRangeQuestion", () => {
           }
         },
         end: {
-          type: "datePicker",
+          type: "date",
           attributes: {
             label: 123, // Invalid type for label
             max: "2023-12-31",
@@ -121,12 +121,12 @@ describe("DateRangeQuestion", () => {
     expect(() => DateRangeQuestionSchema.parse(invalidDateRange)).toThrow();
   });
 
-  it("should require labels for start and end date pickers", () => {
+  it("should require labels for start and end dates", () => {
     const invalidDateRange = {
       type: "dateRange",
       columns: {
         start: {
-          type: "datePicker",
+          type: "date",
           attributes: {
             max: "2023-12-31",
             min: "2023-01-01",
@@ -137,7 +137,7 @@ describe("DateRangeQuestion", () => {
           }
         },
         end: {
-          type: "datePicker",
+          type: "date",
           attributes: {
             label: "End Date",
             max: "2023-12-31",

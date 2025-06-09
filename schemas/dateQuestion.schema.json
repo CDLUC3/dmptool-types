@@ -1,12 +1,12 @@
 {
-  "$ref": "#/definitions/TextAreaQuestion",
+  "$ref": "#/definitions/DateQuestion",
   "definitions": {
-    "TextAreaQuestion": {
+    "DateQuestion": {
       "type": "object",
       "properties": {
         "type": {
           "type": "string",
-          "const": "textArea"
+          "const": "date"
         },
         "meta": {
           "type": "object",
@@ -17,9 +17,6 @@
             },
             "labelTranslationKey": {
               "type": "string"
-            },
-            "asRichText": {
-              "type": "boolean"
             }
           },
           "required": [
@@ -30,16 +27,13 @@
         "attributes": {
           "type": "object",
           "properties": {
-            "cols": {
-              "type": "number"
+            "max": {
+              "type": "string"
             },
-            "maxLength": {
-              "type": "number"
+            "min": {
+              "type": "string"
             },
-            "minLength": {
-              "type": "number"
-            },
-            "rows": {
+            "step": {
               "type": "number"
             }
           },

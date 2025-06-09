@@ -84,7 +84,7 @@
           "properties": {
             "type": {
               "type": "string",
-              "const": "datePicker"
+              "const": "date"
             },
             "answer": {
               "type": "string"

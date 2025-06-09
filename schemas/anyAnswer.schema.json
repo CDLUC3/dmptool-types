@@ -84,7 +84,7 @@
           "properties": {
             "type": {
               "type": "string",
-              "const": "datePicker"
+              "const": "date"
             },
             "answer": {
               "type": "string"
@@ -255,122 +255,147 @@
             "answer": {
               "type": "array",
               "items": {
-                "anyOf": [
-                  {
-                    "$ref": "#/definitions/AnyAnswer/anyOf/0"
-                  },
-                  {
-                    "$ref": "#/definitions/AnyAnswer/anyOf/1"
-                  },
-                  {
-                    "$ref": "#/definitions/AnyAnswer/anyOf/2"
-                  },
-                  {
-                    "$ref": "#/definitions/AnyAnswer/anyOf/3"
-                  },
-                  {
-                    "$ref": "#/definitions/AnyAnswer/anyOf/4"
-                  },
-                  {
-                    "$ref": "#/definitions/AnyAnswer/anyOf/5"
-                  },
-                  {
-                    "$ref": "#/definitions/AnyAnswer/anyOf/6"
-                  },
-                  {
-                    "$ref": "#/definitions/AnyAnswer/anyOf/7"
-                  },
-                  {
-                    "$ref": "#/definitions/AnyAnswer/anyOf/8"
-                  },
-                  {
-                    "$ref": "#/definitions/AnyAnswer/anyOf/9"
-                  },
-                  {
-                    "type": "object",
-                    "properties": {
-                      "type": {
-                        "type": "string",
-                        "const": "text"
+                "type": "object",
+                "properties": {
+                  "columns": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "heading": {
+                          "type": "string"
+                        },
+                        "content": {
+                          "anyOf": [
+                            {
+                              "$ref": "#/definitions/AnyAnswer/anyOf/0"
+                            },
+                            {
+                              "$ref": "#/definitions/AnyAnswer/anyOf/1"
+                            },
+                            {
+                              "$ref": "#/definitions/AnyAnswer/anyOf/2"
+                            },
+                            {
+                              "$ref": "#/definitions/AnyAnswer/anyOf/3"
+                            },
+                            {
+                              "$ref": "#/definitions/AnyAnswer/anyOf/4"
+                            },
+                            {
+                              "$ref": "#/definitions/AnyAnswer/anyOf/5"
+                            },
+                            {
+                              "$ref": "#/definitions/AnyAnswer/anyOf/6"
+                            },
+                            {
+                              "$ref": "#/definitions/AnyAnswer/anyOf/7"
+                            },
+                            {
+                              "$ref": "#/definitions/AnyAnswer/anyOf/8"
+                            },
+                            {
+                              "$ref": "#/definitions/AnyAnswer/anyOf/9"
+                            },
+                            {
+                              "type": "object",
+                              "properties": {
+                                "type": {
+                                  "type": "string",
+                                  "const": "text"
+                                },
+                                "answer": {
+                                  "type": "string"
+                                },
+                                "meta": {
+                                  "$ref": "#/definitions/AnyAnswer/anyOf/0/properties/meta"
+                                }
+                              },
+                              "required": [
+                                "type",
+                                "answer",
+                                "meta"
+                              ],
+                              "additionalProperties": false
+                            },
+                            {
+                              "type": "object",
+                              "properties": {
+                                "type": {
+                                  "type": "string",
+                                  "const": "textArea"
+                                },
+                                "answer": {
+                                  "type": "string"
+                                },
+                                "meta": {
+                                  "$ref": "#/definitions/AnyAnswer/anyOf/0/properties/meta"
+                                }
+                              },
+                              "required": [
+                                "type",
+                                "answer",
+                                "meta"
+                              ],
+                              "additionalProperties": false
+                            },
+                            {
+                              "type": "object",
+                              "properties": {
+                                "type": {
+                                  "type": "string",
+                                  "const": "typeaheadSearch"
+                                },
+                                "answer": {
+                                  "type": "string"
+                                },
+                                "meta": {
+                                  "$ref": "#/definitions/AnyAnswer/anyOf/0/properties/meta"
+                                }
+                              },
+                              "required": [
+                                "type",
+                                "answer",
+                                "meta"
+                              ],
+                              "additionalProperties": false
+                            },
+                            {
+                              "type": "object",
+                              "properties": {
+                                "type": {
+                                  "type": "string",
+                                  "const": "url"
+                                },
+                                "answer": {
+                                  "type": "string"
+                                },
+                                "meta": {
+                                  "$ref": "#/definitions/AnyAnswer/anyOf/0/properties/meta"
+                                }
+                              },
+                              "required": [
+                                "type",
+                                "answer",
+                                "meta"
+                              ],
+                              "additionalProperties": false
+                            }
+                          ]
+                        }
                       },
-                      "answer": {
-                        "type": "string"
-                      },
-                      "meta": {
-                        "$ref": "#/definitions/AnyAnswer/anyOf/0/properties/meta"
-                      }
-                    },
-                    "required": [
-                      "type",
-                      "answer",
-                      "meta"
-                    ],
-                    "additionalProperties": false
-                  },
-                  {
-                    "type": "object",
-                    "properties": {
-                      "type": {
-                        "type": "string",
-                        "const": "textArea"
-                      },
-                      "answer": {
-                        "type": "string"
-                      },
-                      "meta": {
-                        "$ref": "#/definitions/AnyAnswer/anyOf/0/properties/meta"
-                      }
-                    },
-                    "required": [
-                      "type",
-                      "answer",
-                      "meta"
-                    ],
-                    "additionalProperties": false
-                  },
-                  {
-                    "type": "object",
-                    "properties": {
-                      "type": {
-                        "type": "string",
-                        "const": "typeaheadSearch"
-                      },
-                      "answer": {
-                        "type": "string"
-                      },
-                      "meta": {
-                        "$ref": "#/definitions/AnyAnswer/anyOf/0/properties/meta"
-                      }
-                    },
-                    "required": [
-                      "type",
-                      "answer",
-                      "meta"
-                    ],
-                    "additionalProperties": false
-                  },
-                  {
-                    "type": "object",
-                    "properties": {
-                      "type": {
-                        "type": "string",
-                        "const": "url"
-                      },
-                      "answer": {
-                        "type": "string"
-                      },
-                      "meta": {
-                        "$ref": "#/definitions/AnyAnswer/anyOf/0/properties/meta"
-                      }
-                    },
-                    "required": [
-                      "type",
-                      "answer",
-                      "meta"
-                    ],
-                    "additionalProperties": false
+                      "required": [
+                        "heading",
+                        "content"
+                      ],
+                      "additionalProperties": false
+                    }
                   }
-                ]
+                },
+                "required": [
+                  "columns"
+                ],
+                "additionalProperties": false
               }
             },
             "meta": {
@@ -385,16 +410,16 @@
           "additionalProperties": false
         },
         {
-          "$ref": "#/definitions/AnyAnswer/anyOf/10/properties/answer/items/anyOf/10"
+          "$ref": "#/definitions/AnyAnswer/anyOf/10/properties/answer/items/properties/columns/items/properties/content/anyOf/10"
         },
         {
-          "$ref": "#/definitions/AnyAnswer/anyOf/10/properties/answer/items/anyOf/11"
+          "$ref": "#/definitions/AnyAnswer/anyOf/10/properties/answer/items/properties/columns/items/properties/content/anyOf/11"
         },
         {
-          "$ref": "#/definitions/AnyAnswer/anyOf/10/properties/answer/items/anyOf/12"
+          "$ref": "#/definitions/AnyAnswer/anyOf/10/properties/answer/items/properties/columns/items/properties/content/anyOf/12"
         },
         {
-          "$ref": "#/definitions/AnyAnswer/anyOf/10/properties/answer/items/anyOf/13"
+          "$ref": "#/definitions/AnyAnswer/anyOf/10/properties/answer/items/properties/columns/items/properties/content/anyOf/13"
         }
       ]
     }

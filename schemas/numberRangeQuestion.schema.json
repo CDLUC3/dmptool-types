@@ -1,12 +1,12 @@
 {
-  "$ref": "#/definitions/DateRangeQuestion",
+  "$ref": "#/definitions/NumberRangeQuestion",
   "definitions": {
-    "DateRangeQuestion": {
+    "NumberRangeQuestion": {
       "type": "object",
       "properties": {
         "type": {
           "type": "string",
-          "const": "dateRange"
+          "const": "numberRange"
         },
         "meta": {
           "type": "object",
@@ -32,10 +32,10 @@
               "properties": {
                 "type": {
                   "type": "string",
-                  "const": "date"
+                  "const": "number"
                 },
                 "meta": {
-                  "$ref": "#/definitions/DateRangeQuestion/properties/meta"
+                  "$ref": "#/definitions/NumberRangeQuestion/properties/meta"
                 },
                 "attributes": {
                   "type": "object",
@@ -61,10 +61,10 @@
               "type": "object",
               "properties": {
                 "type": {
-                  "$ref": "#/definitions/DateRangeQuestion/properties/columns/properties/start/properties/type"
+                  "$ref": "#/definitions/NumberRangeQuestion/properties/columns/properties/start/properties/type"
                 },
                 "meta": {
-                  "$ref": "#/definitions/DateRangeQuestion/properties/meta"
+                  "$ref": "#/definitions/NumberRangeQuestion/properties/meta"
                 },
                 "attributes": {
                   "type": "object",

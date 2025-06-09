@@ -1,12 +1,12 @@
 {
-  "$ref": "#/definitions/DatePickerAnswer",
+  "$ref": "#/definitions/DateAnswer",
   "definitions": {
-    "DatePickerAnswer": {
+    "DateAnswer": {
       "type": "object",
       "properties": {
         "type": {
           "type": "string",
-          "const": "datePicker"
+          "const": "date"
         },
         "answer": {
           "type": "string"
