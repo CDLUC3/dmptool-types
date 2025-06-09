@@ -153,7 +153,7 @@
                 "properties": {
                   "type": {
                     "type": "string",
-                    "const": "datePicker"
+                    "const": "date"
                   },
                   "meta": {
                     "$ref": "#/definitions/TableQuestion/properties/meta"

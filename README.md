@@ -22,8 +22,8 @@ The available question schemas/types are:
 - `BooleanQuestion` A Yes/No True/False question.
 - `CheckboxesQuestion` A question type that supports an array of `option` objects. The user may "check" multiple options.
 - `CurrencyQuestion` A number field that supports the defintiion of a `denomination`. 
-- `DatePickerQuestion` A date field. Supports `YYYY-MM-DD` format.
-- `DateRangeQuestion` A series of 2 date picker fields. Meant to capture "From" and "To" or "Start" and "End" dates.
+- `DateQuestion` A date field. Supports `YYYY-MM-DD` format.
+- `DateRangeQuestion` A series of 2 date fields. Meant to capture "From" and "To" or "Start" and "End" dates.
 - `EmailQuestion` An email address. Supports multiple emails that are comma separated.
 - `FilteredSearchQuestion` A complex field that allows the user to enter a search term and filters. The field fires a graphQL query and allows the user to potentially select multiple results.
 - `NumberQuestion` A numeric field. Supports both integers and floats.
@@ -45,8 +45,8 @@ The available answer schemas/types are:
 - `BooleanAnswer` A Yes/No True/False answer.
 - `CheckboxesAnswer` A answer type that supports an array of `option` objects. The user may "check" multiple options.
 - `CurrencyAnswer` A number field that supports the defintiion of a `denomination`. 
-- `DatePickerAnswer` A date field. Supports `YYYY-MM-DD` format.
-- `DateRangeAnswer` A series of 2 date picker fields. Meant to capture "From" and "To" or "Start" and "End" dates.
+- `DateAnswer` A date field. Supports `YYYY-MM-DD` format.
+- `DateRangeAnswer` A series of 2 date fields. Meant to capture "From" and "To" or "Start" and "End" dates.
 - `EmailAnswer` An email address. Supports multiple emails that are comma separated.
 - `FilteredSearchAnswer` A complex field that allows the user to enter a search term and filters. The field fires a graphQL query and allows the user to potentially select multiple results.
 - `NumberAnswer` A numeric field. Supports both integers and floats.

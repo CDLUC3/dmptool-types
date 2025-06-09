@@ -3,8 +3,8 @@ import { AnswerSchema } from './answer';
 
 // Answers to Date Question Types
 
-export const DatePickerAnswerSchema = AnswerSchema.merge(z.object({
-  type: z.literal('datePicker'),                              // The type of question
+export const DateAnswerSchema = AnswerSchema.merge(z.object({
+  type: z.literal('date'),                                    // The type of question
 }));
 
 export const DateRangeAnswerSchema = AnswerSchema.merge(z.object({
@@ -16,5 +16,5 @@ export const DateRangeAnswerSchema = AnswerSchema.merge(z.object({
 }));
 
 // This will ensure that object validations are against the Zod schemas defined above
-export type DatePickerAnswerType = z.infer<typeof DatePickerAnswerSchema>;
+export type DateAnswerType = z.infer<typeof DateAnswerSchema>;
 export type DateRangeAnswerType = z.infer<typeof DateRangeAnswerSchema>;

@@ -1,5 +1,5 @@
 import { describe, it, expect } from "@jest/globals";
-import { DatePickerAnswerSchema, DateRangeAnswerSchema } from '../dateAnswers';
+import { DateAnswerSchema, DateRangeAnswerSchema } from '../dateAnswers';
 import { FilteredSearchAnswerSchema, TypeaheadSearchAnswerSchema } from '../graphQLAnswers';
 import { CheckboxesAnswerSchema, RadioButtonsAnswerSchema, SelectBoxAnswerSchema } from '../optionBasedAnswers';
 import {
@@ -40,12 +40,12 @@ describe('Answer Type Validations', () => {
     expect(() => CurrencyAnswerSchema.parse(invalidData)).toThrow();
   });
 
-  it('should validate DatePickerAnswer', () => {
-    const validData = { type: 'datePicker', answer: '2023-10-01', meta: { schemaVersion: CURRENT_SCHEMA_VERSION } };
-    expect(() => DatePickerAnswerSchema.parse(validData)).not.toThrow();
+  it('should validate DateAnswer', () => {
+    const validData = { type: 'date', answer: '2023-10-01', meta: { schemaVersion: CURRENT_SCHEMA_VERSION } };
+    expect(() => DateAnswerSchema.parse(validData)).not.toThrow();
 
-    const invalidData = { type: 'datePicker', answer: 12345, meta: { schemaVersion: CURRENT_SCHEMA_VERSION } };
-    expect(() => DatePickerAnswerSchema.parse(invalidData)).toThrow();
+    const invalidData = { type: 'date', answer: 12345, meta: { schemaVersion: CURRENT_SCHEMA_VERSION } };
+    expect(() => DateAnswerSchema.parse(invalidData)).toThrow();
   });
 
   it('should validate DateRangeAnswer', () => {

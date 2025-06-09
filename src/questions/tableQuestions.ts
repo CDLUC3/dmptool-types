@@ -8,7 +8,7 @@ import {
   TextQuestionSchema,
   URLQuestionSchema,
 } from "./primitiveQuestions";
-import { DatePickerQuestionSchema, DateRangeQuestionSchema } from "./dateQuestions";
+import { DateQuestionSchema, DateRangeQuestionSchema } from "./dateQuestions";
 import { CheckboxesQuestionSchema, RadioButtonsQuestionSchema, SelectBoxQuestionSchema } from './optionBasedQuestions';
 import { FilteredSearchQuestionSchema, TypeaheadSearchQuestionSchema } from './graphQLQuestions';
 import { QuestionSchema } from "./question";
@@ -18,7 +18,7 @@ export const AnyTableColumnQuestionSchema = z.discriminatedUnion('type', [
   BooleanQuestionSchema,
   CheckboxesQuestionSchema,
   CurrencyQuestionSchema,
-  DatePickerQuestionSchema,
+  DateQuestionSchema,
   DateRangeQuestionSchema,
   EmailQuestionSchema,
   FilteredSearchQuestionSchema,

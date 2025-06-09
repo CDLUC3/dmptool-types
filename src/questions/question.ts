@@ -7,7 +7,7 @@ export const QuestionTypesEnum = z.enum([
   'boolean',
   'checkBoxes',
   'currency',
-  'datePicker',
+  'date',
   'dateRange',
   'email',
   'filteredSearch',

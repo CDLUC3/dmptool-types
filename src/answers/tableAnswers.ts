@@ -1,7 +1,7 @@
 import { z } from 'zod';
 import { AnswerSchema } from './answer';
 import { CheckboxesAnswerSchema, RadioButtonsAnswerSchema, SelectBoxAnswerSchema } from './optionBasedAnswers';
-import { DatePickerAnswerSchema, DateRangeAnswerSchema } from './dateAnswers';
+import { DateAnswerSchema, DateRangeAnswerSchema } from './dateAnswers';
 import { FilteredSearchAnswerSchema, TypeaheadSearchAnswerSchema } from './graphQLAnswers';
 import {
   BooleanAnswerSchema,
@@ -18,7 +18,7 @@ export const AnyTableColumnAnswerSchema = z.discriminatedUnion('type', [
   BooleanAnswerSchema,
   CheckboxesAnswerSchema,
   CurrencyAnswerSchema,
-  DatePickerAnswerSchema,
+  DateAnswerSchema,
   DateRangeAnswerSchema,
   EmailAnswerSchema,
   FilteredSearchAnswerSchema,

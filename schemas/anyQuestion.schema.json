@@ -141,7 +141,7 @@
           "properties": {
             "type": {
               "type": "string",
-              "const": "datePicker"
+              "const": "date"
             },
             "meta": {
               "$ref": "#/definitions/AnyQuestion/anyOf/0/properties/meta"
