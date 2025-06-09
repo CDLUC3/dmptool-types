@@ -12,6 +12,7 @@ export const QuestionTypesEnum = z.enum([
   'email',
   'filteredSearch',
   'number',
+  'numberRange',
   'radioButtons',
   'selectBox',
   'table',

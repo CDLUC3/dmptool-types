@@ -7,6 +7,7 @@ import {
   CurrencyAnswerSchema,
   EmailAnswerSchema,
   NumberAnswerSchema,
+  NumberRangeAnswerSchema,
   TextAnswerSchema,
   TextAreaAnswerSchema,
   URLAnswerSchema
@@ -51,6 +52,7 @@ export const AnswerSchemaMap: Record<z.infer<typeof QuestionTypesEnum>, z.ZodTyp
   email: EmailAnswerSchema,
   filteredSearch: FilteredSearchAnswerSchema,
   number: NumberAnswerSchema,
+  numberRange: NumberRangeAnswerSchema,
   radioButtons: RadioButtonsAnswerSchema,
   selectBox: SelectBoxAnswerSchema,
   table: TableAnswerSchema,

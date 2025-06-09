@@ -23,6 +23,14 @@ export const NumberAnswerSchema = AnswerSchema.merge(z.object({
   answer: z.number()                                          // The answer to the question (number)
 }));
 
+export const NumberRangeAnswerSchema = AnswerSchema.merge(z.object({
+  type: z.literal('numberRange'),                             // The type of answer
+  answer: z.object({
+    start: z.number(),                                        // The start number (number)
+    end: z.number()                                           // The end number (number)
+  })
+}));
+
 export const TextAnswerSchema = AnswerSchema.merge(z.object({
   type: z.literal('text'),                                  // The type of answer
   answer: z.string()                                        // The answer to the question (string)

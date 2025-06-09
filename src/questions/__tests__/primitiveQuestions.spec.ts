@@ -3,12 +3,39 @@ import {
   CurrencyQuestionSchema,
   EmailQuestionSchema,
   NumberQuestionSchema,
+  NumberRangeQuestionSchema,
   TextAreaQuestionSchema,
   TextQuestionSchema,
   URLQuestionSchema,
 } from "../primitiveQuestions";
 
 describe("Primitive Questions Zod Schemas", () => {
+  it('optional fields should not throw an error if the value is undefined', () => {
+    const validBooleanQuestion = {
+      type: "boolean",
+      meta: {
+        schemaVersion: "1.0",
+      },
+      attributes: {
+        checked: undefined, // Valid value
+      },
+    };
+    expect(() => BooleanQuestionSchema.parse(validBooleanQuestion)).not.toThrow();
+  });
+
+  it('optional fields should throw an error if the value is null', () => {
+    const invalidBooleanQuestion = {
+      type: "boolean",
+      meta: {
+        schemaVersion: "1.0",
+      },
+      attributes: {
+        checked: null, // Invalid value
+      },
+    };
+    expect(() => BooleanQuestionSchema.parse(invalidBooleanQuestion)).toThrow();
+  });
+
   it("should validate a valid BooleanQuestion", () => {
     const validBooleanQuestion = {
       type: "boolean",
@@ -119,6 +146,76 @@ describe("Primitive Questions Zod Schemas", () => {
       },
     };
     expect(() => NumberQuestionSchema.parse(invalidNumberQuestion)).toThrow();
+  });
+
+  it("should validate a valid NumberRangeQuestion", () => {
+    const validNumberRangeQuestion = {
+      type: "numberRange",
+      meta: {
+        schemaVersion: "1.0",
+      },
+      columns: {
+        start: {
+          type: "number",
+          attributes: {
+            label: "Start",
+            min: 0,
+            max: 50,
+            step: 1,
+          },
+          meta: {
+            schemaVersion: "1.0",
+          },
+        },
+        end: {
+          type: "number",
+          attributes: {
+            label: "End",
+            min: 50,
+            max: 100,
+            step: 1,
+          },
+          meta: {
+            schemaVersion: "1.0",
+          },
+        },
+      },
+    };
+    expect(() => NumberRangeQuestionSchema.parse(validNumberRangeQuestion)).not.toThrow();
+  });
+
+  it("should invalidate an invalid NumberRangeQuestion", () => {
+    const invalidNumberRangeQuestion = {
+      type: "numberRange",
+      meta: {
+        schemaVersion: "1.0",
+      },
+      columns: {
+        start: {
+          type: "number",
+          attributes: {
+            min: 0,
+            max: 50,
+          },
+          meta: {
+            schemaVersion: "1.0",
+          },
+        },
+        end: {
+          type: "number",
+          attributes: {
+            label: "End",
+            min: 50,
+            max: 100,
+            step: 1,
+          },
+          meta: {
+            schemaVersion: "1.0",
+          },
+        },
+      },
+    };
+    expect(() => NumberRangeQuestionSchema.parse(invalidNumberRangeQuestion)).toThrow();
   });
 
   it("should validate a valid TextAreaQuestion", () => {

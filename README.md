@@ -27,6 +27,7 @@ The available question schemas/types are:
 - `EmailQuestion` An email address. Supports multiple emails that are comma separated.
 - `FilteredSearchQuestion` A complex field that allows the user to enter a search term and filters. The field fires a graphQL query and allows the user to potentially select multiple results.
 - `NumberQuestion` A numeric field. Supports both integers and floats.
+- `NumberRangeQuestion` A series of 2 number fields. Meant to capture "From" and "To" or "Min" and "Max" numbers.
 - `RadioButtonsQuestion` A question type that supports an array of `option` objects. The user may "select" a single option.
 - `SelectBoxQuestion` A drop down select box that supports an array of `option` objects. A `multiple` flag can be set to allow multi-select.
 - `TableQuestion` A table question type. Each column in the table can be any one of the `AnyTableColumnQuestion` types.

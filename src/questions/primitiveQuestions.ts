@@ -19,6 +19,23 @@ export const NumberQuestionSchema = QuestionSchema.merge(z.object({
   })
 }));
 
+// A range of numbers question and answer
+export const NumberRangeQuestionSchema = QuestionSchema.merge(z.object({
+  type: z.literal('numberRange'),                           // The type of question
+  columns: z.object({
+    start: NumberQuestionSchema.merge(z.object({
+      attributes: z.object({
+        label: z.string()                                   // The label for the start number
+      })
+    })),
+    end: NumberQuestionSchema.merge(z.object({
+      attributes: z.object({
+        label: z.string()                                   // The label for the end number
+      })
+    }))
+  })
+}));
+
 // Currency question and answer
 export const CurrencyQuestionSchema = NumberQuestionSchema.merge(z.object({
   type: z.literal('currency'),                              // The type of question

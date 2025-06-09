@@ -7,6 +7,7 @@ import {
   CurrencyAnswerSchema,
   EmailAnswerSchema,
   NumberAnswerSchema,
+  NumberRangeAnswerSchema,
   TextAnswerSchema,
   TextAreaAnswerSchema,
   URLAnswerSchema
@@ -86,6 +87,22 @@ describe('Answer Type Validations', () => {
 
     const invalidData = { type: 'number', answer: '42', meta: { schemaVersion: CURRENT_SCHEMA_VERSION } };
     expect(() => NumberAnswerSchema.parse(invalidData)).toThrow();
+  });
+
+  it('should validate NumberRangeAnswer', () => {
+    const validData = {
+      type: 'numberRange',
+      answer: { start: 1, end: 10 },
+      meta: { schemaVersion: CURRENT_SCHEMA_VERSION }
+    };
+    expect(() => NumberRangeAnswerSchema.parse(validData)).not.toThrow();
+
+    const invalidData = {
+      type: 'numberRange',
+      answer: { start: '1', end: 10 },
+      meta: { schemaVersion: CURRENT_SCHEMA_VERSION }
+    };
+    expect(() => NumberRangeAnswerSchema.parse(invalidData)).toThrow();
   });
 
   it('should validate RadioButtonsAnswer', () => {

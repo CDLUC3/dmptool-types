@@ -2,12 +2,11 @@
 
 ## v1.0.5
 
-### Updated
+- Added the `numberRange` question and answer types
 - Renamed `datePicker` and `datePickerAnswer` to `date` and `dateAnswer`
 
 ## v1.0.4
 
-### Added
 - Initial Jest and ESLint config
 - Zod packages
 - DMP Template Question and Answer Zod schemas and derived Typescript types
