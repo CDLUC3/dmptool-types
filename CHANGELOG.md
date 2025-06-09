@@ -1,11 +1,13 @@
 # dmptool-types CHANGELOG
 
-## v1.0.5
+## v1.0.7
 
 - Added the `numberRange` question and answer types
 - Renamed `datePicker` and `datePickerAnswer` to `date` and `dateAnswer`
+- Updated Zod schemas so that `attributes` objects themselves are optional (unless they have a required property)
+- Updated `tableQuestion` so that it includes a way to define column headings
 
-## v1.0.4
+## v1.0.6
 
 - Initial Jest and ESLint config
 - Zod packages
