@@ -73,8 +73,7 @@
       "required": [
         "type",
         "meta",
-        "options",
-        "attributes"
+        "options"
       ],
       "additionalProperties": false
     }

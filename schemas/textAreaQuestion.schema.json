@@ -11,10 +11,20 @@
         "meta": {
           "type": "object",
           "properties": {
+            "schemaVersion": {
+              "type": "string",
+              "const": "1.0"
+            },
+            "labelTranslationKey": {
+              "type": "string"
+            },
             "asRichText": {
               "type": "boolean"
             }
           },
+          "required": [
+            "schemaVersion"
+          ],
           "additionalProperties": false
         },
         "attributes": {
@@ -38,8 +48,7 @@
       },
       "required": [
         "type",
-        "meta",
-        "attributes"
+        "meta"
       ],
       "additionalProperties": false
     }

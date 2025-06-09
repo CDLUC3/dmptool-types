@@ -8,7 +8,7 @@ export const DateQuestionSchema = QuestionSchema.merge(z.object({
     max: z.string().optional(),                             // The maximum date (no default)
     min: z.string().optional(),                             // The minimum date (no default)
     step: z.number().optional()                             // The step value (default is 1 day)
-  })
+  }).optional(),
 }));
 
 // Date range question and answer

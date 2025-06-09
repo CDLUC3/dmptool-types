@@ -50,8 +50,7 @@
                 },
                 "required": [
                   "type",
-                  "meta",
-                  "attributes"
+                  "meta"
                 ],
                 "additionalProperties": false
               },
@@ -119,10 +118,19 @@
                   "meta": {
                     "type": "object",
                     "properties": {
+                      "schemaVersion": {
+                        "$ref": "#/definitions/TableQuestion/properties/meta/properties/schemaVersion"
+                      },
+                      "labelTranslationKey": {
+                        "$ref": "#/definitions/TableQuestion/properties/meta/properties/labelTranslationKey"
+                      },
                       "denomination": {
                         "type": "string"
                       }
                     },
+                    "required": [
+                      "schemaVersion"
+                    ],
                     "additionalProperties": false
                   },
                   "attributes": {
@@ -143,8 +151,7 @@
                 },
                 "required": [
                   "type",
-                  "meta",
-                  "attributes"
+                  "meta"
                 ],
                 "additionalProperties": false
               },
@@ -176,8 +183,7 @@
                 },
                 "required": [
                   "type",
-                  "meta",
-                  "attributes"
+                  "meta"
                 ],
                 "additionalProperties": false
               },
@@ -298,8 +304,7 @@
                 },
                 "required": [
                   "type",
-                  "meta",
-                  "attributes"
+                  "meta"
                 ],
                 "additionalProperties": false
               },
@@ -381,8 +386,7 @@
                     },
                     "required": [
                       "displayFields",
-                      "responseField",
-                      "variables"
+                      "responseField"
                     ],
                     "additionalProperties": false
                   },
@@ -399,8 +403,7 @@
                 "required": [
                   "type",
                   "meta",
-                  "graphQL",
-                  "attributes"
+                  "graphQL"
                 ],
                 "additionalProperties": false
               },
@@ -420,8 +423,7 @@
                 },
                 "required": [
                   "type",
-                  "meta",
-                  "attributes"
+                  "meta"
                 ],
                 "additionalProperties": false
               },
@@ -508,8 +510,7 @@
                 "required": [
                   "type",
                   "meta",
-                  "options",
-                  "attributes"
+                  "options"
                 ],
                 "additionalProperties": false
               },
@@ -523,10 +524,19 @@
                   "meta": {
                     "type": "object",
                     "properties": {
+                      "schemaVersion": {
+                        "$ref": "#/definitions/TableQuestion/properties/meta/properties/schemaVersion"
+                      },
+                      "labelTranslationKey": {
+                        "$ref": "#/definitions/TableQuestion/properties/meta/properties/labelTranslationKey"
+                      },
                       "asRichText": {
                         "type": "boolean"
                       }
                     },
+                    "required": [
+                      "schemaVersion"
+                    ],
                     "additionalProperties": false
                   },
                   "attributes": {
@@ -550,8 +560,7 @@
                 },
                 "required": [
                   "type",
-                  "meta",
-                  "attributes"
+                  "meta"
                 ],
                 "additionalProperties": false
               },
@@ -583,8 +592,7 @@
                 },
                 "required": [
                   "type",
-                  "meta",
-                  "attributes"
+                  "meta"
                 ],
                 "additionalProperties": false
               },
@@ -637,8 +645,7 @@
                 },
                 "required": [
                   "type",
-                  "meta",
-                  "attributes"
+                  "meta"
                 ],
                 "additionalProperties": false
               }
@@ -670,8 +677,7 @@
       "required": [
         "type",
         "meta",
-        "columns",
-        "attributes"
+        "columns"
       ],
       "additionalProperties": false
     }

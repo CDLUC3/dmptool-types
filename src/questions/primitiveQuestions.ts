@@ -1,12 +1,14 @@
 import { z } from "zod";
 import { QuestionSchema } from "./question";
 
+const BaseMeta = QuestionSchema.shape.meta;
+
 // A Yes/No True/False question and answer
 export const BooleanQuestionSchema = QuestionSchema.merge(z.object({
   type: z.literal('boolean'),                               // The type of question
   attributes: z.object({
     checked: z.boolean().optional()                         // If it is checked by default when rendered (default is false)
-  })
+  }).optional(),
 }));
 
 // A number question and answer
@@ -16,7 +18,7 @@ export const NumberQuestionSchema = QuestionSchema.merge(z.object({
     max: z.number().optional(),                             // The maximum value (no default)
     min: z.number().optional(),                             // The minimum value (default is 0)
     step: z.number().optional()                             // The step value (use 0.01 or similar for float)
-  })
+  }).optional(),
 }));
 
 // A range of numbers question and answer
@@ -39,7 +41,7 @@ export const NumberRangeQuestionSchema = QuestionSchema.merge(z.object({
 // Currency question and answer
 export const CurrencyQuestionSchema = NumberQuestionSchema.merge(z.object({
   type: z.literal('currency'),                              // The type of question
-  meta: z.object({
+  meta: BaseMeta.extend({
     denomination: z.string().optional()                     // The currency denomination (default is USD)
   })
 }));
@@ -52,7 +54,7 @@ export const EmailQuestionSchema = QuestionSchema.merge(z.object({
     minLength: z.number().optional(),                       // The minimum length of the email (no default)
     multiple: z.boolean().optional(),                       // Allow multiple emails (default is false; comma separated)
     pattern: z.string().optional()                          // The regex pattern to match (no default)
-  })
+  }).optional(),
 }));
 
 // Text area question and answer
@@ -63,8 +65,8 @@ export const TextAreaQuestionSchema = QuestionSchema.merge(z.object({
     maxLength: z.number().optional(),                       // The maximum length of the text (no default)
     minLength: z.number().optional(),                       // The minimum length of the text (no default)
     rows: z.number().optional()                             // The number of rows (default is 2)
-  }),
-  meta: z.object({
+  }).optional(),
+  meta: BaseMeta.extend({
     asRichText: z.boolean().optional()                      // Whether to use rich text (default is false)
   })
 }));
@@ -76,7 +78,7 @@ export const TextQuestionSchema = QuestionSchema.merge(z.object({
     maxLength: z.number().optional(),                       // The maximum length of the text (no default)
     minLength: z.number().optional(),                       // The minimum length of the text (no default)
     pattern: z.string().optional()                          // The regex pattern to match (no default)
-  }),
+  }).optional(),
 }));
 
 // URL question and answer
@@ -86,7 +88,7 @@ export const URLQuestionSchema = QuestionSchema.merge(z.object({
     maxLength: z.number().optional(),                       // The maximum length of the URL (no default)
     minLength: z.number().optional(),                       // The minimum length of the URL (no default)
     pattern: z.string().optional()                          // The regex pattern to match (no default)
-  })
+  }).optional(),
 }));
 
 // This will ensure that object validations are against the Zod schemas defined above

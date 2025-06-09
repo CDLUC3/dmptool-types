@@ -41,7 +41,7 @@ export const TableQuestionSchema = QuestionSchema.merge(z.object({
     initialRows: z.number().optional(),                     // The initial number of rows (default is 1)
     maxRows: z.number().optional(),                         // The maximum number of rows (no default)
     minRows: z.number().optional()                          // The minimum number of rows (no default)
-  })
+  }).optional(),
 }));
 
 // This will ensure that object validations are against the Zod schemas defined above

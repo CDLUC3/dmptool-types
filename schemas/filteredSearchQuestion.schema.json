@@ -92,8 +92,7 @@
           },
           "required": [
             "displayFields",
-            "responseField",
-            "variables"
+            "responseField"
           ],
           "additionalProperties": false
         },
@@ -110,8 +109,7 @@
       "required": [
         "type",
         "meta",
-        "graphQL",
-        "attributes"
+        "graphQL"
       ],
       "additionalProperties": false
     }

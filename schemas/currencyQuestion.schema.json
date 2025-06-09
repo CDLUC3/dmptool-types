@@ -11,10 +11,20 @@
         "meta": {
           "type": "object",
           "properties": {
+            "schemaVersion": {
+              "type": "string",
+              "const": "1.0"
+            },
+            "labelTranslationKey": {
+              "type": "string"
+            },
             "denomination": {
               "type": "string"
             }
           },
+          "required": [
+            "schemaVersion"
+          ],
           "additionalProperties": false
         },
         "attributes": {
@@ -35,8 +45,7 @@
       },
       "required": [
         "type",
-        "meta",
-        "attributes"
+        "meta"
       ],
       "additionalProperties": false
     }
