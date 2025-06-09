@@ -31,10 +31,15 @@ export const AnyTableColumnQuestionSchema = z.discriminatedUnion('type', [
   URLQuestionSchema
 ]);
 
+export const TableColumn = z.object({
+  heading: z.string().optional(),                           // The heading of the column
+  content: AnyTableColumnQuestionSchema,                    // The question for the column
+});
+
 // Table question and answer
 export const TableQuestionSchema = QuestionSchema.merge(z.object({
   type: z.literal('table'),                                 // The type of question
-  columns: z.array(AnyTableColumnQuestionSchema),           // The columns of the table (note: tables cannot be nested)
+  columns: z.array(TableColumn),                            // The columns of the table
   attributes: z.object({
     canAddRows: z.boolean().optional(),                     // Whether to allow adding rows (default is true)
     canRemoveRows: z.boolean().optional(),                  // Whether to allow removing rows (default is true)

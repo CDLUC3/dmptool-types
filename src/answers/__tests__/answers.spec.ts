@@ -157,8 +157,46 @@ describe('Answer Type Validations', () => {
     const validData = {
       type: 'table',
       answer: [
-        { type: 'text', answer: 'Row 1', meta: { schemaVersion: CURRENT_SCHEMA_VERSION } },
-        { type: 'number', answer: 42, meta: { schemaVersion: CURRENT_SCHEMA_VERSION } },
+        {
+          columns: [
+            {
+              heading: "Name",
+              content: {
+                type: 'text',
+                answer: 'Leia Organa',
+                meta: { schemaVersion: CURRENT_SCHEMA_VERSION }
+              }
+            },
+            {
+              heading: "Age",
+              content: {
+                type: 'number',
+                answer: 28,
+                meta: { schemaVersion: CURRENT_SCHEMA_VERSION }
+              }
+            }
+          ]
+        },
+        {
+          columns: [
+            {
+              heading: "Name",
+              content: {
+                type: 'text',
+                answer: 'Han Solo',
+                meta: { schemaVersion: CURRENT_SCHEMA_VERSION }
+              }
+            },
+            {
+              heading: "Age",
+              content: {
+                type: 'number',
+                answer: 35,
+                meta: { schemaVersion: CURRENT_SCHEMA_VERSION }
+              }
+            }
+          ]
+        }
       ],
       meta: { schemaVersion: CURRENT_SCHEMA_VERSION }
     };
