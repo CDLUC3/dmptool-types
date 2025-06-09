@@ -10,6 +10,7 @@ import {
   CurrencyQuestionSchema,
   EmailQuestionSchema,
   NumberQuestionSchema,
+  NumberRangeQuestionSchema,
   TextAreaQuestionSchema,
   TextQuestionSchema,
   URLQuestionSchema
@@ -27,6 +28,7 @@ import {
   TextAreaAnswerSchema,
   TextAnswerSchema,
   URLAnswerSchema,
+  NumberRangeAnswerSchema,
 } from '../src/answers/primitiveAnswers';
 
 // Convert the Zod schemas to JSON schemas and then write them to the /schemas folder
@@ -79,6 +81,11 @@ const NumberOutput = zodToJsonSchema(NumberQuestionSchema, 'NumberQuestion');
 fs.writeFileSync('./schemas/numberQuestion.schema.json', JSON.stringify(NumberOutput, null, 2));
 const NumberAnswerOutput = zodToJsonSchema(NumberAnswerSchema, 'NumberAnswer');
 fs.writeFileSync('./schemas/numberAnswer.schema.json', JSON.stringify(NumberAnswerOutput, null, 2));
+
+const NumberRangeOutput = zodToJsonSchema(NumberRangeQuestionSchema, 'NumberRangeQuestion');
+fs.writeFileSync('./schemas/numberRangeQuestion.schema.json', JSON.stringify(NumberRangeOutput, null, 2));
+const NumberRangeAnswerOutput = zodToJsonSchema(NumberRangeAnswerSchema, 'NumberRangeAnswer');
+fs.writeFileSync('./schemas/numberRangeAnswer.schema.json', JSON.stringify(NumberRangeAnswerOutput, null, 2));
 
 const RadioButtonsOutput = zodToJsonSchema(RadioButtonsQuestionSchema, 'RadioButtonsQuestion');
 fs.writeFileSync('./schemas/radioButtonsQuestion.schema.json', JSON.stringify(RadioButtonsOutput, null, 2));

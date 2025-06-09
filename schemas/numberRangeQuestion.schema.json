@@ -1,0 +1,106 @@
+{
+  "$ref": "#/definitions/NumberRangeQuestion",
+  "definitions": {
+    "NumberRangeQuestion": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "const": "numberRange"
+        },
+        "meta": {
+          "type": "object",
+          "properties": {
+            "schemaVersion": {
+              "type": "string",
+              "const": "1.0"
+            },
+            "labelTranslationKey": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "schemaVersion"
+          ],
+          "additionalProperties": false
+        },
+        "columns": {
+          "type": "object",
+          "properties": {
+            "start": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "const": "number"
+                },
+                "meta": {
+                  "$ref": "#/definitions/NumberRangeQuestion/properties/meta"
+                },
+                "attributes": {
+                  "type": "object",
+                  "properties": {
+                    "label": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "label"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "required": [
+                "type",
+                "meta",
+                "attributes"
+              ],
+              "additionalProperties": false
+            },
+            "end": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "$ref": "#/definitions/NumberRangeQuestion/properties/columns/properties/start/properties/type"
+                },
+                "meta": {
+                  "$ref": "#/definitions/NumberRangeQuestion/properties/meta"
+                },
+                "attributes": {
+                  "type": "object",
+                  "properties": {
+                    "label": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "label"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "required": [
+                "type",
+                "meta",
+                "attributes"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "start",
+            "end"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "type",
+        "meta",
+        "columns"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}

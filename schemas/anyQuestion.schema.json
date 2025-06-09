@@ -515,173 +515,185 @@
             "columns": {
               "type": "array",
               "items": {
-                "anyOf": [
-                  {
-                    "$ref": "#/definitions/AnyQuestion/anyOf/0"
+                "type": "object",
+                "properties": {
+                  "heading": {
+                    "type": "string"
                   },
-                  {
-                    "$ref": "#/definitions/AnyQuestion/anyOf/1"
-                  },
-                  {
-                    "$ref": "#/definitions/AnyQuestion/anyOf/2"
-                  },
-                  {
-                    "$ref": "#/definitions/AnyQuestion/anyOf/3"
-                  },
-                  {
-                    "$ref": "#/definitions/AnyQuestion/anyOf/4"
-                  },
-                  {
-                    "$ref": "#/definitions/AnyQuestion/anyOf/5"
-                  },
-                  {
-                    "$ref": "#/definitions/AnyQuestion/anyOf/6"
-                  },
-                  {
-                    "$ref": "#/definitions/AnyQuestion/anyOf/7"
-                  },
-                  {
-                    "$ref": "#/definitions/AnyQuestion/anyOf/8"
-                  },
-                  {
-                    "$ref": "#/definitions/AnyQuestion/anyOf/9"
-                  },
-                  {
-                    "type": "object",
-                    "properties": {
-                      "type": {
-                        "type": "string",
-                        "const": "textArea"
+                  "content": {
+                    "anyOf": [
+                      {
+                        "$ref": "#/definitions/AnyQuestion/anyOf/0"
                       },
-                      "meta": {
+                      {
+                        "$ref": "#/definitions/AnyQuestion/anyOf/1"
+                      },
+                      {
+                        "$ref": "#/definitions/AnyQuestion/anyOf/2"
+                      },
+                      {
+                        "$ref": "#/definitions/AnyQuestion/anyOf/3"
+                      },
+                      {
+                        "$ref": "#/definitions/AnyQuestion/anyOf/4"
+                      },
+                      {
+                        "$ref": "#/definitions/AnyQuestion/anyOf/5"
+                      },
+                      {
+                        "$ref": "#/definitions/AnyQuestion/anyOf/6"
+                      },
+                      {
+                        "$ref": "#/definitions/AnyQuestion/anyOf/7"
+                      },
+                      {
+                        "$ref": "#/definitions/AnyQuestion/anyOf/8"
+                      },
+                      {
+                        "$ref": "#/definitions/AnyQuestion/anyOf/9"
+                      },
+                      {
                         "type": "object",
                         "properties": {
-                          "schemaVersion": {
-                            "$ref": "#/definitions/AnyQuestion/anyOf/0/properties/meta/properties/schemaVersion"
+                          "type": {
+                            "type": "string",
+                            "const": "textArea"
                           },
-                          "labelTranslationKey": {
-                            "$ref": "#/definitions/AnyQuestion/anyOf/0/properties/meta/properties/labelTranslationKey"
+                          "meta": {
+                            "type": "object",
+                            "properties": {
+                              "schemaVersion": {
+                                "$ref": "#/definitions/AnyQuestion/anyOf/0/properties/meta/properties/schemaVersion"
+                              },
+                              "labelTranslationKey": {
+                                "$ref": "#/definitions/AnyQuestion/anyOf/0/properties/meta/properties/labelTranslationKey"
+                              },
+                              "asRichText": {
+                                "type": "boolean"
+                              }
+                            },
+                            "required": [
+                              "schemaVersion"
+                            ],
+                            "additionalProperties": false
                           },
-                          "asRichText": {
-                            "type": "boolean"
+                          "attributes": {
+                            "type": "object",
+                            "properties": {
+                              "cols": {
+                                "type": "number"
+                              },
+                              "maxLength": {
+                                "type": "number"
+                              },
+                              "minLength": {
+                                "type": "number"
+                              },
+                              "rows": {
+                                "type": "number"
+                              }
+                            },
+                            "additionalProperties": false
                           }
                         },
                         "required": [
-                          "schemaVersion"
+                          "type",
+                          "meta"
                         ],
                         "additionalProperties": false
                       },
-                      "attributes": {
+                      {
                         "type": "object",
                         "properties": {
-                          "cols": {
-                            "type": "number"
+                          "type": {
+                            "type": "string",
+                            "const": "text"
                           },
-                          "maxLength": {
-                            "type": "number"
+                          "meta": {
+                            "$ref": "#/definitions/AnyQuestion/anyOf/0/properties/meta"
                           },
-                          "minLength": {
-                            "type": "number"
-                          },
-                          "rows": {
-                            "type": "number"
+                          "attributes": {
+                            "type": "object",
+                            "properties": {
+                              "maxLength": {
+                                "type": "number"
+                              },
+                              "minLength": {
+                                "type": "number"
+                              },
+                              "pattern": {
+                                "type": "string"
+                              }
+                            },
+                            "additionalProperties": false
                           }
                         },
+                        "required": [
+                          "type",
+                          "meta"
+                        ],
                         "additionalProperties": false
-                      }
-                    },
-                    "required": [
-                      "type",
-                      "meta"
-                    ],
-                    "additionalProperties": false
-                  },
-                  {
-                    "type": "object",
-                    "properties": {
-                      "type": {
-                        "type": "string",
-                        "const": "text"
                       },
-                      "meta": {
-                        "$ref": "#/definitions/AnyQuestion/anyOf/0/properties/meta"
-                      },
-                      "attributes": {
+                      {
                         "type": "object",
                         "properties": {
-                          "maxLength": {
-                            "type": "number"
+                          "type": {
+                            "type": "string",
+                            "const": "typeaheadSearch"
                           },
-                          "minLength": {
-                            "type": "number"
+                          "meta": {
+                            "$ref": "#/definitions/AnyQuestion/anyOf/0/properties/meta"
                           },
-                          "pattern": {
-                            "type": "string"
+                          "graphQL": {
+                            "$ref": "#/definitions/AnyQuestion/anyOf/6/properties/graphQL"
                           }
                         },
+                        "required": [
+                          "type",
+                          "meta",
+                          "graphQL"
+                        ],
                         "additionalProperties": false
-                      }
-                    },
-                    "required": [
-                      "type",
-                      "meta"
-                    ],
-                    "additionalProperties": false
-                  },
-                  {
-                    "type": "object",
-                    "properties": {
-                      "type": {
-                        "type": "string",
-                        "const": "typeaheadSearch"
                       },
-                      "meta": {
-                        "$ref": "#/definitions/AnyQuestion/anyOf/0/properties/meta"
-                      },
-                      "graphQL": {
-                        "$ref": "#/definitions/AnyQuestion/anyOf/6/properties/graphQL"
-                      }
-                    },
-                    "required": [
-                      "type",
-                      "meta",
-                      "graphQL"
-                    ],
-                    "additionalProperties": false
-                  },
-                  {
-                    "type": "object",
-                    "properties": {
-                      "type": {
-                        "type": "string",
-                        "const": "url"
-                      },
-                      "meta": {
-                        "$ref": "#/definitions/AnyQuestion/anyOf/0/properties/meta"
-                      },
-                      "attributes": {
+                      {
                         "type": "object",
                         "properties": {
-                          "maxLength": {
-                            "type": "number"
+                          "type": {
+                            "type": "string",
+                            "const": "url"
                           },
-                          "minLength": {
-                            "type": "number"
+                          "meta": {
+                            "$ref": "#/definitions/AnyQuestion/anyOf/0/properties/meta"
                           },
-                          "pattern": {
-                            "type": "string"
+                          "attributes": {
+                            "type": "object",
+                            "properties": {
+                              "maxLength": {
+                                "type": "number"
+                              },
+                              "minLength": {
+                                "type": "number"
+                              },
+                              "pattern": {
+                                "type": "string"
+                              }
+                            },
+                            "additionalProperties": false
                           }
                         },
+                        "required": [
+                          "type",
+                          "meta"
+                        ],
                         "additionalProperties": false
                       }
-                    },
-                    "required": [
-                      "type",
-                      "meta"
-                    ],
-                    "additionalProperties": false
+                    ]
                   }
-                ]
+                },
+                "required": [
+                  "content"
+                ],
+                "additionalProperties": false
               }
             },
             "attributes": {
@@ -714,16 +726,16 @@
           "additionalProperties": false
         },
         {
-          "$ref": "#/definitions/AnyQuestion/anyOf/10/properties/columns/items/anyOf/10"
+          "$ref": "#/definitions/AnyQuestion/anyOf/10/properties/columns/items/properties/content/anyOf/10"
         },
         {
-          "$ref": "#/definitions/AnyQuestion/anyOf/10/properties/columns/items/anyOf/11"
+          "$ref": "#/definitions/AnyQuestion/anyOf/10/properties/columns/items/properties/content/anyOf/11"
         },
         {
-          "$ref": "#/definitions/AnyQuestion/anyOf/10/properties/columns/items/anyOf/12"
+          "$ref": "#/definitions/AnyQuestion/anyOf/10/properties/columns/items/properties/content/anyOf/12"
         },
         {
-          "$ref": "#/definitions/AnyQuestion/anyOf/10/properties/columns/items/anyOf/13"
+          "$ref": "#/definitions/AnyQuestion/anyOf/10/properties/columns/items/properties/content/anyOf/13"
         }
       ]
     }

@@ -27,629 +27,641 @@
         "columns": {
           "type": "array",
           "items": {
-            "anyOf": [
-              {
-                "type": "object",
-                "properties": {
-                  "type": {
-                    "type": "string",
-                    "const": "boolean"
-                  },
-                  "meta": {
-                    "$ref": "#/definitions/TableQuestion/properties/meta"
-                  },
-                  "attributes": {
-                    "type": "object",
-                    "properties": {
-                      "checked": {
-                        "type": "boolean"
-                      }
-                    },
-                    "additionalProperties": false
-                  }
-                },
-                "required": [
-                  "type",
-                  "meta"
-                ],
-                "additionalProperties": false
+            "type": "object",
+            "properties": {
+              "heading": {
+                "type": "string"
               },
-              {
-                "type": "object",
-                "properties": {
-                  "type": {
-                    "type": "string",
-                    "const": "checkBoxes"
-                  },
-                  "meta": {
-                    "$ref": "#/definitions/TableQuestion/properties/meta"
-                  },
-                  "options": {
-                    "type": "array",
-                    "items": {
-                      "type": "object",
-                      "properties": {
-                        "type": {
-                          "type": "string",
-                          "const": "option"
-                        },
-                        "attributes": {
-                          "type": "object",
-                          "properties": {
-                            "label": {
-                              "type": "string"
-                            },
-                            "value": {
-                              "type": "string"
-                            },
-                            "checked": {
-                              "type": "boolean"
-                            }
-                          },
-                          "required": [
-                            "label",
-                            "value"
-                          ],
-                          "additionalProperties": false
-                        }
-                      },
-                      "required": [
-                        "type",
-                        "attributes"
-                      ],
-                      "additionalProperties": false
-                    }
-                  }
-                },
-                "required": [
-                  "type",
-                  "meta",
-                  "options"
-                ],
-                "additionalProperties": false
-              },
-              {
-                "type": "object",
-                "properties": {
-                  "type": {
-                    "type": "string",
-                    "const": "currency"
-                  },
-                  "meta": {
+              "content": {
+                "anyOf": [
+                  {
                     "type": "object",
                     "properties": {
-                      "schemaVersion": {
-                        "$ref": "#/definitions/TableQuestion/properties/meta/properties/schemaVersion"
+                      "type": {
+                        "type": "string",
+                        "const": "boolean"
                       },
-                      "labelTranslationKey": {
-                        "$ref": "#/definitions/TableQuestion/properties/meta/properties/labelTranslationKey"
+                      "meta": {
+                        "$ref": "#/definitions/TableQuestion/properties/meta"
                       },
-                      "denomination": {
-                        "type": "string"
-                      }
-                    },
-                    "required": [
-                      "schemaVersion"
-                    ],
-                    "additionalProperties": false
-                  },
-                  "attributes": {
-                    "type": "object",
-                    "properties": {
-                      "max": {
-                        "type": "number"
-                      },
-                      "min": {
-                        "type": "number"
-                      },
-                      "step": {
-                        "type": "number"
-                      }
-                    },
-                    "additionalProperties": false
-                  }
-                },
-                "required": [
-                  "type",
-                  "meta"
-                ],
-                "additionalProperties": false
-              },
-              {
-                "type": "object",
-                "properties": {
-                  "type": {
-                    "type": "string",
-                    "const": "date"
-                  },
-                  "meta": {
-                    "$ref": "#/definitions/TableQuestion/properties/meta"
-                  },
-                  "attributes": {
-                    "type": "object",
-                    "properties": {
-                      "max": {
-                        "type": "string"
-                      },
-                      "min": {
-                        "type": "string"
-                      },
-                      "step": {
-                        "type": "number"
-                      }
-                    },
-                    "additionalProperties": false
-                  }
-                },
-                "required": [
-                  "type",
-                  "meta"
-                ],
-                "additionalProperties": false
-              },
-              {
-                "type": "object",
-                "properties": {
-                  "type": {
-                    "type": "string",
-                    "const": "dateRange"
-                  },
-                  "meta": {
-                    "$ref": "#/definitions/TableQuestion/properties/meta"
-                  },
-                  "columns": {
-                    "type": "object",
-                    "properties": {
-                      "start": {
+                      "attributes": {
                         "type": "object",
                         "properties": {
-                          "type": {
-                            "$ref": "#/definitions/TableQuestion/properties/columns/items/anyOf/3/properties/type"
-                          },
-                          "meta": {
-                            "$ref": "#/definitions/TableQuestion/properties/meta"
-                          },
-                          "attributes": {
-                            "type": "object",
-                            "properties": {
-                              "label": {
-                                "type": "string"
-                              }
-                            },
-                            "required": [
-                              "label"
-                            ],
-                            "additionalProperties": false
+                          "checked": {
+                            "type": "boolean"
                           }
                         },
-                        "required": [
-                          "type",
-                          "meta",
-                          "attributes"
-                        ],
-                        "additionalProperties": false
-                      },
-                      "end": {
-                        "type": "object",
-                        "properties": {
-                          "type": {
-                            "$ref": "#/definitions/TableQuestion/properties/columns/items/anyOf/3/properties/type"
-                          },
-                          "meta": {
-                            "$ref": "#/definitions/TableQuestion/properties/meta"
-                          },
-                          "attributes": {
-                            "type": "object",
-                            "properties": {
-                              "label": {
-                                "type": "string"
-                              }
-                            },
-                            "required": [
-                              "label"
-                            ],
-                            "additionalProperties": false
-                          }
-                        },
-                        "required": [
-                          "type",
-                          "meta",
-                          "attributes"
-                        ],
                         "additionalProperties": false
                       }
                     },
                     "required": [
-                      "start",
-                      "end"
+                      "type",
+                      "meta"
                     ],
                     "additionalProperties": false
-                  }
-                },
-                "required": [
-                  "type",
-                  "meta",
-                  "columns"
-                ],
-                "additionalProperties": false
-              },
-              {
-                "type": "object",
-                "properties": {
-                  "type": {
-                    "type": "string",
-                    "const": "email"
                   },
-                  "meta": {
-                    "$ref": "#/definitions/TableQuestion/properties/meta"
-                  },
-                  "attributes": {
+                  {
                     "type": "object",
                     "properties": {
-                      "maxLength": {
-                        "type": "number"
+                      "type": {
+                        "type": "string",
+                        "const": "checkBoxes"
                       },
-                      "minLength": {
-                        "type": "number"
+                      "meta": {
+                        "$ref": "#/definitions/TableQuestion/properties/meta"
                       },
-                      "multiple": {
-                        "type": "boolean"
-                      },
-                      "pattern": {
-                        "type": "string"
-                      }
-                    },
-                    "additionalProperties": false
-                  }
-                },
-                "required": [
-                  "type",
-                  "meta"
-                ],
-                "additionalProperties": false
-              },
-              {
-                "type": "object",
-                "properties": {
-                  "type": {
-                    "type": "string",
-                    "const": "filteredSearch"
-                  },
-                  "meta": {
-                    "$ref": "#/definitions/TableQuestion/properties/meta"
-                  },
-                  "graphQL": {
-                    "type": "object",
-                    "properties": {
-                      "displayFields": {
+                      "options": {
                         "type": "array",
                         "items": {
                           "type": "object",
                           "properties": {
-                            "propertyName": {
-                              "type": "string"
-                            },
-                            "label": {
-                              "type": "string"
-                            },
-                            "labelTranslationKey": {
-                              "type": "string"
-                            }
-                          },
-                          "required": [
-                            "propertyName",
-                            "label"
-                          ],
-                          "additionalProperties": false
-                        }
-                      },
-                      "localQueryId": {
-                        "type": "string"
-                      },
-                      "query": {
-                        "type": "string"
-                      },
-                      "responseField": {
-                        "type": "string"
-                      },
-                      "variables": {
-                        "type": "array",
-                        "items": {
-                          "type": "object",
-                          "properties": {
-                            "minLength": {
-                              "type": "number"
-                            },
-                            "label": {
-                              "type": "string"
-                            },
-                            "labelTranslationKey": {
-                              "type": "string"
-                            },
-                            "name": {
-                              "type": "string"
-                            },
                             "type": {
-                              "type": "string"
+                              "type": "string",
+                              "const": "option"
                             },
-                            "defaultValue": {
-                              "type": "string"
+                            "attributes": {
+                              "type": "object",
+                              "properties": {
+                                "label": {
+                                  "type": "string"
+                                },
+                                "value": {
+                                  "type": "string"
+                                },
+                                "checked": {
+                                  "type": "boolean"
+                                }
+                              },
+                              "required": [
+                                "label",
+                                "value"
+                              ],
+                              "additionalProperties": false
                             }
                           },
                           "required": [
-                            "name",
-                            "type"
+                            "type",
+                            "attributes"
                           ],
                           "additionalProperties": false
                         }
                       }
                     },
                     "required": [
-                      "displayFields",
-                      "responseField"
+                      "type",
+                      "meta",
+                      "options"
                     ],
                     "additionalProperties": false
                   },
-                  "attributes": {
+                  {
                     "type": "object",
                     "properties": {
-                      "multiple": {
-                        "type": "boolean"
+                      "type": {
+                        "type": "string",
+                        "const": "currency"
+                      },
+                      "meta": {
+                        "type": "object",
+                        "properties": {
+                          "schemaVersion": {
+                            "$ref": "#/definitions/TableQuestion/properties/meta/properties/schemaVersion"
+                          },
+                          "labelTranslationKey": {
+                            "$ref": "#/definitions/TableQuestion/properties/meta/properties/labelTranslationKey"
+                          },
+                          "denomination": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "schemaVersion"
+                        ],
+                        "additionalProperties": false
+                      },
+                      "attributes": {
+                        "type": "object",
+                        "properties": {
+                          "max": {
+                            "type": "number"
+                          },
+                          "min": {
+                            "type": "number"
+                          },
+                          "step": {
+                            "type": "number"
+                          }
+                        },
+                        "additionalProperties": false
                       }
                     },
+                    "required": [
+                      "type",
+                      "meta"
+                    ],
                     "additionalProperties": false
-                  }
-                },
-                "required": [
-                  "type",
-                  "meta",
-                  "graphQL"
-                ],
-                "additionalProperties": false
-              },
-              {
-                "type": "object",
-                "properties": {
-                  "type": {
-                    "type": "string",
-                    "const": "number"
                   },
-                  "meta": {
-                    "$ref": "#/definitions/TableQuestion/properties/meta"
-                  },
-                  "attributes": {
-                    "$ref": "#/definitions/TableQuestion/properties/columns/items/anyOf/2/properties/attributes"
-                  }
-                },
-                "required": [
-                  "type",
-                  "meta"
-                ],
-                "additionalProperties": false
-              },
-              {
-                "type": "object",
-                "properties": {
-                  "type": {
-                    "type": "string",
-                    "const": "radioButtons"
-                  },
-                  "meta": {
-                    "$ref": "#/definitions/TableQuestion/properties/meta"
-                  },
-                  "options": {
-                    "type": "array",
-                    "items": {
-                      "type": "object",
-                      "properties": {
-                        "type": {
-                          "type": "string",
-                          "const": "option"
+                  {
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "type": "string",
+                        "const": "date"
+                      },
+                      "meta": {
+                        "$ref": "#/definitions/TableQuestion/properties/meta"
+                      },
+                      "attributes": {
+                        "type": "object",
+                        "properties": {
+                          "max": {
+                            "type": "string"
+                          },
+                          "min": {
+                            "type": "string"
+                          },
+                          "step": {
+                            "type": "number"
+                          }
                         },
-                        "attributes": {
+                        "additionalProperties": false
+                      }
+                    },
+                    "required": [
+                      "type",
+                      "meta"
+                    ],
+                    "additionalProperties": false
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "type": "string",
+                        "const": "dateRange"
+                      },
+                      "meta": {
+                        "$ref": "#/definitions/TableQuestion/properties/meta"
+                      },
+                      "columns": {
+                        "type": "object",
+                        "properties": {
+                          "start": {
+                            "type": "object",
+                            "properties": {
+                              "type": {
+                                "$ref": "#/definitions/TableQuestion/properties/columns/items/properties/content/anyOf/3/properties/type"
+                              },
+                              "meta": {
+                                "$ref": "#/definitions/TableQuestion/properties/meta"
+                              },
+                              "attributes": {
+                                "type": "object",
+                                "properties": {
+                                  "label": {
+                                    "type": "string"
+                                  }
+                                },
+                                "required": [
+                                  "label"
+                                ],
+                                "additionalProperties": false
+                              }
+                            },
+                            "required": [
+                              "type",
+                              "meta",
+                              "attributes"
+                            ],
+                            "additionalProperties": false
+                          },
+                          "end": {
+                            "type": "object",
+                            "properties": {
+                              "type": {
+                                "$ref": "#/definitions/TableQuestion/properties/columns/items/properties/content/anyOf/3/properties/type"
+                              },
+                              "meta": {
+                                "$ref": "#/definitions/TableQuestion/properties/meta"
+                              },
+                              "attributes": {
+                                "type": "object",
+                                "properties": {
+                                  "label": {
+                                    "type": "string"
+                                  }
+                                },
+                                "required": [
+                                  "label"
+                                ],
+                                "additionalProperties": false
+                              }
+                            },
+                            "required": [
+                              "type",
+                              "meta",
+                              "attributes"
+                            ],
+                            "additionalProperties": false
+                          }
+                        },
+                        "required": [
+                          "start",
+                          "end"
+                        ],
+                        "additionalProperties": false
+                      }
+                    },
+                    "required": [
+                      "type",
+                      "meta",
+                      "columns"
+                    ],
+                    "additionalProperties": false
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "type": "string",
+                        "const": "email"
+                      },
+                      "meta": {
+                        "$ref": "#/definitions/TableQuestion/properties/meta"
+                      },
+                      "attributes": {
+                        "type": "object",
+                        "properties": {
+                          "maxLength": {
+                            "type": "number"
+                          },
+                          "minLength": {
+                            "type": "number"
+                          },
+                          "multiple": {
+                            "type": "boolean"
+                          },
+                          "pattern": {
+                            "type": "string"
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "required": [
+                      "type",
+                      "meta"
+                    ],
+                    "additionalProperties": false
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "type": "string",
+                        "const": "filteredSearch"
+                      },
+                      "meta": {
+                        "$ref": "#/definitions/TableQuestion/properties/meta"
+                      },
+                      "graphQL": {
+                        "type": "object",
+                        "properties": {
+                          "displayFields": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "propertyName": {
+                                  "type": "string"
+                                },
+                                "label": {
+                                  "type": "string"
+                                },
+                                "labelTranslationKey": {
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "propertyName",
+                                "label"
+                              ],
+                              "additionalProperties": false
+                            }
+                          },
+                          "localQueryId": {
+                            "type": "string"
+                          },
+                          "query": {
+                            "type": "string"
+                          },
+                          "responseField": {
+                            "type": "string"
+                          },
+                          "variables": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "minLength": {
+                                  "type": "number"
+                                },
+                                "label": {
+                                  "type": "string"
+                                },
+                                "labelTranslationKey": {
+                                  "type": "string"
+                                },
+                                "name": {
+                                  "type": "string"
+                                },
+                                "type": {
+                                  "type": "string"
+                                },
+                                "defaultValue": {
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "name",
+                                "type"
+                              ],
+                              "additionalProperties": false
+                            }
+                          }
+                        },
+                        "required": [
+                          "displayFields",
+                          "responseField"
+                        ],
+                        "additionalProperties": false
+                      },
+                      "attributes": {
+                        "type": "object",
+                        "properties": {
+                          "multiple": {
+                            "type": "boolean"
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "required": [
+                      "type",
+                      "meta",
+                      "graphQL"
+                    ],
+                    "additionalProperties": false
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "type": "string",
+                        "const": "number"
+                      },
+                      "meta": {
+                        "$ref": "#/definitions/TableQuestion/properties/meta"
+                      },
+                      "attributes": {
+                        "$ref": "#/definitions/TableQuestion/properties/columns/items/properties/content/anyOf/2/properties/attributes"
+                      }
+                    },
+                    "required": [
+                      "type",
+                      "meta"
+                    ],
+                    "additionalProperties": false
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "type": "string",
+                        "const": "radioButtons"
+                      },
+                      "meta": {
+                        "$ref": "#/definitions/TableQuestion/properties/meta"
+                      },
+                      "options": {
+                        "type": "array",
+                        "items": {
                           "type": "object",
                           "properties": {
-                            "label": {
-                              "$ref": "#/definitions/TableQuestion/properties/columns/items/anyOf/1/properties/options/items/properties/attributes/properties/label"
+                            "type": {
+                              "type": "string",
+                              "const": "option"
                             },
-                            "value": {
-                              "$ref": "#/definitions/TableQuestion/properties/columns/items/anyOf/1/properties/options/items/properties/attributes/properties/value"
-                            },
-                            "selected": {
-                              "type": "boolean"
+                            "attributes": {
+                              "type": "object",
+                              "properties": {
+                                "label": {
+                                  "$ref": "#/definitions/TableQuestion/properties/columns/items/properties/content/anyOf/1/properties/options/items/properties/attributes/properties/label"
+                                },
+                                "value": {
+                                  "$ref": "#/definitions/TableQuestion/properties/columns/items/properties/content/anyOf/1/properties/options/items/properties/attributes/properties/value"
+                                },
+                                "selected": {
+                                  "type": "boolean"
+                                }
+                              },
+                              "required": [
+                                "label",
+                                "value"
+                              ],
+                              "additionalProperties": false
                             }
                           },
                           "required": [
-                            "label",
-                            "value"
+                            "type",
+                            "attributes"
                           ],
                           "additionalProperties": false
                         }
-                      },
-                      "required": [
-                        "type",
-                        "attributes"
-                      ],
-                      "additionalProperties": false
-                    }
-                  }
-                },
-                "required": [
-                  "type",
-                  "meta",
-                  "options"
-                ],
-                "additionalProperties": false
-              },
-              {
-                "type": "object",
-                "properties": {
-                  "type": {
-                    "type": "string",
-                    "const": "selectBox"
-                  },
-                  "meta": {
-                    "$ref": "#/definitions/TableQuestion/properties/meta"
-                  },
-                  "options": {
-                    "type": "array",
-                    "items": {
-                      "$ref": "#/definitions/TableQuestion/properties/columns/items/anyOf/8/properties/options/items"
-                    }
-                  },
-                  "attributes": {
-                    "type": "object",
-                    "properties": {
-                      "multiple": {
-                        "type": "boolean"
-                      }
-                    },
-                    "additionalProperties": false
-                  }
-                },
-                "required": [
-                  "type",
-                  "meta",
-                  "options"
-                ],
-                "additionalProperties": false
-              },
-              {
-                "type": "object",
-                "properties": {
-                  "type": {
-                    "type": "string",
-                    "const": "textArea"
-                  },
-                  "meta": {
-                    "type": "object",
-                    "properties": {
-                      "schemaVersion": {
-                        "$ref": "#/definitions/TableQuestion/properties/meta/properties/schemaVersion"
-                      },
-                      "labelTranslationKey": {
-                        "$ref": "#/definitions/TableQuestion/properties/meta/properties/labelTranslationKey"
-                      },
-                      "asRichText": {
-                        "type": "boolean"
                       }
                     },
                     "required": [
-                      "schemaVersion"
+                      "type",
+                      "meta",
+                      "options"
                     ],
                     "additionalProperties": false
                   },
-                  "attributes": {
+                  {
                     "type": "object",
                     "properties": {
-                      "cols": {
-                        "type": "number"
+                      "type": {
+                        "type": "string",
+                        "const": "selectBox"
                       },
-                      "maxLength": {
-                        "type": "number"
+                      "meta": {
+                        "$ref": "#/definitions/TableQuestion/properties/meta"
                       },
-                      "minLength": {
-                        "type": "number"
+                      "options": {
+                        "type": "array",
+                        "items": {
+                          "$ref": "#/definitions/TableQuestion/properties/columns/items/properties/content/anyOf/8/properties/options/items"
+                        }
                       },
-                      "rows": {
-                        "type": "number"
+                      "attributes": {
+                        "type": "object",
+                        "properties": {
+                          "multiple": {
+                            "type": "boolean"
+                          }
+                        },
+                        "additionalProperties": false
                       }
                     },
+                    "required": [
+                      "type",
+                      "meta",
+                      "options"
+                    ],
                     "additionalProperties": false
-                  }
-                },
-                "required": [
-                  "type",
-                  "meta"
-                ],
-                "additionalProperties": false
-              },
-              {
-                "type": "object",
-                "properties": {
-                  "type": {
-                    "type": "string",
-                    "const": "text"
                   },
-                  "meta": {
-                    "$ref": "#/definitions/TableQuestion/properties/meta"
-                  },
-                  "attributes": {
+                  {
                     "type": "object",
                     "properties": {
-                      "maxLength": {
-                        "type": "number"
+                      "type": {
+                        "type": "string",
+                        "const": "textArea"
                       },
-                      "minLength": {
-                        "type": "number"
+                      "meta": {
+                        "type": "object",
+                        "properties": {
+                          "schemaVersion": {
+                            "$ref": "#/definitions/TableQuestion/properties/meta/properties/schemaVersion"
+                          },
+                          "labelTranslationKey": {
+                            "$ref": "#/definitions/TableQuestion/properties/meta/properties/labelTranslationKey"
+                          },
+                          "asRichText": {
+                            "type": "boolean"
+                          }
+                        },
+                        "required": [
+                          "schemaVersion"
+                        ],
+                        "additionalProperties": false
                       },
-                      "pattern": {
-                        "type": "string"
+                      "attributes": {
+                        "type": "object",
+                        "properties": {
+                          "cols": {
+                            "type": "number"
+                          },
+                          "maxLength": {
+                            "type": "number"
+                          },
+                          "minLength": {
+                            "type": "number"
+                          },
+                          "rows": {
+                            "type": "number"
+                          }
+                        },
+                        "additionalProperties": false
                       }
                     },
+                    "required": [
+                      "type",
+                      "meta"
+                    ],
                     "additionalProperties": false
-                  }
-                },
-                "required": [
-                  "type",
-                  "meta"
-                ],
-                "additionalProperties": false
-              },
-              {
-                "type": "object",
-                "properties": {
-                  "type": {
-                    "type": "string",
-                    "const": "typeaheadSearch"
                   },
-                  "meta": {
-                    "$ref": "#/definitions/TableQuestion/properties/meta"
-                  },
-                  "graphQL": {
-                    "$ref": "#/definitions/TableQuestion/properties/columns/items/anyOf/6/properties/graphQL"
-                  }
-                },
-                "required": [
-                  "type",
-                  "meta",
-                  "graphQL"
-                ],
-                "additionalProperties": false
-              },
-              {
-                "type": "object",
-                "properties": {
-                  "type": {
-                    "type": "string",
-                    "const": "url"
-                  },
-                  "meta": {
-                    "$ref": "#/definitions/TableQuestion/properties/meta"
-                  },
-                  "attributes": {
+                  {
                     "type": "object",
                     "properties": {
-                      "maxLength": {
-                        "type": "number"
+                      "type": {
+                        "type": "string",
+                        "const": "text"
                       },
-                      "minLength": {
-                        "type": "number"
+                      "meta": {
+                        "$ref": "#/definitions/TableQuestion/properties/meta"
                       },
-                      "pattern": {
-                        "type": "string"
+                      "attributes": {
+                        "type": "object",
+                        "properties": {
+                          "maxLength": {
+                            "type": "number"
+                          },
+                          "minLength": {
+                            "type": "number"
+                          },
+                          "pattern": {
+                            "type": "string"
+                          }
+                        },
+                        "additionalProperties": false
                       }
                     },
+                    "required": [
+                      "type",
+                      "meta"
+                    ],
+                    "additionalProperties": false
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "type": "string",
+                        "const": "typeaheadSearch"
+                      },
+                      "meta": {
+                        "$ref": "#/definitions/TableQuestion/properties/meta"
+                      },
+                      "graphQL": {
+                        "$ref": "#/definitions/TableQuestion/properties/columns/items/properties/content/anyOf/6/properties/graphQL"
+                      }
+                    },
+                    "required": [
+                      "type",
+                      "meta",
+                      "graphQL"
+                    ],
+                    "additionalProperties": false
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "type": "string",
+                        "const": "url"
+                      },
+                      "meta": {
+                        "$ref": "#/definitions/TableQuestion/properties/meta"
+                      },
+                      "attributes": {
+                        "type": "object",
+                        "properties": {
+                          "maxLength": {
+                            "type": "number"
+                          },
+                          "minLength": {
+                            "type": "number"
+                          },
+                          "pattern": {
+                            "type": "string"
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "required": [
+                      "type",
+                      "meta"
+                    ],
                     "additionalProperties": false
                   }
-                },
-                "required": [
-                  "type",
-                  "meta"
-                ],
-                "additionalProperties": false
+                ]
               }
-            ]
+            },
+            "required": [
+              "content"
+            ],
+            "additionalProperties": false
           }
         },
         "attributes": {
