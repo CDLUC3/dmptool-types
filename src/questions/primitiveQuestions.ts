@@ -96,6 +96,7 @@ export type BooleanQuestionType = z.infer<typeof BooleanQuestionSchema>;
 export type CurrencyQuestionType = z.infer<typeof CurrencyQuestionSchema>;
 export type EmailQuestionType = z.infer<typeof EmailQuestionSchema>;
 export type NumberQuestionType = z.infer<typeof NumberQuestionSchema>;
+export type NumberRangeQuestionType = z.infer<typeof NumberRangeQuestionSchema>;
 export type TextAreaQuestionType = z.infer<typeof TextAreaQuestionSchema>;
 export type TextQuestionType = z.infer<typeof TextQuestionSchema>;
 export type URLQuestionType = z.infer<typeof URLQuestionSchema>;

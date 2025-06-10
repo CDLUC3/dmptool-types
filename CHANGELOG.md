@@ -1,5 +1,9 @@
 # dmptool-types CHANGELOG
 
+## v1.0.8
+
+- Added `NumberRangeQuestionType` and `NumberRangeAnswerType`
+
 ## v1.0.7
 
 - Added the `numberRange` question and answer types
