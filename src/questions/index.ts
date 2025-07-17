@@ -62,5 +62,25 @@ export const QuestionSchemaMap: Record<z.infer<typeof QuestionTypesEnum>, z.ZodT
   url: URLQuestionSchema
 };
 
+export interface QuestionTypeMap {
+  boolean: z.infer<typeof BooleanQuestionSchema>,
+  checkBoxes: z.infer<typeof CheckboxesQuestionSchema>,
+  currency: z.infer<typeof CurrencyQuestionSchema>,
+  date: z.infer<typeof DateQuestionSchema>,
+  dateRange: z.infer<typeof DateRangeQuestionSchema>,
+  email: z.infer<typeof EmailQuestionSchema>,
+  filteredSearch: z.infer<typeof FilteredSearchQuestionSchema>,
+  number: z.infer<typeof NumberQuestionSchema>,
+  numberRange: z.infer<typeof NumberRangeQuestionSchema>,
+  radioButtons: z.infer<typeof RadioButtonsQuestionSchema>,
+  selectBox: z.infer<typeof SelectBoxQuestionSchema>,
+  table: z.infer<typeof TableQuestionSchema>,
+  text: z.infer<typeof TextQuestionSchema>,
+  textArea: z.infer<typeof TextAreaQuestionSchema>,
+  typeaheadSearch: z.infer<typeof TypeaheadSearchQuestionSchema>,
+  url: z.infer<typeof URLQuestionSchema>
+};
+
 // This will ensure that object validations are against the Zod schemas defined above
 export type AnyQuestionType = z.infer<typeof AnyQuestionSchema>;
+

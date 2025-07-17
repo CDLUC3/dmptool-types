@@ -8,4 +8,5 @@ dist
 # Ignore the dependency directory
 node_modules
 
-
+# Ignore WebStorm IDE file
+.idea
