@@ -2,16 +2,8 @@ import { describe, it, expect } from "@jest/globals";
 import { DateAnswerSchema, DateRangeAnswerSchema } from '../dateAnswers';
 import { FilteredSearchAnswerSchema, TypeaheadSearchAnswerSchema } from '../graphQLAnswers';
 import { CheckboxesAnswerSchema, RadioButtonsAnswerSchema, SelectBoxAnswerSchema } from '../optionBasedAnswers';
-import {
-  BooleanAnswerSchema,
-  CurrencyAnswerSchema,
-  EmailAnswerSchema,
-  NumberAnswerSchema,
-  NumberRangeAnswerSchema,
-  TextAnswerSchema,
-  TextAreaAnswerSchema,
-  URLAnswerSchema
-} from '../primitiveAnswers';
+import { BooleanAnswerSchema, CurrencyAnswerSchema, NumberAnswerSchema, NumberRangeAnswerSchema,} from '../numberAnswers';
+import { EmailAnswerSchema, TextAnswerSchema, TextAreaAnswerSchema, URLAnswerSchema } from '../textAnswers';
 import { TableAnswerSchema } from '../tableAnswers';
 import { AnyAnswerSchema } from "..";
 import { CURRENT_SCHEMA_VERSION } from "../../questions";

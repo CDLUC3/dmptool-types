@@ -1,13 +1,6 @@
 import { z } from "zod";
-import {
-  BooleanQuestionSchema,
-  CurrencyQuestionSchema,
-  EmailQuestionSchema,
-  NumberQuestionSchema,
-  TextAreaQuestionSchema,
-  TextQuestionSchema,
-  URLQuestionSchema,
-} from "./primitiveQuestions";
+import { BooleanQuestionSchema, CurrencyQuestionSchema, NumberQuestionSchema } from "./numberQuestions";
+import { EmailQuestionSchema, TextQuestionSchema, TextAreaQuestionSchema, URLQuestionSchema } from "./textQuestions";
 import { DateQuestionSchema, DateRangeQuestionSchema } from "./dateQuestions";
 import { CheckboxesQuestionSchema, RadioButtonsQuestionSchema, SelectBoxQuestionSchema } from './optionBasedQuestions';
 import { FilteredSearchQuestionSchema, TypeaheadSearchQuestionSchema } from './graphQLQuestions';

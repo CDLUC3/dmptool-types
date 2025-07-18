@@ -1,35 +1,70 @@
 import fs from 'fs';
 import { zodToJsonSchema } from 'zod-to-json-schema';
-import { DateQuestionSchema, DateRangeQuestionSchema } from "../src/questions/dateQuestions";
-import { CheckboxesQuestionSchema, RadioButtonsQuestionSchema, SelectBoxQuestionSchema } from '../src/questions/optionBasedQuestions'
-import { FilteredSearchQuestionSchema, TypeaheadSearchQuestionSchema } from '../src/questions/graphQLQuestions'
-import { AnyTableColumnQuestionSchema, TableQuestionSchema } from '../src/questions/tableQuestions'
+
+// Question imports
 import { AnyQuestionSchema } from '../src/questions/index';
+import {
+  DateQuestionSchema,
+  DateRangeQuestionSchema
+} from "../src/questions/dateQuestions";
+import {
+  CheckboxesQuestionSchema,
+  RadioButtonsQuestionSchema,
+  SelectBoxQuestionSchema
+} from '../src/questions/optionBasedQuestions'
+import {
+  FilteredSearchQuestionSchema,
+  TypeaheadSearchQuestionSchema
+} from '../src/questions/graphQLQuestions'
+import {
+  AnyTableColumnQuestionSchema,
+  TableQuestionSchema
+} from '../src/questions/tableQuestions'
 import {
   BooleanQuestionSchema,
   CurrencyQuestionSchema,
-  EmailQuestionSchema,
   NumberQuestionSchema,
-  NumberRangeQuestionSchema,
+  NumberRangeQuestionSchema
+} from "../src/questions/numberQuestions";
+import {
+  EmailQuestionSchema,
   TextAreaQuestionSchema,
   TextQuestionSchema,
   URLQuestionSchema
-} from "../src/questions/primitiveQuestions";
-import { DateAnswerSchema, DateRangeAnswerSchema } from '../src/answers/dateAnswers';
+} from "../src/textQuestions";
+
+// Answer imports
 import { AnyAnswerSchema } from '../src/answers/index';
-import { FilteredSearchAnswerSchema, TypeaheadSearchAnswerSchema } from '../src/answers/graphQLAnswers';
-import { CheckboxesAnswerSchema, RadioButtonsAnswerSchema, SelectBoxAnswerSchema } from '../src/answers/optionBasedAnswers';
-import { AnyTableColumnAnswerSchema, TableAnswerSchema } from '../src/answers/tableAnswers';
+import {
+  DateAnswerSchema,
+  DateRangeAnswerSchema
+} from '../src/answers/dateAnswers';
+
+import {
+  FilteredSearchAnswerSchema,
+  TypeaheadSearchAnswerSchema
+} from '../src/answers/graphQLAnswers';
+import {
+  CheckboxesAnswerSchema,
+  RadioButtonsAnswerSchema,
+  SelectBoxAnswerSchema
+} from '../src/answers/optionBasedAnswers';
+import {
+  AnyTableColumnAnswerSchema,
+  TableAnswerSchema
+} from '../src/answers/tableAnswers';
 import {
   BooleanAnswerSchema,
   CurrencyAnswerSchema,
-  EmailAnswerSchema,
   NumberAnswerSchema,
+  NumberRangeAnswerSchema
+} from '../src/answers/numberAnswers';
+import {
+  EmailAnswerSchema,
   TextAreaAnswerSchema,
   TextAnswerSchema,
-  URLAnswerSchema,
-  NumberRangeAnswerSchema,
-} from '../src/answers/primitiveAnswers';
+  URLAnswerSchema
+} from '../src/answers/textAnswers';
 
 // Convert the Zod schemas to JSON schemas and then write them to the /schemas folder
 const AnyQuestionOutput = zodToJsonSchema(AnyQuestionSchema, 'AnyQuestion');

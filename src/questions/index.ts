@@ -1,29 +1,44 @@
 import { z } from 'zod';
-import {
-  BooleanQuestionSchema,
-  CurrencyQuestionSchema,
-  EmailQuestionSchema,
-  NumberQuestionSchema,
-  NumberRangeQuestionSchema,
-  TextAreaQuestionSchema,
-  TextQuestionSchema,
-  URLQuestionSchema,
-} from "./primitiveQuestions";
-import { DateQuestionSchema, DateRangeQuestionSchema } from "./dateQuestions";
-import { CheckboxesQuestionSchema, RadioButtonsQuestionSchema, SelectBoxQuestionSchema } from './optionBasedQuestions';
-import { FilteredSearchQuestionSchema, TypeaheadSearchQuestionSchema } from './graphQLQuestions';
-import { TableQuestionSchema } from './tableQuestions';
 import { QuestionTypesEnum } from './question';
+import {
+  BooleanQuestionSchema, BooleanQuestionType,
+  CurrencyQuestionSchema, CurrencyQuestionType,
+  NumberQuestionSchema, NumberQuestionType,
+  NumberRangeQuestionSchema, NumberRangeQuestionType,
+} from "./numberQuestions";
+import {
+  EmailQuestionSchema, EmailQuestionType,
+  TextAreaQuestionSchema, TextAreaQuestionType,
+  TextQuestionSchema, TextQuestionType,
+  URLQuestionSchema, URLQuestionType
+} from "./textQuestions";
+import {
+  DateQuestionSchema, DateQuestionType,
+  DateRangeQuestionSchema, DateRangeQuestionType
+} from "./dateQuestions";
+import {
+  CheckboxesQuestionSchema, CheckboxesQuestionType,
+  RadioButtonsQuestionSchema, RadioButtonsQuestionType,
+  SelectBoxQuestionSchema, SelectBoxQuestionType
+} from './optionBasedQuestions';
+import {
+  FilteredSearchQuestionSchema, FilteredSearchQuestionType,
+  TypeaheadSearchQuestionSchema, TypeaheadSearchQuestionType
+} from './graphQLQuestions';
+import {
+  TableQuestionSchema, TableQuestionType
+} from './tableQuestions';
 
 // Export all the questions
 export * from './question';
 export * from './dateQuestions';
 export * from './graphQLQuestions';
+export * from './numberQuestions';
 export * from './optionBasedQuestions';
-export * from './primitiveQuestions';
 export * from './tableQuestions';
+export * from './textQuestions';
 
-// All of the possible questions
+
 export const AnyQuestionSchema = z.discriminatedUnion('type', [
   BooleanQuestionSchema,
   CheckboxesQuestionSchema,
@@ -42,7 +57,7 @@ export const AnyQuestionSchema = z.discriminatedUnion('type', [
   URLQuestionSchema
 ]);
 
-// Export a mapping between question types and their corresponding question schemas
+// Export a mapping between Zod Schemas and their corresponding question type label
 export const QuestionSchemaMap: Record<z.infer<typeof QuestionTypesEnum>, z.ZodTypeAny> = {
   boolean: BooleanQuestionSchema,
   checkBoxes: CheckboxesQuestionSchema,
@@ -62,23 +77,24 @@ export const QuestionSchemaMap: Record<z.infer<typeof QuestionTypesEnum>, z.ZodT
   url: URLQuestionSchema
 };
 
+// Export a mapping between Types and their corresponding question type label
 export interface QuestionTypeMap {
-  boolean: z.infer<typeof BooleanQuestionSchema>,
-  checkBoxes: z.infer<typeof CheckboxesQuestionSchema>,
-  currency: z.infer<typeof CurrencyQuestionSchema>,
-  date: z.infer<typeof DateQuestionSchema>,
-  dateRange: z.infer<typeof DateRangeQuestionSchema>,
-  email: z.infer<typeof EmailQuestionSchema>,
-  filteredSearch: z.infer<typeof FilteredSearchQuestionSchema>,
-  number: z.infer<typeof NumberQuestionSchema>,
-  numberRange: z.infer<typeof NumberRangeQuestionSchema>,
-  radioButtons: z.infer<typeof RadioButtonsQuestionSchema>,
-  selectBox: z.infer<typeof SelectBoxQuestionSchema>,
-  table: z.infer<typeof TableQuestionSchema>,
-  text: z.infer<typeof TextQuestionSchema>,
-  textArea: z.infer<typeof TextAreaQuestionSchema>,
-  typeaheadSearch: z.infer<typeof TypeaheadSearchQuestionSchema>,
-  url: z.infer<typeof URLQuestionSchema>
+  boolean: BooleanQuestionType,
+  checkBoxes: CheckboxesQuestionType,
+  currency: CurrencyQuestionType,
+  date: DateQuestionType,
+  dateRange: DateRangeQuestionType,
+  email: EmailQuestionType,
+  filteredSearch: FilteredSearchQuestionType,
+  number: NumberQuestionType,
+  numberRange: NumberRangeQuestionType,
+  radioButtons: RadioButtonsQuestionType,
+  selectBox: SelectBoxQuestionType,
+  table: TableQuestionType,
+  text: TextQuestionType,
+  textArea: TextAreaQuestionType,
+  typeaheadSearch: TypeaheadSearchQuestionType,
+  url: URLQuestionType
 };
 
 // This will ensure that object validations are against the Zod schemas defined above
