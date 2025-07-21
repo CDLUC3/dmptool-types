@@ -8,15 +8,30 @@
           "type": "string",
           "const": "selectBox"
         },
+        "attributes": {
+          "type": "object",
+          "properties": {
+            "label": {
+              "type": "string"
+            },
+            "help": {
+              "type": "string"
+            },
+            "labelTranslationKey": {
+              "type": "string"
+            },
+            "multiple": {
+              "type": "boolean"
+            }
+          },
+          "additionalProperties": false
+        },
         "meta": {
           "type": "object",
           "properties": {
             "schemaVersion": {
               "type": "string",
               "const": "1.0"
-            },
-            "labelTranslationKey": {
-              "type": "string"
             }
           },
           "required": [
@@ -29,50 +44,26 @@
           "items": {
             "type": "object",
             "properties": {
-              "type": {
-                "type": "string",
-                "const": "option"
+              "label": {
+                "type": "string"
               },
-              "attributes": {
-                "type": "object",
-                "properties": {
-                  "label": {
-                    "type": "string"
-                  },
-                  "value": {
-                    "type": "string"
-                  },
-                  "selected": {
-                    "type": "boolean"
-                  }
-                },
-                "required": [
-                  "label",
-                  "value"
-                ],
-                "additionalProperties": false
+              "value": {
+                "type": "string"
+              },
+              "selected": {
+                "type": "boolean"
               }
             },
             "required": [
-              "type",
-              "attributes"
+              "label",
+              "value"
             ],
             "additionalProperties": false
           }
-        },
-        "attributes": {
-          "type": "object",
-          "properties": {
-            "multiple": {
-              "type": "boolean"
-            }
-          },
-          "additionalProperties": false
         }
       },
       "required": [
         "type",
-        "meta",
         "options"
       ],
       "additionalProperties": false

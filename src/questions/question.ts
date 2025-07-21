@@ -37,7 +37,7 @@ const DefaultAttributesSchema = z.object({
 export const QuestionSchema = z.object({
   type: QuestionTypesEnum,                                // The type of question
   attributes: DefaultAttributesSchema.optional(),         // Field attributes
-  meta: DefaultMetaSchema,                                // Meta information for the field
+  meta: DefaultMetaSchema.optional(),                     // Meta information for the field
 });
 
 // This will ensure that object validations are against the Zod schemas defined above

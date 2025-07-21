@@ -4,7 +4,7 @@ import { QuestionSchema } from "./question";
 const BaseMeta = QuestionSchema.shape.meta;
 const BaseAttributes = QuestionSchema.shape.attributes;
 
-const TextAttributesSchema = BaseAttributes.merge(z.object({
+const TextAttributesSchema = BaseAttributes.unwrap().merge(z.object({
   maxLength: z.number().optional(),                       // The maximum length of the text (no default)
   minLength: z.number().optional(),                       // The minimum length of the text (no default)
   pattern: z.string().optional()                          // The regex pattern to match (no default)
@@ -21,13 +21,13 @@ export const EmailQuestionSchema = QuestionSchema.merge(z.object({
 // Text area question and answer
 export const TextAreaQuestionSchema = QuestionSchema.merge(z.object({
   type: z.literal('textArea'),                              // The type of question
-  attributes: BaseAttributes.merge(z.object({
+  attributes: BaseAttributes.unwrap().merge(z.object({
     cols: z.number().optional(),                            // The number of columns (default is 20)
     maxLength: z.number().optional(),                       // The maximum length of the text (no default)
     minLength: z.number().optional(),                       // The minimum length of the text (no default)
     rows: z.number().optional()                             // The number of rows (default is 2)
   })).optional(),
-  meta: BaseMeta.extend({
+  meta: BaseMeta.unwrap().extend({
     asRichText: z.boolean().optional()                      // Whether to use rich text (default is false)
   })
 }));

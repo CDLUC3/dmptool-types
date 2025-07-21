@@ -18,6 +18,8 @@ describe("FilteredSearchQuestion schema", () => {
         ],
       },
       attributes: {
+        label: "Search",
+        help: "Search for a user",
         multiple: true,
       },
       meta: {
@@ -56,6 +58,10 @@ describe("TypeaheadSearchQuestion schema", () => {
   it("should validate a correct TypeaheadSearchQuestion object", () => {
     const validData = {
       type: "typeaheadSearch",
+      attributes: {
+        label: "Search",
+        help: "Search for a user",
+      },
       graphQL: {
         displayFields: [
           { propertyName: "title", label: "Title" },

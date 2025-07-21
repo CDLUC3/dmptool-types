@@ -8,25 +8,18 @@
           "type": "string",
           "const": "number"
         },
-        "meta": {
-          "type": "object",
-          "properties": {
-            "schemaVersion": {
-              "type": "string",
-              "const": "1.0"
-            },
-            "labelTranslationKey": {
-              "type": "string"
-            }
-          },
-          "required": [
-            "schemaVersion"
-          ],
-          "additionalProperties": false
-        },
         "attributes": {
           "type": "object",
           "properties": {
+            "label": {
+              "type": "string"
+            },
+            "help": {
+              "type": "string"
+            },
+            "labelTranslationKey": {
+              "type": "string"
+            },
             "max": {
               "type": "number"
             },
@@ -38,11 +31,23 @@
             }
           },
           "additionalProperties": false
+        },
+        "meta": {
+          "type": "object",
+          "properties": {
+            "schemaVersion": {
+              "type": "string",
+              "const": "1.0"
+            }
+          },
+          "required": [
+            "schemaVersion"
+          ],
+          "additionalProperties": false
         }
       },
       "required": [
-        "type",
-        "meta"
+        "type"
       ],
       "additionalProperties": false
     }

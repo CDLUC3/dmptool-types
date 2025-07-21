@@ -1,6 +1,8 @@
 import { z } from "zod";
 import { QuestionSchema } from "./question";
 
+const BaseAttributes = QuestionSchema.shape.attributes;
+
 // An input variable for a GraphQL query
 const GraphQLVariable = z.object({
   minLength: z.number().optional(),                         // A min length for the variable before executing the query
@@ -32,9 +34,9 @@ const GraphQLQuery = z.object({
 export const FilteredSearchQuestionSchema = QuestionSchema.merge(z.object({
   type: z.literal('filteredSearch'),                        // The type of question
   graphQL: GraphQLQuery,                                    // The GraphQL query options for the filtered search
-  attributes: z.object({
+  attributes: BaseAttributes.unwrap().merge(z.object({
     multiple: z.boolean().optional()                        // Whether to allow multiple selections (default is true)
-  }).optional()
+  })).optional()
 }));
 
 // Typeahead search question and answer

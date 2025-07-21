@@ -12,21 +12,19 @@ describe("CheckboxesQuestion", () => {
   it("should validate a valid CheckboxesQuestion object", () => {
     const validCheckboxesQuestion: CheckboxesQuestionType = {
       type: "checkBoxes",
+      attributes: {
+        label: "Fruits",
+        help: "Select all fruits you like",
+      },
       options: [
         {
-          type: "option",
-          attributes: {
-            label: "Apple",
-            value: "apple",
-            checked: true,
-          },
+          label: "Apple",
+          value: "apple",
+          checked: true,
         },
         {
-          type: "option",
-          attributes: {
-            label: "Banana",
-            value: "banana",
-          },
+          label: "Banana",
+          value: "banana",
         },
       ],
       meta: {
@@ -40,14 +38,15 @@ describe("CheckboxesQuestion", () => {
   it("should throw an error for an invalid CheckboxesQuestion object", () => {
     const invalidCheckboxesQuestion = {
       type: "checkBoxes",
+      attributes: {
+        label: "Has an apple?",
+        help: "Whether or not you have an apple in your fridge.",
+      },
       options: [
         {
-          type: "option",
-          attributes: {
-            label: "Apple",
-            value: "apple",
-            checked: "true", // Invalid type for checked
-          },
+          label: "Apple",
+          value: "apple",
+          checked: "true", // Invalid type for checked
         },
       ],
       meta: {
@@ -63,21 +62,19 @@ describe("RadioButtonsQuestion", () => {
   it("should validate a valid RadioButtonsQuestion object", () => {
     const validRadioButtonsQuestion: RadioButtonsQuestionType = {
       type: "radioButtons",
+      attributes: {
+        label: "Fruits",
+        help: "Select all fruits you like",
+      },
       options: [
         {
-          type: "option",
-          attributes: {
-            label: "Male",
-            value: "male",
-            selected: true,
-          },
+          label: "Male",
+          value: "male",
+          selected: true,
         },
         {
-          type: "option",
-          attributes: {
-            label: "Female",
-            value: "female",
-          },
+          label: "Female",
+          value: "female",
         },
       ],
       meta: {
@@ -93,12 +90,9 @@ describe("RadioButtonsQuestion", () => {
       type: "radioButtons",
       options: [
         {
-          type: "option",
-          attributes: {
-            label: "Male",
-            value: "male",
-            selected: "true", // Invalid type for selected
-          },
+          label: "Male",
+          value: "male",
+          selected: "true", // Invalid type for selected
         },
       ],
       meta: {
@@ -114,26 +108,22 @@ describe("SelectBoxQuestion", () => {
   it("should validate a valid SelectBoxQuestion object", () => {
     const validSelectBoxQuestion: SelectBoxQuestionType = {
       type: "selectBox",
-      options: [
-        {
-          type: "option",
-          attributes: {
-            label: "USA",
-            value: "usa",
-            selected: true,
-          },
-        },
-        {
-          type: "option",
-          attributes: {
-            label: "Canada",
-            value: "canada",
-          },
-        },
-      ],
       attributes: {
+        label: "Fruits",
+        help: "Select all fruits you like",
         multiple: true,
       },
+      options: [
+        {
+          label: "USA",
+          value: "us",
+          selected: true,
+        },
+        {
+          label: "Canada",
+          value: "ca",
+        },
+      ],
       meta: {
         schemaVersion: "1.0"
       }
@@ -148,12 +138,9 @@ describe("SelectBoxQuestion", () => {
       questionText: "Select your country",
       options: [
         {
-          type: "option",
-          attributes: {
-            label: "USA",
-            value: "usa",
-            selected: "true", // Invalid type for selected
-          },
+          label: "USA",
+          value: "us",
+          selected: "true", // Invalid type for selected
         },
       ],
       attributes: {

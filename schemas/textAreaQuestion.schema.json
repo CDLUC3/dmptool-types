@@ -8,28 +8,18 @@
           "type": "string",
           "const": "textArea"
         },
-        "meta": {
+        "attributes": {
           "type": "object",
           "properties": {
-            "schemaVersion": {
-              "type": "string",
-              "const": "1.0"
+            "label": {
+              "type": "string"
+            },
+            "help": {
+              "type": "string"
             },
             "labelTranslationKey": {
               "type": "string"
             },
-            "asRichText": {
-              "type": "boolean"
-            }
-          },
-          "required": [
-            "schemaVersion"
-          ],
-          "additionalProperties": false
-        },
-        "attributes": {
-          "type": "object",
-          "properties": {
             "cols": {
               "type": "number"
             },
@@ -43,6 +33,22 @@
               "type": "number"
             }
           },
+          "additionalProperties": false
+        },
+        "meta": {
+          "type": "object",
+          "properties": {
+            "schemaVersion": {
+              "type": "string",
+              "const": "1.0"
+            },
+            "asRichText": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "schemaVersion"
+          ],
           "additionalProperties": false
         }
       },

@@ -31,7 +31,7 @@ import {
   TextAreaQuestionSchema,
   TextQuestionSchema,
   URLQuestionSchema
-} from "../src/textQuestions";
+} from "../src/questions/textQuestions";
 
 // Answer imports
 import { AnyAnswerSchema } from '../src/answers/index';

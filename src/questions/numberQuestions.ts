@@ -1,42 +1,38 @@
-import { z } from "zod/index";
-import { QuestionSchema} from "./question";
+import { z } from "zod";
+import { QuestionSchema } from "./question";
 
 const BaseAttributes = QuestionSchema.shape.attributes;
 
-const NumberAttributesSchema = BaseAttributes.merge(z.object({
-  max: z.number().optional(),
-  min: z.number().optional(),
-  step: z.number().optional(),
-}));
+const NumberAttributesSchema = BaseAttributes.unwrap().merge(z.object({
+  max: z.number().optional(),                          // The highest value allowed (default no max)
+  min: z.number().optional(),                               // The lowest amount allowed (default 0)
+  step: z.number().optional()    // The amount to increment. To allow decimals, use 0.01 (default 1)
+}))
 
-// A Yes/No True/False question and answer
 export const BooleanQuestionSchema = QuestionSchema.merge(z.object({
-  type: z.literal('boolean'),                               // The type of question
-  attributes: BaseAttributes.merge(z.object({
-    checked: z.boolean().optional(),                        // If it is checked by default when rendered (default is false)
-  })),
+    type: z.literal('boolean'),
+    attributes: BaseAttributes.unwrap().merge(z.object({
+      checked: z.boolean().optional(),                      // Whether it is checked by default
+    })).optional(),
 }));
 
-// A number question and answer
-export const NumberQuestionSchema = QuestionSchema.merge(z.object({
-  type: z.literal('number'),                                // The type of question
-  attributes: NumberAttributesSchema.optional(),
-}));
-
-// Currency question and answer
 export const CurrencyQuestionSchema = QuestionSchema.merge(z.object({
-  type: z.literal('currency'),
-  attributes: BaseAttributes.merge(z.object({// The type of question
-    denomination: z.string().optional()                     // The currency denomination (default is USD)
-  })),
+    type: z.literal('currency'),
+    attributes: NumberAttributesSchema.merge(z.object({
+      denomination: z.string().optional(),                  // The currency type (default is "USD")
+    })).optional(),
 }));
 
-// A range of numbers question and answer
+export const NumberQuestionSchema = QuestionSchema.merge(z.object({
+    type: z.literal('number'),
+    attributes: NumberAttributesSchema.optional(),
+}));
+
 export const NumberRangeQuestionSchema = QuestionSchema.merge(z.object({
-  type: z.literal('numberRange'),                           // The type of question
+  type: z.literal('numberRange'),
   columns: z.object({
-    start: NumberQuestionSchema,
-    end: NumberQuestionSchema,
+    start: NumberAttributesSchema.optional(),
+    end: NumberAttributesSchema.optional()
   })
 }));
 

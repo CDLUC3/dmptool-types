@@ -13,6 +13,8 @@ describe("Primitive Questions Zod Schemas", () => {
         schemaVersion: "1.0",
       },
       attributes: {
+        label: "Email",
+        help: "Enter your email address",
         maxLength: 50,
         minLength: 5,
         multiple: true,
@@ -43,6 +45,8 @@ describe("Primitive Questions Zod Schemas", () => {
         asRichText: true,
       },
       attributes: {
+        label: "Description",
+        help: "Enter a description of your project",
         cols: 30,
         rows: 5,
         maxLength: 500,
@@ -72,6 +76,8 @@ describe("Primitive Questions Zod Schemas", () => {
         schemaVersion: "1.0",
       },
       attributes: {
+        label: "Name",
+        help: "Enter your name",
         maxLength: 100,
         minLength: 1,
         pattern: "^[a-zA-Z]+$",
@@ -100,6 +106,8 @@ describe("Primitive Questions Zod Schemas", () => {
         schemaVersion: "1.0",
       },
       attributes: {
+        label: "URL",
+        help: "Enter a URL",
         maxLength: 200,
         minLength: 10,
         pattern: "https?://.+",

@@ -10,35 +10,40 @@
               "type": "string",
               "const": "boolean"
             },
+            "attributes": {
+              "type": "object",
+              "properties": {
+                "label": {
+                  "type": "string"
+                },
+                "help": {
+                  "type": "string"
+                },
+                "labelTranslationKey": {
+                  "type": "string"
+                },
+                "checked": {
+                  "type": "boolean"
+                }
+              },
+              "additionalProperties": false
+            },
             "meta": {
               "type": "object",
               "properties": {
                 "schemaVersion": {
                   "type": "string",
                   "const": "1.0"
-                },
-                "labelTranslationKey": {
-                  "type": "string"
                 }
               },
               "required": [
                 "schemaVersion"
               ],
               "additionalProperties": false
-            },
-            "attributes": {
-              "type": "object",
-              "properties": {
-                "checked": {
-                  "type": "boolean"
-                }
-              },
-              "additionalProperties": false
             }
           },
           "required": [
-            "type",
-            "meta"
+            "type"
           ],
           "additionalProperties": false
         },
@@ -49,6 +54,21 @@
               "type": "string",
               "const": "checkBoxes"
             },
+            "attributes": {
+              "type": "object",
+              "properties": {
+                "label": {
+                  "$ref": "#/definitions/AnyTableColumnQuestion/anyOf/0/properties/attributes/properties/label"
+                },
+                "help": {
+                  "$ref": "#/definitions/AnyTableColumnQuestion/anyOf/0/properties/attributes/properties/help"
+                },
+                "labelTranslationKey": {
+                  "$ref": "#/definitions/AnyTableColumnQuestion/anyOf/0/properties/attributes/properties/labelTranslationKey"
+                }
+              },
+              "additionalProperties": false
+            },
             "meta": {
               "$ref": "#/definitions/AnyTableColumnQuestion/anyOf/0/properties/meta"
             },
@@ -57,33 +77,19 @@
               "items": {
                 "type": "object",
                 "properties": {
-                  "type": {
-                    "type": "string",
-                    "const": "option"
+                  "label": {
+                    "type": "string"
                   },
-                  "attributes": {
-                    "type": "object",
-                    "properties": {
-                      "label": {
-                        "type": "string"
-                      },
-                      "value": {
-                        "type": "string"
-                      },
-                      "checked": {
-                        "type": "boolean"
-                      }
-                    },
-                    "required": [
-                      "label",
-                      "value"
-                    ],
-                    "additionalProperties": false
+                  "value": {
+                    "type": "string"
+                  },
+                  "checked": {
+                    "type": "boolean"
                   }
                 },
                 "required": [
-                  "type",
-                  "attributes"
+                  "label",
+                  "value"
                 ],
                 "additionalProperties": false
               }
@@ -91,7 +97,6 @@
           },
           "required": [
             "type",
-            "meta",
             "options"
           ],
           "additionalProperties": false
@@ -103,27 +108,18 @@
               "type": "string",
               "const": "currency"
             },
-            "meta": {
-              "type": "object",
-              "properties": {
-                "schemaVersion": {
-                  "$ref": "#/definitions/AnyTableColumnQuestion/anyOf/0/properties/meta/properties/schemaVersion"
-                },
-                "labelTranslationKey": {
-                  "$ref": "#/definitions/AnyTableColumnQuestion/anyOf/0/properties/meta/properties/labelTranslationKey"
-                },
-                "denomination": {
-                  "type": "string"
-                }
-              },
-              "required": [
-                "schemaVersion"
-              ],
-              "additionalProperties": false
-            },
             "attributes": {
               "type": "object",
               "properties": {
+                "label": {
+                  "$ref": "#/definitions/AnyTableColumnQuestion/anyOf/0/properties/attributes/properties/label"
+                },
+                "help": {
+                  "$ref": "#/definitions/AnyTableColumnQuestion/anyOf/0/properties/attributes/properties/help"
+                },
+                "labelTranslationKey": {
+                  "$ref": "#/definitions/AnyTableColumnQuestion/anyOf/0/properties/attributes/properties/labelTranslationKey"
+                },
                 "max": {
                   "type": "number"
                 },
@@ -132,14 +128,19 @@
                 },
                 "step": {
                   "type": "number"
+                },
+                "denomination": {
+                  "type": "string"
                 }
               },
               "additionalProperties": false
+            },
+            "meta": {
+              "$ref": "#/definitions/AnyTableColumnQuestion/anyOf/0/properties/meta"
             }
           },
           "required": [
-            "type",
-            "meta"
+            "type"
           ],
           "additionalProperties": false
         },
@@ -150,12 +151,18 @@
               "type": "string",
               "const": "date"
             },
-            "meta": {
-              "$ref": "#/definitions/AnyTableColumnQuestion/anyOf/0/properties/meta"
-            },
             "attributes": {
               "type": "object",
               "properties": {
+                "label": {
+                  "$ref": "#/definitions/AnyTableColumnQuestion/anyOf/0/properties/attributes/properties/label"
+                },
+                "help": {
+                  "$ref": "#/definitions/AnyTableColumnQuestion/anyOf/0/properties/attributes/properties/help"
+                },
+                "labelTranslationKey": {
+                  "$ref": "#/definitions/AnyTableColumnQuestion/anyOf/0/properties/attributes/properties/labelTranslationKey"
+                },
                 "max": {
                   "type": "string"
                 },
@@ -167,11 +174,13 @@
                 }
               },
               "additionalProperties": false
+            },
+            "meta": {
+              "$ref": "#/definitions/AnyTableColumnQuestion/anyOf/0/properties/meta"
             }
           },
           "required": [
-            "type",
-            "meta"
+            "type"
           ],
           "additionalProperties": false
         },
@@ -182,6 +191,9 @@
               "type": "string",
               "const": "dateRange"
             },
+            "attributes": {
+              "$ref": "#/definitions/AnyTableColumnQuestion/anyOf/1/properties/attributes"
+            },
             "meta": {
               "$ref": "#/definitions/AnyTableColumnQuestion/anyOf/0/properties/meta"
             },
@@ -189,74 +201,17 @@
               "type": "object",
               "properties": {
                 "start": {
-                  "type": "object",
-                  "properties": {
-                    "type": {
-                      "$ref": "#/definitions/AnyTableColumnQuestion/anyOf/3/properties/type"
-                    },
-                    "meta": {
-                      "$ref": "#/definitions/AnyTableColumnQuestion/anyOf/0/properties/meta"
-                    },
-                    "attributes": {
-                      "type": "object",
-                      "properties": {
-                        "label": {
-                          "type": "string"
-                        }
-                      },
-                      "required": [
-                        "label"
-                      ],
-                      "additionalProperties": false
-                    }
-                  },
-                  "required": [
-                    "type",
-                    "meta",
-                    "attributes"
-                  ],
-                  "additionalProperties": false
+                  "$ref": "#/definitions/AnyTableColumnQuestion/anyOf/3/properties/attributes"
                 },
                 "end": {
-                  "type": "object",
-                  "properties": {
-                    "type": {
-                      "$ref": "#/definitions/AnyTableColumnQuestion/anyOf/3/properties/type"
-                    },
-                    "meta": {
-                      "$ref": "#/definitions/AnyTableColumnQuestion/anyOf/0/properties/meta"
-                    },
-                    "attributes": {
-                      "type": "object",
-                      "properties": {
-                        "label": {
-                          "type": "string"
-                        }
-                      },
-                      "required": [
-                        "label"
-                      ],
-                      "additionalProperties": false
-                    }
-                  },
-                  "required": [
-                    "type",
-                    "meta",
-                    "attributes"
-                  ],
-                  "additionalProperties": false
+                  "$ref": "#/definitions/AnyTableColumnQuestion/anyOf/3/properties/attributes"
                 }
               },
-              "required": [
-                "start",
-                "end"
-              ],
               "additionalProperties": false
             }
           },
           "required": [
             "type",
-            "meta",
             "columns"
           ],
           "additionalProperties": false
@@ -268,31 +223,39 @@
               "type": "string",
               "const": "email"
             },
-            "meta": {
-              "$ref": "#/definitions/AnyTableColumnQuestion/anyOf/0/properties/meta"
-            },
             "attributes": {
               "type": "object",
               "properties": {
+                "label": {
+                  "$ref": "#/definitions/AnyTableColumnQuestion/anyOf/0/properties/attributes/properties/label"
+                },
+                "help": {
+                  "$ref": "#/definitions/AnyTableColumnQuestion/anyOf/0/properties/attributes/properties/help"
+                },
+                "labelTranslationKey": {
+                  "$ref": "#/definitions/AnyTableColumnQuestion/anyOf/0/properties/attributes/properties/labelTranslationKey"
+                },
                 "maxLength": {
                   "type": "number"
                 },
                 "minLength": {
                   "type": "number"
                 },
-                "multiple": {
-                  "type": "boolean"
-                },
                 "pattern": {
                   "type": "string"
+                },
+                "multiple": {
+                  "type": "boolean"
                 }
               },
               "additionalProperties": false
+            },
+            "meta": {
+              "$ref": "#/definitions/AnyTableColumnQuestion/anyOf/0/properties/meta"
             }
           },
           "required": [
-            "type",
-            "meta"
+            "type"
           ],
           "additionalProperties": false
         },
@@ -302,6 +265,24 @@
             "type": {
               "type": "string",
               "const": "filteredSearch"
+            },
+            "attributes": {
+              "type": "object",
+              "properties": {
+                "label": {
+                  "$ref": "#/definitions/AnyTableColumnQuestion/anyOf/0/properties/attributes/properties/label"
+                },
+                "help": {
+                  "$ref": "#/definitions/AnyTableColumnQuestion/anyOf/0/properties/attributes/properties/help"
+                },
+                "labelTranslationKey": {
+                  "$ref": "#/definitions/AnyTableColumnQuestion/anyOf/0/properties/attributes/properties/labelTranslationKey"
+                },
+                "multiple": {
+                  "type": "boolean"
+                }
+              },
+              "additionalProperties": false
             },
             "meta": {
               "$ref": "#/definitions/AnyTableColumnQuestion/anyOf/0/properties/meta"
@@ -377,20 +358,10 @@
                 "responseField"
               ],
               "additionalProperties": false
-            },
-            "attributes": {
-              "type": "object",
-              "properties": {
-                "multiple": {
-                  "type": "boolean"
-                }
-              },
-              "additionalProperties": false
             }
           },
           "required": [
             "type",
-            "meta",
             "graphQL"
           ],
           "additionalProperties": false
@@ -402,16 +373,36 @@
               "type": "string",
               "const": "number"
             },
+            "attributes": {
+              "type": "object",
+              "properties": {
+                "label": {
+                  "$ref": "#/definitions/AnyTableColumnQuestion/anyOf/0/properties/attributes/properties/label"
+                },
+                "help": {
+                  "$ref": "#/definitions/AnyTableColumnQuestion/anyOf/0/properties/attributes/properties/help"
+                },
+                "labelTranslationKey": {
+                  "$ref": "#/definitions/AnyTableColumnQuestion/anyOf/0/properties/attributes/properties/labelTranslationKey"
+                },
+                "max": {
+                  "$ref": "#/definitions/AnyTableColumnQuestion/anyOf/2/properties/attributes/properties/max"
+                },
+                "min": {
+                  "$ref": "#/definitions/AnyTableColumnQuestion/anyOf/2/properties/attributes/properties/min"
+                },
+                "step": {
+                  "$ref": "#/definitions/AnyTableColumnQuestion/anyOf/2/properties/attributes/properties/step"
+                }
+              },
+              "additionalProperties": false
+            },
             "meta": {
               "$ref": "#/definitions/AnyTableColumnQuestion/anyOf/0/properties/meta"
-            },
-            "attributes": {
-              "$ref": "#/definitions/AnyTableColumnQuestion/anyOf/2/properties/attributes"
             }
           },
           "required": [
-            "type",
-            "meta"
+            "type"
           ],
           "additionalProperties": false
         },
@@ -422,6 +413,9 @@
               "type": "string",
               "const": "radioButtons"
             },
+            "attributes": {
+              "$ref": "#/definitions/AnyTableColumnQuestion/anyOf/1/properties/attributes"
+            },
             "meta": {
               "$ref": "#/definitions/AnyTableColumnQuestion/anyOf/0/properties/meta"
             },
@@ -430,33 +424,19 @@
               "items": {
                 "type": "object",
                 "properties": {
-                  "type": {
-                    "type": "string",
-                    "const": "option"
+                  "label": {
+                    "$ref": "#/definitions/AnyTableColumnQuestion/anyOf/1/properties/options/items/properties/label"
                   },
-                  "attributes": {
-                    "type": "object",
-                    "properties": {
-                      "label": {
-                        "$ref": "#/definitions/AnyTableColumnQuestion/anyOf/1/properties/options/items/properties/attributes/properties/label"
-                      },
-                      "value": {
-                        "$ref": "#/definitions/AnyTableColumnQuestion/anyOf/1/properties/options/items/properties/attributes/properties/value"
-                      },
-                      "selected": {
-                        "type": "boolean"
-                      }
-                    },
-                    "required": [
-                      "label",
-                      "value"
-                    ],
-                    "additionalProperties": false
+                  "value": {
+                    "$ref": "#/definitions/AnyTableColumnQuestion/anyOf/1/properties/options/items/properties/value"
+                  },
+                  "selected": {
+                    "type": "boolean"
                   }
                 },
                 "required": [
-                  "type",
-                  "attributes"
+                  "label",
+                  "value"
                 ],
                 "additionalProperties": false
               }
@@ -464,7 +444,6 @@
           },
           "required": [
             "type",
-            "meta",
             "options"
           ],
           "additionalProperties": false
@@ -476,6 +455,24 @@
               "type": "string",
               "const": "selectBox"
             },
+            "attributes": {
+              "type": "object",
+              "properties": {
+                "label": {
+                  "$ref": "#/definitions/AnyTableColumnQuestion/anyOf/0/properties/attributes/properties/label"
+                },
+                "help": {
+                  "$ref": "#/definitions/AnyTableColumnQuestion/anyOf/0/properties/attributes/properties/help"
+                },
+                "labelTranslationKey": {
+                  "$ref": "#/definitions/AnyTableColumnQuestion/anyOf/0/properties/attributes/properties/labelTranslationKey"
+                },
+                "multiple": {
+                  "type": "boolean"
+                }
+              },
+              "additionalProperties": false
+            },
             "meta": {
               "$ref": "#/definitions/AnyTableColumnQuestion/anyOf/0/properties/meta"
             },
@@ -484,20 +481,10 @@
               "items": {
                 "$ref": "#/definitions/AnyTableColumnQuestion/anyOf/8/properties/options/items"
               }
-            },
-            "attributes": {
-              "type": "object",
-              "properties": {
-                "multiple": {
-                  "type": "boolean"
-                }
-              },
-              "additionalProperties": false
             }
           },
           "required": [
             "type",
-            "meta",
             "options"
           ],
           "additionalProperties": false
@@ -509,27 +496,18 @@
               "type": "string",
               "const": "textArea"
             },
-            "meta": {
-              "type": "object",
-              "properties": {
-                "schemaVersion": {
-                  "$ref": "#/definitions/AnyTableColumnQuestion/anyOf/0/properties/meta/properties/schemaVersion"
-                },
-                "labelTranslationKey": {
-                  "$ref": "#/definitions/AnyTableColumnQuestion/anyOf/0/properties/meta/properties/labelTranslationKey"
-                },
-                "asRichText": {
-                  "type": "boolean"
-                }
-              },
-              "required": [
-                "schemaVersion"
-              ],
-              "additionalProperties": false
-            },
             "attributes": {
               "type": "object",
               "properties": {
+                "label": {
+                  "$ref": "#/definitions/AnyTableColumnQuestion/anyOf/0/properties/attributes/properties/label"
+                },
+                "help": {
+                  "$ref": "#/definitions/AnyTableColumnQuestion/anyOf/0/properties/attributes/properties/help"
+                },
+                "labelTranslationKey": {
+                  "$ref": "#/definitions/AnyTableColumnQuestion/anyOf/0/properties/attributes/properties/labelTranslationKey"
+                },
                 "cols": {
                   "type": "number"
                 },
@@ -543,6 +521,21 @@
                   "type": "number"
                 }
               },
+              "additionalProperties": false
+            },
+            "meta": {
+              "type": "object",
+              "properties": {
+                "schemaVersion": {
+                  "$ref": "#/definitions/AnyTableColumnQuestion/anyOf/0/properties/meta/properties/schemaVersion"
+                },
+                "asRichText": {
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "schemaVersion"
+              ],
               "additionalProperties": false
             }
           },
@@ -559,28 +552,36 @@
               "type": "string",
               "const": "text"
             },
-            "meta": {
-              "$ref": "#/definitions/AnyTableColumnQuestion/anyOf/0/properties/meta"
-            },
             "attributes": {
               "type": "object",
               "properties": {
+                "label": {
+                  "$ref": "#/definitions/AnyTableColumnQuestion/anyOf/0/properties/attributes/properties/label"
+                },
+                "help": {
+                  "$ref": "#/definitions/AnyTableColumnQuestion/anyOf/0/properties/attributes/properties/help"
+                },
+                "labelTranslationKey": {
+                  "$ref": "#/definitions/AnyTableColumnQuestion/anyOf/0/properties/attributes/properties/labelTranslationKey"
+                },
                 "maxLength": {
-                  "type": "number"
+                  "$ref": "#/definitions/AnyTableColumnQuestion/anyOf/5/properties/attributes/properties/maxLength"
                 },
                 "minLength": {
-                  "type": "number"
+                  "$ref": "#/definitions/AnyTableColumnQuestion/anyOf/5/properties/attributes/properties/minLength"
                 },
                 "pattern": {
-                  "type": "string"
+                  "$ref": "#/definitions/AnyTableColumnQuestion/anyOf/5/properties/attributes/properties/pattern"
                 }
               },
               "additionalProperties": false
+            },
+            "meta": {
+              "$ref": "#/definitions/AnyTableColumnQuestion/anyOf/0/properties/meta"
             }
           },
           "required": [
-            "type",
-            "meta"
+            "type"
           ],
           "additionalProperties": false
         },
@@ -591,6 +592,9 @@
               "type": "string",
               "const": "typeaheadSearch"
             },
+            "attributes": {
+              "$ref": "#/definitions/AnyTableColumnQuestion/anyOf/1/properties/attributes"
+            },
             "meta": {
               "$ref": "#/definitions/AnyTableColumnQuestion/anyOf/0/properties/meta"
             },
@@ -600,7 +604,6 @@
           },
           "required": [
             "type",
-            "meta",
             "graphQL"
           ],
           "additionalProperties": false
@@ -612,28 +615,15 @@
               "type": "string",
               "const": "url"
             },
+            "attributes": {
+              "$ref": "#/definitions/AnyTableColumnQuestion/anyOf/11/properties/attributes"
+            },
             "meta": {
               "$ref": "#/definitions/AnyTableColumnQuestion/anyOf/0/properties/meta"
-            },
-            "attributes": {
-              "type": "object",
-              "properties": {
-                "maxLength": {
-                  "type": "number"
-                },
-                "minLength": {
-                  "type": "number"
-                },
-                "pattern": {
-                  "type": "string"
-                }
-              },
-              "additionalProperties": false
             }
           },
           "required": [
-            "type",
-            "meta"
+            "type"
           ],
           "additionalProperties": false
         }

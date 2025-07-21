@@ -8,15 +8,30 @@
           "type": "string",
           "const": "filteredSearch"
         },
+        "attributes": {
+          "type": "object",
+          "properties": {
+            "label": {
+              "type": "string"
+            },
+            "help": {
+              "type": "string"
+            },
+            "labelTranslationKey": {
+              "type": "string"
+            },
+            "multiple": {
+              "type": "boolean"
+            }
+          },
+          "additionalProperties": false
+        },
         "meta": {
           "type": "object",
           "properties": {
             "schemaVersion": {
               "type": "string",
               "const": "1.0"
-            },
-            "labelTranslationKey": {
-              "type": "string"
             }
           },
           "required": [
@@ -95,20 +110,10 @@
             "responseField"
           ],
           "additionalProperties": false
-        },
-        "attributes": {
-          "type": "object",
-          "properties": {
-            "multiple": {
-              "type": "boolean"
-            }
-          },
-          "additionalProperties": false
         }
       },
       "required": [
         "type",
-        "meta",
         "graphQL"
       ],
       "additionalProperties": false

@@ -8,15 +8,27 @@
           "type": "string",
           "const": "numberRange"
         },
+        "attributes": {
+          "type": "object",
+          "properties": {
+            "label": {
+              "type": "string"
+            },
+            "help": {
+              "type": "string"
+            },
+            "labelTranslationKey": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        },
         "meta": {
           "type": "object",
           "properties": {
             "schemaVersion": {
               "type": "string",
               "const": "1.0"
-            },
-            "labelTranslationKey": {
-              "type": "string"
             }
           },
           "required": [
@@ -30,73 +42,36 @@
             "start": {
               "type": "object",
               "properties": {
-                "type": {
-                  "type": "string",
-                  "const": "number"
+                "label": {
+                  "$ref": "#/definitions/NumberRangeQuestion/properties/attributes/properties/label"
                 },
-                "meta": {
-                  "$ref": "#/definitions/NumberRangeQuestion/properties/meta"
+                "help": {
+                  "$ref": "#/definitions/NumberRangeQuestion/properties/attributes/properties/help"
                 },
-                "attributes": {
-                  "type": "object",
-                  "properties": {
-                    "label": {
-                      "type": "string"
-                    }
-                  },
-                  "required": [
-                    "label"
-                  ],
-                  "additionalProperties": false
+                "labelTranslationKey": {
+                  "$ref": "#/definitions/NumberRangeQuestion/properties/attributes/properties/labelTranslationKey"
+                },
+                "max": {
+                  "type": "number"
+                },
+                "min": {
+                  "type": "number"
+                },
+                "step": {
+                  "type": "number"
                 }
               },
-              "required": [
-                "type",
-                "meta",
-                "attributes"
-              ],
               "additionalProperties": false
             },
             "end": {
-              "type": "object",
-              "properties": {
-                "type": {
-                  "$ref": "#/definitions/NumberRangeQuestion/properties/columns/properties/start/properties/type"
-                },
-                "meta": {
-                  "$ref": "#/definitions/NumberRangeQuestion/properties/meta"
-                },
-                "attributes": {
-                  "type": "object",
-                  "properties": {
-                    "label": {
-                      "type": "string"
-                    }
-                  },
-                  "required": [
-                    "label"
-                  ],
-                  "additionalProperties": false
-                }
-              },
-              "required": [
-                "type",
-                "meta",
-                "attributes"
-              ],
-              "additionalProperties": false
+              "$ref": "#/definitions/NumberRangeQuestion/properties/columns/properties/start"
             }
           },
-          "required": [
-            "start",
-            "end"
-          ],
           "additionalProperties": false
         }
       },
       "required": [
         "type",
-        "meta",
         "columns"
       ],
       "additionalProperties": false

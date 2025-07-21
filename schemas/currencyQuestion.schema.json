@@ -8,28 +8,18 @@
           "type": "string",
           "const": "currency"
         },
-        "meta": {
+        "attributes": {
           "type": "object",
           "properties": {
-            "schemaVersion": {
-              "type": "string",
-              "const": "1.0"
+            "label": {
+              "type": "string"
+            },
+            "help": {
+              "type": "string"
             },
             "labelTranslationKey": {
               "type": "string"
             },
-            "denomination": {
-              "type": "string"
-            }
-          },
-          "required": [
-            "schemaVersion"
-          ],
-          "additionalProperties": false
-        },
-        "attributes": {
-          "type": "object",
-          "properties": {
             "max": {
               "type": "number"
             },
@@ -38,14 +28,29 @@
             },
             "step": {
               "type": "number"
+            },
+            "denomination": {
+              "type": "string"
             }
           },
+          "additionalProperties": false
+        },
+        "meta": {
+          "type": "object",
+          "properties": {
+            "schemaVersion": {
+              "type": "string",
+              "const": "1.0"
+            }
+          },
+          "required": [
+            "schemaVersion"
+          ],
           "additionalProperties": false
         }
       },
       "required": [
-        "type",
-        "meta"
+        "type"
       ],
       "additionalProperties": false
     }
