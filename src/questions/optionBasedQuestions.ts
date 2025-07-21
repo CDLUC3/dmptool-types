@@ -17,6 +17,13 @@ const SelectedOptionSchema = OptionSchema.merge(z.object({
   selected: z.boolean().optional(),
 }));
 
+export const BooleanQuestionSchema = QuestionSchema.merge(z.object({
+  type: z.literal('boolean'),
+  attributes: BaseAttributes.unwrap().merge(z.object({
+    checked: z.boolean().optional(),
+  })),
+}));
+
 // Check boxes question and answer
 export const CheckboxesQuestionSchema = QuestionSchema.merge(z.object({
   type: z.literal('checkBoxes'),                            // The type of question
@@ -39,6 +46,7 @@ export const SelectBoxQuestionSchema = QuestionSchema.merge(z.object({
 }));
 
 // This will ensure that object validations are against the Zod schemas defined above
+export type BooleanQuestionType = z.infer<typeof BooleanQuestionSchema>;
 export type CheckboxesQuestionType = z.infer<typeof CheckboxesQuestionSchema>;
 export type RadioButtonsQuestionType = z.infer<typeof RadioButtonsQuestionSchema>;
 export type SelectBoxQuestionType = z.infer<typeof SelectBoxQuestionSchema>;

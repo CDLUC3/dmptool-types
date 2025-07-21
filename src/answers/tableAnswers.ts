@@ -1,9 +1,9 @@
 import { z } from 'zod';
 import { AnswerSchema } from './answer';
-import { CheckboxesAnswerSchema, RadioButtonsAnswerSchema, SelectBoxAnswerSchema } from './optionBasedAnswers';
+import { BooleanAnswerSchema, CheckboxesAnswerSchema, RadioButtonsAnswerSchema, SelectBoxAnswerSchema } from './optionBasedAnswers';
 import { DateAnswerSchema, DateRangeAnswerSchema } from './dateAnswers';
 import { FilteredSearchAnswerSchema, TypeaheadSearchAnswerSchema } from './graphQLAnswers';
-import { BooleanAnswerSchema, CurrencyAnswerSchema, NumberAnswerSchema } from './numberAnswers';
+import { CurrencyAnswerSchema, NumberAnswerSchema } from './numberAnswers';
 import { EmailAnswerSchema, TextAnswerSchema, TextAreaAnswerSchema, URLAnswerSchema } from './textAnswers';
 
 // Answers to Table Column Question Types (note that TableAnswer is not included here because we don't allow nested tables)

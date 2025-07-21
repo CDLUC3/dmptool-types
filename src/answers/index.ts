@@ -8,12 +8,12 @@ import {
   TypeaheadSearchAnswerSchema, TypeaheadSearchAnswerType
 } from './graphQLAnswers';
 import {
+  BooleanAnswerSchema, BooleanAnswerType,
   CheckboxesAnswerSchema, CheckboxesAnswerType,
   RadioButtonsAnswerSchema, RadioButtonsAnswerType,
   SelectBoxAnswerSchema, SelectBoxAnswerType
 } from './optionBasedAnswers';
 import {
-  BooleanAnswerSchema, BooleanAnswerType,
   CurrencyAnswerSchema, CurrencyAnswerType,
   NumberAnswerSchema, NumberAnswerType,
   NumberRangeAnswerSchema, NumberRangeAnswerType

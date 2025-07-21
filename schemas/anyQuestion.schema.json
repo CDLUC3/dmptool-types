@@ -43,7 +43,8 @@
             }
           },
           "required": [
-            "type"
+            "type",
+            "attributes"
           ],
           "additionalProperties": false
         },
@@ -411,6 +412,38 @@
           "properties": {
             "type": {
               "type": "string",
+              "const": "numberRange"
+            },
+            "attributes": {
+              "$ref": "#/definitions/AnyQuestion/anyOf/1/properties/attributes"
+            },
+            "meta": {
+              "$ref": "#/definitions/AnyQuestion/anyOf/0/properties/meta"
+            },
+            "columns": {
+              "type": "object",
+              "properties": {
+                "start": {
+                  "$ref": "#/definitions/AnyQuestion/anyOf/7/properties/attributes"
+                },
+                "end": {
+                  "$ref": "#/definitions/AnyQuestion/anyOf/7/properties/attributes"
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "type",
+            "columns"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string",
               "const": "radioButtons"
             },
             "attributes": {
@@ -479,7 +512,7 @@
             "options": {
               "type": "array",
               "items": {
-                "$ref": "#/definitions/AnyQuestion/anyOf/8/properties/options/items"
+                "$ref": "#/definitions/AnyQuestion/anyOf/9/properties/options/items"
               }
             }
           },
@@ -564,10 +597,10 @@
                         "$ref": "#/definitions/AnyQuestion/anyOf/7"
                       },
                       {
-                        "$ref": "#/definitions/AnyQuestion/anyOf/8"
+                        "$ref": "#/definitions/AnyQuestion/anyOf/9"
                       },
                       {
-                        "$ref": "#/definitions/AnyQuestion/anyOf/9"
+                        "$ref": "#/definitions/AnyQuestion/anyOf/10"
                       },
                       {
                         "type": "object",
@@ -696,7 +729,7 @@
                             "const": "url"
                           },
                           "attributes": {
-                            "$ref": "#/definitions/AnyQuestion/anyOf/10/properties/columns/items/properties/content/anyOf/11/properties/attributes"
+                            "$ref": "#/definitions/AnyQuestion/anyOf/11/properties/columns/items/properties/content/anyOf/11/properties/attributes"
                           },
                           "meta": {
                             "$ref": "#/definitions/AnyQuestion/anyOf/0/properties/meta"
@@ -724,16 +757,16 @@
           "additionalProperties": false
         },
         {
-          "$ref": "#/definitions/AnyQuestion/anyOf/10/properties/columns/items/properties/content/anyOf/10"
+          "$ref": "#/definitions/AnyQuestion/anyOf/11/properties/columns/items/properties/content/anyOf/10"
         },
         {
-          "$ref": "#/definitions/AnyQuestion/anyOf/10/properties/columns/items/properties/content/anyOf/11"
+          "$ref": "#/definitions/AnyQuestion/anyOf/11/properties/columns/items/properties/content/anyOf/11"
         },
         {
-          "$ref": "#/definitions/AnyQuestion/anyOf/10/properties/columns/items/properties/content/anyOf/12"
+          "$ref": "#/definitions/AnyQuestion/anyOf/11/properties/columns/items/properties/content/anyOf/12"
         },
         {
-          "$ref": "#/definitions/AnyQuestion/anyOf/10/properties/columns/items/properties/content/anyOf/13"
+          "$ref": "#/definitions/AnyQuestion/anyOf/11/properties/columns/items/properties/content/anyOf/13"
         }
       ]
     }

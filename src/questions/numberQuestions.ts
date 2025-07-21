@@ -9,13 +9,6 @@ const NumberAttributesSchema = BaseAttributes.unwrap().merge(z.object({
   step: z.number().optional()    // The amount to increment. To allow decimals, use 0.01 (default 1)
 }))
 
-export const BooleanQuestionSchema = QuestionSchema.merge(z.object({
-    type: z.literal('boolean'),
-    attributes: BaseAttributes.unwrap().merge(z.object({
-      checked: z.boolean().optional(),                      // Whether it is checked by default
-    })).optional(),
-}));
-
 export const CurrencyQuestionSchema = QuestionSchema.merge(z.object({
     type: z.literal('currency'),
     attributes: NumberAttributesSchema.merge(z.object({
@@ -36,7 +29,6 @@ export const NumberRangeQuestionSchema = QuestionSchema.merge(z.object({
   })
 }));
 
-export type BooleanQuestionType = z.infer<typeof BooleanQuestionSchema>;
 export type CurrencyQuestionType = z.infer<typeof CurrencyQuestionSchema>;
 export type NumberQuestionType = z.infer<typeof NumberQuestionSchema>;
 export type NumberRangeQuestionType = z.infer<typeof NumberRangeQuestionSchema>;

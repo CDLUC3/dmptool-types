@@ -43,7 +43,8 @@
             }
           },
           "required": [
-            "type"
+            "type",
+            "attributes"
           ],
           "additionalProperties": false
         },

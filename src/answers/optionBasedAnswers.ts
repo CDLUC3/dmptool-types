@@ -2,6 +2,10 @@ import { z } from 'zod';
 import { AnswerSchema } from './answer';
 
 // Answers to Option Based Question Types
+export const BooleanAnswerSchema = AnswerSchema.merge(z.object({
+  type: z.literal('boolean'),                                 // The type of answer
+  answer: z.boolean()                                         // The answer to the question (true/false)
+}));
 
 export const CheckboxesAnswerSchema = AnswerSchema.merge(z.object({
   type: z.literal('checkBoxes'),                              // The type of answer
@@ -19,6 +23,7 @@ export const SelectBoxAnswerSchema = AnswerSchema.merge(z.object({
 }));
 
 // This will ensure that object validations are against the Zod schemas defined above
+export type BooleanAnswerType = z.infer<typeof BooleanAnswerSchema>;
 export type CheckboxesAnswerType = z.infer<typeof CheckboxesAnswerSchema>;
 export type RadioButtonsAnswerType = z.infer<typeof RadioButtonsAnswerSchema>;
 export type SelectBoxAnswerType = z.infer<typeof SelectBoxAnswerSchema>;

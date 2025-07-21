@@ -8,6 +8,7 @@ import {
   DateRangeQuestionSchema
 } from "../src/questions/dateQuestions";
 import {
+  BooleanQuestionSchema,
   CheckboxesQuestionSchema,
   RadioButtonsQuestionSchema,
   SelectBoxQuestionSchema
@@ -21,7 +22,6 @@ import {
   TableQuestionSchema
 } from '../src/questions/tableQuestions'
 import {
-  BooleanQuestionSchema,
   CurrencyQuestionSchema,
   NumberQuestionSchema,
   NumberRangeQuestionSchema
@@ -45,6 +45,7 @@ import {
   TypeaheadSearchAnswerSchema
 } from '../src/answers/graphQLAnswers';
 import {
+  BooleanAnswerSchema,
   CheckboxesAnswerSchema,
   RadioButtonsAnswerSchema,
   SelectBoxAnswerSchema
@@ -54,7 +55,6 @@ import {
   TableAnswerSchema
 } from '../src/answers/tableAnswers';
 import {
-  BooleanAnswerSchema,
   CurrencyAnswerSchema,
   NumberAnswerSchema,
   NumberRangeAnswerSchema

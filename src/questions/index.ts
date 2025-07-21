@@ -1,7 +1,6 @@
 import { z } from 'zod';
 import { QuestionTypesEnum } from './question';
 import {
-  BooleanQuestionSchema, BooleanQuestionType,
   CurrencyQuestionSchema, CurrencyQuestionType,
   NumberQuestionSchema, NumberQuestionType,
   NumberRangeQuestionSchema, NumberRangeQuestionType,
@@ -17,6 +16,7 @@ import {
   DateRangeQuestionSchema, DateRangeQuestionType
 } from "./dateQuestions";
 import {
+  BooleanQuestionSchema, BooleanQuestionType,
   CheckboxesQuestionSchema, CheckboxesQuestionType,
   RadioButtonsQuestionSchema, RadioButtonsQuestionType,
   SelectBoxQuestionSchema, SelectBoxQuestionType
@@ -48,6 +48,7 @@ export const AnyQuestionSchema = z.discriminatedUnion('type', [
   EmailQuestionSchema,
   FilteredSearchQuestionSchema,
   NumberQuestionSchema,
+  NumberRangeQuestionSchema,
   RadioButtonsQuestionSchema,
   SelectBoxQuestionSchema,
   TableQuestionSchema,

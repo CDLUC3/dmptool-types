@@ -5,8 +5,62 @@ import {
   SelectBoxQuestionSchema,
   CheckboxesQuestionType,
   RadioButtonsQuestionType,
-  SelectBoxQuestionType,
+  SelectBoxQuestionType, BooleanQuestionSchema,
 } from "../optionBasedQuestions";
+
+describe("BooleanQuestion", () => {
+  it('optional fields should not throw an error if the value is undefined', () => {
+    const validBooleanQuestion = {
+      type: "boolean",
+      meta: {
+        schemaVersion: "1.0",
+      },
+      attributes: {
+        checked: undefined, // Valid value
+      },
+    };
+    expect(() => BooleanQuestionSchema.parse(validBooleanQuestion)).not.toThrow();
+  });
+
+  it('optional fields should throw an error if the value is null', () => {
+    const invalidBooleanQuestion = {
+      type: "boolean",
+      meta: {
+        schemaVersion: "1.0",
+      },
+      attributes: {
+        checked: null, // Invalid value
+      },
+    };
+    expect(() => BooleanQuestionSchema.parse(invalidBooleanQuestion)).toThrow();
+  });
+
+  it("should validate a valid BooleanQuestion", () => {
+    const validBooleanQuestion = {
+      type: "boolean",
+      meta: {
+        schemaVersion: "1.0",
+      },
+      attributes: {
+        checked: true,
+      },
+    };
+    expect(() => BooleanQuestionSchema.parse(validBooleanQuestion)).not.toThrow();
+  });
+
+  it("should invalidate an invalid BooleanQuestion", () => {
+    const invalidBooleanQuestion = {
+      type: "boolean",
+      meta: {
+        schemaVersion: "1.0",
+      },
+      attributes: {
+        checked: "true", // Invalid type
+      },
+    };
+    expect(() => BooleanQuestionSchema.parse(invalidBooleanQuestion)).toThrow();
+  });
+});
 
 describe("CheckboxesQuestion", () => {
   it("should validate a valid CheckboxesQuestion object", () => {
