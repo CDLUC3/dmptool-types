@@ -76,6 +76,8 @@ Once added, you can then import the Types and Zod shemas like this:
 const boolQ: BooleanQuestionType = {
   type: "boolean",
   attributes: {
+    label: "Yes or No",
+    help: "Are you sure?",
     checked: true
   },
   meta: {
