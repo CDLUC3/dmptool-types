@@ -21,7 +21,8 @@
               "type": "string"
             },
             "cols": {
-              "type": "number"
+              "type": "number",
+              "default": 20
             },
             "maxLength": {
               "type": "number"
@@ -30,31 +31,37 @@
               "type": "number"
             },
             "rows": {
-              "type": "number"
+              "type": "number",
+              "default": 2
+            },
+            "asRichText": {
+              "type": "boolean",
+              "default": true
             }
           },
-          "additionalProperties": false
+          "additionalProperties": false,
+          "default": {}
         },
         "meta": {
           "type": "object",
           "properties": {
             "schemaVersion": {
               "type": "string",
-              "const": "1.0"
+              "default": "1.0"
             },
-            "asRichText": {
-              "type": "boolean"
+            "title": {
+              "type": "string"
+            },
+            "usageDescription": {
+              "type": "string"
             }
           },
-          "required": [
-            "schemaVersion"
-          ],
-          "additionalProperties": false
+          "additionalProperties": false,
+          "default": {}
         }
       },
       "required": [
-        "type",
-        "meta"
+        "type"
       ],
       "additionalProperties": false
     }

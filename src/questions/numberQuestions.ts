@@ -3,30 +3,31 @@ import { QuestionSchema } from "./question";
 
 const BaseAttributes = QuestionSchema.shape.attributes;
 
-const NumberAttributesSchema = BaseAttributes.unwrap().merge(z.object({
-  max: z.number().optional(),                          // The highest value allowed (default no max)
-  min: z.number().optional(),                               // The lowest amount allowed (default 0)
-  step: z.number().optional()    // The amount to increment. To allow decimals, use 0.01 (default 1)
+const NumberAttributesSchema = BaseAttributes.merge(z.object({
+  max: z.number().optional(),
+  min: z.number().default(0),
+  step: z.number().default(1)   // For floats, use a decimal with the level of precision: 0.01
 }))
 
 export const CurrencyQuestionSchema = QuestionSchema.merge(z.object({
-    type: z.literal('currency'),
-    attributes: NumberAttributesSchema.merge(z.object({
-      denomination: z.string().optional(),                  // The currency type (default is "USD")
-    })).optional(),
+  type: z.literal('currency'),
+  attributes: NumberAttributesSchema.merge(z.object({
+    denomination: z.string().default('USD')
+  })).default({})
 }));
 
 export const NumberQuestionSchema = QuestionSchema.merge(z.object({
-    type: z.literal('number'),
-    attributes: NumberAttributesSchema.optional(),
+  type: z.literal('number'),
+  attributes: NumberAttributesSchema.default({})
 }));
 
 export const NumberRangeQuestionSchema = QuestionSchema.merge(z.object({
   type: z.literal('numberRange'),
+  attributes: BaseAttributes.default({}),
   columns: z.object({
-    start: NumberAttributesSchema.optional(),
-    end: NumberAttributesSchema.optional()
-  })
+    start: NumberAttributesSchema.default({ label: 'From' }),
+    end: NumberAttributesSchema.default({ label: 'To' }),
+  }).default({})
 }));
 
 export type CurrencyQuestionType = z.infer<typeof CurrencyQuestionSchema>;

@@ -21,20 +21,25 @@
               "type": "string"
             }
           },
-          "additionalProperties": false
+          "additionalProperties": false,
+          "default": {}
         },
         "meta": {
           "type": "object",
           "properties": {
             "schemaVersion": {
               "type": "string",
-              "const": "1.0"
+              "default": "1.0"
+            },
+            "title": {
+              "type": "string"
+            },
+            "usageDescription": {
+              "type": "string"
             }
           },
-          "required": [
-            "schemaVersion"
-          ],
-          "additionalProperties": false
+          "additionalProperties": false,
+          "default": {}
         },
         "columns": {
           "type": "object",
@@ -55,24 +60,32 @@
                   "type": "number"
                 },
                 "min": {
-                  "type": "number"
+                  "type": "number",
+                  "default": 0
                 },
                 "step": {
-                  "type": "number"
+                  "type": "number",
+                  "default": 1
                 }
               },
-              "additionalProperties": false
+              "additionalProperties": false,
+              "default": {
+                "label": "From"
+              }
             },
             "end": {
-              "$ref": "#/definitions/NumberRangeQuestion/properties/columns/properties/start"
+              "$ref": "#/definitions/NumberRangeQuestion/properties/columns/properties/start",
+              "default": {
+                "label": "To"
+              }
             }
           },
-          "additionalProperties": false
+          "additionalProperties": false,
+          "default": {}
         }
       },
       "required": [
-        "type",
-        "columns"
+        "type"
       ],
       "additionalProperties": false
     }

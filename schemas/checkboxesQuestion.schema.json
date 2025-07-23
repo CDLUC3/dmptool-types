@@ -21,20 +21,25 @@
               "type": "string"
             }
           },
-          "additionalProperties": false
+          "additionalProperties": false,
+          "default": {}
         },
         "meta": {
           "type": "object",
           "properties": {
             "schemaVersion": {
               "type": "string",
-              "const": "1.0"
+              "default": "1.0"
+            },
+            "title": {
+              "type": "string"
+            },
+            "usageDescription": {
+              "type": "string"
             }
           },
-          "required": [
-            "schemaVersion"
-          ],
-          "additionalProperties": false
+          "additionalProperties": false,
+          "default": {}
         },
         "options": {
           "type": "array",
@@ -42,26 +47,27 @@
             "type": "object",
             "properties": {
               "label": {
-                "type": "string"
+                "type": "string",
+                "default": "Option A"
               },
               "value": {
-                "type": "string"
+                "type": "string",
+                "default": "a"
               },
               "checked": {
-                "type": "boolean"
+                "type": "boolean",
+                "default": false
               }
             },
-            "required": [
-              "label",
-              "value"
-            ],
             "additionalProperties": false
-          }
+          },
+          "default": [
+            {}
+          ]
         }
       },
       "required": [
-        "type",
-        "options"
+        "type"
       ],
       "additionalProperties": false
     }

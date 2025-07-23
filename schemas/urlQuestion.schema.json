@@ -21,7 +21,8 @@
               "type": "string"
             },
             "maxLength": {
-              "type": "number"
+              "type": "number",
+              "default": 255
             },
             "minLength": {
               "type": "number"
@@ -30,20 +31,25 @@
               "type": "string"
             }
           },
-          "additionalProperties": false
+          "additionalProperties": false,
+          "default": {}
         },
         "meta": {
           "type": "object",
           "properties": {
             "schemaVersion": {
               "type": "string",
-              "const": "1.0"
+              "default": "1.0"
+            },
+            "title": {
+              "type": "string"
+            },
+            "usageDescription": {
+              "type": "string"
             }
           },
-          "required": [
-            "schemaVersion"
-          ],
-          "additionalProperties": false
+          "additionalProperties": false,
+          "default": {}
         }
       },
       "required": [

@@ -1,12 +1,12 @@
 {
-  "$ref": "#/definitions/NumberRangeAnswer",
+  "$ref": "#/definitions/MultiselectBoxAnswer",
   "definitions": {
-    "NumberRangeAnswer": {
+    "MultiselectBoxAnswer": {
       "type": "object",
       "properties": {
         "type": {
           "type": "string",
-          "const": "numberRange"
+          "const": "multiselectBox"
         },
         "meta": {
           "type": "object",
@@ -20,19 +20,13 @@
           "default": {}
         },
         "answer": {
-          "type": "object",
-          "properties": {
-            "start": {
-              "type": "number",
-              "default": 0
-            },
-            "end": {
-              "type": "number",
-              "default": 0
-            }
+          "type": "array",
+          "items": {
+            "type": "string"
           },
-          "additionalProperties": false,
-          "default": {}
+          "default": [
+            ""
+          ]
         }
       },
       "required": [

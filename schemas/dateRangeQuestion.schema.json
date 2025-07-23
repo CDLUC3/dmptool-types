@@ -21,20 +21,25 @@
               "type": "string"
             }
           },
-          "additionalProperties": false
+          "additionalProperties": false,
+          "default": {}
         },
         "meta": {
           "type": "object",
           "properties": {
             "schemaVersion": {
               "type": "string",
-              "const": "1.0"
+              "default": "1.0"
+            },
+            "title": {
+              "type": "string"
+            },
+            "usageDescription": {
+              "type": "string"
             }
           },
-          "required": [
-            "schemaVersion"
-          ],
-          "additionalProperties": false
+          "additionalProperties": false,
+          "default": {}
         },
         "columns": {
           "type": "object",
@@ -43,7 +48,8 @@
               "type": "object",
               "properties": {
                 "label": {
-                  "$ref": "#/definitions/DateRangeQuestion/properties/attributes/properties/label"
+                  "type": "string",
+                  "default": "From"
                 },
                 "help": {
                   "$ref": "#/definitions/DateRangeQuestion/properties/attributes/properties/help"
@@ -58,21 +64,46 @@
                   "type": "string"
                 },
                 "step": {
-                  "type": "number"
+                  "type": "number",
+                  "default": 1
                 }
               },
-              "additionalProperties": false
+              "additionalProperties": false,
+              "default": {}
             },
             "end": {
-              "$ref": "#/definitions/DateRangeQuestion/properties/columns/properties/start"
+              "type": "object",
+              "properties": {
+                "label": {
+                  "type": "string",
+                  "default": "To"
+                },
+                "help": {
+                  "$ref": "#/definitions/DateRangeQuestion/properties/attributes/properties/help"
+                },
+                "labelTranslationKey": {
+                  "$ref": "#/definitions/DateRangeQuestion/properties/attributes/properties/labelTranslationKey"
+                },
+                "max": {
+                  "$ref": "#/definitions/DateRangeQuestion/properties/columns/properties/start/properties/max"
+                },
+                "min": {
+                  "$ref": "#/definitions/DateRangeQuestion/properties/columns/properties/start/properties/min"
+                },
+                "step": {
+                  "$ref": "#/definitions/DateRangeQuestion/properties/columns/properties/start/properties/step"
+                }
+              },
+              "additionalProperties": false,
+              "default": {}
             }
           },
-          "additionalProperties": false
+          "additionalProperties": false,
+          "default": {}
         }
       },
       "required": [
-        "type",
-        "columns"
+        "type"
       ],
       "additionalProperties": false
     }

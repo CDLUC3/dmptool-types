@@ -4,23 +4,23 @@ import { AnswerSchema } from './answer';
 // Answers to Text Based Question Types
 
 export const EmailAnswerSchema = AnswerSchema.merge(z.object({
-  type: z.literal('email'),                                 // The type of question
-  answer: z.string()                                        // The answer to the question (string)
+  type: z.literal('email'),
+  answer: z.string().default('')
 }));
 
 export const TextAnswerSchema = AnswerSchema.merge(z.object({
-  type: z.literal('text'),                                  // The type of answer
-  answer: z.string()                                        // The answer to the question (string)
+  type: z.literal('text'),
+  answer: z.string().default('')
 }));
 
 export const TextAreaAnswerSchema = AnswerSchema.merge(z.object({
-  type: z.literal('textArea'),                              // The type of answer
-  answer: z.string()                                        // The answer to the question (string)
+  type: z.literal('textArea'),
+  answer: z.string().default('')
 }));
 
 export const URLAnswerSchema = AnswerSchema.merge(z.object({
-  type: z.literal('url'),                                   // The type of answer
-  answer: z.string()                                        // The answer to the question (string)
+  type: z.literal('url'),
+  answer: z.string().default('')
 }));
 
 // This will ensure that object validations are against the Zod schemas defined above

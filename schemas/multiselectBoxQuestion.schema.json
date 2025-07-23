@@ -1,12 +1,12 @@
 {
-  "$ref": "#/definitions/CurrencyQuestion",
+  "$ref": "#/definitions/MultiselectBoxQuestion",
   "definitions": {
-    "CurrencyQuestion": {
+    "MultiselectBoxQuestion": {
       "type": "object",
       "properties": {
         "type": {
           "type": "string",
-          "const": "currency"
+          "const": "multiselectBox"
         },
         "attributes": {
           "type": "object",
@@ -20,24 +20,18 @@
             "labelTranslationKey": {
               "type": "string"
             },
-            "max": {
-              "type": "number"
-            },
-            "min": {
-              "type": "number",
-              "default": 0
-            },
-            "step": {
-              "type": "number",
-              "default": 1
-            },
-            "denomination": {
-              "type": "string",
-              "default": "USD"
+            "multiple": {
+              "type": "boolean",
+              "const": true
             }
           },
+          "required": [
+            "multiple"
+          ],
           "additionalProperties": false,
-          "default": {}
+          "default": {
+            "multiple": true
+          }
         },
         "meta": {
           "type": "object",
@@ -55,6 +49,30 @@
           },
           "additionalProperties": false,
           "default": {}
+        },
+        "options": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "label": {
+                "type": "string",
+                "default": "Option A"
+              },
+              "value": {
+                "type": "string",
+                "default": "a"
+              },
+              "selected": {
+                "type": "boolean",
+                "default": false
+              }
+            },
+            "additionalProperties": false
+          },
+          "default": [
+            {}
+          ]
         }
       },
       "required": [

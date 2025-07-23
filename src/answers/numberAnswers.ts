@@ -4,21 +4,21 @@ import { AnswerSchema } from './answer';
 // Answers to Number Question Types
 
 export const CurrencyAnswerSchema = AnswerSchema.merge(z.object({
-  type: z.literal('currency'),                                // The type of answer
-  answer: z.number()                                          // The answer to the question (number)
+  type: z.literal('currency'),
+  answer: z.number().default(0)
 }));
 
 export const NumberAnswerSchema = AnswerSchema.merge(z.object({
-  type: z.literal('number'),                                  // The type of answer
-  answer: z.number()                                          // The answer to the question (number)
+  type: z.literal('number'),
+  answer: z.number().default(0)
 }));
 
 export const NumberRangeAnswerSchema = AnswerSchema.merge(z.object({
-  type: z.literal('numberRange'),                             // The type of answer
+  type: z.literal('numberRange'),
   answer: z.object({
-    start: z.number(),                                        // The start number (number)
-    end: z.number()                                           // The end number (number)
-  })
+    start: z.number().default(0),                        // The start number
+    end: z.number() .default(0)                          // The end number
+  }).default({})
 }));
 
 // This will ensure that object validations are against the Zod schemas defined above

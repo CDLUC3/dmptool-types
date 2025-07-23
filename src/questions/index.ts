@@ -1,5 +1,5 @@
 import { z } from 'zod';
-import { QuestionTypesEnum } from './question';
+import { QuestionFormatsEnum } from './question';
 import {
   CurrencyQuestionSchema, CurrencyQuestionType,
   NumberQuestionSchema, NumberQuestionType,
@@ -19,11 +19,11 @@ import {
   BooleanQuestionSchema, BooleanQuestionType,
   CheckboxesQuestionSchema, CheckboxesQuestionType,
   RadioButtonsQuestionSchema, RadioButtonsQuestionType,
-  SelectBoxQuestionSchema, SelectBoxQuestionType
+  SelectBoxQuestionSchema, SelectBoxQuestionType,
+  MultiselectBoxQuestionSchema, MultiselectBoxQuestionType,
 } from './optionBasedQuestions';
 import {
-  FilteredSearchQuestionSchema, FilteredSearchQuestionType,
-  TypeaheadSearchQuestionSchema, TypeaheadSearchQuestionType
+  AffiliationSearchQuestionSchema, AffiliationSearchQuestionType,
 } from './graphQLQuestions';
 import {
   TableQuestionSchema, TableQuestionType
@@ -38,15 +38,16 @@ export * from './optionBasedQuestions';
 export * from './tableQuestions';
 export * from './textQuestions';
 
-
 export const AnyQuestionSchema = z.discriminatedUnion('type', [
+  AffiliationSearchQuestionSchema,
   BooleanQuestionSchema,
   CheckboxesQuestionSchema,
   CurrencyQuestionSchema,
   DateQuestionSchema,
   DateRangeQuestionSchema,
   EmailQuestionSchema,
-  FilteredSearchQuestionSchema,
+  // FilteredSearchQuestionSchema,
+  MultiselectBoxQuestionSchema,
   NumberQuestionSchema,
   NumberRangeQuestionSchema,
   RadioButtonsQuestionSchema,
@@ -54,19 +55,20 @@ export const AnyQuestionSchema = z.discriminatedUnion('type', [
   TableQuestionSchema,
   TextAreaQuestionSchema,
   TextQuestionSchema,
-  TypeaheadSearchQuestionSchema,
   URLQuestionSchema
 ]);
 
 // Export a mapping between Zod Schemas and their corresponding question type label
-export const QuestionSchemaMap: Record<z.infer<typeof QuestionTypesEnum>, z.ZodTypeAny> = {
+export const QuestionSchemaMap: Record<z.infer<typeof QuestionFormatsEnum>, z.ZodTypeAny> = {
+  affiliationSearch: AffiliationSearchQuestionSchema,
   boolean: BooleanQuestionSchema,
   checkBoxes: CheckboxesQuestionSchema,
   currency: CurrencyQuestionSchema,
   date: DateQuestionSchema,
   dateRange: DateRangeQuestionSchema,
   email: EmailQuestionSchema,
-  filteredSearch: FilteredSearchQuestionSchema,
+  // filteredSearch: FilteredSearchQuestionSchema,
+  multiselectBox: MultiselectBoxQuestionSchema,
   number: NumberQuestionSchema,
   numberRange: NumberRangeQuestionSchema,
   radioButtons: RadioButtonsQuestionSchema,
@@ -74,19 +76,20 @@ export const QuestionSchemaMap: Record<z.infer<typeof QuestionTypesEnum>, z.ZodT
   table: TableQuestionSchema,
   text: TextQuestionSchema,
   textArea: TextAreaQuestionSchema,
-  typeaheadSearch: TypeaheadSearchQuestionSchema,
   url: URLQuestionSchema
 };
 
 // Export a mapping between Types and their corresponding question type label
 export interface QuestionTypeMap {
+  affiliationSearch: AffiliationSearchQuestionType,
   boolean: BooleanQuestionType,
   checkBoxes: CheckboxesQuestionType,
   currency: CurrencyQuestionType,
   date: DateQuestionType,
   dateRange: DateRangeQuestionType,
   email: EmailQuestionType,
-  filteredSearch: FilteredSearchQuestionType,
+  // filteredSearch: FilteredSearchQuestionType,
+  multiselectBox: MultiselectBoxQuestionType,
   number: NumberQuestionType,
   numberRange: NumberRangeQuestionType,
   radioButtons: RadioButtonsQuestionType,
@@ -94,7 +97,6 @@ export interface QuestionTypeMap {
   table: TableQuestionType,
   text: TextQuestionType,
   textArea: TextAreaQuestionType,
-  typeaheadSearch: TypeaheadSearchQuestionType,
   url: URLQuestionType
 };
 

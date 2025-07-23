@@ -32,6 +32,13 @@
             "schemaVersion": {
               "type": "string",
               "const": "1.0"
+            },
+            "title": {
+              "type": "string",
+              "const": "Not yet implemented"
+            },
+            "usageDescription": {
+              "type": "string"
             }
           },
           "required": [

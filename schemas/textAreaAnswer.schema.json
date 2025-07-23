@@ -8,27 +8,24 @@
           "type": "string",
           "const": "textArea"
         },
-        "answer": {
-          "type": "string"
-        },
         "meta": {
           "type": "object",
           "properties": {
             "schemaVersion": {
               "type": "string",
-              "const": "1.0"
+              "default": "1.0"
             }
           },
-          "required": [
-            "schemaVersion"
-          ],
-          "additionalProperties": false
+          "additionalProperties": false,
+          "default": {}
+        },
+        "answer": {
+          "type": "string",
+          "default": ""
         }
       },
       "required": [
-        "type",
-        "answer",
-        "meta"
+        "type"
       ],
       "additionalProperties": false
     }

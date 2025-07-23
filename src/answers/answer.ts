@@ -1,13 +1,12 @@
 import { z } from 'zod';
-import { CURRENT_SCHEMA_VERSION, QuestionTypesEnum } from '../questions/question';
+import { CURRENT_SCHEMA_VERSION, QuestionFormatsEnum } from '../questions/question';
 
 // Abstract base schema for all answers
 export const AnswerSchema = z.object({
-  type: QuestionTypesEnum,                                    // The type of answer
-  answer: z.string(),                                         // The answer to the question (string)
+  type: QuestionFormatsEnum,                                    // The type of answer
   meta: z.object({
-    schemaVersion: z.literal(CURRENT_SCHEMA_VERSION),         // The schema version of the answer
-  })
+    schemaVersion: z.string().default(CURRENT_SCHEMA_VERSION), // The schema version of the answer
+  }).default({})
 });
 
 // This will ensure that object validations are against the Zod schemas defined above
