@@ -48,18 +48,18 @@ const TypeaheadSearchQuestionSchema = QuestionSchema.merge(z.object({
 }));
 
 
-export const affiliationQuery = `
-query Affiliations($name: String!){
-  affiliations(name: $name) {
-    totalCount
-    nextCursor
-    items {
-      id
-      displayName
-      uri
-    }
-  }
-}`;
+export const affiliationQuery = '' +
+  'query Affiliations($name: String!){' +
+    'affiliations(name: $name) {' +
+      'totalCount' +
+      'nextCursor' +
+      'items {' +
+        'id' +
+        'displayName' +
+        'uri' +
+      '}' +
+    '}' +
+  '}';
 
 export const AffiliationSearchQuestionSchema = TypeaheadSearchQuestionSchema.merge(z.object({
   type: z.literal('affiliationSearch'),

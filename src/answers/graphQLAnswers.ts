@@ -10,7 +10,10 @@ export const FilteredSearchAnswerSchema = AnswerSchema.merge(z.object({
 
 export const AffiliationSearchAnswerSchema = AnswerSchema.merge(z.object({
   type: z.literal('affiliationSearch'),
-  answer: z.string().default('')              // The answer to the affiliation search (URI)
+  answer: z.object({
+    affiliationId: z.string().default(''),   // The unique id of the affiliation (e.g. ROR URI)
+    affiliationName: z.string().default('')  // The name of the affiliation
+  }).default({})
 }));
 
 // This will ensure that object validations are against the Zod schemas defined above

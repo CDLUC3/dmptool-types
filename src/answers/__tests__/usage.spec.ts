@@ -23,7 +23,10 @@ describe('Get question answer defaultJSON', () => {
 
     const expectedJSON = {
       type: 'affiliationSearch',
-      answer: '',
+      answer: {
+        affiliationId: '',
+        affiliationName: '',
+      },
       meta: { schemaVersion: CURRENT_SCHEMA_VERSION },
     };
     expect(json).toEqual(expectedJSON);

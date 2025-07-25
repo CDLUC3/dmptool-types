@@ -144,7 +144,14 @@ describe('Answer Type Validations', () => {
   });
 
   it('should validate AffiliationSearchAnswer', () => {
-    const validData = { type: 'affiliationSearch', answer: 'Search term', meta: { schemaVersion: CURRENT_SCHEMA_VERSION } };
+    const validData = {
+      type: 'affiliationSearch',
+      answer: {
+        affiliationId: '12345',
+        affilationName: 'Search term'
+      },
+      meta: { schemaVersion: CURRENT_SCHEMA_VERSION }
+    };
     expect(() => AffiliationSearchAnswerSchema.parse(validData)).not.toThrow();
 
     const invalidData = { type: 'affiliationSearch', answer: 12345, meta: { schemaVersion: CURRENT_SCHEMA_VERSION } };
