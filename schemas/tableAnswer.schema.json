@@ -48,8 +48,19 @@
                           "$ref": "#/definitions/TableAnswer/properties/meta"
                         },
                         "answer": {
-                          "type": "string",
-                          "default": ""
+                          "type": "object",
+                          "properties": {
+                            "affiliationId": {
+                              "type": "string",
+                              "default": ""
+                            },
+                            "affiliationName": {
+                              "type": "string",
+                              "default": ""
+                            }
+                          },
+                          "additionalProperties": false,
+                          "default": {}
                         }
                       },
                       "required": [
