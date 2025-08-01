@@ -8,21 +8,38 @@
           "type": "string",
           "const": "numberRange"
         },
-        "meta": {
+        "attributes": {
           "type": "object",
           "properties": {
-            "schemaVersion": {
-              "type": "string",
-              "const": "1.0"
+            "label": {
+              "type": "string"
+            },
+            "help": {
+              "type": "string"
             },
             "labelTranslationKey": {
               "type": "string"
             }
           },
-          "required": [
-            "schemaVersion"
-          ],
-          "additionalProperties": false
+          "additionalProperties": false,
+          "default": {}
+        },
+        "meta": {
+          "type": "object",
+          "properties": {
+            "schemaVersion": {
+              "type": "string",
+              "default": "1.0"
+            },
+            "title": {
+              "type": "string"
+            },
+            "usageDescription": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "default": {}
         },
         "columns": {
           "type": "object",
@@ -30,74 +47,45 @@
             "start": {
               "type": "object",
               "properties": {
-                "type": {
-                  "type": "string",
-                  "const": "number"
+                "label": {
+                  "$ref": "#/definitions/NumberRangeQuestion/properties/attributes/properties/label"
                 },
-                "meta": {
-                  "$ref": "#/definitions/NumberRangeQuestion/properties/meta"
+                "help": {
+                  "$ref": "#/definitions/NumberRangeQuestion/properties/attributes/properties/help"
                 },
-                "attributes": {
-                  "type": "object",
-                  "properties": {
-                    "label": {
-                      "type": "string"
-                    }
-                  },
-                  "required": [
-                    "label"
-                  ],
-                  "additionalProperties": false
+                "labelTranslationKey": {
+                  "$ref": "#/definitions/NumberRangeQuestion/properties/attributes/properties/labelTranslationKey"
+                },
+                "max": {
+                  "type": "number"
+                },
+                "min": {
+                  "type": "number",
+                  "default": 0
+                },
+                "step": {
+                  "type": "number",
+                  "default": 1
                 }
               },
-              "required": [
-                "type",
-                "meta",
-                "attributes"
-              ],
-              "additionalProperties": false
+              "additionalProperties": false,
+              "default": {
+                "label": "From"
+              }
             },
             "end": {
-              "type": "object",
-              "properties": {
-                "type": {
-                  "$ref": "#/definitions/NumberRangeQuestion/properties/columns/properties/start/properties/type"
-                },
-                "meta": {
-                  "$ref": "#/definitions/NumberRangeQuestion/properties/meta"
-                },
-                "attributes": {
-                  "type": "object",
-                  "properties": {
-                    "label": {
-                      "type": "string"
-                    }
-                  },
-                  "required": [
-                    "label"
-                  ],
-                  "additionalProperties": false
-                }
-              },
-              "required": [
-                "type",
-                "meta",
-                "attributes"
-              ],
-              "additionalProperties": false
+              "$ref": "#/definitions/NumberRangeQuestion/properties/columns/properties/start",
+              "default": {
+                "label": "To"
+              }
             }
           },
-          "required": [
-            "start",
-            "end"
-          ],
-          "additionalProperties": false
+          "additionalProperties": false,
+          "default": {}
         }
       },
       "required": [
-        "type",
-        "meta",
-        "columns"
+        "type"
       ],
       "additionalProperties": false
     }

@@ -1,20 +1,19 @@
 import { z } from "zod";
-import {
-  BooleanQuestionSchema,
-  CurrencyQuestionSchema,
-  EmailQuestionSchema,
-  NumberQuestionSchema,
-  TextAreaQuestionSchema,
-  TextQuestionSchema,
-  URLQuestionSchema,
-} from "./primitiveQuestions";
+import { CurrencyQuestionSchema, NumberQuestionSchema } from "./numberQuestions";
+import { EmailQuestionSchema, TextQuestionSchema, TextAreaQuestionSchema, URLQuestionSchema } from "./textQuestions";
 import { DateQuestionSchema, DateRangeQuestionSchema } from "./dateQuestions";
-import { CheckboxesQuestionSchema, RadioButtonsQuestionSchema, SelectBoxQuestionSchema } from './optionBasedQuestions';
-import { FilteredSearchQuestionSchema, TypeaheadSearchQuestionSchema } from './graphQLQuestions';
+import { BooleanQuestionSchema, CheckboxesQuestionSchema, RadioButtonsQuestionSchema, SelectBoxQuestionSchema } from './optionBasedQuestions';
+import {
+  AffiliationSearchQuestionSchema,
+  FilteredSearchQuestionSchema,
+} from './graphQLQuestions';
 import { QuestionSchema } from "./question";
+
+const BaseAttributes = QuestionSchema.shape.attributes;
 
 // Union types for all questions and answers (tables cannot be nested so no TableQuestion here!)
 export const AnyTableColumnQuestionSchema = z.discriminatedUnion('type', [
+  AffiliationSearchQuestionSchema,
   BooleanQuestionSchema,
   CheckboxesQuestionSchema,
   CurrencyQuestionSchema,
@@ -27,26 +26,25 @@ export const AnyTableColumnQuestionSchema = z.discriminatedUnion('type', [
   SelectBoxQuestionSchema,
   TextAreaQuestionSchema,
   TextQuestionSchema,
-  TypeaheadSearchQuestionSchema,
   URLQuestionSchema
 ]);
 
 export const TableColumn = z.object({
-  heading: z.string().optional(),                           // The heading of the column
-  content: AnyTableColumnQuestionSchema,                    // The question for the column
+  heading: z.string().default('Column A'),                        // The heading of the column
+  content: AnyTableColumnQuestionSchema.default({ type: 'textArea'}),  // The question for the column
 });
 
 // Table question and answer
 export const TableQuestionSchema = QuestionSchema.merge(z.object({
-  type: z.literal('table'),                                 // The type of question
-  columns: z.array(TableColumn),                            // The columns of the table
-  attributes: z.object({
-    canAddRows: z.boolean().optional(),                     // Whether to allow adding rows (default is true)
-    canRemoveRows: z.boolean().optional(),                  // Whether to allow removing rows (default is true)
-    initialRows: z.number().optional(),                     // The initial number of rows (default is 1)
+  type: z.literal('table'),
+  columns: z.array(TableColumn).default([{}]),              // The columns of the table
+  attributes: BaseAttributes.merge(z.object({
+    canAddRows: z.boolean().default(true),
+    canRemoveRows: z.boolean().default(true),
+    initialRows: z.number().default(1),
     maxRows: z.number().optional(),                         // The maximum number of rows (no default)
     minRows: z.number().optional()                          // The minimum number of rows (no default)
-  }).optional(),
+  })).default({})
 }));
 
 // This will ensure that object validations are against the Zod schemas defined above

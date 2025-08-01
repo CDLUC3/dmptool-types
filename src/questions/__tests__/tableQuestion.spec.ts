@@ -19,6 +19,8 @@ describe("TableQuestionSchema", () => {
           content: {
             type: "number",
             attributes: {
+              label: "Age",
+              help: "Enter your age",
               min: 18,
               max: 65,
               step: 1,

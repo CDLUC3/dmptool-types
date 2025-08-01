@@ -1,31 +1,32 @@
 import { z } from "zod";
 import { QuestionSchema } from "./question";
 
+const BaseAttributes = QuestionSchema.shape.attributes;
+
+const DateAttributesSchema = BaseAttributes.merge(z.object({
+  max: z.string().optional(),
+  min: z.string().optional(),
+  step: z.number().default(1),
+}));
+
 // Date question and answer
 export const DateQuestionSchema = QuestionSchema.merge(z.object({
-  type: z.literal('date'),                                  // The type of question
-  attributes: z.object({
-    max: z.string().optional(),                             // The maximum date (no default)
-    min: z.string().optional(),                             // The minimum date (no default)
-    step: z.number().optional()                             // The step value (default is 1 day)
-  }).optional(),
+  type: z.literal('date'),
+  attributes: DateAttributesSchema.default({})
 }));
 
 // Date range question and answer
 export const DateRangeQuestionSchema = QuestionSchema.merge(z.object({
-  type: z.literal('dateRange'),                             // The type of question
+  type: z.literal('dateRange'),
+  attributes: BaseAttributes.default({}),
   columns: z.object({
-    start: DateQuestionSchema.merge(z.object({
-      attributes: z.object({
-        label: z.string()                                   // The label for the start date
-      })
-    })),
-    end: DateQuestionSchema.merge(z.object({
-      attributes: z.object({
-        label: z.string()                                   // The label for the end date
-      })
-    }))
-  })
+    start: DateAttributesSchema.merge(z.object({
+      label: z.string().default('From')
+    })).default({}),
+    end: DateAttributesSchema.merge(z.object({
+      label: z.string().default('To')
+    })).default({}),
+  }).default({})
 }));
 
 // This will ensure that object validations are against the Zod schemas defined above

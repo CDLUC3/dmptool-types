@@ -1,12 +1,12 @@
 {
-  "$ref": "#/definitions/NumberRangeAnswer",
+  "$ref": "#/definitions/AffiliationSearchAnswer",
   "definitions": {
-    "NumberRangeAnswer": {
+    "AffiliationSearchAnswer": {
       "type": "object",
       "properties": {
         "type": {
           "type": "string",
-          "const": "numberRange"
+          "const": "affiliationSearch"
         },
         "meta": {
           "type": "object",
@@ -22,13 +22,13 @@
         "answer": {
           "type": "object",
           "properties": {
-            "start": {
-              "type": "number",
-              "default": 0
+            "affiliationId": {
+              "type": "string",
+              "default": ""
             },
-            "end": {
-              "type": "number",
-              "default": 0
+            "affiliationName": {
+              "type": "string",
+              "default": ""
             }
           },
           "additionalProperties": false,

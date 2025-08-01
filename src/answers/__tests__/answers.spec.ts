@@ -1,17 +1,15 @@
 import { describe, it, expect } from "@jest/globals";
 import { DateAnswerSchema, DateRangeAnswerSchema } from '../dateAnswers';
-import { FilteredSearchAnswerSchema, TypeaheadSearchAnswerSchema } from '../graphQLAnswers';
-import { CheckboxesAnswerSchema, RadioButtonsAnswerSchema, SelectBoxAnswerSchema } from '../optionBasedAnswers';
+import { FilteredSearchAnswerSchema, AffiliationSearchAnswerSchema } from '../graphQLAnswers';
 import {
   BooleanAnswerSchema,
-  CurrencyAnswerSchema,
-  EmailAnswerSchema,
-  NumberAnswerSchema,
-  NumberRangeAnswerSchema,
-  TextAnswerSchema,
-  TextAreaAnswerSchema,
-  URLAnswerSchema
-} from '../primitiveAnswers';
+  CheckboxesAnswerSchema,
+  MultiselectBoxAnswerSchema,
+  RadioButtonsAnswerSchema,
+  SelectBoxAnswerSchema
+} from '../optionBasedAnswers';
+import { CurrencyAnswerSchema, NumberAnswerSchema, NumberRangeAnswerSchema,} from '../numberAnswers';
+import { EmailAnswerSchema, TextAnswerSchema, TextAreaAnswerSchema, URLAnswerSchema } from '../textAnswers';
 import { TableAnswerSchema } from '../tableAnswers';
 import { AnyAnswerSchema } from "..";
 import { CURRENT_SCHEMA_VERSION } from "../../questions";
@@ -114,11 +112,19 @@ describe('Answer Type Validations', () => {
   });
 
   it('should validate SelectBoxAnswer', () => {
-    const validData = { type: 'selectBox', answer: ['option1'], meta: { schemaVersion: CURRENT_SCHEMA_VERSION } };
+    const validData = { type: 'selectBox', answer: 'option1', meta: { schemaVersion: CURRENT_SCHEMA_VERSION } };
     expect(() => SelectBoxAnswerSchema.parse(validData)).not.toThrow();
 
-    const invalidData = { type: 'selectBox', answer: 'option1', meta: { schemaVersion: CURRENT_SCHEMA_VERSION } };
+    const invalidData = { type: 'selectBox', answer: ['option1'], meta: { schemaVersion: CURRENT_SCHEMA_VERSION } };
     expect(() => SelectBoxAnswerSchema.parse(invalidData)).toThrow();
+  });
+
+  it('should validate MultiselectBoxAnswer', () => {
+    const validData = { type: 'multiselectBox', answer: ['option1'], meta: { schemaVersion: CURRENT_SCHEMA_VERSION } };
+    expect(() => MultiselectBoxAnswerSchema.parse(validData)).not.toThrow();
+
+    const invalidData = { type: 'multiselectBox', answer: 'option1', meta: { schemaVersion: CURRENT_SCHEMA_VERSION } };
+    expect(() => MultiselectBoxAnswerSchema.parse(invalidData)).toThrow();
   });
 
   it('should validate TextAnswer', () => {
@@ -137,12 +143,19 @@ describe('Answer Type Validations', () => {
     expect(() => TextAreaAnswerSchema.parse(invalidData)).toThrow();
   });
 
-  it('should validate TypeaheadSearchAnswer', () => {
-    const validData = { type: 'typeaheadSearch', answer: 'Search term', meta: { schemaVersion: CURRENT_SCHEMA_VERSION } };
-    expect(() => TypeaheadSearchAnswerSchema.parse(validData)).not.toThrow();
+  it('should validate AffiliationSearchAnswer', () => {
+    const validData = {
+      type: 'affiliationSearch',
+      answer: {
+        affiliationId: '12345',
+        affilationName: 'Search term'
+      },
+      meta: { schemaVersion: CURRENT_SCHEMA_VERSION }
+    };
+    expect(() => AffiliationSearchAnswerSchema.parse(validData)).not.toThrow();
 
-    const invalidData = { type: 'typeaheadSearch', answer: 12345, meta: { schemaVersion: CURRENT_SCHEMA_VERSION } };
-    expect(() => TypeaheadSearchAnswerSchema.parse(invalidData)).toThrow();
+    const invalidData = { type: 'affiliationSearch', answer: 12345, meta: { schemaVersion: CURRENT_SCHEMA_VERSION } };
+    expect(() => AffiliationSearchAnswerSchema.parse(invalidData)).toThrow();
   });
 
   it('should validate URLAnswer', () => {
@@ -156,44 +169,36 @@ describe('Answer Type Validations', () => {
   it('should validate TableAnswer', () => {
     const validData = {
       type: 'table',
+      columnHeadings: [
+        'Name',
+        'Age',
+      ],
       answer: [
         {
           columns: [
             {
-              heading: "Name",
-              content: {
-                type: 'text',
-                answer: 'Leia Organa',
-                meta: { schemaVersion: CURRENT_SCHEMA_VERSION }
-              }
+              type: 'text',
+              answer: 'Leia Organa',
+              meta: {schemaVersion: CURRENT_SCHEMA_VERSION},
             },
             {
-              heading: "Age",
-              content: {
-                type: 'number',
-                answer: 28,
-                meta: { schemaVersion: CURRENT_SCHEMA_VERSION }
-              }
-            }
+              type: 'number',
+              answer: 28,
+              meta: {schemaVersion: CURRENT_SCHEMA_VERSION},
+            },
           ]
         },
         {
           columns: [
             {
-              heading: "Name",
-              content: {
-                type: 'text',
-                answer: 'Han Solo',
-                meta: { schemaVersion: CURRENT_SCHEMA_VERSION }
-              }
+              type: 'text',
+              answer: 'Han Solo',
+              meta: { schemaVersion: CURRENT_SCHEMA_VERSION },
             },
             {
-              heading: "Age",
-              content: {
-                type: 'number',
-                answer: 35,
-                meta: { schemaVersion: CURRENT_SCHEMA_VERSION }
-              }
+              type: 'number',
+              answer: 35,
+              meta: { schemaVersion: CURRENT_SCHEMA_VERSION },
             }
           ]
         }

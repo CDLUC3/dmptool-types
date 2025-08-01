@@ -1,9 +1,15 @@
-import { describe, it, expect } from "@jest/globals";
-import { FilteredSearchQuestionSchema, TypeaheadSearchQuestionSchema } from "../graphQLQuestions";
+import {describe, expect, it} from "@jest/globals";
+import {
+  affiliationQuery,
+  AffiliationSearchQuestionSchema,
+  AffiliationSearchQuestionType,
+  FilteredSearchQuestionSchema,
+  FilteredSearchQuestionType
+} from "../graphQLQuestions";
 
 describe("FilteredSearchQuestion schema", () => {
   it("should validate a correct FilteredSearchQuestion object", () => {
-    const validData = {
+    const validData: FilteredSearchQuestionType = {
       type: "filteredSearch",
       graphQL: {
         displayFields: [
@@ -18,6 +24,8 @@ describe("FilteredSearchQuestion schema", () => {
         ],
       },
       attributes: {
+        label: "Search",
+        help: "Search for a user",
         multiple: true,
       },
       meta: {
@@ -52,18 +60,24 @@ describe("FilteredSearchQuestion schema", () => {
   });
 });
 
-describe("TypeaheadSearchQuestion schema", () => {
-  it("should validate a correct TypeaheadSearchQuestion object", () => {
-    const validData = {
-      type: "typeaheadSearch",
+describe("AffiliationSearchQuestion schema", () => {
+  it("should validate a correct AffiliationSearchQuestion object", () => {
+    const validData: AffiliationSearchQuestionType = {
+      type: "affiliationSearch",
+      attributes: {
+        label: "Search",
+        help: "Search for a institution",
+      },
       graphQL: {
+        query: affiliationQuery,
         displayFields: [
-          { propertyName: "title", label: "Title" },
+          { propertyName: "displayName", label: "Name" },
         ],
         localQueryId: "12345",
-        responseField: "results",
+        answerField: "uri",
+        responseField: "affiliations.items",
         variables: [
-          { name: "query", type: "string" },
+          { type: "string", name: "name", label: "Term", minLength: 3 },
         ],
       },
       meta: {
@@ -71,12 +85,12 @@ describe("TypeaheadSearchQuestion schema", () => {
       }
     };
 
-    expect(() => TypeaheadSearchQuestionSchema.parse(validData)).not.toThrow();
+    expect(() => AffiliationSearchQuestionSchema.parse(validData)).not.toThrow();
   });
 
-  it("should throw an error for an invalid TypeaheadSearchQuestion object", () => {
+  it("should throw an error for an invalid AffiliationSearchQuestion object", () => {
     const invalidData = {
-      type: "typeaheadSearch",
+      type: "affiliationSearch",
       graphQL: {
         displayFields: [
           { propertyName: "title", label: "Title" },
@@ -88,6 +102,6 @@ describe("TypeaheadSearchQuestion schema", () => {
       },
     };
 
-    expect(() => TypeaheadSearchQuestionSchema.parse(invalidData)).toThrow();
+    expect(() => AffiliationSearchQuestionSchema.parse(invalidData)).toThrow();
   });
 });

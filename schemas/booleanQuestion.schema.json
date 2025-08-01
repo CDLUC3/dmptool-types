@@ -8,35 +8,46 @@
           "type": "string",
           "const": "boolean"
         },
+        "attributes": {
+          "type": "object",
+          "properties": {
+            "label": {
+              "type": "string"
+            },
+            "help": {
+              "type": "string"
+            },
+            "labelTranslationKey": {
+              "type": "string"
+            },
+            "checked": {
+              "type": "boolean",
+              "default": false
+            }
+          },
+          "additionalProperties": false,
+          "default": {}
+        },
         "meta": {
           "type": "object",
           "properties": {
             "schemaVersion": {
               "type": "string",
-              "const": "1.0"
+              "default": "1.0"
             },
-            "labelTranslationKey": {
+            "title": {
+              "type": "string"
+            },
+            "usageDescription": {
               "type": "string"
             }
           },
-          "required": [
-            "schemaVersion"
-          ],
-          "additionalProperties": false
-        },
-        "attributes": {
-          "type": "object",
-          "properties": {
-            "checked": {
-              "type": "boolean"
-            }
-          },
-          "additionalProperties": false
+          "additionalProperties": false,
+          "default": {}
         }
       },
       "required": [
-        "type",
-        "meta"
+        "type"
       ],
       "additionalProperties": false
     }

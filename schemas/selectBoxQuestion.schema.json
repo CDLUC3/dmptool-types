@@ -8,72 +8,75 @@
           "type": "string",
           "const": "selectBox"
         },
+        "attributes": {
+          "type": "object",
+          "properties": {
+            "label": {
+              "type": "string"
+            },
+            "help": {
+              "type": "string"
+            },
+            "labelTranslationKey": {
+              "type": "string"
+            },
+            "multiple": {
+              "type": "boolean",
+              "const": false
+            }
+          },
+          "required": [
+            "multiple"
+          ],
+          "additionalProperties": false,
+          "default": {
+            "multiple": false
+          }
+        },
         "meta": {
           "type": "object",
           "properties": {
             "schemaVersion": {
               "type": "string",
-              "const": "1.0"
+              "default": "1.0"
             },
-            "labelTranslationKey": {
+            "title": {
+              "type": "string"
+            },
+            "usageDescription": {
               "type": "string"
             }
           },
-          "required": [
-            "schemaVersion"
-          ],
-          "additionalProperties": false
+          "additionalProperties": false,
+          "default": {}
         },
         "options": {
           "type": "array",
           "items": {
             "type": "object",
             "properties": {
-              "type": {
+              "label": {
                 "type": "string",
-                "const": "option"
+                "default": "Option A"
               },
-              "attributes": {
-                "type": "object",
-                "properties": {
-                  "label": {
-                    "type": "string"
-                  },
-                  "value": {
-                    "type": "string"
-                  },
-                  "selected": {
-                    "type": "boolean"
-                  }
-                },
-                "required": [
-                  "label",
-                  "value"
-                ],
-                "additionalProperties": false
+              "value": {
+                "type": "string",
+                "default": "a"
+              },
+              "selected": {
+                "type": "boolean",
+                "default": false
               }
             },
-            "required": [
-              "type",
-              "attributes"
-            ],
             "additionalProperties": false
-          }
-        },
-        "attributes": {
-          "type": "object",
-          "properties": {
-            "multiple": {
-              "type": "boolean"
-            }
           },
-          "additionalProperties": false
+          "default": [
+            {}
+          ]
         }
       },
       "required": [
-        "type",
-        "meta",
-        "options"
+        "type"
       ],
       "additionalProperties": false
     }

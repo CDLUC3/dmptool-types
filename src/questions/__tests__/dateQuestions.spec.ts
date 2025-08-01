@@ -5,6 +5,8 @@ describe("DateQuestion", () => {
     const validDate = {
       type: "date",
       attributes: {
+        label: "Date",
+        help: "Enter a date",
         max: "2023-12-31",
         min: "2023-01-01",
         step: 1,
@@ -52,28 +54,18 @@ describe("DateRangeQuestion", () => {
       type: "dateRange",
       columns: {
         start: {
-          type: "date",
-          attributes: {
-            label: "Start Date",
-            max: "2023-12-31",
-            min: "2023-01-01",
-            step: 1,
-          },
-          meta: {
-            schemaVersion: "1.0"
-          }
+          label: "Start Date",
+          help: "Enter a date",
+          max: "2023-12-31",
+          min: "2023-01-01",
+          step: 1,
         },
         end: {
-          type: "date",
-          attributes: {
-            label: "End Date",
-            max: "2023-12-31",
-            min: "2023-01-01",
-            step: 1,
-          },
-          meta: {
-            schemaVersion: "1.0"
-          }
+          label: "End Date",
+          help: "Enter a date",
+          max: "2023-12-31",
+          min: "2023-01-01",
+          step: 1,
         },
       },
       meta: {
@@ -89,64 +81,16 @@ describe("DateRangeQuestion", () => {
       type: "dateRange",
       columns: {
         start: {
-          type: "date",
-          attributes: {
-            label: "Start Date",
-            max: "2023-12-31",
-            min: "2023-01-01",
-            step: 1,
-          },
-          meta: {
-            schemaVersion: "1.0"
-          }
+          label: "Start Date",
+          max: "2023-12-31",
+          min: "2023-01-01",
+          step: 1,
         },
         end: {
-          type: "date",
-          attributes: {
-            label: 123, // Invalid type for label
-            max: "2023-12-31",
-            min: "2023-01-01",
-            step: 1,
-          },
-          meta: {
-            schemaVersion: "1.0"
-          }
-        },
-      },
-      meta: {
-        schemaVersion: "1.0"
-      }
-    };
-
-    expect(() => DateRangeQuestionSchema.parse(invalidDateRange)).toThrow();
-  });
-
-  it("should require labels for start and end dates", () => {
-    const invalidDateRange = {
-      type: "dateRange",
-      columns: {
-        start: {
-          type: "date",
-          attributes: {
-            max: "2023-12-31",
-            min: "2023-01-01",
-            step: 1,
-          },
-          meta: {
-            schemaVersion: "1.0"
-          }
-        },
-        end: {
-          type: "date",
-          attributes: {
-            label: "End Date",
-            max: "2023-12-31",
-            min: "2023-01-01",
-            step: 1,
-          },
-          meta: {
-            schemaVersion: "1.0"
-          }
+          label: 123, // Invalid type for label
+          max: "2023-12-31",
+          min: "2023-01-01",
+          step: 1,
         },
       },
       meta: {

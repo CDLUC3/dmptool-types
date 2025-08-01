@@ -8,27 +8,24 @@
           "type": "string",
           "const": "boolean"
         },
-        "answer": {
-          "type": "boolean"
-        },
         "meta": {
           "type": "object",
           "properties": {
             "schemaVersion": {
               "type": "string",
-              "const": "1.0"
+              "default": "1.0"
             }
           },
-          "required": [
-            "schemaVersion"
-          ],
-          "additionalProperties": false
+          "additionalProperties": false,
+          "default": {}
+        },
+        "answer": {
+          "type": "boolean",
+          "default": false
         }
       },
       "required": [
-        "type",
-        "answer",
-        "meta"
+        "type"
       ],
       "additionalProperties": false
     }

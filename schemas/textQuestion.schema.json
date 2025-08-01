@@ -8,27 +8,21 @@
           "type": "string",
           "const": "text"
         },
-        "meta": {
-          "type": "object",
-          "properties": {
-            "schemaVersion": {
-              "type": "string",
-              "const": "1.0"
-            },
-            "labelTranslationKey": {
-              "type": "string"
-            }
-          },
-          "required": [
-            "schemaVersion"
-          ],
-          "additionalProperties": false
-        },
         "attributes": {
           "type": "object",
           "properties": {
+            "label": {
+              "type": "string"
+            },
+            "help": {
+              "type": "string"
+            },
+            "labelTranslationKey": {
+              "type": "string"
+            },
             "maxLength": {
-              "type": "number"
+              "type": "number",
+              "default": 255
             },
             "minLength": {
               "type": "number"
@@ -37,12 +31,29 @@
               "type": "string"
             }
           },
-          "additionalProperties": false
+          "additionalProperties": false,
+          "default": {}
+        },
+        "meta": {
+          "type": "object",
+          "properties": {
+            "schemaVersion": {
+              "type": "string",
+              "default": "1.0"
+            },
+            "title": {
+              "type": "string"
+            },
+            "usageDescription": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "default": {}
         }
       },
       "required": [
-        "type",
-        "meta"
+        "type"
       ],
       "additionalProperties": false
     }

@@ -6,27 +6,70 @@ import {
   CheckboxesQuestionType,
   RadioButtonsQuestionType,
   SelectBoxQuestionType,
+  BooleanQuestionSchema,
+  MultiselectBoxQuestionType,
+  MultiselectBoxQuestionSchema,
 } from "../optionBasedQuestions";
+
+describe("BooleanQuestion", () => {
+  it('optional fields should throw an error if the value is null', () => {
+    const invalidBooleanQuestion = {
+      type: "boolean",
+      meta: {
+        schemaVersion: "1.0",
+      },
+      attributes: {
+        checked: null, // Invalid value
+      },
+    };
+    expect(() => BooleanQuestionSchema.parse(invalidBooleanQuestion)).toThrow();
+  });
+
+  it("should validate a valid BooleanQuestion", () => {
+    const validBooleanQuestion = {
+      type: "boolean",
+      meta: {
+        schemaVersion: "1.0",
+      },
+      attributes: {
+        checked: true,
+      },
+    };
+    expect(() => BooleanQuestionSchema.parse(validBooleanQuestion)).not.toThrow();
+  });
+
+  it("should invalidate an invalid BooleanQuestion", () => {
+    const invalidBooleanQuestion = {
+      type: "boolean",
+      meta: {
+        schemaVersion: "1.0",
+      },
+      attributes: {
+        checked: "true", // Invalid type
+      },
+    };
+    expect(() => BooleanQuestionSchema.parse(invalidBooleanQuestion)).toThrow();
+  });
+});
 
 describe("CheckboxesQuestion", () => {
   it("should validate a valid CheckboxesQuestion object", () => {
     const validCheckboxesQuestion: CheckboxesQuestionType = {
       type: "checkBoxes",
+      attributes: {
+        label: "Fruits",
+        help: "Select all fruits you like",
+      },
       options: [
         {
-          type: "option",
-          attributes: {
-            label: "Apple",
-            value: "apple",
-            checked: true,
-          },
+          label: "Apple",
+          value: "apple",
+          checked: true,
         },
         {
-          type: "option",
-          attributes: {
-            label: "Banana",
-            value: "banana",
-          },
+          label: "Banana",
+          value: "banana",
+          checked: false,
         },
       ],
       meta: {
@@ -40,14 +83,15 @@ describe("CheckboxesQuestion", () => {
   it("should throw an error for an invalid CheckboxesQuestion object", () => {
     const invalidCheckboxesQuestion = {
       type: "checkBoxes",
+      attributes: {
+        label: "Has an apple?",
+        help: "Whether or not you have an apple in your fridge.",
+      },
       options: [
         {
-          type: "option",
-          attributes: {
-            label: "Apple",
-            value: "apple",
-            checked: "true", // Invalid type for checked
-          },
+          label: "Apple",
+          value: "apple",
+          checked: "true", // Invalid type for checked
         },
       ],
       meta: {
@@ -63,21 +107,20 @@ describe("RadioButtonsQuestion", () => {
   it("should validate a valid RadioButtonsQuestion object", () => {
     const validRadioButtonsQuestion: RadioButtonsQuestionType = {
       type: "radioButtons",
+      attributes: {
+        label: "Fruits",
+        help: "Select all fruits you like",
+      },
       options: [
         {
-          type: "option",
-          attributes: {
-            label: "Male",
-            value: "male",
-            selected: true,
-          },
+          label: "Male",
+          value: "male",
+          selected: true,
         },
         {
-          type: "option",
-          attributes: {
-            label: "Female",
-            value: "female",
-          },
+          label: "Female",
+          value: "female",
+          selected: true,
         },
       ],
       meta: {
@@ -93,12 +136,9 @@ describe("RadioButtonsQuestion", () => {
       type: "radioButtons",
       options: [
         {
-          type: "option",
-          attributes: {
-            label: "Male",
-            value: "male",
-            selected: "true", // Invalid type for selected
-          },
+          label: "Male",
+          value: "male",
+          selected: "true", // Invalid type for selected
         },
       ],
       meta: {
@@ -114,26 +154,23 @@ describe("SelectBoxQuestion", () => {
   it("should validate a valid SelectBoxQuestion object", () => {
     const validSelectBoxQuestion: SelectBoxQuestionType = {
       type: "selectBox",
+      attributes: {
+        label: "Fruits",
+        help: "Select all fruits you like",
+        multiple: false,
+      },
       options: [
         {
-          type: "option",
-          attributes: {
-            label: "USA",
-            value: "usa",
-            selected: true,
-          },
+          label: "USA",
+          value: "us",
+          selected: true,
         },
         {
-          type: "option",
-          attributes: {
-            label: "Canada",
-            value: "canada",
-          },
+          label: "Canada",
+          value: "ca",
+          selected: false,
         },
       ],
-      attributes: {
-        multiple: true,
-      },
       meta: {
         schemaVersion: "1.0"
       }
@@ -148,12 +185,9 @@ describe("SelectBoxQuestion", () => {
       questionText: "Select your country",
       options: [
         {
-          type: "option",
-          attributes: {
-            label: "USA",
-            value: "usa",
-            selected: "true", // Invalid type for selected
-          },
+          label: "USA",
+          value: "us",
+          selected: "true", // Invalid type for selected
         },
       ],
       attributes: {
@@ -165,5 +199,58 @@ describe("SelectBoxQuestion", () => {
     };
 
     expect(() => SelectBoxQuestionSchema.parse(invalidSelectBoxQuestion)).toThrow();
+  });
+});
+
+
+describe("MultiselectBoxQuestion", () => {
+  it("should validate a valid MultiselectBoxQuestion object", () => {
+    const validSelectBoxQuestion: MultiselectBoxQuestionType = {
+      type: "multiselectBox",
+      attributes: {
+        label: "Fruits",
+        help: "Select all fruits you like",
+        multiple: true,
+      },
+      options: [
+        {
+          label: "USA",
+          value: "us",
+          selected: true,
+        },
+        {
+          label: "Canada",
+          value: "ca",
+          selected: false,
+        },
+      ],
+      meta: {
+        schemaVersion: "1.0"
+      }
+    };
+
+    expect(() => MultiselectBoxQuestionSchema.parse(validSelectBoxQuestion)).not.toThrow();
+  });
+
+  it("should throw an error for an invalid MultiselectBoxQuestion object", () => {
+    const invalidSelectBoxQuestion = {
+      type: "multiselectBox",
+      questionText: "Select your country",
+      options: [
+        {
+          label: "USA",
+          value: "us",
+          selected: "true", // Invalid type for selected
+        },
+      ],
+      attributes: {
+        multiple: "true", // Invalid type for multiple
+      },
+      meta: {
+        schemaVersion: "1.0"
+      }
+    };
+
+    expect(() => MultiselectBoxQuestionSchema.parse(invalidSelectBoxQuestion)).toThrow();
   });
 });

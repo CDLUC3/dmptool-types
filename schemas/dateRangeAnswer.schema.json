@@ -8,40 +8,35 @@
           "type": "string",
           "const": "dateRange"
         },
-        "answer": {
-          "type": "object",
-          "properties": {
-            "start": {
-              "type": "string"
-            },
-            "end": {
-              "type": "string"
-            }
-          },
-          "required": [
-            "start",
-            "end"
-          ],
-          "additionalProperties": false
-        },
         "meta": {
           "type": "object",
           "properties": {
             "schemaVersion": {
               "type": "string",
-              "const": "1.0"
+              "default": "1.0"
             }
           },
-          "required": [
-            "schemaVersion"
-          ],
-          "additionalProperties": false
+          "additionalProperties": false,
+          "default": {}
+        },
+        "answer": {
+          "type": "object",
+          "properties": {
+            "start": {
+              "type": "string",
+              "default": ""
+            },
+            "end": {
+              "type": "string",
+              "default": ""
+            }
+          },
+          "additionalProperties": false,
+          "default": {}
         }
       },
       "required": [
-        "type",
-        "answer",
-        "meta"
+        "type"
       ],
       "additionalProperties": false
     }

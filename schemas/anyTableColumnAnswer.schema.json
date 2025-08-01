@@ -8,29 +8,57 @@
           "properties": {
             "type": {
               "type": "string",
-              "const": "boolean"
-            },
-            "answer": {
-              "type": "boolean"
+              "const": "affiliationSearch"
             },
             "meta": {
               "type": "object",
               "properties": {
                 "schemaVersion": {
                   "type": "string",
-                  "const": "1.0"
+                  "default": "1.0"
                 }
               },
-              "required": [
-                "schemaVersion"
-              ],
-              "additionalProperties": false
+              "additionalProperties": false,
+              "default": {}
+            },
+            "answer": {
+              "type": "object",
+              "properties": {
+                "affiliationId": {
+                  "type": "string",
+                  "default": ""
+                },
+                "affiliationName": {
+                  "type": "string",
+                  "default": ""
+                }
+              },
+              "additionalProperties": false,
+              "default": {}
             }
           },
           "required": [
-            "type",
-            "answer",
-            "meta"
+            "type"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string",
+              "const": "boolean"
+            },
+            "meta": {
+              "$ref": "#/definitions/AnyTableColumnAnswer/anyOf/0/properties/meta"
+            },
+            "answer": {
+              "type": "boolean",
+              "default": false
+            }
+          },
+          "required": [
+            "type"
           ],
           "additionalProperties": false
         },
@@ -41,20 +69,21 @@
               "type": "string",
               "const": "checkBoxes"
             },
+            "meta": {
+              "$ref": "#/definitions/AnyTableColumnAnswer/anyOf/0/properties/meta"
+            },
             "answer": {
               "type": "array",
               "items": {
                 "type": "string"
-              }
-            },
-            "meta": {
-              "$ref": "#/definitions/AnyTableColumnAnswer/anyOf/0/properties/meta"
+              },
+              "default": [
+                ""
+              ]
             }
           },
           "required": [
-            "type",
-            "answer",
-            "meta"
+            "type"
           ],
           "additionalProperties": false
         },
@@ -65,17 +94,16 @@
               "type": "string",
               "const": "currency"
             },
-            "answer": {
-              "type": "number"
-            },
             "meta": {
               "$ref": "#/definitions/AnyTableColumnAnswer/anyOf/0/properties/meta"
+            },
+            "answer": {
+              "type": "number",
+              "default": 0
             }
           },
           "required": [
-            "type",
-            "answer",
-            "meta"
+            "type"
           ],
           "additionalProperties": false
         },
@@ -86,17 +114,16 @@
               "type": "string",
               "const": "date"
             },
-            "answer": {
-              "type": "string"
-            },
             "meta": {
               "$ref": "#/definitions/AnyTableColumnAnswer/anyOf/0/properties/meta"
+            },
+            "answer": {
+              "type": "string",
+              "default": ""
             }
           },
           "required": [
-            "type",
-            "answer",
-            "meta"
+            "type"
           ],
           "additionalProperties": false
         },
@@ -107,30 +134,27 @@
               "type": "string",
               "const": "dateRange"
             },
+            "meta": {
+              "$ref": "#/definitions/AnyTableColumnAnswer/anyOf/0/properties/meta"
+            },
             "answer": {
               "type": "object",
               "properties": {
                 "start": {
-                  "type": "string"
+                  "type": "string",
+                  "default": ""
                 },
                 "end": {
-                  "type": "string"
+                  "type": "string",
+                  "default": ""
                 }
               },
-              "required": [
-                "start",
-                "end"
-              ],
-              "additionalProperties": false
-            },
-            "meta": {
-              "$ref": "#/definitions/AnyTableColumnAnswer/anyOf/0/properties/meta"
+              "additionalProperties": false,
+              "default": {}
             }
           },
           "required": [
-            "type",
-            "answer",
-            "meta"
+            "type"
           ],
           "additionalProperties": false
         },
@@ -141,17 +165,16 @@
               "type": "string",
               "const": "email"
             },
-            "answer": {
-              "type": "string"
-            },
             "meta": {
               "$ref": "#/definitions/AnyTableColumnAnswer/anyOf/0/properties/meta"
+            },
+            "answer": {
+              "type": "string",
+              "default": ""
             }
           },
           "required": [
-            "type",
-            "answer",
-            "meta"
+            "type"
           ],
           "additionalProperties": false
         },
@@ -162,20 +185,46 @@
               "type": "string",
               "const": "filteredSearch"
             },
+            "meta": {
+              "$ref": "#/definitions/AnyTableColumnAnswer/anyOf/0/properties/meta"
+            },
             "answer": {
               "type": "array",
               "items": {
                 "type": "string"
-              }
-            },
-            "meta": {
-              "$ref": "#/definitions/AnyTableColumnAnswer/anyOf/0/properties/meta"
+              },
+              "default": [
+                ""
+              ]
             }
           },
           "required": [
-            "type",
-            "answer",
-            "meta"
+            "type"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string",
+              "const": "multiselectBox"
+            },
+            "meta": {
+              "$ref": "#/definitions/AnyTableColumnAnswer/anyOf/0/properties/meta"
+            },
+            "answer": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "default": [
+                ""
+              ]
+            }
+          },
+          "required": [
+            "type"
           ],
           "additionalProperties": false
         },
@@ -186,17 +235,16 @@
               "type": "string",
               "const": "number"
             },
-            "answer": {
-              "type": "number"
-            },
             "meta": {
               "$ref": "#/definitions/AnyTableColumnAnswer/anyOf/0/properties/meta"
+            },
+            "answer": {
+              "type": "number",
+              "default": 0
             }
           },
           "required": [
-            "type",
-            "answer",
-            "meta"
+            "type"
           ],
           "additionalProperties": false
         },
@@ -207,17 +255,16 @@
               "type": "string",
               "const": "radioButtons"
             },
-            "answer": {
-              "type": "string"
-            },
             "meta": {
               "$ref": "#/definitions/AnyTableColumnAnswer/anyOf/0/properties/meta"
+            },
+            "answer": {
+              "type": "string",
+              "default": ""
             }
           },
           "required": [
-            "type",
-            "answer",
-            "meta"
+            "type"
           ],
           "additionalProperties": false
         },
@@ -228,20 +275,16 @@
               "type": "string",
               "const": "selectBox"
             },
-            "answer": {
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
-            },
             "meta": {
               "$ref": "#/definitions/AnyTableColumnAnswer/anyOf/0/properties/meta"
+            },
+            "answer": {
+              "type": "string",
+              "default": ""
             }
           },
           "required": [
-            "type",
-            "answer",
-            "meta"
+            "type"
           ],
           "additionalProperties": false
         },
@@ -252,17 +295,16 @@
               "type": "string",
               "const": "text"
             },
-            "answer": {
-              "type": "string"
-            },
             "meta": {
               "$ref": "#/definitions/AnyTableColumnAnswer/anyOf/0/properties/meta"
+            },
+            "answer": {
+              "type": "string",
+              "default": ""
             }
           },
           "required": [
-            "type",
-            "answer",
-            "meta"
+            "type"
           ],
           "additionalProperties": false
         },
@@ -273,38 +315,16 @@
               "type": "string",
               "const": "textArea"
             },
-            "answer": {
-              "type": "string"
-            },
             "meta": {
               "$ref": "#/definitions/AnyTableColumnAnswer/anyOf/0/properties/meta"
-            }
-          },
-          "required": [
-            "type",
-            "answer",
-            "meta"
-          ],
-          "additionalProperties": false
-        },
-        {
-          "type": "object",
-          "properties": {
-            "type": {
+            },
+            "answer": {
               "type": "string",
-              "const": "typeaheadSearch"
-            },
-            "answer": {
-              "type": "string"
-            },
-            "meta": {
-              "$ref": "#/definitions/AnyTableColumnAnswer/anyOf/0/properties/meta"
+              "default": ""
             }
           },
           "required": [
-            "type",
-            "answer",
-            "meta"
+            "type"
           ],
           "additionalProperties": false
         },
@@ -315,17 +335,16 @@
               "type": "string",
               "const": "url"
             },
-            "answer": {
-              "type": "string"
-            },
             "meta": {
               "$ref": "#/definitions/AnyTableColumnAnswer/anyOf/0/properties/meta"
+            },
+            "answer": {
+              "type": "string",
+              "default": ""
             }
           },
           "required": [
-            "type",
-            "answer",
-            "meta"
+            "type"
           ],
           "additionalProperties": false
         }
