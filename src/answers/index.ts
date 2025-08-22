@@ -43,6 +43,7 @@ export * from './textAnswers';
 
 // Union of all possible answers
 export const AnyAnswerSchema = z.discriminatedUnion('type', [
+  AffiliationSearchAnswerSchema,
   BooleanAnswerSchema,
   CheckboxesAnswerSchema,
   CurrencyAnswerSchema,
@@ -50,7 +51,9 @@ export const AnyAnswerSchema = z.discriminatedUnion('type', [
   DateRangeAnswerSchema,
   EmailAnswerSchema,
   // FilteredSearchAnswerSchema,
+  MultiselectBoxAnswerSchema,
   NumberAnswerSchema,
+  NumberRangeAnswerSchema,
   RadioButtonsAnswerSchema,
   SelectBoxAnswerSchema,
   TableAnswerSchema,
