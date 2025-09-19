@@ -25,12 +25,15 @@
     "generate": "ts-node scripts/generateSchemas.ts",
     "lint": "eslint . --ignore-pattern dist/ --ignore-pattern node_modules/",
     "prepublishOnly": "npm run build",
-    "test": "jest --config jest.config.ts"
+    "test": "jest --config jest.config.ts",
+    "prepare": "husky",
+    "type-check": "tsc --noEmit",
+    "trivy-high": "./scripts/trivy-high.sh",
+    "trivy-med": "./scripts/trivy-med.sh"
   },
   "dependencies": {
-    "fs": "^0.0.1-security",
-    "zod": "^3.24.4",
-    "zod-to-json-schema": "^3.24.5"
+    "zod": "3.24.4",
+    "zod-to-json-schema": "3.24.5"
   },
   "devDependencies": {
     "@eslint/js": "^9.26.0",
@@ -38,6 +41,7 @@
     "@types/node": "^20.4.3",
     "cpy": "^11.1.0",
     "eslint": "^9.26.0",
+    "husky": "^9.1.7",
     "jest": "^29.7.0",
     "ts-jest": "^29.3.3",
     "ts-node": "^10.9.2",

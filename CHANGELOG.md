@@ -1,5 +1,15 @@
 # dmptool-types CHANGELOG
 
+# v1.2.3
+- Added Trivy scanning to GitHub Actions workflow
+- Added Trivy script files and new scripts in package.json 
+- Removed `fs` from package.json because `0.0.1-security` is compromised and `fs` is a built-in Node module anyway
+- Pegged all other dependencies to exact versions in package.json
+- Added `default` property to schemas to allow setting a default selected option
+- Updated `OptionAnswerType` to allow for multiple selections
+- Updated `TableAnswerType` to allow for an array of answers for each row
+- Updated `TableQuestionType` to allow for an array of questions for each column
+
 ## v1.1.0
 
 - Added `QuestionTypeMap` and `AnswerTypeMap` that maps the `type` label to the corresponding Type
