@@ -1,5 +1,7 @@
 # dmptool-types CHANGELOG
 
+- Added CONTRIBUTING.md, CODE_OF_CONDUCT.md and PULL_REQUEST_TEMPLATE.md
+
 # v1.2.3
 - Added Trivy scanning to GitHub Actions workflow
 - Added Trivy script files and new scripts in package.json 
