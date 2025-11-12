@@ -6,6 +6,9 @@ import {
 import {
   // FilteredSearchAnswerSchema, FilteredSearchAnswerType,
   AffiliationSearchAnswerSchema, AffiliationSearchAnswerType,
+  LicenseSearchAnswerSchema, LicenseSearchAnswerType,
+  MetadataStandardSearchAnswerSchema, MetadataStandardSearchAnswerType,
+  RepositorySearchAnswerSchema, RepositorySearchAnswerType,
 } from './graphQLAnswers';
 import {
   BooleanAnswerSchema, BooleanAnswerType,
@@ -17,9 +20,11 @@ import {
 import {
   CurrencyAnswerSchema, CurrencyAnswerType,
   NumberAnswerSchema, NumberAnswerType,
-  NumberRangeAnswerSchema, NumberRangeAnswerType
+  NumberRangeAnswerSchema, NumberRangeAnswerType,
+  NumberWithContextAnswerSchema, NumberWithContextAnswerType
 } from './numberAnswers';
 import {
+  ResearchOutputTableAnswerSchema, ResearchOutputTableAnswerType,
   TableAnswerSchema, TableAnswerType
 } from './tableAnswers';
 import {
@@ -51,10 +56,13 @@ export const AnyAnswerSchema = z.discriminatedUnion('type', [
   DateRangeAnswerSchema,
   EmailAnswerSchema,
   // FilteredSearchAnswerSchema,
+  LicenseSearchAnswerSchema,
+  MetadataStandardSearchAnswerSchema,
   MultiselectBoxAnswerSchema,
   NumberAnswerSchema,
   NumberRangeAnswerSchema,
   RadioButtonsAnswerSchema,
+  RepositorySearchAnswerSchema,
   SelectBoxAnswerSchema,
   TableAnswerSchema,
   TextAnswerSchema,
@@ -72,10 +80,15 @@ export const AnswerSchemaMap: Record<z.infer<typeof QuestionFormatsEnum>, z.ZodT
   dateRange: DateRangeAnswerSchema,
   email: EmailAnswerSchema,
   // filteredSearch: FilteredSearchAnswerSchema,
+  licenseSearch: LicenseSearchAnswerSchema,
+  metadataStandardSearch: MetadataStandardSearchAnswerSchema,
   multiselectBox: MultiselectBoxAnswerSchema,
   number: NumberAnswerSchema,
   numberRange: NumberRangeAnswerSchema,
+  numberWithContext: NumberWithContextAnswerSchema,
   radioButtons: RadioButtonsAnswerSchema,
+  repositorySearch: RepositorySearchAnswerSchema,
+  researchOutputTable: ResearchOutputTableAnswerSchema,
   selectBox: SelectBoxAnswerSchema,
   table: TableAnswerSchema,
   text: TextAnswerSchema,
@@ -95,10 +108,15 @@ export interface AnswerTypeMap {
   dateRange: DateRangeAnswerType,
   email: EmailAnswerType,
   // filteredSearch: FilteredSearchAnswerType,
+  licenseSearch: LicenseSearchAnswerType,
+  metadataStandardSearch: MetadataStandardSearchAnswerType,
   multiselectBox: MultiselectBoxAnswerType,
   number: NumberAnswerType,
   numberRange: NumberRangeAnswerType,
+  numberWithContext: NumberWithContextAnswerType,
   radioButtons: RadioButtonsAnswerType,
+  repositorySearch: RepositorySearchAnswerType,
+  researchOutputTable: ResearchOutputTableAnswerType,
   selectBox: SelectBoxAnswerType,
   table: TableAnswerType,
   text: TextAnswerType,

@@ -49,6 +49,26 @@ export const TableAnswerSchema = AnswerSchema.merge(z.object({
   }])
 }));
 
+export const ResearchOutputTableAnswerSchema = TableAnswerSchema.merge(z.object({
+  type: z.literal('researchOutputTable'),
+  columnHeadings: z.array(z.string()).default(['Title', 'Output Type']),
+  answer: z.array(TableRowAnswerSchema).default([{
+    columns: [
+      {
+        type: 'text',
+        answer: '',
+        meta: { schemaVersion: CURRENT_SCHEMA_VERSION }
+      },
+      {
+        type: 'selectBox',
+        answer: '',
+        meta: { schemaVersion: CURRENT_SCHEMA_VERSION }
+      }
+    ]
+  }])
+}));
+
 // This will ensure that object validations are against the Zod schemas defined above
 export type TableAnswerType = z.infer<typeof TableAnswerSchema>;
+export type ResearchOutputTableAnswerType = z.infer<typeof ResearchOutputTableAnswerSchema>;
 export type AnyTableColumnAnswerType = z.infer<typeof AnyTableColumnAnswerSchema>;

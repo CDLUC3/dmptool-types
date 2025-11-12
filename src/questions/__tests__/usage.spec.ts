@@ -5,8 +5,8 @@ import {
 } from "../question";
 import {
   affiliationQuery,
-  AnyQuestionType,
-  QuestionSchemaMap,
+  AnyQuestionType, licenseQuery, metadataStandardQuery,
+  QuestionSchemaMap, repositoryQuery,
 } from "../index";
 
 export interface QuestionFormatInterface {
@@ -176,6 +176,108 @@ it('for email question format', () => {
   expect(format?.defaultJSON).toEqual(expectedJSON);
 });
 
+it('for licenseSearch question format', () => {
+  const format: QuestionFormatInterface | null = questionFormatInfo('licenseSearch');
+
+  expect(format?.type).toEqual('licenseSearch');
+  expect(format?.title).toEqual('License Search');
+  expect(format?.usageDescription).toBeDefined();
+  const expectedJSON = {
+    type: 'licenseSearch',
+    attributes: {},
+    meta: { schemaVersion: '1.0' },
+    graphQL: {
+      displayFields: [
+        {
+          label: "Name",
+          propertyName: "name",
+        },
+        {
+          label: "Description",
+          propertyName: "description",
+        },
+        {
+          label: "Recommended",
+          propertyName: "recommended",
+        }
+      ],
+      query: licenseQuery,
+      responseField: 'licenses.items',
+      variables: [
+        {
+        label: "Search for a license",
+        minLength: 3,
+        name: "term",
+        type: "string",
+        },
+        {
+          label: "Pagination Options",
+          name: "paginationOptions",
+          type: "paginationOptions",
+        }
+      ],
+      answerField: 'uri'
+    }
+  };
+  expect(format?.defaultJSON).toEqual(expectedJSON);
+});
+
+it('for metadataStandardSearch question format', () => {
+  const format: QuestionFormatInterface | null = questionFormatInfo('metadataStandardSearch');
+
+  expect(format?.type).toEqual('metadataStandardSearch');
+  expect(format?.title).toEqual('Metadata Standard Search');
+  expect(format?.usageDescription).toBeDefined();
+  const expectedJSON = {
+    type: 'metadataStandardSearch',
+    attributes: {},
+    meta: { schemaVersion: '1.0' },
+    graphQL: {
+      displayFields: [
+        {
+          label: "Name",
+          propertyName: "name",
+        },
+        {
+          label: "Description",
+          propertyName: "description",
+        },
+        {
+          label: "Website",
+          propertyName: "website",
+        },
+        {
+          label: "Keywords",
+          propertyName: "keywords",
+        }
+      ],
+      query: metadataStandardQuery,
+      responseField: 'metadataStandards.items',
+      variables: [
+        {
+          label: "Search for a metadata standard",
+          minLength: 3,
+          name: "term",
+          type: "string",
+        },
+        {
+          label: "Research domain",
+          name: "researchDomainId",
+          type: "string",
+          minLength: 3,
+        },
+        {
+          label: "Pagination Options",
+          name: "paginationOptions",
+          type: "paginationOptions",
+        }
+      ],
+      answerField: 'uri'
+    }
+  };
+  expect(format?.defaultJSON).toEqual(expectedJSON);
+});
+
 it('for multiselectBox question format', () => {
   const format: QuestionFormatInterface | null = questionFormatInfo('multiselectBox');
 
@@ -259,6 +361,68 @@ it('for radioButtons question format', () => {
   expect(format?.defaultJSON).toEqual(expectedJSON);
 });
 
+it('for repositorySearch question format', () => {
+  const format: QuestionFormatInterface | null = questionFormatInfo('repositorySearch');
+
+  expect(format?.type).toEqual('repositorySearch');
+  expect(format?.title).toEqual('Repository Search');
+  expect(format?.usageDescription).toBeDefined();
+  const expectedJSON = {
+    type: 'repositorySearch',
+    attributes: {},
+    meta: { schemaVersion: '1.0' },
+    graphQL: {
+      displayFields: [
+        {
+          label: "Name",
+          propertyName: "name",
+        },
+        {
+          label: "Description",
+          propertyName: "description",
+        },
+        {
+          label: "Website",
+          propertyName: "website",
+        },
+        {
+          label: "Keywords",
+          propertyName: "keywords",
+        }
+      ],
+      query: repositoryQuery,
+      responseField: 'repositories.items',
+      variables: [
+        {
+          label: "Search for a repository",
+          minLength: 3,
+          name: "term",
+          type: "string",
+        },
+        {
+          label: "Research domain",
+          name: "researchDomainId",
+          type: "string",
+          minLength: 3
+        },
+        {
+          label: "Repository type",
+          name: "repositoryType",
+          type: "string",
+          minLength: 3
+        },
+        {
+          label: "Pagination Options",
+          name: "paginationOptions",
+          type: "paginationOptions",
+        }
+      ],
+      answerField: 'uri'
+    }
+  };
+  expect(format?.defaultJSON).toEqual(expectedJSON);
+});
+
 it('for selectBox question format', () => {
   const format: QuestionFormatInterface | null = questionFormatInfo('selectBox');
 
@@ -295,6 +459,8 @@ it('for table question format', () => {
     },
     columns: [{
       heading: 'Column A',
+      enabled: true,
+      required: false,
       content: {
         type: 'textArea',
         attributes: {
@@ -303,7 +469,8 @@ it('for table question format', () => {
           rows: 2,
         },
         meta: { schemaVersion: CURRENT_SCHEMA_VERSION }
-      }
+      },
+      meta: { schemaVersion: CURRENT_SCHEMA_VERSION }
     }],
     meta: { schemaVersion: CURRENT_SCHEMA_VERSION },
   };

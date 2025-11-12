@@ -6,8 +6,11 @@ import { BooleanQuestionSchema, CheckboxesQuestionSchema, RadioButtonsQuestionSc
 import {
   AffiliationSearchQuestionSchema,
   FilteredSearchQuestionSchema,
+  RepositorySearchQuestionSchema,
+  MetadataStandardSearchQuestionSchema,
+  LicenseSearchQuestionSchema
 } from './graphQLQuestions';
-import { QuestionSchema } from "./question";
+import {CURRENT_SCHEMA_VERSION, QuestionSchema} from "./question";
 
 const BaseAttributes = QuestionSchema.shape.attributes;
 
@@ -21,8 +24,11 @@ export const AnyTableColumnQuestionSchema = z.discriminatedUnion('type', [
   DateRangeQuestionSchema,
   EmailQuestionSchema,
   FilteredSearchQuestionSchema,
+  LicenseSearchQuestionSchema,
+  MetadataStandardSearchQuestionSchema,
   NumberQuestionSchema,
   RadioButtonsQuestionSchema,
+  RepositorySearchQuestionSchema,
   SelectBoxQuestionSchema,
   TextAreaQuestionSchema,
   TextQuestionSchema,
@@ -31,10 +37,16 @@ export const AnyTableColumnQuestionSchema = z.discriminatedUnion('type', [
 
 export const TableColumn = z.object({
   heading: z.string().default('Column A'),                        // The heading of the column
+  required: z.boolean().default(false),                           // Whether the column is required
+  enabled: z.boolean().default(true),                             // Whether the column is enabled
   content: AnyTableColumnQuestionSchema.default({ type: 'textArea'}),  // The question for the column
+  meta: z.object({
+    schemaVersion: z.string().default(CURRENT_SCHEMA_VERSION),         // The schema version
+    labelTranslationKey: z.string().optional(),
+  }).default({})
 });
 
-// Table question and answer
+// Table question
 export const TableQuestionSchema = QuestionSchema.merge(z.object({
   type: z.literal('table'),
   columns: z.array(TableColumn).default([{}]),              // The columns of the table
@@ -47,6 +59,115 @@ export const TableQuestionSchema = QuestionSchema.merge(z.object({
   })).default({})
 }));
 
+const ResearchOutputTitleColumnSchema = TableColumn.extend({
+  heading: z.string().default('Title'),
+  required: z.literal(true),
+  content: TextQuestionSchema.extend({
+    attributes: z.object({
+      help: z.string().default('Enter the title of this research output'),
+      labelTranslationKey: z.string().default('researchOutput.title.heading')
+    }).default({})
+  }).default({ type: 'text' })
+});
+
+const ResearchOutputDescriptionColumnSchema = TableColumn.extend({
+  heading: z.string().default('Description'),
+  content: TextAreaQuestionSchema.extend({
+    attributes: z.object({
+      help: z.string().default('Provide a brief description of this research output'),
+      labelTranslationKey: z.string().default('researchOutput.description.heading')
+    }).default({})
+  }).default({ type: 'textArea' })
+});
+
+const ResearchOutputOutputTypeColumnSchema = TableColumn.extend({
+  heading: z.string().default('Output Type'),
+  required: z.literal(true),
+  content: SelectBoxQuestionSchema.extend({
+    attributes: z.object({
+      multiple: z.literal(false),
+      help: z.string().default('Select the type that best describes this research output'),
+      labelTranslationKey: z.string().default('researchOutput.outputType.heading')
+    }).default({ multiple: false }),
+  }).default({ type: 'selectBox' })
+});
+
+const ResearchOutputDataFlagsColumnSchema = TableColumn.extend({
+  heading: z.string().default('Data Flags'),
+  enabled: z.boolean().default(false),
+  content: CheckboxesQuestionSchema.extend({
+    attributes: z.object({
+      help: z.string().default('Select any data flags that apply to this research output'),
+      labelTranslationKey: z.string().default('researchOutput.dataFlags.heading')
+    }).default({}),
+    options: z.array(z.object({
+      label: z.string(),
+      value: z.string()
+    })).default([
+      { label: 'May contain sensitive data?', value: 'sensitive' },
+      { label: 'May contain personally identifiable information?', value: 'personal' },
+    ])
+  }).default({ type: 'checkBoxes' })
+});
+
+const ResearchOutputRepositoryColumnSchema = TableColumn.extend({
+  heading: z.string().default('Repository'),
+  enabled: z.boolean().default(false),
+  content: RepositorySearchQuestionSchema.default({ type: 'repositorySearch' }),
+  attributes: z.object({
+    help: z.string().default('Select repositor(ies) you would prefer users to deposit in'),
+    labelTranslationKey: z.string().default('researchOutput.repository.heading')
+  }).default({})
+});
+
+const ResearchOutputMetadataStandardColumnSchema = TableColumn.extend({
+  heading: z.string().default('Metadata Standard'),
+  enabled: z.boolean().default(false),
+  content: MetadataStandardSearchQuestionSchema.default({ type: 'metadataStandardSearch' }),
+  attributes: z.object({
+    help: z.string().default('Select metadata standard(s) you would prefer users to use'),
+    labelTranslationKey: z.string().default('researchOutput.metadataStandard.heading')
+  }).default({})
+});
+
+const ResearchOutputLicenseColumnSchema = TableColumn.extend({
+  heading: z.string().default('License'),
+  enabled: z.boolean().default(false),
+  content: LicenseSearchQuestionSchema.default({ type: 'licenseSearch' }),
+  attributes: z.object({
+    help: z.string().default('Select license(s) you would prefer users to apply to the research output'),
+    labelTranslationKey: z.string().default('researchOutput.license.heading')
+  }).default({})
+});
+
+const defaultTitleColumn = ResearchOutputTitleColumnSchema.parse({
+  required: true,
+  content: { type: 'text' }
+});
+const defaultDescriptionColumn = ResearchOutputDescriptionColumnSchema.parse({});
+const defaultOutputTypeColumn = ResearchOutputOutputTypeColumnSchema.parse({
+  required: true,
+  content: { type: 'selectBox' }
+});
+const defaultDataFlagsColumn = ResearchOutputDataFlagsColumnSchema.parse({});
+const defaultRepositoryColumn = ResearchOutputRepositoryColumnSchema.parse({});
+const defaultMetadataStandardColumn = ResearchOutputMetadataStandardColumnSchema.parse({});
+const defaultLicenseColumn = ResearchOutputLicenseColumnSchema.parse({});
+
+export const ResearchOutputTableQuestionSchema = TableQuestionSchema.merge(z.object({
+  type: z.literal('researchOutputTable'),
+  columns: z.array(TableColumn).default([
+    defaultTitleColumn,
+    defaultDescriptionColumn,
+    defaultOutputTypeColumn,
+    defaultDataFlagsColumn,
+    defaultRepositoryColumn,
+    defaultMetadataStandardColumn,
+    defaultLicenseColumn
+  ]),
+}));
+
 // This will ensure that object validations are against the Zod schemas defined above
 export type TableQuestionType = z.infer<typeof TableQuestionSchema>;
 export type AnyTableColumnQuestionType = z.infer<typeof AnyTableColumnQuestionSchema>;
+export type ResearchOutputTableQuestionType = z.infer<typeof ResearchOutputTableQuestionSchema>;

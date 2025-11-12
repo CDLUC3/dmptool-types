@@ -17,6 +17,9 @@ import {
 import {
   AffiliationSearchQuestionSchema,
   // FilteredSearchQuestionSchema,
+  LicenseSearchQuestionSchema,
+  MetadataStandardSearchQuestionSchema,
+  RepositorySearchQuestionSchema,
 } from '../src/questions/graphQLQuestions'
 import {
   AnyTableColumnQuestionSchema,
@@ -25,7 +28,8 @@ import {
 import {
   CurrencyQuestionSchema,
   NumberQuestionSchema,
-  NumberRangeQuestionSchema
+  NumberRangeQuestionSchema,
+  NumberWithContextQuestionSchema
 } from "../src/questions/numberQuestions";
 import {
   EmailQuestionSchema,
@@ -44,6 +48,9 @@ import {
 import {
   AffiliationSearchAnswerSchema,
   // FilteredSearchAnswerSchema,
+  LicenseSearchAnswerSchema,
+  MetadataStandardSearchAnswerSchema,
+  RepositorySearchAnswerSchema
 } from '../src/answers/graphQLAnswers';
 import {
   BooleanAnswerSchema,
@@ -59,7 +66,8 @@ import {
 import {
   CurrencyAnswerSchema,
   NumberAnswerSchema,
-  NumberRangeAnswerSchema
+  NumberRangeAnswerSchema,
+  NumberWithContextAnswerSchema
 } from '../src/answers/numberAnswers';
 import {
   EmailAnswerSchema,
@@ -119,6 +127,16 @@ fs.writeFileSync('./schemas/emailAnswer.schema.json', JSON.stringify(EmailAnswer
 // const FilteredSearchAnswerOutput = zodToJsonSchema(FilteredSearchAnswerSchema, 'FilteredSearchAnswer');
 // fs.writeFileSync('./schemas/filteredSearchAnswer.schema.json', JSON.stringify(FilteredSearchAnswerOutput, null, 2));
 
+const LicenseSearchOutput = zodToJsonSchema(LicenseSearchQuestionSchema, 'LicenseSearchQuestion');
+fs.writeFileSync('./schemas/licenseSearchQuestion.schema.json', JSON.stringify(LicenseSearchOutput, null, 2));
+const LicenseSearchAnswerOutput = zodToJsonSchema(LicenseSearchAnswerSchema, 'LicenseSearchAnswer');
+fs.writeFileSync('./schemas/licenseSearchAnswer.schema.json', JSON.stringify(LicenseSearchAnswerOutput, null, 2));
+
+const MetadataStandardSearchOutput = zodToJsonSchema(MetadataStandardSearchQuestionSchema, 'MetadataStandardSearchQuestion');
+fs.writeFileSync('./schemas/metadataStandardSearchQuestion.schema.json', JSON.stringify(MetadataStandardSearchOutput, null, 2));
+const MetadataStandardSearchAnswerOutput = zodToJsonSchema(MetadataStandardSearchAnswerSchema, 'MetadataStandardSearchAnswer');
+fs.writeFileSync('./schemas/metadataStandardSearchAnswer.schema.json', JSON.stringify(MetadataStandardSearchAnswerOutput, null, 2));
+
 const MultiselectBoxOutput = zodToJsonSchema(MultiselectBoxQuestionSchema, 'MultiselectBoxQuestion');
 fs.writeFileSync('./schemas/multiselectBoxQuestion.schema.json', JSON.stringify(MultiselectBoxOutput, null, 2));
 const MultiselectBoxAnswerOutput = zodToJsonSchema(MultiselectBoxAnswerSchema, 'MultiselectBoxAnswer');
@@ -134,10 +152,20 @@ fs.writeFileSync('./schemas/numberRangeQuestion.schema.json', JSON.stringify(Num
 const NumberRangeAnswerOutput = zodToJsonSchema(NumberRangeAnswerSchema, 'NumberRangeAnswer');
 fs.writeFileSync('./schemas/numberRangeAnswer.schema.json', JSON.stringify(NumberRangeAnswerOutput, null, 2));
 
+const NumberWithContextOutput = zodToJsonSchema(NumberWithContextQuestionSchema, 'NumberWithContextQuestion');
+fs.writeFileSync('./schemas/numberWithContextQuestion.schema.json', JSON.stringify(NumberWithContextOutput, null, 2));
+const NumberWithContextAnswerOutput = zodToJsonSchema(NumberWithContextAnswerSchema, 'NumberWithContextAnswer');
+fs.writeFileSync('./schemas/numberWithContextAnswer.schema.json', JSON.stringify(NumberWithContextAnswerOutput, null, 2));
+
 const RadioButtonsOutput = zodToJsonSchema(RadioButtonsQuestionSchema, 'RadioButtonsQuestion');
 fs.writeFileSync('./schemas/radioButtonsQuestion.schema.json', JSON.stringify(RadioButtonsOutput, null, 2));
 const RadioButtonsAnswerOutput = zodToJsonSchema(RadioButtonsAnswerSchema, 'RadioButtonsAnswer');
 fs.writeFileSync('./schemas/radioButtonsAnswer.schema.json', JSON.stringify(RadioButtonsAnswerOutput, null, 2));
+
+const RepositorySearchOutput = zodToJsonSchema(RepositorySearchQuestionSchema, 'RepositorySearchQuestion');
+fs.writeFileSync('./schemas/repositorySearchQuestion.schema.json', JSON.stringify(RepositorySearchOutput, null, 2));
+const RepositorySearchAnswerOutput = zodToJsonSchema(RepositorySearchAnswerSchema, 'RepositorySearchAnswer');
+fs.writeFileSync('./schemas/repositorySearchAnswer.schema.json', JSON.stringify(RepositorySearchAnswerOutput, null, 2));
 
 const SelectBoxOutput = zodToJsonSchema(SelectBoxQuestionSchema, 'SelectBoxQuestion');
 fs.writeFileSync('./schemas/selectBoxQuestion.schema.json', JSON.stringify(SelectBoxOutput, null, 2));

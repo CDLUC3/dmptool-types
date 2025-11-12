@@ -4,6 +4,7 @@ import {
   CurrencyQuestionSchema, CurrencyQuestionType,
   NumberQuestionSchema, NumberQuestionType,
   NumberRangeQuestionSchema, NumberRangeQuestionType,
+  NumberWithContextQuestionSchema, NumberWithContextQuestionType,
 } from "./numberQuestions";
 import {
   EmailQuestionSchema, EmailQuestionType,
@@ -24,9 +25,13 @@ import {
 } from './optionBasedQuestions';
 import {
   AffiliationSearchQuestionSchema, AffiliationSearchQuestionType,
+  LicenseSearchQuestionSchema, LicenseSearchQuestionType,
+  MetadataStandardSearchQuestionSchema, MetadataStandardSearchQuestionType,
+  RepositorySearchQuestionSchema, RepositorySearchQuestionType,
 } from './graphQLQuestions';
 import {
-  TableQuestionSchema, TableQuestionType
+  TableQuestionSchema, TableQuestionType,
+  ResearchOutputTableQuestionSchema, ResearchOutputTableQuestionType,
 } from './tableQuestions';
 
 // Export all the questions
@@ -47,10 +52,14 @@ export const AnyQuestionSchema = z.discriminatedUnion('type', [
   DateRangeQuestionSchema,
   EmailQuestionSchema,
   // FilteredSearchQuestionSchema,
+  LicenseSearchQuestionSchema,
+  MetadataStandardSearchQuestionSchema,
   MultiselectBoxQuestionSchema,
   NumberQuestionSchema,
   NumberRangeQuestionSchema,
   RadioButtonsQuestionSchema,
+  RepositorySearchQuestionSchema,
+  ResearchOutputTableQuestionSchema,
   SelectBoxQuestionSchema,
   TableQuestionSchema,
   TextAreaQuestionSchema,
@@ -68,10 +77,15 @@ export const QuestionSchemaMap: Record<z.infer<typeof QuestionFormatsEnum>, z.Zo
   dateRange: DateRangeQuestionSchema,
   email: EmailQuestionSchema,
   // filteredSearch: FilteredSearchQuestionSchema,
+  licenseSearch: LicenseSearchQuestionSchema,
+  metadataStandardSearch: MetadataStandardSearchQuestionSchema,
   multiselectBox: MultiselectBoxQuestionSchema,
   number: NumberQuestionSchema,
   numberRange: NumberRangeQuestionSchema,
+  numberWithContext: NumberWithContextQuestionSchema,
   radioButtons: RadioButtonsQuestionSchema,
+  repositorySearch: RepositorySearchQuestionSchema,
+  researchOutputTable: ResearchOutputTableQuestionSchema,
   selectBox: SelectBoxQuestionSchema,
   table: TableQuestionSchema,
   text: TextQuestionSchema,
@@ -89,10 +103,15 @@ export interface QuestionTypeMap {
   dateRange: DateRangeQuestionType,
   email: EmailQuestionType,
   // filteredSearch: FilteredSearchQuestionType,
+  licenseSearch: LicenseSearchQuestionType,
+  metadataStandardSearch: MetadataStandardSearchQuestionType,
   multiselectBox: MultiselectBoxQuestionType,
   number: NumberQuestionType,
   numberRange: NumberRangeQuestionType,
+  numberWithContext: NumberWithContextQuestionType,
   radioButtons: RadioButtonsQuestionType,
+  repositorySearch: RepositorySearchQuestionType,
+  researchOutputTable: ResearchOutputTableQuestionType,
   selectBox: SelectBoxQuestionType,
   table: TableQuestionType,
   text: TextQuestionType,
@@ -102,4 +121,3 @@ export interface QuestionTypeMap {
 
 // This will ensure that object validations are against the Zod schemas defined above
 export type AnyQuestionType = z.infer<typeof AnyQuestionSchema>;
-

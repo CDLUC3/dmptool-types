@@ -1,4 +1,7 @@
-import { TableQuestionSchema } from "../tableQuestions";
+import {
+  TableQuestionSchema,
+  ResearchOutputTableQuestionSchema
+} from "../tableQuestions";
 
 describe("TableQuestionSchema", () => {
   it("should validate a valid TableQuestion object", () => {
@@ -75,3 +78,66 @@ describe("TableQuestionSchema", () => {
     expect(() => TableQuestionSchema.parse(invalidTableQuestion)).toThrow();
   });
 });
+
+describe("ResearchOutputTableQuestionSchema", () => {
+  it("should validate a valid ResearchOutputTableQuestion object", () => {
+    const validResearchOutputTableQuestion = {
+      type: "researchOutputTable",
+      columns: [
+        {
+          heading: "Title",
+          required: true,
+          enabled: true,
+          content: {
+            type: "text",
+            meta: {
+              schemaVersion: "1.0"
+            }
+          }
+        },
+        {
+          heading: "Output Type",
+          required: true,
+          enabled: true,
+          content: {
+            type: "selectBox",
+            attributes: {
+              multiple: false
+            },
+            meta: {
+              schemaVersion: "1.0"
+            }
+          }
+        }
+      ],
+      meta: {
+        schemaVersion: "1.0"
+      }
+    };
+
+    expect(() => ResearchOutputTableQuestionSchema.parse(validResearchOutputTableQuestion)).not.toThrow();
+  });
+
+  it("should throw an error for an invalid ResearchOutputTableQuestion object", () => {
+    const invalidResearchOutputTableQuestion = {
+      type: "researchOutputTable",
+      columns: [
+        {
+          heading: "Title",
+          content: {
+            type: "invalid",
+            meta: {
+              schemaVersion: "1.0"
+            }
+          }
+        }
+      ],
+      meta: {
+        schemaVersion: "1.0"
+      }
+    };
+
+    expect(() => ResearchOutputTableQuestionSchema.parse(invalidResearchOutputTableQuestion)).toThrow();
+  });
+});
+
