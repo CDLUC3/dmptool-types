@@ -1,0 +1,49 @@
+{
+  "$ref": "#/definitions/LicenseSearchAnswer",
+  "definitions": {
+    "LicenseSearchAnswer": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "const": "licenseSearch"
+        },
+        "meta": {
+          "type": "object",
+          "properties": {
+            "schemaVersion": {
+              "type": "string",
+              "default": "1.0"
+            }
+          },
+          "additionalProperties": false,
+          "default": {}
+        },
+        "answer": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "licenseId": {
+                "type": "string",
+                "default": ""
+              },
+              "licenseName": {
+                "type": "string",
+                "default": ""
+              }
+            },
+            "additionalProperties": false,
+            "default": {}
+          },
+          "default": []
+        }
+      },
+      "required": [
+        "type"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}
