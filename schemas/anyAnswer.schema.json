@@ -183,6 +183,76 @@
           "properties": {
             "type": {
               "type": "string",
+              "const": "licenseSearch"
+            },
+            "meta": {
+              "$ref": "#/definitions/AnyAnswer/anyOf/0/properties/meta"
+            },
+            "answer": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "licenseId": {
+                    "type": "string",
+                    "default": ""
+                  },
+                  "licenseName": {
+                    "type": "string",
+                    "default": ""
+                  }
+                },
+                "additionalProperties": false,
+                "default": {}
+              },
+              "default": []
+            }
+          },
+          "required": [
+            "type"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string",
+              "const": "metadataStandardSearch"
+            },
+            "meta": {
+              "$ref": "#/definitions/AnyAnswer/anyOf/0/properties/meta"
+            },
+            "answer": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "metadataStandardId": {
+                    "type": "string",
+                    "default": ""
+                  },
+                  "metadataStandardName": {
+                    "type": "string",
+                    "default": ""
+                  }
+                },
+                "additionalProperties": false,
+                "default": {}
+              },
+              "default": []
+            }
+          },
+          "required": [
+            "type"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string",
               "const": "multiselectBox"
             },
             "meta": {
@@ -267,6 +337,41 @@
             "answer": {
               "type": "string",
               "default": ""
+            }
+          },
+          "required": [
+            "type"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string",
+              "const": "repositorySearch"
+            },
+            "meta": {
+              "$ref": "#/definitions/AnyAnswer/anyOf/0/properties/meta"
+            },
+            "answer": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "repositoryId": {
+                    "type": "string",
+                    "default": ""
+                  },
+                  "repositoryName": {
+                    "type": "string",
+                    "default": ""
+                  }
+                },
+                "additionalProperties": false,
+                "default": {}
+              },
+              "default": []
             }
           },
           "required": [
@@ -369,16 +474,16 @@
                           "additionalProperties": false
                         },
                         {
-                          "$ref": "#/definitions/AnyAnswer/anyOf/7"
-                        },
-                        {
-                          "$ref": "#/definitions/AnyAnswer/anyOf/8"
+                          "$ref": "#/definitions/AnyAnswer/anyOf/9"
                         },
                         {
                           "$ref": "#/definitions/AnyAnswer/anyOf/10"
                         },
                         {
-                          "$ref": "#/definitions/AnyAnswer/anyOf/11"
+                          "$ref": "#/definitions/AnyAnswer/anyOf/12"
+                        },
+                        {
+                          "$ref": "#/definitions/AnyAnswer/anyOf/14"
                         },
                         {
                           "type": "object",
@@ -470,13 +575,13 @@
           "additionalProperties": false
         },
         {
-          "$ref": "#/definitions/AnyAnswer/anyOf/12/properties/answer/items/properties/columns/items/anyOf/12"
+          "$ref": "#/definitions/AnyAnswer/anyOf/15/properties/answer/items/properties/columns/items/anyOf/12"
         },
         {
-          "$ref": "#/definitions/AnyAnswer/anyOf/12/properties/answer/items/properties/columns/items/anyOf/13"
+          "$ref": "#/definitions/AnyAnswer/anyOf/15/properties/answer/items/properties/columns/items/anyOf/13"
         },
         {
-          "$ref": "#/definitions/AnyAnswer/anyOf/12/properties/answer/items/properties/columns/items/anyOf/14"
+          "$ref": "#/definitions/AnyAnswer/anyOf/15/properties/answer/items/properties/columns/items/anyOf/14"
         }
       ]
     }

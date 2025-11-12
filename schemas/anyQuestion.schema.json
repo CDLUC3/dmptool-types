@@ -436,6 +436,243 @@
           "properties": {
             "type": {
               "type": "string",
+              "const": "licenseSearch"
+            },
+            "attributes": {
+              "$ref": "#/definitions/AnyQuestion/anyOf/0/properties/attributes",
+              "default": {}
+            },
+            "meta": {
+              "$ref": "#/definitions/AnyQuestion/anyOf/0/properties/meta"
+            },
+            "graphQL": {
+              "type": "object",
+              "properties": {
+                "displayFields": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "propertyName": {
+                        "type": "string",
+                        "default": "id"
+                      },
+                      "label": {
+                        "type": "string",
+                        "default": "Id"
+                      },
+                      "labelTranslationKey": {
+                        "type": "string"
+                      }
+                    },
+                    "additionalProperties": false
+                  },
+                  "default": [
+                    {
+                      "propertyName": "name",
+                      "label": "Name"
+                    },
+                    {
+                      "propertyName": "description",
+                      "label": "Description"
+                    },
+                    {
+                      "propertyName": "recommended",
+                      "label": "Recommended"
+                    }
+                  ]
+                },
+                "localQueryId": {
+                  "$ref": "#/definitions/AnyQuestion/anyOf/0/properties/graphQL/properties/localQueryId"
+                },
+                "query": {
+                  "type": "string",
+                  "const": "query Licenses($term: String, $paginationOptions: PaginationOptions){ license(term: $term, paginationOptions: $paginationOptions) { totalCount currentOffset limit hasNextPage hasPreviousPage availableSortFields items { id name uri description } } }",
+                  "default": "query Licenses($term: String, $paginationOptions: PaginationOptions){ license(term: $term, paginationOptions: $paginationOptions) { totalCount currentOffset limit hasNextPage hasPreviousPage availableSortFields items { id name uri description } } }"
+                },
+                "responseField": {
+                  "type": "string",
+                  "const": "licenses.items",
+                  "default": "licenses.items"
+                },
+                "variables": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "minLength": {
+                        "type": "number"
+                      },
+                      "label": {
+                        "type": "string"
+                      },
+                      "labelTranslationKey": {
+                        "type": "string"
+                      },
+                      "name": {
+                        "type": "string",
+                        "default": "search"
+                      },
+                      "type": {
+                        "type": "string",
+                        "default": "string"
+                      },
+                      "defaultValue": {
+                        "type": "string"
+                      }
+                    },
+                    "additionalProperties": false
+                  },
+                  "default": [
+                    {
+                      "minLength": 3,
+                      "label": "Search for a license",
+                      "name": "term",
+                      "type": "string"
+                    },
+                    {
+                      "label": "Pagination Options",
+                      "name": "paginationOptions",
+                      "type": "paginationOptions",
+                      "options": {
+                        "type": "OFFSET",
+                        "limit": 10,
+                        "offset": 0,
+                        "sortField": "name",
+                        "sortOrder": "ASC"
+                      }
+                    }
+                  ]
+                },
+                "queryId": {
+                  "type": "string",
+                  "default": "useLicensesQuery"
+                },
+                "answerField": {
+                  "type": "string",
+                  "const": "uri",
+                  "default": "uri"
+                }
+              },
+              "additionalProperties": false,
+              "default": {}
+            }
+          },
+          "required": [
+            "type"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string",
+              "const": "metadataStandardSearch"
+            },
+            "attributes": {
+              "$ref": "#/definitions/AnyQuestion/anyOf/0/properties/attributes",
+              "default": {}
+            },
+            "meta": {
+              "$ref": "#/definitions/AnyQuestion/anyOf/0/properties/meta"
+            },
+            "graphQL": {
+              "type": "object",
+              "properties": {
+                "displayFields": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/AnyQuestion/anyOf/7/properties/graphQL/properties/displayFields/items"
+                  },
+                  "default": [
+                    {
+                      "propertyName": "name",
+                      "label": "Name"
+                    },
+                    {
+                      "propertyName": "description",
+                      "label": "Description"
+                    },
+                    {
+                      "propertyName": "website",
+                      "label": "Website"
+                    },
+                    {
+                      "propertyName": "keywords",
+                      "label": "Keywords"
+                    }
+                  ]
+                },
+                "localQueryId": {
+                  "$ref": "#/definitions/AnyQuestion/anyOf/0/properties/graphQL/properties/localQueryId"
+                },
+                "query": {
+                  "type": "string",
+                  "const": "query MetadataStandards($term: String, $paginationOptions: PaginationOptions){ metadataStandards(term: $term, paginationOptions: $paginationOptions) { totalCount currentOffset limit hasNextPage hasPreviousPage availableSortFields items { id name uri description researchDomains { id name uri } keywords } } }",
+                  "default": "query MetadataStandards($term: String, $paginationOptions: PaginationOptions){ metadataStandards(term: $term, paginationOptions: $paginationOptions) { totalCount currentOffset limit hasNextPage hasPreviousPage availableSortFields items { id name uri description researchDomains { id name uri } keywords } } }"
+                },
+                "responseField": {
+                  "type": "string",
+                  "const": "metadataStandards.items",
+                  "default": "metadataStandards.items"
+                },
+                "variables": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/AnyQuestion/anyOf/7/properties/graphQL/properties/variables/items"
+                  },
+                  "default": [
+                    {
+                      "minLength": 3,
+                      "label": "Search for a metadata standard",
+                      "name": "term",
+                      "type": "string"
+                    },
+                    {
+                      "minLength": 3,
+                      "label": "Research domain",
+                      "name": "researchDomainId",
+                      "type": "string"
+                    },
+                    {
+                      "label": "Pagination Options",
+                      "name": "paginationOptions",
+                      "type": "paginationOptions",
+                      "options": {
+                        "type": "OFFSET",
+                        "limit": 10,
+                        "offset": 0,
+                        "sortField": "name",
+                        "sortOrder": "ASC"
+                      }
+                    }
+                  ]
+                },
+                "queryId": {
+                  "type": "string",
+                  "default": "useMetadataStandardsQuery"
+                },
+                "answerField": {
+                  "type": "string",
+                  "const": "uri",
+                  "default": "uri"
+                }
+              },
+              "additionalProperties": false,
+              "default": {}
+            }
+          },
+          "required": [
+            "type"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string",
               "const": "multiselectBox"
             },
             "attributes": {
@@ -553,13 +790,13 @@
               "type": "object",
               "properties": {
                 "start": {
-                  "$ref": "#/definitions/AnyQuestion/anyOf/8/properties/attributes",
+                  "$ref": "#/definitions/AnyQuestion/anyOf/10/properties/attributes",
                   "default": {
                     "label": "From"
                   }
                 },
                 "end": {
-                  "$ref": "#/definitions/AnyQuestion/anyOf/8/properties/attributes",
+                  "$ref": "#/definitions/AnyQuestion/anyOf/10/properties/attributes",
                   "default": {
                     "label": "To"
                   }
@@ -591,7 +828,7 @@
             "options": {
               "type": "array",
               "items": {
-                "$ref": "#/definitions/AnyQuestion/anyOf/7/properties/options/items"
+                "$ref": "#/definitions/AnyQuestion/anyOf/9/properties/options/items"
               },
               "default": [
                 {}
@@ -608,44 +845,105 @@
           "properties": {
             "type": {
               "type": "string",
-              "const": "selectBox"
+              "const": "repositorySearch"
             },
             "attributes": {
-              "type": "object",
-              "properties": {
-                "label": {
-                  "$ref": "#/definitions/AnyQuestion/anyOf/0/properties/attributes/properties/label"
-                },
-                "help": {
-                  "$ref": "#/definitions/AnyQuestion/anyOf/0/properties/attributes/properties/help"
-                },
-                "labelTranslationKey": {
-                  "$ref": "#/definitions/AnyQuestion/anyOf/0/properties/attributes/properties/labelTranslationKey"
-                },
-                "multiple": {
-                  "type": "boolean",
-                  "const": false
-                }
-              },
-              "required": [
-                "multiple"
-              ],
-              "additionalProperties": false,
-              "default": {
-                "multiple": false
-              }
+              "$ref": "#/definitions/AnyQuestion/anyOf/0/properties/attributes",
+              "default": {}
             },
             "meta": {
               "$ref": "#/definitions/AnyQuestion/anyOf/0/properties/meta"
             },
-            "options": {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/AnyQuestion/anyOf/7/properties/options/items"
+            "graphQL": {
+              "type": "object",
+              "properties": {
+                "displayFields": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/AnyQuestion/anyOf/7/properties/graphQL/properties/displayFields/items"
+                  },
+                  "default": [
+                    {
+                      "propertyName": "name",
+                      "label": "Name"
+                    },
+                    {
+                      "propertyName": "description",
+                      "label": "Description"
+                    },
+                    {
+                      "propertyName": "website",
+                      "label": "Website"
+                    },
+                    {
+                      "propertyName": "keywords",
+                      "label": "Keywords"
+                    }
+                  ]
+                },
+                "localQueryId": {
+                  "$ref": "#/definitions/AnyQuestion/anyOf/0/properties/graphQL/properties/localQueryId"
+                },
+                "query": {
+                  "type": "string",
+                  "const": "query Repositories($term: String, $researchDomainId: Int, $repositoryType: String, $paginationOptions: PaginationOptions){ repositories(term: $term, researchDomainId: $researchDomainId, repositoryType: $repositoryType, paginationOptions: $paginationOptions) { totalCount currentOffset limit hasNextPage hasPreviousPage availableSortFields items { id name uri description website researchDomains { id name uri } keywords repositoryTypes } } }",
+                  "default": "query Repositories($term: String, $researchDomainId: Int, $repositoryType: String, $paginationOptions: PaginationOptions){ repositories(term: $term, researchDomainId: $researchDomainId, repositoryType: $repositoryType, paginationOptions: $paginationOptions) { totalCount currentOffset limit hasNextPage hasPreviousPage availableSortFields items { id name uri description website researchDomains { id name uri } keywords repositoryTypes } } }"
+                },
+                "responseField": {
+                  "type": "string",
+                  "const": "repositories.items",
+                  "default": "repositories.items"
+                },
+                "variables": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/AnyQuestion/anyOf/7/properties/graphQL/properties/variables/items"
+                  },
+                  "default": [
+                    {
+                      "minLength": 3,
+                      "label": "Search for a repository",
+                      "name": "term",
+                      "type": "string"
+                    },
+                    {
+                      "minLength": 3,
+                      "label": "Research domain",
+                      "name": "researchDomainId",
+                      "type": "string"
+                    },
+                    {
+                      "minLength": 3,
+                      "label": "Repository type",
+                      "name": "repositoryType",
+                      "type": "string"
+                    },
+                    {
+                      "label": "Pagination Options",
+                      "name": "paginationOptions",
+                      "type": "paginationOptions",
+                      "options": {
+                        "type": "OFFSET",
+                        "limit": 10,
+                        "offset": 0,
+                        "sortField": "name",
+                        "sortOrder": "ASC"
+                      }
+                    }
+                  ]
+                },
+                "queryId": {
+                  "type": "string",
+                  "default": "useRepositoriesQuery"
+                },
+                "answerField": {
+                  "type": "string",
+                  "const": "uri",
+                  "default": "uri"
+                }
               },
-              "default": [
-                {}
-              ]
+              "additionalProperties": false,
+              "default": {}
             }
           },
           "required": [
@@ -658,7 +956,7 @@
           "properties": {
             "type": {
               "type": "string",
-              "const": "table"
+              "const": "researchOutputTable"
             },
             "attributes": {
               "type": "object",
@@ -705,6 +1003,14 @@
                   "heading": {
                     "type": "string",
                     "default": "Column A"
+                  },
+                  "required": {
+                    "type": "boolean",
+                    "default": false
+                  },
+                  "enabled": {
+                    "type": "boolean",
+                    "default": true
                   },
                   "content": {
                     "anyOf": [
@@ -765,21 +1071,7 @@
                               "displayFields": {
                                 "type": "array",
                                 "items": {
-                                  "type": "object",
-                                  "properties": {
-                                    "propertyName": {
-                                      "type": "string",
-                                      "default": "id"
-                                    },
-                                    "label": {
-                                      "type": "string",
-                                      "default": "Id"
-                                    },
-                                    "labelTranslationKey": {
-                                      "type": "string"
-                                    }
-                                  },
-                                  "additionalProperties": false
+                                  "$ref": "#/definitions/AnyQuestion/anyOf/7/properties/graphQL/properties/displayFields/items"
                                 },
                                 "default": [
                                   {}
@@ -798,30 +1090,7 @@
                               "variables": {
                                 "type": "array",
                                 "items": {
-                                  "type": "object",
-                                  "properties": {
-                                    "minLength": {
-                                      "type": "number"
-                                    },
-                                    "label": {
-                                      "type": "string"
-                                    },
-                                    "labelTranslationKey": {
-                                      "type": "string"
-                                    },
-                                    "name": {
-                                      "type": "string",
-                                      "default": "search"
-                                    },
-                                    "type": {
-                                      "type": "string",
-                                      "default": "string"
-                                    },
-                                    "defaultValue": {
-                                      "type": "string"
-                                    }
-                                  },
-                                  "additionalProperties": false
+                                  "$ref": "#/definitions/AnyQuestion/anyOf/7/properties/graphQL/properties/variables/items"
                                 },
                                 "default": [
                                   {}
@@ -838,13 +1107,69 @@
                         "additionalProperties": false
                       },
                       {
+                        "$ref": "#/definitions/AnyQuestion/anyOf/7"
+                      },
+                      {
                         "$ref": "#/definitions/AnyQuestion/anyOf/8"
                       },
                       {
                         "$ref": "#/definitions/AnyQuestion/anyOf/10"
                       },
                       {
-                        "$ref": "#/definitions/AnyQuestion/anyOf/11"
+                        "$ref": "#/definitions/AnyQuestion/anyOf/12"
+                      },
+                      {
+                        "$ref": "#/definitions/AnyQuestion/anyOf/13"
+                      },
+                      {
+                        "type": "object",
+                        "properties": {
+                          "type": {
+                            "type": "string",
+                            "const": "selectBox"
+                          },
+                          "attributes": {
+                            "type": "object",
+                            "properties": {
+                              "label": {
+                                "$ref": "#/definitions/AnyQuestion/anyOf/0/properties/attributes/properties/label"
+                              },
+                              "help": {
+                                "$ref": "#/definitions/AnyQuestion/anyOf/0/properties/attributes/properties/help"
+                              },
+                              "labelTranslationKey": {
+                                "$ref": "#/definitions/AnyQuestion/anyOf/0/properties/attributes/properties/labelTranslationKey"
+                              },
+                              "multiple": {
+                                "type": "boolean",
+                                "const": false
+                              }
+                            },
+                            "required": [
+                              "multiple"
+                            ],
+                            "additionalProperties": false,
+                            "default": {
+                              "multiple": false
+                            }
+                          },
+                          "meta": {
+                            "$ref": "#/definitions/AnyQuestion/anyOf/0/properties/meta"
+                          },
+                          "options": {
+                            "type": "array",
+                            "items": {
+                              "$ref": "#/definitions/AnyQuestion/anyOf/9/properties/options/items"
+                            },
+                            "default": [
+                              {}
+                            ]
+                          }
+                        },
+                        "required": [
+                          "type"
+                        ],
+                        "additionalProperties": false
                       },
                       {
                         "type": "object",
@@ -945,7 +1270,7 @@
                             "const": "url"
                           },
                           "attributes": {
-                            "$ref": "#/definitions/AnyQuestion/anyOf/12/properties/columns/items/properties/content/anyOf/12/properties/attributes",
+                            "$ref": "#/definitions/AnyQuestion/anyOf/14/properties/columns/items/properties/content/anyOf/15/properties/attributes",
                             "default": {}
                           },
                           "meta": {
@@ -961,9 +1286,322 @@
                     "default": {
                       "type": "textArea"
                     }
+                  },
+                  "meta": {
+                    "type": "object",
+                    "properties": {
+                      "schemaVersion": {
+                        "type": "string",
+                        "default": "1.0"
+                      },
+                      "labelTranslationKey": {
+                        "type": "string"
+                      }
+                    },
+                    "additionalProperties": false,
+                    "default": {}
                   }
                 },
                 "additionalProperties": false
+              },
+              "default": [
+                {
+                  "heading": "Title",
+                  "required": true,
+                  "enabled": true,
+                  "content": {
+                    "type": "text",
+                    "attributes": {
+                      "help": "Enter the title of this research output",
+                      "labelTranslationKey": "researchOutput.title.heading"
+                    },
+                    "meta": {
+                      "schemaVersion": "1.0"
+                    }
+                  },
+                  "meta": {
+                    "schemaVersion": "1.0"
+                  }
+                },
+                {
+                  "heading": "Description",
+                  "required": false,
+                  "enabled": true,
+                  "content": {
+                    "type": "textArea",
+                    "attributes": {
+                      "help": "Provide a brief description of this research output",
+                      "labelTranslationKey": "researchOutput.description.heading"
+                    },
+                    "meta": {
+                      "schemaVersion": "1.0"
+                    }
+                  },
+                  "meta": {
+                    "schemaVersion": "1.0"
+                  }
+                },
+                {
+                  "heading": "Output Type",
+                  "required": true,
+                  "enabled": true,
+                  "content": {
+                    "type": "selectBox",
+                    "attributes": {
+                      "multiple": false,
+                      "help": "Select the type that best describes this research output",
+                      "labelTranslationKey": "researchOutput.outputType.heading"
+                    },
+                    "meta": {
+                      "schemaVersion": "1.0"
+                    },
+                    "options": [
+                      {
+                        "label": "Option A",
+                        "value": "a",
+                        "selected": false
+                      }
+                    ]
+                  },
+                  "meta": {
+                    "schemaVersion": "1.0"
+                  }
+                },
+                {
+                  "heading": "Data Flags",
+                  "required": false,
+                  "enabled": false,
+                  "content": {
+                    "type": "checkBoxes",
+                    "attributes": {
+                      "help": "Select any data flags that apply to this research output",
+                      "labelTranslationKey": "researchOutput.dataFlags.heading"
+                    },
+                    "meta": {
+                      "schemaVersion": "1.0"
+                    },
+                    "options": [
+                      {
+                        "label": "May contain sensitive data?",
+                        "value": "sensitive"
+                      },
+                      {
+                        "label": "May contain personally identifiable information?",
+                        "value": "personal"
+                      }
+                    ]
+                  },
+                  "meta": {
+                    "schemaVersion": "1.0"
+                  }
+                },
+                {
+                  "heading": "Repository",
+                  "required": false,
+                  "enabled": false,
+                  "content": {
+                    "type": "repositorySearch",
+                    "attributes": {},
+                    "meta": {
+                      "schemaVersion": "1.0"
+                    },
+                    "graphQL": {
+                      "displayFields": [
+                        {
+                          "propertyName": "name",
+                          "label": "Name"
+                        },
+                        {
+                          "propertyName": "description",
+                          "label": "Description"
+                        },
+                        {
+                          "propertyName": "website",
+                          "label": "Website"
+                        },
+                        {
+                          "propertyName": "keywords",
+                          "label": "Keywords"
+                        }
+                      ],
+                      "query": "query Repositories($term: String, $researchDomainId: Int, $repositoryType: String, $paginationOptions: PaginationOptions){ repositories(term: $term, researchDomainId: $researchDomainId, repositoryType: $repositoryType, paginationOptions: $paginationOptions) { totalCount currentOffset limit hasNextPage hasPreviousPage availableSortFields items { id name uri description website researchDomains { id name uri } keywords repositoryTypes } } }",
+                      "responseField": "repositories.items",
+                      "variables": [
+                        {
+                          "minLength": 3,
+                          "label": "Search for a repository",
+                          "name": "term",
+                          "type": "string"
+                        },
+                        {
+                          "minLength": 3,
+                          "label": "Research domain",
+                          "name": "researchDomainId",
+                          "type": "string"
+                        },
+                        {
+                          "minLength": 3,
+                          "label": "Repository type",
+                          "name": "repositoryType",
+                          "type": "string"
+                        },
+                        {
+                          "label": "Pagination Options",
+                          "name": "paginationOptions",
+                          "type": "paginationOptions"
+                        }
+                      ],
+                      "answerField": "uri"
+                    }
+                  },
+                  "meta": {
+                    "schemaVersion": "1.0"
+                  },
+                  "attributes": {
+                    "help": "Select repositor(ies) you would prefer users to deposit in",
+                    "labelTranslationKey": "researchOutput.repository.heading"
+                  }
+                },
+                {
+                  "heading": "Metadata Standard",
+                  "required": false,
+                  "enabled": false,
+                  "content": {
+                    "type": "metadataStandardSearch",
+                    "attributes": {},
+                    "meta": {
+                      "schemaVersion": "1.0"
+                    },
+                    "graphQL": {
+                      "displayFields": [
+                        {
+                          "propertyName": "name",
+                          "label": "Name"
+                        },
+                        {
+                          "propertyName": "description",
+                          "label": "Description"
+                        },
+                        {
+                          "propertyName": "website",
+                          "label": "Website"
+                        },
+                        {
+                          "propertyName": "keywords",
+                          "label": "Keywords"
+                        }
+                      ],
+                      "query": "query MetadataStandards($term: String, $paginationOptions: PaginationOptions){ metadataStandards(term: $term, paginationOptions: $paginationOptions) { totalCount currentOffset limit hasNextPage hasPreviousPage availableSortFields items { id name uri description researchDomains { id name uri } keywords } } }",
+                      "responseField": "metadataStandards.items",
+                      "variables": [
+                        {
+                          "minLength": 3,
+                          "label": "Search for a metadata standard",
+                          "name": "term",
+                          "type": "string"
+                        },
+                        {
+                          "minLength": 3,
+                          "label": "Research domain",
+                          "name": "researchDomainId",
+                          "type": "string"
+                        },
+                        {
+                          "label": "Pagination Options",
+                          "name": "paginationOptions",
+                          "type": "paginationOptions"
+                        }
+                      ],
+                      "answerField": "uri"
+                    }
+                  },
+                  "meta": {
+                    "schemaVersion": "1.0"
+                  },
+                  "attributes": {
+                    "help": "Select metadata standard(s) you would prefer users to use",
+                    "labelTranslationKey": "researchOutput.metadataStandard.heading"
+                  }
+                },
+                {
+                  "heading": "License",
+                  "required": false,
+                  "enabled": false,
+                  "content": {
+                    "type": "licenseSearch",
+                    "attributes": {},
+                    "meta": {
+                      "schemaVersion": "1.0"
+                    },
+                    "graphQL": {
+                      "displayFields": [
+                        {
+                          "propertyName": "name",
+                          "label": "Name"
+                        },
+                        {
+                          "propertyName": "description",
+                          "label": "Description"
+                        },
+                        {
+                          "propertyName": "recommended",
+                          "label": "Recommended"
+                        }
+                      ],
+                      "query": "query Licenses($term: String, $paginationOptions: PaginationOptions){ license(term: $term, paginationOptions: $paginationOptions) { totalCount currentOffset limit hasNextPage hasPreviousPage availableSortFields items { id name uri description } } }",
+                      "responseField": "licenses.items",
+                      "variables": [
+                        {
+                          "minLength": 3,
+                          "label": "Search for a license",
+                          "name": "term",
+                          "type": "string"
+                        },
+                        {
+                          "label": "Pagination Options",
+                          "name": "paginationOptions",
+                          "type": "paginationOptions"
+                        }
+                      ],
+                      "answerField": "uri"
+                    }
+                  },
+                  "meta": {
+                    "schemaVersion": "1.0"
+                  },
+                  "attributes": {
+                    "help": "Select license(s) you would prefer users to apply to the research output",
+                    "labelTranslationKey": "researchOutput.license.heading"
+                  }
+                }
+              ]
+            }
+          },
+          "required": [
+            "type"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "$ref": "#/definitions/AnyQuestion/anyOf/14/properties/columns/items/properties/content/anyOf/13"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string",
+              "const": "table"
+            },
+            "attributes": {
+              "$ref": "#/definitions/AnyQuestion/anyOf/14/properties/attributes"
+            },
+            "meta": {
+              "$ref": "#/definitions/AnyQuestion/anyOf/0/properties/meta"
+            },
+            "columns": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/AnyQuestion/anyOf/14/properties/columns/items"
               },
               "default": [
                 {}
@@ -976,13 +1614,13 @@
           "additionalProperties": false
         },
         {
-          "$ref": "#/definitions/AnyQuestion/anyOf/12/properties/columns/items/properties/content/anyOf/11"
+          "$ref": "#/definitions/AnyQuestion/anyOf/14/properties/columns/items/properties/content/anyOf/14"
         },
         {
-          "$ref": "#/definitions/AnyQuestion/anyOf/12/properties/columns/items/properties/content/anyOf/12"
+          "$ref": "#/definitions/AnyQuestion/anyOf/14/properties/columns/items/properties/content/anyOf/15"
         },
         {
-          "$ref": "#/definitions/AnyQuestion/anyOf/12/properties/columns/items/properties/content/anyOf/13"
+          "$ref": "#/definitions/AnyQuestion/anyOf/14/properties/columns/items/properties/content/anyOf/16"
         }
       ]
     }
