@@ -1,11 +1,27 @@
 import { z } from "zod";
-import { CurrencyQuestionSchema, NumberQuestionSchema } from "./numberQuestions";
-import { EmailQuestionSchema, TextQuestionSchema, TextAreaQuestionSchema, URLQuestionSchema } from "./textQuestions";
-import { DateQuestionSchema, DateRangeQuestionSchema } from "./dateQuestions";
-import { BooleanQuestionSchema, CheckboxesQuestionSchema, RadioButtonsQuestionSchema, SelectBoxQuestionSchema } from './optionBasedQuestions';
+import {
+  CurrencyQuestionSchema,
+  NumberQuestionSchema,
+  NumberWithContextQuestionSchema
+} from "./numberQuestions";
+import {
+  EmailQuestionSchema,
+  TextQuestionSchema,
+  TextAreaQuestionSchema,
+  URLQuestionSchema
+} from "./textQuestions";
+import {
+  DateQuestionSchema,
+  DateRangeQuestionSchema
+} from "./dateQuestions";
+import {
+  BooleanQuestionSchema,
+  CheckboxesQuestionSchema,
+  RadioButtonsQuestionSchema,
+  SelectBoxQuestionSchema
+} from './optionBasedQuestions';
 import {
   AffiliationSearchQuestionSchema,
-  FilteredSearchQuestionSchema,
   RepositorySearchQuestionSchema,
   MetadataStandardSearchQuestionSchema,
   LicenseSearchQuestionSchema
@@ -23,10 +39,10 @@ export const AnyTableColumnQuestionSchema = z.discriminatedUnion('type', [
   DateQuestionSchema,
   DateRangeQuestionSchema,
   EmailQuestionSchema,
-  FilteredSearchQuestionSchema,
   LicenseSearchQuestionSchema,
   MetadataStandardSearchQuestionSchema,
   NumberQuestionSchema,
+  NumberWithContextQuestionSchema,
   RadioButtonsQuestionSchema,
   RepositorySearchQuestionSchema,
   SelectBoxQuestionSchema,
@@ -110,6 +126,60 @@ const ResearchOutputDataFlagsColumnSchema = TableColumn.extend({
   }).default({ type: 'checkBoxes' })
 });
 
+const ResearchOutputAccessLevelColumnSchema = TableColumn.extend({
+  heading: z.string().default('Initial Access Level'),
+  enabled: z.boolean().default(false),
+  content: SelectBoxQuestionSchema.extend({
+    attributes: z.object({
+      multiple: z.literal(false),
+      help: z.string().default('The initial access level for the research output'),
+      labelTranslationKey: z.string().default('researchOutput.accessLevel.heading')
+    }).default({multiple: false}),
+    options: z.array(z.object({
+      label: z.string(),
+      value: z.string()
+    })).default([
+      {label: 'Unrestricted Access', value: 'open'},
+      {label: 'Controlled Access', value: 'restricted'},
+      {label: 'Other', value: 'closed'},
+    ])
+  }).default({ type: 'selectBox' })
+});
+
+const ResearchOutputReleaseDateColumnSchema = TableColumn.extend({
+  heading: z.string().default('Anticipated Release Date'),
+  enabled: z.boolean().default(false),
+  content: DateQuestionSchema.extend({
+    attributes: z.object({
+      help: z.string().default('The anticipated release date for the research output'),
+      labelTranslationKey: z.string().default('researchOutput.releaseDate.heading')
+    }).default({})
+  }).default({ type: 'date' })
+});
+
+const ResearchOutputByteSizeColumnSchema = TableColumn.extend({
+  heading: z.string().default('Byte Size'),
+  enabled: z.boolean().default(false),
+  content: NumberWithContextQuestionSchema.extend({
+    attributes: z.object({
+      min: z.number().default(0),
+      help: z.string().default('The size of the research output in bytes'),
+      labelTranslationKey: z.string().default('researchOutput.byteSize.heading'),
+      context: z.array(z.object({
+        label: z.string().default('MB (megabytes)'),
+        value: z.string().default('mb')
+      })).default([
+        { label: 'bytes', value: 'bytes' },
+        { label: 'KB (kilobytes)', value: 'kb' },
+        { label: 'MB (megabytes)', value: 'mb' },
+        { label: 'GB (gigabytes)', value: 'gb' },
+        { label: 'TB (terabytes)', value: 'tb' },
+        { label: 'PB (petabytes)', value: 'pb' }
+      ])
+    }).default({})
+  }).default({ type: 'numberWithContext' })
+});
+
 const ResearchOutputRepositoryColumnSchema = TableColumn.extend({
   heading: z.string().default('Repository'),
   enabled: z.boolean().default(false),
@@ -150,6 +220,9 @@ const defaultOutputTypeColumn = ResearchOutputOutputTypeColumnSchema.parse({
   content: { type: 'selectBox' }
 });
 const defaultDataFlagsColumn = ResearchOutputDataFlagsColumnSchema.parse({});
+const defaultAccessLevelColumn = ResearchOutputAccessLevelColumnSchema.parse({});
+const defaultReleaseDateColumn = ResearchOutputReleaseDateColumnSchema.parse({});
+const defaultByteSizeColumn = ResearchOutputByteSizeColumnSchema.parse({});
 const defaultRepositoryColumn = ResearchOutputRepositoryColumnSchema.parse({});
 const defaultMetadataStandardColumn = ResearchOutputMetadataStandardColumnSchema.parse({});
 const defaultLicenseColumn = ResearchOutputLicenseColumnSchema.parse({});
@@ -161,6 +234,9 @@ export const ResearchOutputTableQuestionSchema = TableQuestionSchema.merge(z.obj
     defaultDescriptionColumn,
     defaultOutputTypeColumn,
     defaultDataFlagsColumn,
+    defaultAccessLevelColumn,
+    defaultReleaseDateColumn,
+    defaultByteSizeColumn,
     defaultRepositoryColumn,
     defaultMetadataStandardColumn,
     defaultLicenseColumn

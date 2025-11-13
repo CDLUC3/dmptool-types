@@ -1,7 +1,6 @@
 import { describe, it, expect } from "@jest/globals";
 import { DateAnswerSchema, DateRangeAnswerSchema } from '../dateAnswers';
 import {
-  FilteredSearchAnswerSchema,
   AffiliationSearchAnswerSchema,
   RepositorySearchAnswerSchema,
   MetadataStandardSearchAnswerSchema,
@@ -78,14 +77,6 @@ describe('Answer Type Validations', () => {
 
     const invalidData = { type: 'email', answer: 12345 };
     expect(() => EmailAnswerSchema.parse(invalidData)).toThrow();
-  });
-
-  it('should validate FilteredSearchAnswer', () => {
-    const validData = { type: 'filteredSearch', answer: ['item1', 'item2'], meta: { schemaVersion: CURRENT_SCHEMA_VERSION } };
-    expect(() => FilteredSearchAnswerSchema.parse(validData)).not.toThrow();
-
-    const invalidData = { type: 'filteredSearch', answer: 'item1', meta: { schemaVersion: CURRENT_SCHEMA_VERSION } };
-    expect(() => FilteredSearchAnswerSchema.parse(invalidData)).toThrow();
   });
 
   it('should validate NumberAnswer', () => {
@@ -191,8 +182,51 @@ describe('Answer Type Validations', () => {
             meta: { schemaVersion: CURRENT_SCHEMA_VERSION }
           },
           {
+            type: 'textArea',
+            answer: 'This is a longer text answer',
+            meta: { schemaVersion: CURRENT_SCHEMA_VERSION }
+          },
+          {
             type: 'selectBox',
             answer: 'dataset',
+            meta: { schemaVersion: CURRENT_SCHEMA_VERSION }
+          },
+          {
+            type: 'checkBoxes',
+            answer: ['sensitive'],
+            meta: { schemaVersion: CURRENT_SCHEMA_VERSION }
+          },
+          {
+            type: 'selectBox',
+            answer: 'open',
+            meta: { schemaVersion: CURRENT_SCHEMA_VERSION }
+          },
+          {
+            type: 'date',
+            answer: '2025-11-13',
+            meta: { schemaVersion: CURRENT_SCHEMA_VERSION }
+          },
+          {
+            type: 'numberWithContext',
+            answer: { value: 12345, context: 'gb' },
+            meta: { schemaVersion: CURRENT_SCHEMA_VERSION }
+          },
+          {
+            type: 'repositorySearch',
+            answer: [{ repositoryId: 'repo1', repositoryName: 'Repository One' }],
+            meta: { schemaVersion: CURRENT_SCHEMA_VERSION }
+          },
+          {
+            type: 'metadataStandardSearch',
+            answer: [
+              { metadataStandardId: 'standard1', metadataStandardName: 'Standard One' },
+              { metadataStandardId: 'standard2', metadataStandardName: 'Standard Two' }
+            ],
+            meta: { schemaVersion: CURRENT_SCHEMA_VERSION }
+          },
+          {
+            type: 'licenseSearch',
+            answer: [{ licenseId: 'license1', licenseName: 'License One' }],
             meta: { schemaVersion: CURRENT_SCHEMA_VERSION }
           }
         ],

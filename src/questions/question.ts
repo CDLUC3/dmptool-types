@@ -11,7 +11,6 @@ export const QuestionFormatsEnum = z.enum([
   'date',
   'dateRange',
   'email',
-  // 'filteredSearch',
   'licenseSearch',
   'metadataStandardSearch',
   'multiselectBox',
@@ -87,9 +86,6 @@ export const QuestionFormatsUsage: Record<QuestionType, QuestionFormatsUsageInte
     title: 'Email Field',
     usageDescription: 'For questions that require require email address(es).',
   },
-  // filteredSearch: {
-  //   title: 'Not yet implemented',
-  // },
   licenseSearch: {
     title: 'License Search',
     usageDescription: 'For questions that require the user to select from a controlled list of licenses (e.g. Creative Commons, GNU, etc.).',

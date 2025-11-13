@@ -3,65 +3,10 @@ import {
   affiliationQuery,
   AffiliationSearchQuestionSchema,
   AffiliationSearchQuestionType,
-  FilteredSearchQuestionSchema,
-  FilteredSearchQuestionType,
   LicenseSearchQuestionSchema,
   MetadataStandardSearchQuestionSchema,
   RepositorySearchQuestionSchema
 } from "../graphQLQuestions";
-
-describe("FilteredSearchQuestion schema", () => {
-  it("should validate a correct FilteredSearchQuestion object", () => {
-    const validData: FilteredSearchQuestionType = {
-      type: "filteredSearch",
-      graphQL: {
-        displayFields: [
-          { propertyName: "name", label: "Name" },
-          { propertyName: "age", label: "Age", labelTranslationKey: "age_key" },
-        ],
-        query: "query($searchTerm: String!, $minAge: Int!) { users(searchTerm: $searchTerm, minAge: $minAge) { name age } }",
-        responseField: "data",
-        variables: [
-          { name: "searchTerm", type: "string", defaultValue: "default" },
-          { name: "minAge", type: "number", minLength: 1 },
-        ],
-      },
-      attributes: {
-        label: "Search",
-        help: "Search for a user",
-        multiple: true,
-      },
-      meta: {
-        schemaVersion: "1.0"
-      }
-    };
-
-    expect(() => FilteredSearchQuestionSchema.parse(validData)).not.toThrow();
-  });
-
-  it("should throw an error for an invalid FilteredSearchQuestion object", () => {
-    const invalidData = {
-      type: "filteredSearch",
-      graphQL: {
-        displayFields: [
-          { propertyName: "name", label: "Name" },
-        ],
-        responseField: "data",
-        variables: [
-          { name: "searchTerm", type: "string" },
-        ],
-      },
-      attributes: {
-        multiple: "notABoolean", // Invalid type
-      },
-      meta: {
-        schemaVersion: "1.0"
-      }
-    };
-
-    expect(() => FilteredSearchQuestionSchema.parse(invalidData)).toThrow();
-  });
-});
 
 describe("AffiliationSearchQuestion schema", () => {
   it("should validate a correct AffiliationSearchQuestion object", () => {
@@ -180,7 +125,7 @@ describe("MetadataStandardSearchQuestion schema", () => {
         help: "Search for a metadata standard",
       },
       graphQL: {
-        query: "query MetadataStandards($term: String, $paginationOptions: PaginationOptions){ metadataStandards(term: $term, paginationOptions: $paginationOptions) { totalCount currentOffset limit hasNextPage hasPreviousPage availableSortFields items { id name uri description researchDomains { id name uri } keywords } } }",
+        query: "query MetadataStandards($term: String, $keywords: [String!], $paginationOptions: PaginationOptions){ metadataStandards(term: $term, keywords: $keywords, paginationOptions: $paginationOptions) { totalCount currentOffset limit hasNextPage hasPreviousPage availableSortFields items { id name uri description keywords } } }",
         displayFields: [
           {
             propertyName: "name",
@@ -196,7 +141,7 @@ describe("MetadataStandardSearchQuestion schema", () => {
           },
           {
             propertyName: "keywords",
-            label: "Keywords"
+            label: "Subject Areas"
           }
         ],
         answerField: "uri",
@@ -210,8 +155,8 @@ describe("MetadataStandardSearchQuestion schema", () => {
           },
           {
             type: "string",
-            name: "researchDomainId",
-            label: "Research Domain"
+            name: "keywords",
+            label: "Subject Areas"
           }
         ],
       },
@@ -245,7 +190,7 @@ describe("RepositorySearchQuestion schema", () => {
         help: "Search for a repository",
       },
       graphQL: {
-        query: "query Repositories($term: String, $researchDomainId: Int, $repositoryType: String, $paginationOptions: PaginationOptions){ repositories(term: $term, researchDomainId: $researchDomainId, repositoryType: $repositoryType, paginationOptions: $paginationOptions) { totalCount currentOffset limit hasNextPage hasPreviousPage availableSortFields items { id name uri description website researchDomains { id name uri } keywords repositoryTypes } } }",
+        query: "query Repositories($term: String, $keywords: [String!], $repositoryType: String, $paginationOptions: PaginationOptions){ repositories(term: $term, keywords: $keywords, repositoryType: $repositoryType, paginationOptions: $paginationOptions) { totalCount currentOffset limit hasNextPage hasPreviousPage availableSortFields items { id name uri description website keywords repositoryTypes } } }",
         displayFields: [
           {
             propertyName: "name",
@@ -261,7 +206,7 @@ describe("RepositorySearchQuestion schema", () => {
           },
           {
             propertyName: "keywords",
-            label: "Keywords"
+            label: "Subject Areas"
           }
         ],
         answerField: "uri",
@@ -280,8 +225,8 @@ describe("RepositorySearchQuestion schema", () => {
           },
           {
             type: "string",
-            name: "researchDomainId",
-            label: "Research Domain"
+            name: "keywords",
+            label: "Subject Areas"
           }
         ],
       },

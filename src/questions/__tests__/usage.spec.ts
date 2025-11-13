@@ -247,7 +247,7 @@ it('for metadataStandardSearch question format', () => {
           propertyName: "website",
         },
         {
-          label: "Keywords",
+          label: "Subject Areas",
           propertyName: "keywords",
         }
       ],
@@ -261,8 +261,8 @@ it('for metadataStandardSearch question format', () => {
           type: "string",
         },
         {
-          label: "Research domain",
-          name: "researchDomainId",
+          label: "Subject Areas",
+          name: "keywords",
           type: "string",
           minLength: 3,
         },
@@ -386,7 +386,7 @@ it('for repositorySearch question format', () => {
           propertyName: "website",
         },
         {
-          label: "Keywords",
+          label: "Subject Areas",
           propertyName: "keywords",
         }
       ],
@@ -400,8 +400,8 @@ it('for repositorySearch question format', () => {
           type: "string",
         },
         {
-          label: "Research domain",
-          name: "researchDomainId",
+          label: "Subject Areas",
+          name: "keywords",
           type: "string",
           minLength: 3
         },

@@ -167,6 +167,11 @@ fs.writeFileSync('./schemas/repositorySearchQuestion.schema.json', JSON.stringif
 const RepositorySearchAnswerOutput = zodToJsonSchema(RepositorySearchAnswerSchema, 'RepositorySearchAnswer');
 fs.writeFileSync('./schemas/repositorySearchAnswer.schema.json', JSON.stringify(RepositorySearchAnswerOutput, null, 2));
 
+const ResearchOutputTableOutput = zodToJsonSchema(TableQuestionSchema, 'ResearchOutputTableQuestion');
+fs.writeFileSync('./schemas/researchOutputTableQuestion.schema.json', JSON.stringify(ResearchOutputTableOutput, null, 2));
+const ResearchOutputTableAnswerOutput = zodToJsonSchema(TableAnswerSchema, 'ResearchOutputTableAnswer');
+fs.writeFileSync('./schemas/researchOutputTableAnswer.schema.json', JSON.stringify(ResearchOutputTableAnswerOutput, null, 2));
+
 const SelectBoxOutput = zodToJsonSchema(SelectBoxQuestionSchema, 'SelectBoxQuestion');
 fs.writeFileSync('./schemas/selectBoxQuestion.schema.json', JSON.stringify(SelectBoxOutput, null, 2));
 const SelectBoxAnswerOutput = zodToJsonSchema(SelectBoxAnswerSchema, 'SelectBoxAnswer');

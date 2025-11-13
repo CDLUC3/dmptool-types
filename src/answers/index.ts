@@ -4,7 +4,6 @@ import {
   DateRangeAnswerSchema, DateRangeAnswerType
 } from './dateAnswers';
 import {
-  // FilteredSearchAnswerSchema, FilteredSearchAnswerType,
   AffiliationSearchAnswerSchema, AffiliationSearchAnswerType,
   LicenseSearchAnswerSchema, LicenseSearchAnswerType,
   MetadataStandardSearchAnswerSchema, MetadataStandardSearchAnswerType,
@@ -55,7 +54,6 @@ export const AnyAnswerSchema = z.discriminatedUnion('type', [
   DateAnswerSchema,
   DateRangeAnswerSchema,
   EmailAnswerSchema,
-  // FilteredSearchAnswerSchema,
   LicenseSearchAnswerSchema,
   MetadataStandardSearchAnswerSchema,
   MultiselectBoxAnswerSchema,
@@ -79,7 +77,6 @@ export const AnswerSchemaMap: Record<z.infer<typeof QuestionFormatsEnum>, z.ZodT
   date: DateAnswerSchema,
   dateRange: DateRangeAnswerSchema,
   email: EmailAnswerSchema,
-  // filteredSearch: FilteredSearchAnswerSchema,
   licenseSearch: LicenseSearchAnswerSchema,
   metadataStandardSearch: MetadataStandardSearchAnswerSchema,
   multiselectBox: MultiselectBoxAnswerSchema,
@@ -107,7 +104,6 @@ export interface AnswerTypeMap {
   date: DateAnswerType,
   dateRange: DateRangeAnswerType,
   email: EmailAnswerType,
-  // filteredSearch: FilteredSearchAnswerType,
   licenseSearch: LicenseSearchAnswerType,
   metadataStandardSearch: MetadataStandardSearchAnswerType,
   multiselectBox: MultiselectBoxAnswerType,

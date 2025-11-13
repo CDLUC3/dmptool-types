@@ -108,6 +108,29 @@ describe("ResearchOutputTableQuestionSchema", () => {
               schemaVersion: "1.0"
             }
           }
+        },
+        {
+          heading: "Byte Size",
+          required: false,
+          enabled: true,
+          content: {
+            type: "numberWithContext",
+            attributes: {
+              min: 0,
+              step: 1,
+              context: [
+                { label: 'bytes', value: 'bytes' },
+                { label: 'KB (kilobytes)', value: 'kb' },
+                { label: 'MB (megabytes)', value: 'mb' },
+                { label: 'GB (gigabytes)', value: 'gb' },
+                { label: 'TB (terabytes)', value: 'tb' },
+                { label: 'PB (petabytes)', value: 'pb' }
+              ]
+            },
+            meta: {
+              schemaVersion: "1.0"
+            }
+          }
         }
       ],
       meta: {

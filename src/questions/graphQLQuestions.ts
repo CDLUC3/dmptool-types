@@ -30,6 +30,7 @@ const GraphQLPaginationVariables = GraphQLVariable.extend({
     type: 'OFFSET',
     limit: 10,
     offset: 0,
+    cursor: undefined,
     sortField: 'name',
     sortOrder: 'ASC',
   })
@@ -51,24 +52,11 @@ const GraphQLQuery = z.object({
   variables: z.array(GraphQLVariable).default([{}])           // The variables for the query
 });
 
-// Filtered search question and answer
-
-// TODO: This one is for future use to help build out the components of the
-//       Research Outputs Question Type (e.g. License selector, Repository selector, etc.)
-export const FilteredSearchQuestionSchema = QuestionSchema.merge(z.object({
-  type: z.literal('filteredSearch'),
-  graphQL: GraphQLQuery.default({}),           // The GraphQL query options for the search
-  attributes: BaseAttributes.merge(z.object({
-    multiple: z.boolean().default(true)   // Whether to allow multiple selections
-  })).default({})
-}));
-
 // Typeahead search question and answer
 const TypeaheadSearchQuestionSchema = QuestionSchema.merge(z.object({
   type: z.literal('typeaheadSearch'),                       // The type of question
   graphQL: GraphQLQuery,                                    // The GraphQL query options for the typeahead search
 }));
-
 
 export const affiliationQuery = '' +
   'query Affiliations($name: String!){ ' +
@@ -107,8 +95,8 @@ export const AffiliationSearchQuestionSchema = TypeaheadSearchQuestionSchema.mer
 }));
 
 export const repositoryQuery = '' +
-  'query Repositories($term: String, $researchDomainId: Int, $repositoryType: String, $paginationOptions: PaginationOptions){ ' +
-    'repositories(term: $term, researchDomainId: $researchDomainId, repositoryType: $repositoryType, paginationOptions: $paginationOptions) { ' +
+  'query Repositories($term: String, $keywords: [String!], $repositoryType: String, $paginationOptions: PaginationOptions){ ' +
+    'repositories(term: $term, keywords: $keywords, repositoryType: $repositoryType, paginationOptions: $paginationOptions) { ' +
       'totalCount ' +
       'currentOffset ' +
       'limit ' +
@@ -121,11 +109,6 @@ export const repositoryQuery = '' +
         'uri ' +
         'description ' +
         'website ' +
-        'researchDomains { ' +
-          'id ' +
-          'name ' +
-          'uri ' +
-        '} ' +
         'keywords ' +
         'repositoryTypes ' +
       '} ' +
@@ -148,12 +131,12 @@ const RepositorySearchRepositoryTypeVariable = GraphQLVariable.extend({
   labelTranslationKey: z.string().default("RepositorySearch.repositoryType").optional(),
 });
 
-const RepositorySearchResearchDomainIdVariable = GraphQLVariable.extend({
-  name: z.literal("researchDomainId").default('researchDomainId'),
+const RepositorySearchKeywordsVariable = GraphQLVariable.extend({
+  name: z.literal("keywords").default('keywords'),
   type: z.string().default("string"),
-  label: z.string().default("Research domain"),
+  label: z.string().default("Subject Areas"),
   minLength: z.literal(3).default(3),
-  labelTranslationKey: z.string().default("RepositorySearch.researchDomain").optional(),
+  labelTranslationKey: z.string().default("RepositorySearch.keywords").optional(),
 });
 
 const RepositorySearchResultName = GraphQLDisplayField.extend({
@@ -176,13 +159,13 @@ const RepositorySearchResultWebsite = GraphQLDisplayField.extend({
 
 const RepositorySearchResultKeywords = GraphQLDisplayField.extend({
   propertyName: z.literal("keywords").default('keywords'),
-  label: z.string().default("Keywords"),
+  label: z.string().default("Subject Areas"),
   labelTranslationKey: z.string().default("RepositorySearch.keywords").optional(),
 });
 
 const defaultRepositorySearchTerm = RepositorySearchTermVariable.parse({});
 const defaultRepositorySearchType = RepositorySearchRepositoryTypeVariable.parse({});
-const defaultRepositorySearchResearchDomainId = RepositorySearchResearchDomainIdVariable.parse({});
+const defaultRepositorySearchSubjectAreas = RepositorySearchKeywordsVariable.parse({});
 const defaultRepositorySearchName = RepositorySearchResultName.parse({});
 const defaultRepositorySearchDescription = RepositorySearchResultDescription.parse({});
 const defaultRepositorySearchWebsite = RepositorySearchResultWebsite.parse({});
@@ -199,7 +182,7 @@ export const RepositorySearchQuestionSchema = TypeaheadSearchQuestionSchema.merg
     queryId: z.string().default('useRepositoriesQuery').optional(),
     variables: z.array(GraphQLVariable).default([
       defaultRepositorySearchTerm,
-      defaultRepositorySearchResearchDomainId,
+      defaultRepositorySearchSubjectAreas,
       defaultRepositorySearchType,
       defaultRepositoryPaginationOptions,
     ]),
@@ -215,8 +198,8 @@ export const RepositorySearchQuestionSchema = TypeaheadSearchQuestionSchema.merg
 }));
 
 export const metadataStandardQuery = '' +
-  'query MetadataStandards($term: String, $paginationOptions: PaginationOptions){ ' +
-    'metadataStandards(term: $term, paginationOptions: $paginationOptions) { ' +
+  'query MetadataStandards($term: String, $keywords: [String!], $paginationOptions: PaginationOptions){ ' +
+    'metadataStandards(term: $term, keywords: $keywords, paginationOptions: $paginationOptions) { ' +
       'totalCount ' +
       'currentOffset ' +
       'limit ' +
@@ -228,11 +211,6 @@ export const metadataStandardQuery = '' +
         'name ' +
         'uri ' +
         'description ' +
-        'researchDomains { ' +
-          'id ' +
-          'name ' +
-          'uri ' +
-        '} ' +
         'keywords ' +
       '} ' +
     '} ' +
@@ -246,12 +224,12 @@ const MetadataStandardSearchTermVariable = GraphQLVariable.extend({
   labelTranslationKey: z.string().default("MetadataStandardSearch.term").optional(),
 });
 
-const MetadataStandardSearchResearchDomainIdVariable = GraphQLVariable.extend({
-  name: z.literal("researchDomainId").default('researchDomainId'),
+const MetadataStandardSearchKeywordsVariable = GraphQLVariable.extend({
+  name: z.literal("keywords").default('keywords'),
   type: z.string().default("string"),
-  label: z.string().default("Research domain"),
+  label: z.string().default("Subject Areas"),
   minLength: z.literal(3).default(3),
-  labelTranslationKey: z.string().default("MetadataStandardSearch.researchDomain").optional(),
+  labelTranslationKey: z.string().default("MetadataStandardSearch.keywords").optional(),
 })
 
 const MetadataStandardSearchResultName = GraphQLDisplayField.extend({
@@ -274,12 +252,12 @@ const MetadataStandardSearchResultWebsite = GraphQLDisplayField.extend({
 
 const MetadataStandardSearchResultKeywords = GraphQLDisplayField.extend({
   propertyName: z.literal("keywords").default('keywords'),
-  label: z.string().default("Keywords"),
+  label: z.string().default("Subject Areas"),
   labelTranslationKey: z.string().default("MetadataStandardSearch.keywords").optional(),
 });
 
 const defaultMetadataStandardSearchTerm = MetadataStandardSearchTermVariable.parse({});
-const defaultMetadataStandardSearchResearchDomainId = MetadataStandardSearchResearchDomainIdVariable.parse({});
+const defaultMetadataStandardSearchSubjectAreas = MetadataStandardSearchKeywordsVariable.parse({});
 const defaultMetadataStandardPaginationOptions = GraphQLPaginationVariables.parse({});
 
 const defaultMetadataStandardName = MetadataStandardSearchResultName.parse({});
@@ -295,7 +273,7 @@ export const MetadataStandardSearchQuestionSchema = TypeaheadSearchQuestionSchem
     queryId: z.string().default('useMetadataStandardsQuery').optional(),
     variables: z.array(GraphQLVariable).default([
       defaultMetadataStandardSearchTerm,
-      defaultMetadataStandardSearchResearchDomainId,
+      defaultMetadataStandardSearchSubjectAreas,
       defaultMetadataStandardPaginationOptions,
     ]),
     answerField: z.literal('uri').default('uri'),
@@ -380,7 +358,6 @@ export const LicenseSearchQuestionSchema = TypeaheadSearchQuestionSchema.merge(z
 }));
 
 // This will ensure that object validations are against the Zod schemas defined above
-export type FilteredSearchQuestionType = z.infer<typeof FilteredSearchQuestionSchema>;
 export type AffiliationSearchQuestionType = z.infer<typeof AffiliationSearchQuestionSchema>;
 export type RepositorySearchQuestionType = z.infer<typeof RepositorySearchQuestionSchema>;
 export type MetadataStandardSearchQuestionType = z.infer<typeof MetadataStandardSearchQuestionSchema>;
