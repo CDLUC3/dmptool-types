@@ -600,7 +600,7 @@
                     },
                     {
                       "propertyName": "keywords",
-                      "label": "Keywords"
+                      "label": "Subject Areas"
                     }
                   ]
                 },
@@ -609,8 +609,8 @@
                 },
                 "query": {
                   "type": "string",
-                  "const": "query MetadataStandards($term: String, $paginationOptions: PaginationOptions){ metadataStandards(term: $term, paginationOptions: $paginationOptions) { totalCount currentOffset limit hasNextPage hasPreviousPage availableSortFields items { id name uri description researchDomains { id name uri } keywords } } }",
-                  "default": "query MetadataStandards($term: String, $paginationOptions: PaginationOptions){ metadataStandards(term: $term, paginationOptions: $paginationOptions) { totalCount currentOffset limit hasNextPage hasPreviousPage availableSortFields items { id name uri description researchDomains { id name uri } keywords } } }"
+                  "const": "query MetadataStandards($term: String, $keywords: [String!], $paginationOptions: PaginationOptions){ metadataStandards(term: $term, keywords: $keywords, paginationOptions: $paginationOptions) { totalCount currentOffset limit hasNextPage hasPreviousPage availableSortFields items { id name uri description keywords } } }",
+                  "default": "query MetadataStandards($term: String, $keywords: [String!], $paginationOptions: PaginationOptions){ metadataStandards(term: $term, keywords: $keywords, paginationOptions: $paginationOptions) { totalCount currentOffset limit hasNextPage hasPreviousPage availableSortFields items { id name uri description keywords } } }"
                 },
                 "responseField": {
                   "type": "string",
@@ -631,8 +631,8 @@
                     },
                     {
                       "minLength": 3,
-                      "label": "Research domain",
-                      "name": "researchDomainId",
+                      "label": "Subject Areas",
+                      "name": "keywords",
                       "type": "string"
                     },
                     {
@@ -877,7 +877,7 @@
                     },
                     {
                       "propertyName": "keywords",
-                      "label": "Keywords"
+                      "label": "Subject Areas"
                     }
                   ]
                 },
@@ -886,8 +886,8 @@
                 },
                 "query": {
                   "type": "string",
-                  "const": "query Repositories($term: String, $researchDomainId: Int, $repositoryType: String, $paginationOptions: PaginationOptions){ repositories(term: $term, researchDomainId: $researchDomainId, repositoryType: $repositoryType, paginationOptions: $paginationOptions) { totalCount currentOffset limit hasNextPage hasPreviousPage availableSortFields items { id name uri description website researchDomains { id name uri } keywords repositoryTypes } } }",
-                  "default": "query Repositories($term: String, $researchDomainId: Int, $repositoryType: String, $paginationOptions: PaginationOptions){ repositories(term: $term, researchDomainId: $researchDomainId, repositoryType: $repositoryType, paginationOptions: $paginationOptions) { totalCount currentOffset limit hasNextPage hasPreviousPage availableSortFields items { id name uri description website researchDomains { id name uri } keywords repositoryTypes } } }"
+                  "const": "query Repositories($term: String, $keywords: [String!], $repositoryType: String, $paginationOptions: PaginationOptions){ repositories(term: $term, keywords: $keywords, repositoryType: $repositoryType, paginationOptions: $paginationOptions) { totalCount currentOffset limit hasNextPage hasPreviousPage availableSortFields items { id name uri description website keywords repositoryTypes } } }",
+                  "default": "query Repositories($term: String, $keywords: [String!], $repositoryType: String, $paginationOptions: PaginationOptions){ repositories(term: $term, keywords: $keywords, repositoryType: $repositoryType, paginationOptions: $paginationOptions) { totalCount currentOffset limit hasNextPage hasPreviousPage availableSortFields items { id name uri description website keywords repositoryTypes } } }"
                 },
                 "responseField": {
                   "type": "string",
@@ -908,8 +908,8 @@
                     },
                     {
                       "minLength": 3,
-                      "label": "Research domain",
-                      "name": "researchDomainId",
+                      "label": "Subject Areas",
+                      "name": "keywords",
                       "type": "string"
                     },
                     {
@@ -1036,11 +1036,20 @@
                         "$ref": "#/definitions/AnyQuestion/anyOf/6"
                       },
                       {
+                        "$ref": "#/definitions/AnyQuestion/anyOf/7"
+                      },
+                      {
+                        "$ref": "#/definitions/AnyQuestion/anyOf/8"
+                      },
+                      {
+                        "$ref": "#/definitions/AnyQuestion/anyOf/10"
+                      },
+                      {
                         "type": "object",
                         "properties": {
                           "type": {
                             "type": "string",
-                            "const": "filteredSearch"
+                            "const": "numberWithContext"
                           },
                           "attributes": {
                             "type": "object",
@@ -1054,9 +1063,35 @@
                               "labelTranslationKey": {
                                 "$ref": "#/definitions/AnyQuestion/anyOf/0/properties/attributes/properties/labelTranslationKey"
                               },
-                              "multiple": {
-                                "type": "boolean",
-                                "default": true
+                              "max": {
+                                "$ref": "#/definitions/AnyQuestion/anyOf/3/properties/attributes/properties/max"
+                              },
+                              "min": {
+                                "$ref": "#/definitions/AnyQuestion/anyOf/3/properties/attributes/properties/min"
+                              },
+                              "step": {
+                                "$ref": "#/definitions/AnyQuestion/anyOf/3/properties/attributes/properties/step"
+                              },
+                              "context": {
+                                "type": "array",
+                                "items": {
+                                  "type": "object",
+                                  "properties": {
+                                    "label": {
+                                      "type": "string",
+                                      "default": ""
+                                    },
+                                    "labelTranslationKey": {
+                                      "type": "string"
+                                    },
+                                    "value": {
+                                      "type": "string",
+                                      "default": ""
+                                    }
+                                  },
+                                  "additionalProperties": false
+                                },
+                                "default": []
                               }
                             },
                             "additionalProperties": false,
@@ -1064,56 +1099,12 @@
                           },
                           "meta": {
                             "$ref": "#/definitions/AnyQuestion/anyOf/0/properties/meta"
-                          },
-                          "graphQL": {
-                            "type": "object",
-                            "properties": {
-                              "displayFields": {
-                                "type": "array",
-                                "items": {
-                                  "$ref": "#/definitions/AnyQuestion/anyOf/7/properties/graphQL/properties/displayFields/items"
-                                },
-                                "default": [
-                                  {}
-                                ]
-                              },
-                              "localQueryId": {
-                                "$ref": "#/definitions/AnyQuestion/anyOf/0/properties/graphQL/properties/localQueryId"
-                              },
-                              "query": {
-                                "type": "string"
-                              },
-                              "responseField": {
-                                "type": "string",
-                                "default": "query.items"
-                              },
-                              "variables": {
-                                "type": "array",
-                                "items": {
-                                  "$ref": "#/definitions/AnyQuestion/anyOf/7/properties/graphQL/properties/variables/items"
-                                },
-                                "default": [
-                                  {}
-                                ]
-                              }
-                            },
-                            "additionalProperties": false,
-                            "default": {}
                           }
                         },
                         "required": [
                           "type"
                         ],
                         "additionalProperties": false
-                      },
-                      {
-                        "$ref": "#/definitions/AnyQuestion/anyOf/7"
-                      },
-                      {
-                        "$ref": "#/definitions/AnyQuestion/anyOf/8"
-                      },
-                      {
-                        "$ref": "#/definitions/AnyQuestion/anyOf/10"
                       },
                       {
                         "$ref": "#/definitions/AnyQuestion/anyOf/12"
@@ -1396,6 +1387,102 @@
                   }
                 },
                 {
+                  "heading": "Initial Access Level",
+                  "required": false,
+                  "enabled": false,
+                  "content": {
+                    "type": "selectBox",
+                    "attributes": {
+                      "multiple": false,
+                      "help": "The initial access level for the research output",
+                      "labelTranslationKey": "researchOutput.accessLevel.heading"
+                    },
+                    "meta": {
+                      "schemaVersion": "1.0"
+                    },
+                    "options": [
+                      {
+                        "label": "Unrestricted Access",
+                        "value": "open"
+                      },
+                      {
+                        "label": "Controlled Access",
+                        "value": "restricted"
+                      },
+                      {
+                        "label": "Other",
+                        "value": "closed"
+                      }
+                    ]
+                  },
+                  "meta": {
+                    "schemaVersion": "1.0"
+                  }
+                },
+                {
+                  "heading": "Anticipated Release Date",
+                  "required": false,
+                  "enabled": false,
+                  "content": {
+                    "type": "date",
+                    "attributes": {
+                      "help": "The anticipated release date for the research output",
+                      "labelTranslationKey": "researchOutput.releaseDate.heading"
+                    },
+                    "meta": {
+                      "schemaVersion": "1.0"
+                    }
+                  },
+                  "meta": {
+                    "schemaVersion": "1.0"
+                  }
+                },
+                {
+                  "heading": "Byte Size",
+                  "required": false,
+                  "enabled": false,
+                  "content": {
+                    "type": "numberWithContext",
+                    "attributes": {
+                      "min": 0,
+                      "help": "The size of the research output in bytes",
+                      "labelTranslationKey": "researchOutput.byteSize.heading",
+                      "context": [
+                        {
+                          "label": "bytes",
+                          "value": "bytes"
+                        },
+                        {
+                          "label": "KB (kilobytes)",
+                          "value": "kb"
+                        },
+                        {
+                          "label": "MB (megabytes)",
+                          "value": "mb"
+                        },
+                        {
+                          "label": "GB (gigabytes)",
+                          "value": "gb"
+                        },
+                        {
+                          "label": "TB (terabytes)",
+                          "value": "tb"
+                        },
+                        {
+                          "label": "PB (petabytes)",
+                          "value": "pb"
+                        }
+                      ]
+                    },
+                    "meta": {
+                      "schemaVersion": "1.0"
+                    }
+                  },
+                  "meta": {
+                    "schemaVersion": "1.0"
+                  }
+                },
+                {
                   "heading": "Repository",
                   "required": false,
                   "enabled": false,
@@ -1421,10 +1508,10 @@
                         },
                         {
                           "propertyName": "keywords",
-                          "label": "Keywords"
+                          "label": "Subject Areas"
                         }
                       ],
-                      "query": "query Repositories($term: String, $researchDomainId: Int, $repositoryType: String, $paginationOptions: PaginationOptions){ repositories(term: $term, researchDomainId: $researchDomainId, repositoryType: $repositoryType, paginationOptions: $paginationOptions) { totalCount currentOffset limit hasNextPage hasPreviousPage availableSortFields items { id name uri description website researchDomains { id name uri } keywords repositoryTypes } } }",
+                      "query": "query Repositories($term: String, $keywords: [String!], $repositoryType: String, $paginationOptions: PaginationOptions){ repositories(term: $term, keywords: $keywords, repositoryType: $repositoryType, paginationOptions: $paginationOptions) { totalCount currentOffset limit hasNextPage hasPreviousPage availableSortFields items { id name uri description website keywords repositoryTypes } } }",
                       "responseField": "repositories.items",
                       "variables": [
                         {
@@ -1435,8 +1522,8 @@
                         },
                         {
                           "minLength": 3,
-                          "label": "Research domain",
-                          "name": "researchDomainId",
+                          "label": "Subject Areas",
+                          "name": "keywords",
                           "type": "string"
                         },
                         {
@@ -1488,10 +1575,10 @@
                         },
                         {
                           "propertyName": "keywords",
-                          "label": "Keywords"
+                          "label": "Subject Areas"
                         }
                       ],
-                      "query": "query MetadataStandards($term: String, $paginationOptions: PaginationOptions){ metadataStandards(term: $term, paginationOptions: $paginationOptions) { totalCount currentOffset limit hasNextPage hasPreviousPage availableSortFields items { id name uri description researchDomains { id name uri } keywords } } }",
+                      "query": "query MetadataStandards($term: String, $keywords: [String!], $paginationOptions: PaginationOptions){ metadataStandards(term: $term, keywords: $keywords, paginationOptions: $paginationOptions) { totalCount currentOffset limit hasNextPage hasPreviousPage availableSortFields items { id name uri description keywords } } }",
                       "responseField": "metadataStandards.items",
                       "variables": [
                         {
@@ -1502,8 +1589,8 @@
                         },
                         {
                           "minLength": 3,
-                          "label": "Research domain",
-                          "name": "researchDomainId",
+                          "label": "Subject Areas",
+                          "name": "keywords",
                           "type": "string"
                         },
                         {

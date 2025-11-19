@@ -24,10 +24,14 @@ The available question schemas/types are:
 - `DateQuestion` A date field. Supports `YYYY-MM-DD` format.
 - `DateRangeQuestion` A series of 2 date fields. Meant to capture "From" and "To" or "Start" and "End" dates.
 - `EmailQuestion` An email address. Supports multiple emails that are comma separated.
+- `LicenseSearch` A GraphQL enabled question to search for relevant Licenses
+- `MetadataStandardSearch` A GraphQL enabled question to search for relevant Metadata Standards
 - `MultiselectBoxQuestion` A select box that allows for multiple selections
 - `NumberQuestion` A numeric field. Supports both integers and floats.
 - `NumberRangeQuestion` A series of 2 number fields. Meant to capture "From" and "To" or "Min" and "Max" numbers.
 - `RadioButtonsQuestion` A question type that supports an array of `option` objects. The user may "select" a single option.
+- `RepositorySearch` A GraphQL enabled question to search for relevant Repositories
+- `ResearchOutputsTable` A table/collection of questions to allow for users to define title, description, repositories, license, etc. for multiple research outputs.
 - `SelectBoxQuestion` A drop down select box that supports an array of `option` objects. A `multiple` flag can be set to allow multi-select.
 - `TableQuestion` A table question type. Each column in the table can be any one of the `AnyTableColumnQuestion` types.
 - `TextQuestion` A simple text field
@@ -48,10 +52,14 @@ The available answer schemas/types are:
 - `DateAnswer` A date field. Supports `YYYY-MM-DD` format.
 - `DateRangeAnswer` A series of 2 date fields. Meant to capture "From" and "To" or "Start" and "End" dates.
 - `EmailAnswer` An email address. Supports multiple emails that are comma separated.
+- `LicenseSearch` A license name and URL identifier
+- `MetadataStandardSearch` An array of names and URL identifiers for metadata standards
 - `MultiselectAnswer` An array of `option` objects each containing the value of a selected entry.
 - `NumberAnswer` A numeric field. Supports both integers and floats.
 - `DateRangeAnswer` A series of 2 numbers. Meant to capture "From" and "To" or "Start" and "End".
 - `RadioButtonsAnswer` A answer type that supports an array of `option` objects. The user may "select" a single option.
+- `RepositorySearch` An array of names and URL identifiers for a repositories
+- `ResearchOutputsTable` A table/collection of answers to allow for users to define title, description, repositories, license, etc. for multiple research outputs.
 - `SelectBoxAnswer` The value the user selected.
 - `TableAnswer` A table answer type. Each column in the table can be any one of the `AnyTableColumnAnswer` types.
 - `TextAnswer` A simple text field

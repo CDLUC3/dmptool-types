@@ -1,7 +1,7 @@
 {
-  "$ref": "#/definitions/TableAnswer",
+  "$ref": "#/definitions/ResearchOutputTableAnswer",
   "definitions": {
-    "TableAnswer": {
+    "ResearchOutputTableAnswer": {
       "type": "object",
       "properties": {
         "type": {
@@ -45,7 +45,7 @@
                           "const": "affiliationSearch"
                         },
                         "meta": {
-                          "$ref": "#/definitions/TableAnswer/properties/meta"
+                          "$ref": "#/definitions/ResearchOutputTableAnswer/properties/meta"
                         },
                         "answer": {
                           "type": "object",
@@ -76,7 +76,7 @@
                           "const": "boolean"
                         },
                         "meta": {
-                          "$ref": "#/definitions/TableAnswer/properties/meta"
+                          "$ref": "#/definitions/ResearchOutputTableAnswer/properties/meta"
                         },
                         "answer": {
                           "type": "boolean",
@@ -96,7 +96,7 @@
                           "const": "checkBoxes"
                         },
                         "meta": {
-                          "$ref": "#/definitions/TableAnswer/properties/meta"
+                          "$ref": "#/definitions/ResearchOutputTableAnswer/properties/meta"
                         },
                         "answer": {
                           "type": "array",
@@ -121,7 +121,7 @@
                           "const": "currency"
                         },
                         "meta": {
-                          "$ref": "#/definitions/TableAnswer/properties/meta"
+                          "$ref": "#/definitions/ResearchOutputTableAnswer/properties/meta"
                         },
                         "answer": {
                           "type": "number",
@@ -141,7 +141,7 @@
                           "const": "date"
                         },
                         "meta": {
-                          "$ref": "#/definitions/TableAnswer/properties/meta"
+                          "$ref": "#/definitions/ResearchOutputTableAnswer/properties/meta"
                         },
                         "answer": {
                           "type": "string",
@@ -161,7 +161,7 @@
                           "const": "dateRange"
                         },
                         "meta": {
-                          "$ref": "#/definitions/TableAnswer/properties/meta"
+                          "$ref": "#/definitions/ResearchOutputTableAnswer/properties/meta"
                         },
                         "answer": {
                           "type": "object",
@@ -192,7 +192,7 @@
                           "const": "email"
                         },
                         "meta": {
-                          "$ref": "#/definitions/TableAnswer/properties/meta"
+                          "$ref": "#/definitions/ResearchOutputTableAnswer/properties/meta"
                         },
                         "answer": {
                           "type": "string",
@@ -212,7 +212,7 @@
                           "const": "licenseSearch"
                         },
                         "meta": {
-                          "$ref": "#/definitions/TableAnswer/properties/meta"
+                          "$ref": "#/definitions/ResearchOutputTableAnswer/properties/meta"
                         },
                         "answer": {
                           "type": "array",
@@ -247,7 +247,7 @@
                           "const": "metadataStandardSearch"
                         },
                         "meta": {
-                          "$ref": "#/definitions/TableAnswer/properties/meta"
+                          "$ref": "#/definitions/ResearchOutputTableAnswer/properties/meta"
                         },
                         "answer": {
                           "type": "array",
@@ -282,7 +282,7 @@
                           "const": "multiselectBox"
                         },
                         "meta": {
-                          "$ref": "#/definitions/TableAnswer/properties/meta"
+                          "$ref": "#/definitions/ResearchOutputTableAnswer/properties/meta"
                         },
                         "answer": {
                           "type": "array",
@@ -307,7 +307,7 @@
                           "const": "number"
                         },
                         "meta": {
-                          "$ref": "#/definitions/TableAnswer/properties/meta"
+                          "$ref": "#/definitions/ResearchOutputTableAnswer/properties/meta"
                         },
                         "answer": {
                           "type": "number",
@@ -327,7 +327,7 @@
                           "const": "numberWithContext"
                         },
                         "meta": {
-                          "$ref": "#/definitions/TableAnswer/properties/meta"
+                          "$ref": "#/definitions/ResearchOutputTableAnswer/properties/meta"
                         },
                         "answer": {
                           "type": "object",
@@ -358,7 +358,7 @@
                           "const": "radioButtons"
                         },
                         "meta": {
-                          "$ref": "#/definitions/TableAnswer/properties/meta"
+                          "$ref": "#/definitions/ResearchOutputTableAnswer/properties/meta"
                         },
                         "answer": {
                           "type": "string",
@@ -378,7 +378,7 @@
                           "const": "repositorySearch"
                         },
                         "meta": {
-                          "$ref": "#/definitions/TableAnswer/properties/meta"
+                          "$ref": "#/definitions/ResearchOutputTableAnswer/properties/meta"
                         },
                         "answer": {
                           "type": "array",
@@ -413,7 +413,7 @@
                           "const": "selectBox"
                         },
                         "meta": {
-                          "$ref": "#/definitions/TableAnswer/properties/meta"
+                          "$ref": "#/definitions/ResearchOutputTableAnswer/properties/meta"
                         },
                         "answer": {
                           "type": "string",
@@ -433,7 +433,7 @@
                           "const": "text"
                         },
                         "meta": {
-                          "$ref": "#/definitions/TableAnswer/properties/meta"
+                          "$ref": "#/definitions/ResearchOutputTableAnswer/properties/meta"
                         },
                         "answer": {
                           "type": "string",
@@ -453,7 +453,7 @@
                           "const": "textArea"
                         },
                         "meta": {
-                          "$ref": "#/definitions/TableAnswer/properties/meta"
+                          "$ref": "#/definitions/ResearchOutputTableAnswer/properties/meta"
                         },
                         "answer": {
                           "type": "string",
@@ -473,7 +473,7 @@
                           "const": "url"
                         },
                         "meta": {
-                          "$ref": "#/definitions/TableAnswer/properties/meta"
+                          "$ref": "#/definitions/ResearchOutputTableAnswer/properties/meta"
                         },
                         "answer": {
                           "type": "string",

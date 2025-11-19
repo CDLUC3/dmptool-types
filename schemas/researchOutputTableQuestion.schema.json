@@ -1,7 +1,7 @@
 {
-  "$ref": "#/definitions/TableQuestion",
+  "$ref": "#/definitions/ResearchOutputTableQuestion",
   "definitions": {
-    "TableQuestion": {
+    "ResearchOutputTableQuestion": {
       "type": "object",
       "properties": {
         "type": {
@@ -89,20 +89,20 @@
                         "type": "object",
                         "properties": {
                           "label": {
-                            "$ref": "#/definitions/TableQuestion/properties/attributes/properties/label"
+                            "$ref": "#/definitions/ResearchOutputTableQuestion/properties/attributes/properties/label"
                           },
                           "help": {
-                            "$ref": "#/definitions/TableQuestion/properties/attributes/properties/help"
+                            "$ref": "#/definitions/ResearchOutputTableQuestion/properties/attributes/properties/help"
                           },
                           "labelTranslationKey": {
-                            "$ref": "#/definitions/TableQuestion/properties/attributes/properties/labelTranslationKey"
+                            "$ref": "#/definitions/ResearchOutputTableQuestion/properties/attributes/properties/labelTranslationKey"
                           }
                         },
                         "additionalProperties": false,
                         "default": {}
                       },
                       "meta": {
-                        "$ref": "#/definitions/TableQuestion/properties/meta"
+                        "$ref": "#/definitions/ResearchOutputTableQuestion/properties/meta"
                       },
                       "graphQL": {
                         "type": "object",
@@ -209,13 +209,13 @@
                         "type": "object",
                         "properties": {
                           "label": {
-                            "$ref": "#/definitions/TableQuestion/properties/attributes/properties/label"
+                            "$ref": "#/definitions/ResearchOutputTableQuestion/properties/attributes/properties/label"
                           },
                           "help": {
-                            "$ref": "#/definitions/TableQuestion/properties/attributes/properties/help"
+                            "$ref": "#/definitions/ResearchOutputTableQuestion/properties/attributes/properties/help"
                           },
                           "labelTranslationKey": {
-                            "$ref": "#/definitions/TableQuestion/properties/attributes/properties/labelTranslationKey"
+                            "$ref": "#/definitions/ResearchOutputTableQuestion/properties/attributes/properties/labelTranslationKey"
                           },
                           "checked": {
                             "type": "boolean",
@@ -226,7 +226,7 @@
                         "default": {}
                       },
                       "meta": {
-                        "$ref": "#/definitions/TableQuestion/properties/meta"
+                        "$ref": "#/definitions/ResearchOutputTableQuestion/properties/meta"
                       }
                     },
                     "required": [
@@ -242,11 +242,11 @@
                         "const": "checkBoxes"
                       },
                       "attributes": {
-                        "$ref": "#/definitions/TableQuestion/properties/columns/items/properties/content/anyOf/0/properties/attributes",
+                        "$ref": "#/definitions/ResearchOutputTableQuestion/properties/columns/items/properties/content/anyOf/0/properties/attributes",
                         "default": {}
                       },
                       "meta": {
-                        "$ref": "#/definitions/TableQuestion/properties/meta"
+                        "$ref": "#/definitions/ResearchOutputTableQuestion/properties/meta"
                       },
                       "options": {
                         "type": "array",
@@ -289,13 +289,13 @@
                         "type": "object",
                         "properties": {
                           "label": {
-                            "$ref": "#/definitions/TableQuestion/properties/attributes/properties/label"
+                            "$ref": "#/definitions/ResearchOutputTableQuestion/properties/attributes/properties/label"
                           },
                           "help": {
-                            "$ref": "#/definitions/TableQuestion/properties/attributes/properties/help"
+                            "$ref": "#/definitions/ResearchOutputTableQuestion/properties/attributes/properties/help"
                           },
                           "labelTranslationKey": {
-                            "$ref": "#/definitions/TableQuestion/properties/attributes/properties/labelTranslationKey"
+                            "$ref": "#/definitions/ResearchOutputTableQuestion/properties/attributes/properties/labelTranslationKey"
                           },
                           "max": {
                             "type": "number"
@@ -317,7 +317,7 @@
                         "default": {}
                       },
                       "meta": {
-                        "$ref": "#/definitions/TableQuestion/properties/meta"
+                        "$ref": "#/definitions/ResearchOutputTableQuestion/properties/meta"
                       }
                     },
                     "required": [
@@ -336,13 +336,13 @@
                         "type": "object",
                         "properties": {
                           "label": {
-                            "$ref": "#/definitions/TableQuestion/properties/attributes/properties/label"
+                            "$ref": "#/definitions/ResearchOutputTableQuestion/properties/attributes/properties/label"
                           },
                           "help": {
-                            "$ref": "#/definitions/TableQuestion/properties/attributes/properties/help"
+                            "$ref": "#/definitions/ResearchOutputTableQuestion/properties/attributes/properties/help"
                           },
                           "labelTranslationKey": {
-                            "$ref": "#/definitions/TableQuestion/properties/attributes/properties/labelTranslationKey"
+                            "$ref": "#/definitions/ResearchOutputTableQuestion/properties/attributes/properties/labelTranslationKey"
                           },
                           "max": {
                             "type": "string"
@@ -359,7 +359,7 @@
                         "default": {}
                       },
                       "meta": {
-                        "$ref": "#/definitions/TableQuestion/properties/meta"
+                        "$ref": "#/definitions/ResearchOutputTableQuestion/properties/meta"
                       }
                     },
                     "required": [
@@ -375,11 +375,11 @@
                         "const": "dateRange"
                       },
                       "attributes": {
-                        "$ref": "#/definitions/TableQuestion/properties/columns/items/properties/content/anyOf/0/properties/attributes",
+                        "$ref": "#/definitions/ResearchOutputTableQuestion/properties/columns/items/properties/content/anyOf/0/properties/attributes",
                         "default": {}
                       },
                       "meta": {
-                        "$ref": "#/definitions/TableQuestion/properties/meta"
+                        "$ref": "#/definitions/ResearchOutputTableQuestion/properties/meta"
                       },
                       "columns": {
                         "type": "object",
@@ -392,19 +392,19 @@
                                 "default": "From"
                               },
                               "help": {
-                                "$ref": "#/definitions/TableQuestion/properties/attributes/properties/help"
+                                "$ref": "#/definitions/ResearchOutputTableQuestion/properties/attributes/properties/help"
                               },
                               "labelTranslationKey": {
-                                "$ref": "#/definitions/TableQuestion/properties/attributes/properties/labelTranslationKey"
+                                "$ref": "#/definitions/ResearchOutputTableQuestion/properties/attributes/properties/labelTranslationKey"
                               },
                               "max": {
-                                "$ref": "#/definitions/TableQuestion/properties/columns/items/properties/content/anyOf/4/properties/attributes/properties/max"
+                                "$ref": "#/definitions/ResearchOutputTableQuestion/properties/columns/items/properties/content/anyOf/4/properties/attributes/properties/max"
                               },
                               "min": {
-                                "$ref": "#/definitions/TableQuestion/properties/columns/items/properties/content/anyOf/4/properties/attributes/properties/min"
+                                "$ref": "#/definitions/ResearchOutputTableQuestion/properties/columns/items/properties/content/anyOf/4/properties/attributes/properties/min"
                               },
                               "step": {
-                                "$ref": "#/definitions/TableQuestion/properties/columns/items/properties/content/anyOf/4/properties/attributes/properties/step"
+                                "$ref": "#/definitions/ResearchOutputTableQuestion/properties/columns/items/properties/content/anyOf/4/properties/attributes/properties/step"
                               }
                             },
                             "additionalProperties": false,
@@ -418,19 +418,19 @@
                                 "default": "To"
                               },
                               "help": {
-                                "$ref": "#/definitions/TableQuestion/properties/attributes/properties/help"
+                                "$ref": "#/definitions/ResearchOutputTableQuestion/properties/attributes/properties/help"
                               },
                               "labelTranslationKey": {
-                                "$ref": "#/definitions/TableQuestion/properties/attributes/properties/labelTranslationKey"
+                                "$ref": "#/definitions/ResearchOutputTableQuestion/properties/attributes/properties/labelTranslationKey"
                               },
                               "max": {
-                                "$ref": "#/definitions/TableQuestion/properties/columns/items/properties/content/anyOf/4/properties/attributes/properties/max"
+                                "$ref": "#/definitions/ResearchOutputTableQuestion/properties/columns/items/properties/content/anyOf/4/properties/attributes/properties/max"
                               },
                               "min": {
-                                "$ref": "#/definitions/TableQuestion/properties/columns/items/properties/content/anyOf/4/properties/attributes/properties/min"
+                                "$ref": "#/definitions/ResearchOutputTableQuestion/properties/columns/items/properties/content/anyOf/4/properties/attributes/properties/min"
                               },
                               "step": {
-                                "$ref": "#/definitions/TableQuestion/properties/columns/items/properties/content/anyOf/4/properties/attributes/properties/step"
+                                "$ref": "#/definitions/ResearchOutputTableQuestion/properties/columns/items/properties/content/anyOf/4/properties/attributes/properties/step"
                               }
                             },
                             "additionalProperties": false,
@@ -457,13 +457,13 @@
                         "type": "object",
                         "properties": {
                           "label": {
-                            "$ref": "#/definitions/TableQuestion/properties/attributes/properties/label"
+                            "$ref": "#/definitions/ResearchOutputTableQuestion/properties/attributes/properties/label"
                           },
                           "help": {
-                            "$ref": "#/definitions/TableQuestion/properties/attributes/properties/help"
+                            "$ref": "#/definitions/ResearchOutputTableQuestion/properties/attributes/properties/help"
                           },
                           "labelTranslationKey": {
-                            "$ref": "#/definitions/TableQuestion/properties/attributes/properties/labelTranslationKey"
+                            "$ref": "#/definitions/ResearchOutputTableQuestion/properties/attributes/properties/labelTranslationKey"
                           },
                           "maxLength": {
                             "type": "number",
@@ -484,7 +484,7 @@
                         "default": {}
                       },
                       "meta": {
-                        "$ref": "#/definitions/TableQuestion/properties/meta"
+                        "$ref": "#/definitions/ResearchOutputTableQuestion/properties/meta"
                       }
                     },
                     "required": [
@@ -500,11 +500,11 @@
                         "const": "licenseSearch"
                       },
                       "attributes": {
-                        "$ref": "#/definitions/TableQuestion/properties/columns/items/properties/content/anyOf/0/properties/attributes",
+                        "$ref": "#/definitions/ResearchOutputTableQuestion/properties/columns/items/properties/content/anyOf/0/properties/attributes",
                         "default": {}
                       },
                       "meta": {
-                        "$ref": "#/definitions/TableQuestion/properties/meta"
+                        "$ref": "#/definitions/ResearchOutputTableQuestion/properties/meta"
                       },
                       "graphQL": {
                         "type": "object",
@@ -544,7 +544,7 @@
                             ]
                           },
                           "localQueryId": {
-                            "$ref": "#/definitions/TableQuestion/properties/columns/items/properties/content/anyOf/0/properties/graphQL/properties/localQueryId"
+                            "$ref": "#/definitions/ResearchOutputTableQuestion/properties/columns/items/properties/content/anyOf/0/properties/graphQL/properties/localQueryId"
                           },
                           "query": {
                             "type": "string",
@@ -632,11 +632,11 @@
                         "const": "metadataStandardSearch"
                       },
                       "attributes": {
-                        "$ref": "#/definitions/TableQuestion/properties/columns/items/properties/content/anyOf/0/properties/attributes",
+                        "$ref": "#/definitions/ResearchOutputTableQuestion/properties/columns/items/properties/content/anyOf/0/properties/attributes",
                         "default": {}
                       },
                       "meta": {
-                        "$ref": "#/definitions/TableQuestion/properties/meta"
+                        "$ref": "#/definitions/ResearchOutputTableQuestion/properties/meta"
                       },
                       "graphQL": {
                         "type": "object",
@@ -644,7 +644,7 @@
                           "displayFields": {
                             "type": "array",
                             "items": {
-                              "$ref": "#/definitions/TableQuestion/properties/columns/items/properties/content/anyOf/7/properties/graphQL/properties/displayFields/items"
+                              "$ref": "#/definitions/ResearchOutputTableQuestion/properties/columns/items/properties/content/anyOf/7/properties/graphQL/properties/displayFields/items"
                             },
                             "default": [
                               {
@@ -666,7 +666,7 @@
                             ]
                           },
                           "localQueryId": {
-                            "$ref": "#/definitions/TableQuestion/properties/columns/items/properties/content/anyOf/0/properties/graphQL/properties/localQueryId"
+                            "$ref": "#/definitions/ResearchOutputTableQuestion/properties/columns/items/properties/content/anyOf/0/properties/graphQL/properties/localQueryId"
                           },
                           "query": {
                             "type": "string",
@@ -681,7 +681,7 @@
                           "variables": {
                             "type": "array",
                             "items": {
-                              "$ref": "#/definitions/TableQuestion/properties/columns/items/properties/content/anyOf/7/properties/graphQL/properties/variables/items"
+                              "$ref": "#/definitions/ResearchOutputTableQuestion/properties/columns/items/properties/content/anyOf/7/properties/graphQL/properties/variables/items"
                             },
                             "default": [
                               {
@@ -740,29 +740,29 @@
                         "type": "object",
                         "properties": {
                           "label": {
-                            "$ref": "#/definitions/TableQuestion/properties/attributes/properties/label"
+                            "$ref": "#/definitions/ResearchOutputTableQuestion/properties/attributes/properties/label"
                           },
                           "help": {
-                            "$ref": "#/definitions/TableQuestion/properties/attributes/properties/help"
+                            "$ref": "#/definitions/ResearchOutputTableQuestion/properties/attributes/properties/help"
                           },
                           "labelTranslationKey": {
-                            "$ref": "#/definitions/TableQuestion/properties/attributes/properties/labelTranslationKey"
+                            "$ref": "#/definitions/ResearchOutputTableQuestion/properties/attributes/properties/labelTranslationKey"
                           },
                           "max": {
-                            "$ref": "#/definitions/TableQuestion/properties/columns/items/properties/content/anyOf/3/properties/attributes/properties/max"
+                            "$ref": "#/definitions/ResearchOutputTableQuestion/properties/columns/items/properties/content/anyOf/3/properties/attributes/properties/max"
                           },
                           "min": {
-                            "$ref": "#/definitions/TableQuestion/properties/columns/items/properties/content/anyOf/3/properties/attributes/properties/min"
+                            "$ref": "#/definitions/ResearchOutputTableQuestion/properties/columns/items/properties/content/anyOf/3/properties/attributes/properties/min"
                           },
                           "step": {
-                            "$ref": "#/definitions/TableQuestion/properties/columns/items/properties/content/anyOf/3/properties/attributes/properties/step"
+                            "$ref": "#/definitions/ResearchOutputTableQuestion/properties/columns/items/properties/content/anyOf/3/properties/attributes/properties/step"
                           }
                         },
                         "additionalProperties": false,
                         "default": {}
                       },
                       "meta": {
-                        "$ref": "#/definitions/TableQuestion/properties/meta"
+                        "$ref": "#/definitions/ResearchOutputTableQuestion/properties/meta"
                       }
                     },
                     "required": [
@@ -781,22 +781,22 @@
                         "type": "object",
                         "properties": {
                           "label": {
-                            "$ref": "#/definitions/TableQuestion/properties/attributes/properties/label"
+                            "$ref": "#/definitions/ResearchOutputTableQuestion/properties/attributes/properties/label"
                           },
                           "help": {
-                            "$ref": "#/definitions/TableQuestion/properties/attributes/properties/help"
+                            "$ref": "#/definitions/ResearchOutputTableQuestion/properties/attributes/properties/help"
                           },
                           "labelTranslationKey": {
-                            "$ref": "#/definitions/TableQuestion/properties/attributes/properties/labelTranslationKey"
+                            "$ref": "#/definitions/ResearchOutputTableQuestion/properties/attributes/properties/labelTranslationKey"
                           },
                           "max": {
-                            "$ref": "#/definitions/TableQuestion/properties/columns/items/properties/content/anyOf/3/properties/attributes/properties/max"
+                            "$ref": "#/definitions/ResearchOutputTableQuestion/properties/columns/items/properties/content/anyOf/3/properties/attributes/properties/max"
                           },
                           "min": {
-                            "$ref": "#/definitions/TableQuestion/properties/columns/items/properties/content/anyOf/3/properties/attributes/properties/min"
+                            "$ref": "#/definitions/ResearchOutputTableQuestion/properties/columns/items/properties/content/anyOf/3/properties/attributes/properties/min"
                           },
                           "step": {
-                            "$ref": "#/definitions/TableQuestion/properties/columns/items/properties/content/anyOf/3/properties/attributes/properties/step"
+                            "$ref": "#/definitions/ResearchOutputTableQuestion/properties/columns/items/properties/content/anyOf/3/properties/attributes/properties/step"
                           },
                           "context": {
                             "type": "array",
@@ -824,7 +824,7 @@
                         "default": {}
                       },
                       "meta": {
-                        "$ref": "#/definitions/TableQuestion/properties/meta"
+                        "$ref": "#/definitions/ResearchOutputTableQuestion/properties/meta"
                       }
                     },
                     "required": [
@@ -840,11 +840,11 @@
                         "const": "radioButtons"
                       },
                       "attributes": {
-                        "$ref": "#/definitions/TableQuestion/properties/columns/items/properties/content/anyOf/0/properties/attributes",
+                        "$ref": "#/definitions/ResearchOutputTableQuestion/properties/columns/items/properties/content/anyOf/0/properties/attributes",
                         "default": {}
                       },
                       "meta": {
-                        "$ref": "#/definitions/TableQuestion/properties/meta"
+                        "$ref": "#/definitions/ResearchOutputTableQuestion/properties/meta"
                       },
                       "options": {
                         "type": "array",
@@ -852,10 +852,10 @@
                           "type": "object",
                           "properties": {
                             "label": {
-                              "$ref": "#/definitions/TableQuestion/properties/columns/items/properties/content/anyOf/2/properties/options/items/properties/label"
+                              "$ref": "#/definitions/ResearchOutputTableQuestion/properties/columns/items/properties/content/anyOf/2/properties/options/items/properties/label"
                             },
                             "value": {
-                              "$ref": "#/definitions/TableQuestion/properties/columns/items/properties/content/anyOf/2/properties/options/items/properties/value"
+                              "$ref": "#/definitions/ResearchOutputTableQuestion/properties/columns/items/properties/content/anyOf/2/properties/options/items/properties/value"
                             },
                             "selected": {
                               "type": "boolean",
@@ -882,11 +882,11 @@
                         "const": "repositorySearch"
                       },
                       "attributes": {
-                        "$ref": "#/definitions/TableQuestion/properties/columns/items/properties/content/anyOf/0/properties/attributes",
+                        "$ref": "#/definitions/ResearchOutputTableQuestion/properties/columns/items/properties/content/anyOf/0/properties/attributes",
                         "default": {}
                       },
                       "meta": {
-                        "$ref": "#/definitions/TableQuestion/properties/meta"
+                        "$ref": "#/definitions/ResearchOutputTableQuestion/properties/meta"
                       },
                       "graphQL": {
                         "type": "object",
@@ -894,7 +894,7 @@
                           "displayFields": {
                             "type": "array",
                             "items": {
-                              "$ref": "#/definitions/TableQuestion/properties/columns/items/properties/content/anyOf/7/properties/graphQL/properties/displayFields/items"
+                              "$ref": "#/definitions/ResearchOutputTableQuestion/properties/columns/items/properties/content/anyOf/7/properties/graphQL/properties/displayFields/items"
                             },
                             "default": [
                               {
@@ -916,7 +916,7 @@
                             ]
                           },
                           "localQueryId": {
-                            "$ref": "#/definitions/TableQuestion/properties/columns/items/properties/content/anyOf/0/properties/graphQL/properties/localQueryId"
+                            "$ref": "#/definitions/ResearchOutputTableQuestion/properties/columns/items/properties/content/anyOf/0/properties/graphQL/properties/localQueryId"
                           },
                           "query": {
                             "type": "string",
@@ -931,7 +931,7 @@
                           "variables": {
                             "type": "array",
                             "items": {
-                              "$ref": "#/definitions/TableQuestion/properties/columns/items/properties/content/anyOf/7/properties/graphQL/properties/variables/items"
+                              "$ref": "#/definitions/ResearchOutputTableQuestion/properties/columns/items/properties/content/anyOf/7/properties/graphQL/properties/variables/items"
                             },
                             "default": [
                               {
@@ -996,13 +996,13 @@
                         "type": "object",
                         "properties": {
                           "label": {
-                            "$ref": "#/definitions/TableQuestion/properties/attributes/properties/label"
+                            "$ref": "#/definitions/ResearchOutputTableQuestion/properties/attributes/properties/label"
                           },
                           "help": {
-                            "$ref": "#/definitions/TableQuestion/properties/attributes/properties/help"
+                            "$ref": "#/definitions/ResearchOutputTableQuestion/properties/attributes/properties/help"
                           },
                           "labelTranslationKey": {
-                            "$ref": "#/definitions/TableQuestion/properties/attributes/properties/labelTranslationKey"
+                            "$ref": "#/definitions/ResearchOutputTableQuestion/properties/attributes/properties/labelTranslationKey"
                           },
                           "multiple": {
                             "type": "boolean",
@@ -1018,12 +1018,12 @@
                         }
                       },
                       "meta": {
-                        "$ref": "#/definitions/TableQuestion/properties/meta"
+                        "$ref": "#/definitions/ResearchOutputTableQuestion/properties/meta"
                       },
                       "options": {
                         "type": "array",
                         "items": {
-                          "$ref": "#/definitions/TableQuestion/properties/columns/items/properties/content/anyOf/11/properties/options/items"
+                          "$ref": "#/definitions/ResearchOutputTableQuestion/properties/columns/items/properties/content/anyOf/11/properties/options/items"
                         },
                         "default": [
                           {}
@@ -1046,13 +1046,13 @@
                         "type": "object",
                         "properties": {
                           "label": {
-                            "$ref": "#/definitions/TableQuestion/properties/attributes/properties/label"
+                            "$ref": "#/definitions/ResearchOutputTableQuestion/properties/attributes/properties/label"
                           },
                           "help": {
-                            "$ref": "#/definitions/TableQuestion/properties/attributes/properties/help"
+                            "$ref": "#/definitions/ResearchOutputTableQuestion/properties/attributes/properties/help"
                           },
                           "labelTranslationKey": {
-                            "$ref": "#/definitions/TableQuestion/properties/attributes/properties/labelTranslationKey"
+                            "$ref": "#/definitions/ResearchOutputTableQuestion/properties/attributes/properties/labelTranslationKey"
                           },
                           "cols": {
                             "type": "number",
@@ -1077,7 +1077,7 @@
                         "default": {}
                       },
                       "meta": {
-                        "$ref": "#/definitions/TableQuestion/properties/meta"
+                        "$ref": "#/definitions/ResearchOutputTableQuestion/properties/meta"
                       }
                     },
                     "required": [
@@ -1096,29 +1096,29 @@
                         "type": "object",
                         "properties": {
                           "label": {
-                            "$ref": "#/definitions/TableQuestion/properties/attributes/properties/label"
+                            "$ref": "#/definitions/ResearchOutputTableQuestion/properties/attributes/properties/label"
                           },
                           "help": {
-                            "$ref": "#/definitions/TableQuestion/properties/attributes/properties/help"
+                            "$ref": "#/definitions/ResearchOutputTableQuestion/properties/attributes/properties/help"
                           },
                           "labelTranslationKey": {
-                            "$ref": "#/definitions/TableQuestion/properties/attributes/properties/labelTranslationKey"
+                            "$ref": "#/definitions/ResearchOutputTableQuestion/properties/attributes/properties/labelTranslationKey"
                           },
                           "maxLength": {
-                            "$ref": "#/definitions/TableQuestion/properties/columns/items/properties/content/anyOf/6/properties/attributes/properties/maxLength"
+                            "$ref": "#/definitions/ResearchOutputTableQuestion/properties/columns/items/properties/content/anyOf/6/properties/attributes/properties/maxLength"
                           },
                           "minLength": {
-                            "$ref": "#/definitions/TableQuestion/properties/columns/items/properties/content/anyOf/6/properties/attributes/properties/minLength"
+                            "$ref": "#/definitions/ResearchOutputTableQuestion/properties/columns/items/properties/content/anyOf/6/properties/attributes/properties/minLength"
                           },
                           "pattern": {
-                            "$ref": "#/definitions/TableQuestion/properties/columns/items/properties/content/anyOf/6/properties/attributes/properties/pattern"
+                            "$ref": "#/definitions/ResearchOutputTableQuestion/properties/columns/items/properties/content/anyOf/6/properties/attributes/properties/pattern"
                           }
                         },
                         "additionalProperties": false,
                         "default": {}
                       },
                       "meta": {
-                        "$ref": "#/definitions/TableQuestion/properties/meta"
+                        "$ref": "#/definitions/ResearchOutputTableQuestion/properties/meta"
                       }
                     },
                     "required": [
@@ -1134,11 +1134,11 @@
                         "const": "url"
                       },
                       "attributes": {
-                        "$ref": "#/definitions/TableQuestion/properties/columns/items/properties/content/anyOf/15/properties/attributes",
+                        "$ref": "#/definitions/ResearchOutputTableQuestion/properties/columns/items/properties/content/anyOf/15/properties/attributes",
                         "default": {}
                       },
                       "meta": {
-                        "$ref": "#/definitions/TableQuestion/properties/meta"
+                        "$ref": "#/definitions/ResearchOutputTableQuestion/properties/meta"
                       }
                     },
                     "required": [

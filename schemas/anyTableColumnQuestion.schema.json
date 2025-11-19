@@ -436,26 +436,10 @@
           "properties": {
             "type": {
               "type": "string",
-              "const": "filteredSearch"
+              "const": "licenseSearch"
             },
             "attributes": {
-              "type": "object",
-              "properties": {
-                "label": {
-                  "$ref": "#/definitions/AnyTableColumnQuestion/anyOf/0/properties/attributes/properties/label"
-                },
-                "help": {
-                  "$ref": "#/definitions/AnyTableColumnQuestion/anyOf/0/properties/attributes/properties/help"
-                },
-                "labelTranslationKey": {
-                  "$ref": "#/definitions/AnyTableColumnQuestion/anyOf/0/properties/attributes/properties/labelTranslationKey"
-                },
-                "multiple": {
-                  "type": "boolean",
-                  "default": true
-                }
-              },
-              "additionalProperties": false,
+              "$ref": "#/definitions/AnyTableColumnQuestion/anyOf/0/properties/attributes",
               "default": {}
             },
             "meta": {
@@ -482,84 +466,6 @@
                       }
                     },
                     "additionalProperties": false
-                  },
-                  "default": [
-                    {}
-                  ]
-                },
-                "localQueryId": {
-                  "$ref": "#/definitions/AnyTableColumnQuestion/anyOf/0/properties/graphQL/properties/localQueryId"
-                },
-                "query": {
-                  "type": "string"
-                },
-                "responseField": {
-                  "type": "string",
-                  "default": "query.items"
-                },
-                "variables": {
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "minLength": {
-                        "type": "number"
-                      },
-                      "label": {
-                        "type": "string"
-                      },
-                      "labelTranslationKey": {
-                        "type": "string"
-                      },
-                      "name": {
-                        "type": "string",
-                        "default": "search"
-                      },
-                      "type": {
-                        "type": "string",
-                        "default": "string"
-                      },
-                      "defaultValue": {
-                        "type": "string"
-                      }
-                    },
-                    "additionalProperties": false
-                  },
-                  "default": [
-                    {}
-                  ]
-                }
-              },
-              "additionalProperties": false,
-              "default": {}
-            }
-          },
-          "required": [
-            "type"
-          ],
-          "additionalProperties": false
-        },
-        {
-          "type": "object",
-          "properties": {
-            "type": {
-              "type": "string",
-              "const": "licenseSearch"
-            },
-            "attributes": {
-              "$ref": "#/definitions/AnyTableColumnQuestion/anyOf/0/properties/attributes",
-              "default": {}
-            },
-            "meta": {
-              "$ref": "#/definitions/AnyTableColumnQuestion/anyOf/0/properties/meta"
-            },
-            "graphQL": {
-              "type": "object",
-              "properties": {
-                "displayFields": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/definitions/AnyTableColumnQuestion/anyOf/7/properties/graphQL/properties/displayFields/items"
                   },
                   "default": [
                     {
@@ -592,7 +498,30 @@
                 "variables": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/definitions/AnyTableColumnQuestion/anyOf/7/properties/graphQL/properties/variables/items"
+                    "type": "object",
+                    "properties": {
+                      "minLength": {
+                        "type": "number"
+                      },
+                      "label": {
+                        "type": "string"
+                      },
+                      "labelTranslationKey": {
+                        "type": "string"
+                      },
+                      "name": {
+                        "type": "string",
+                        "default": "search"
+                      },
+                      "type": {
+                        "type": "string",
+                        "default": "string"
+                      },
+                      "defaultValue": {
+                        "type": "string"
+                      }
+                    },
+                    "additionalProperties": false
                   },
                   "default": [
                     {
@@ -671,7 +600,7 @@
                     },
                     {
                       "propertyName": "keywords",
-                      "label": "Keywords"
+                      "label": "Subject Areas"
                     }
                   ]
                 },
@@ -680,8 +609,8 @@
                 },
                 "query": {
                   "type": "string",
-                  "const": "query MetadataStandards($term: String, $paginationOptions: PaginationOptions){ metadataStandards(term: $term, paginationOptions: $paginationOptions) { totalCount currentOffset limit hasNextPage hasPreviousPage availableSortFields items { id name uri description researchDomains { id name uri } keywords } } }",
-                  "default": "query MetadataStandards($term: String, $paginationOptions: PaginationOptions){ metadataStandards(term: $term, paginationOptions: $paginationOptions) { totalCount currentOffset limit hasNextPage hasPreviousPage availableSortFields items { id name uri description researchDomains { id name uri } keywords } } }"
+                  "const": "query MetadataStandards($term: String, $keywords: [String!], $paginationOptions: PaginationOptions){ metadataStandards(term: $term, keywords: $keywords, paginationOptions: $paginationOptions) { totalCount currentOffset limit hasNextPage hasPreviousPage availableSortFields items { id name uri description keywords } } }",
+                  "default": "query MetadataStandards($term: String, $keywords: [String!], $paginationOptions: PaginationOptions){ metadataStandards(term: $term, keywords: $keywords, paginationOptions: $paginationOptions) { totalCount currentOffset limit hasNextPage hasPreviousPage availableSortFields items { id name uri description keywords } } }"
                 },
                 "responseField": {
                   "type": "string",
@@ -702,8 +631,8 @@
                     },
                     {
                       "minLength": 3,
-                      "label": "Research domain",
-                      "name": "researchDomainId",
+                      "label": "Subject Areas",
+                      "name": "keywords",
                       "type": "string"
                     },
                     {
@@ -766,6 +695,68 @@
                 },
                 "step": {
                   "$ref": "#/definitions/AnyTableColumnQuestion/anyOf/3/properties/attributes/properties/step"
+                }
+              },
+              "additionalProperties": false,
+              "default": {}
+            },
+            "meta": {
+              "$ref": "#/definitions/AnyTableColumnQuestion/anyOf/0/properties/meta"
+            }
+          },
+          "required": [
+            "type"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string",
+              "const": "numberWithContext"
+            },
+            "attributes": {
+              "type": "object",
+              "properties": {
+                "label": {
+                  "$ref": "#/definitions/AnyTableColumnQuestion/anyOf/0/properties/attributes/properties/label"
+                },
+                "help": {
+                  "$ref": "#/definitions/AnyTableColumnQuestion/anyOf/0/properties/attributes/properties/help"
+                },
+                "labelTranslationKey": {
+                  "$ref": "#/definitions/AnyTableColumnQuestion/anyOf/0/properties/attributes/properties/labelTranslationKey"
+                },
+                "max": {
+                  "$ref": "#/definitions/AnyTableColumnQuestion/anyOf/3/properties/attributes/properties/max"
+                },
+                "min": {
+                  "$ref": "#/definitions/AnyTableColumnQuestion/anyOf/3/properties/attributes/properties/min"
+                },
+                "step": {
+                  "$ref": "#/definitions/AnyTableColumnQuestion/anyOf/3/properties/attributes/properties/step"
+                },
+                "context": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "label": {
+                        "type": "string",
+                        "default": ""
+                      },
+                      "labelTranslationKey": {
+                        "type": "string"
+                      },
+                      "value": {
+                        "type": "string",
+                        "default": ""
+                      }
+                    },
+                    "additionalProperties": false
+                  },
+                  "default": []
                 }
               },
               "additionalProperties": false,
@@ -859,7 +850,7 @@
                     },
                     {
                       "propertyName": "keywords",
-                      "label": "Keywords"
+                      "label": "Subject Areas"
                     }
                   ]
                 },
@@ -868,8 +859,8 @@
                 },
                 "query": {
                   "type": "string",
-                  "const": "query Repositories($term: String, $researchDomainId: Int, $repositoryType: String, $paginationOptions: PaginationOptions){ repositories(term: $term, researchDomainId: $researchDomainId, repositoryType: $repositoryType, paginationOptions: $paginationOptions) { totalCount currentOffset limit hasNextPage hasPreviousPage availableSortFields items { id name uri description website researchDomains { id name uri } keywords repositoryTypes } } }",
-                  "default": "query Repositories($term: String, $researchDomainId: Int, $repositoryType: String, $paginationOptions: PaginationOptions){ repositories(term: $term, researchDomainId: $researchDomainId, repositoryType: $repositoryType, paginationOptions: $paginationOptions) { totalCount currentOffset limit hasNextPage hasPreviousPage availableSortFields items { id name uri description website researchDomains { id name uri } keywords repositoryTypes } } }"
+                  "const": "query Repositories($term: String, $keywords: [String!], $repositoryType: String, $paginationOptions: PaginationOptions){ repositories(term: $term, keywords: $keywords, repositoryType: $repositoryType, paginationOptions: $paginationOptions) { totalCount currentOffset limit hasNextPage hasPreviousPage availableSortFields items { id name uri description website keywords repositoryTypes } } }",
+                  "default": "query Repositories($term: String, $keywords: [String!], $repositoryType: String, $paginationOptions: PaginationOptions){ repositories(term: $term, keywords: $keywords, repositoryType: $repositoryType, paginationOptions: $paginationOptions) { totalCount currentOffset limit hasNextPage hasPreviousPage availableSortFields items { id name uri description website keywords repositoryTypes } } }"
                 },
                 "responseField": {
                   "type": "string",
@@ -890,8 +881,8 @@
                     },
                     {
                       "minLength": 3,
-                      "label": "Research domain",
-                      "name": "researchDomainId",
+                      "label": "Subject Areas",
+                      "name": "keywords",
                       "type": "string"
                     },
                     {

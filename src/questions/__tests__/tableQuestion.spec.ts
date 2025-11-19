@@ -104,6 +104,10 @@ describe("ResearchOutputTableQuestionSchema", () => {
             attributes: {
               multiple: false
             },
+            options: [
+              { label: "Foo", value: "foo" },
+              { label: "Bar", value: "bar" }
+            ],
             meta: {
               schemaVersion: "1.0"
             }
@@ -126,6 +130,66 @@ describe("ResearchOutputTableQuestionSchema", () => {
                 { label: 'TB (terabytes)', value: 'tb' },
                 { label: 'PB (petabytes)', value: 'pb' }
               ]
+            },
+            meta: {
+              schemaVersion: "1.0"
+            }
+          }
+        },
+        {
+          heading: "Repositories",
+          required: false,
+          enabled: true,
+          preferences: [
+           { label: "Repository 1", value: "https://repo.example.com/1" },
+           { label: "Repository 2", value: "https://repo.example.com/2" }
+          ],
+          content: {
+            type: "repositorySearch",
+            attributes: {
+              label: "Repository Search",
+              help: "Search for a repository",
+            },
+            graphQL: {
+              query: "query Repositories($term: String, $keywords: [String!], $repositoryType: String, $paginationOptions: PaginationOptions){ repositories(term: $term, keywords: $keywords, repositoryType: $repositoryType, paginationOptions: $paginationOptions) { totalCount currentOffset limit hasNextPage hasPreviousPage availableSortFields items { id name uri description website keywords repositoryTypes } } }",
+              displayFields: [
+                {
+                  propertyName: "name",
+                  label: "Name"
+                },
+                {
+                  propertyName: "description",
+                  label: "Description"
+                },
+                {
+                  propertyName: "website",
+                  label: "Website"
+                },
+                {
+                  propertyName: "keywords",
+                  label: "Subject Areas"
+                }
+              ],
+              answerField: "uri",
+              responseField: "repositories.items",
+              variables: [
+                {
+                  type: "string",
+                  name: "term",
+                  label: "Search term",
+                  minLength: 2
+                },
+                {
+                  type: "string",
+                  name: "repositoryType",
+                  label: "Repository Type"
+                },
+                {
+                  type: "string",
+                  name: "keywords",
+                  label: "Subject Areas"
+                }
+              ],
             },
             meta: {
               schemaVersion: "1.0"

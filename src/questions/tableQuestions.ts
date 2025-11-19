@@ -75,6 +75,11 @@ export const TableQuestionSchema = QuestionSchema.merge(z.object({
   })).default({})
 }));
 
+export const ResearchOutputTableColumnPreferenceSchema = z.object({
+  label: z.string().default(''),    // The label of the preference option
+  value: z.string().default('')     // The value of the preference option
+});
+
 const ResearchOutputTitleColumnSchema = TableColumn.extend({
   heading: z.string().default('Title'),
   required: z.literal(true),
@@ -184,6 +189,7 @@ const ResearchOutputRepositoryColumnSchema = TableColumn.extend({
   heading: z.string().default('Repository'),
   enabled: z.boolean().default(false),
   content: RepositorySearchQuestionSchema.default({ type: 'repositorySearch' }),
+  preferences: z.array(ResearchOutputTableColumnPreferenceSchema).default([]),
   attributes: z.object({
     help: z.string().default('Select repositor(ies) you would prefer users to deposit in'),
     labelTranslationKey: z.string().default('researchOutput.repository.heading')
@@ -194,6 +200,7 @@ const ResearchOutputMetadataStandardColumnSchema = TableColumn.extend({
   heading: z.string().default('Metadata Standard'),
   enabled: z.boolean().default(false),
   content: MetadataStandardSearchQuestionSchema.default({ type: 'metadataStandardSearch' }),
+  preferences: z.array(ResearchOutputTableColumnPreferenceSchema).default([]),
   attributes: z.object({
     help: z.string().default('Select metadata standard(s) you would prefer users to use'),
     labelTranslationKey: z.string().default('researchOutput.metadataStandard.heading')
@@ -204,6 +211,7 @@ const ResearchOutputLicenseColumnSchema = TableColumn.extend({
   heading: z.string().default('License'),
   enabled: z.boolean().default(false),
   content: LicenseSearchQuestionSchema.default({ type: 'licenseSearch' }),
+  preferences: z.array(ResearchOutputTableColumnPreferenceSchema).default([]),
   attributes: z.object({
     help: z.string().default('Select license(s) you would prefer users to apply to the research output'),
     labelTranslationKey: z.string().default('researchOutput.license.heading')

@@ -78,7 +78,7 @@
                 },
                 {
                   "propertyName": "keywords",
-                  "label": "Keywords"
+                  "label": "Subject Areas"
                 }
               ]
             },
@@ -87,8 +87,8 @@
             },
             "query": {
               "type": "string",
-              "const": "query MetadataStandards($term: String, $paginationOptions: PaginationOptions){ metadataStandards(term: $term, paginationOptions: $paginationOptions) { totalCount currentOffset limit hasNextPage hasPreviousPage availableSortFields items { id name uri description researchDomains { id name uri } keywords } } }",
-              "default": "query MetadataStandards($term: String, $paginationOptions: PaginationOptions){ metadataStandards(term: $term, paginationOptions: $paginationOptions) { totalCount currentOffset limit hasNextPage hasPreviousPage availableSortFields items { id name uri description researchDomains { id name uri } keywords } } }"
+              "const": "query MetadataStandards($term: String, $keywords: [String!], $paginationOptions: PaginationOptions){ metadataStandards(term: $term, keywords: $keywords, paginationOptions: $paginationOptions) { totalCount currentOffset limit hasNextPage hasPreviousPage availableSortFields items { id name uri description keywords } } }",
+              "default": "query MetadataStandards($term: String, $keywords: [String!], $paginationOptions: PaginationOptions){ metadataStandards(term: $term, keywords: $keywords, paginationOptions: $paginationOptions) { totalCount currentOffset limit hasNextPage hasPreviousPage availableSortFields items { id name uri description keywords } } }"
             },
             "responseField": {
               "type": "string",
@@ -132,8 +132,8 @@
                 },
                 {
                   "minLength": 3,
-                  "label": "Research domain",
-                  "name": "researchDomainId",
+                  "label": "Subject Areas",
+                  "name": "keywords",
                   "type": "string"
                 },
                 {
