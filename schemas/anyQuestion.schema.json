@@ -1544,6 +1544,7 @@
                   "meta": {
                     "schemaVersion": "1.0"
                   },
+                  "preferences": [],
                   "attributes": {
                     "help": "Select repositor(ies) you would prefer users to deposit in",
                     "labelTranslationKey": "researchOutput.repository.heading"
@@ -1605,6 +1606,7 @@
                   "meta": {
                     "schemaVersion": "1.0"
                   },
+                  "preferences": [],
                   "attributes": {
                     "help": "Select metadata standard(s) you would prefer users to use",
                     "labelTranslationKey": "researchOutput.metadataStandard.heading"
@@ -1656,6 +1658,7 @@
                   "meta": {
                     "schemaVersion": "1.0"
                   },
+                  "preferences": [],
                   "attributes": {
                     "help": "Select license(s) you would prefer users to apply to the research output",
                     "labelTranslationKey": "researchOutput.license.heading"
