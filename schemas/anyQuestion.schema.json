@@ -1663,6 +1663,24 @@
                     "help": "Select license(s) you would prefer users to apply to the research output",
                     "labelTranslationKey": "researchOutput.license.heading"
                   }
+                },
+                {
+                  "heading": "Custom Column",
+                  "required": false,
+                  "enabled": false,
+                  "content": {
+                    "type": "text",
+                    "attributes": {
+                      "help": "Explanation of what we expect the user to enter.",
+                      "maxLength": 255
+                    },
+                    "meta": {
+                      "schemaVersion": "1.0"
+                    }
+                  },
+                  "meta": {
+                    "schemaVersion": "1.0"
+                  }
                 }
               ]
             }

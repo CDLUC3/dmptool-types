@@ -218,6 +218,18 @@ const ResearchOutputLicenseColumnSchema = TableColumn.extend({
   }).default({})
 });
 
+const ResearchOutputCustomColumnSchema = TableColumn.extend({
+  heading: z.string().default('Custom Column'),
+  enabled: z.boolean().default(false),
+  content: TextQuestionSchema.extend({
+    attributes: z.object({
+      help: z.string().default('Explanation of what we expect the user to enter.'),
+      maxLength: z.number().default(255),
+      defaultValue: z.string().optional(),
+    }).default({})
+  }).default({ type: 'text' })
+});
+
 const defaultTitleColumn = ResearchOutputTitleColumnSchema.parse({
   required: true,
   content: { type: 'text' }
@@ -234,6 +246,7 @@ const defaultByteSizeColumn = ResearchOutputByteSizeColumnSchema.parse({});
 const defaultRepositoryColumn = ResearchOutputRepositoryColumnSchema.parse({});
 const defaultMetadataStandardColumn = ResearchOutputMetadataStandardColumnSchema.parse({});
 const defaultLicenseColumn = ResearchOutputLicenseColumnSchema.parse({});
+const defaultCustomColumn = ResearchOutputCustomColumnSchema.parse({});
 
 export const ResearchOutputTableQuestionSchema = TableQuestionSchema.merge(z.object({
   type: z.literal('researchOutputTable'),
@@ -247,7 +260,8 @@ export const ResearchOutputTableQuestionSchema = TableQuestionSchema.merge(z.obj
     defaultByteSizeColumn,
     defaultRepositoryColumn,
     defaultMetadataStandardColumn,
-    defaultLicenseColumn
+    defaultLicenseColumn,
+    defaultCustomColumn
   ]),
 }));
 
