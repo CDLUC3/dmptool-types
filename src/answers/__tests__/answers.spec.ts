@@ -1,6 +1,11 @@
 import { describe, it, expect } from "@jest/globals";
 import { DateAnswerSchema, DateRangeAnswerSchema } from '../dateAnswers';
-import { FilteredSearchAnswerSchema, AffiliationSearchAnswerSchema } from '../graphQLAnswers';
+import {
+  AffiliationSearchAnswerSchema,
+  RepositorySearchAnswerSchema,
+  MetadataStandardSearchAnswerSchema,
+  LicenseSearchAnswerSchema
+} from '../graphQLAnswers';
 import {
   BooleanAnswerSchema,
   CheckboxesAnswerSchema,
@@ -10,7 +15,10 @@ import {
 } from '../optionBasedAnswers';
 import { CurrencyAnswerSchema, NumberAnswerSchema, NumberRangeAnswerSchema,} from '../numberAnswers';
 import { EmailAnswerSchema, TextAnswerSchema, TextAreaAnswerSchema, URLAnswerSchema } from '../textAnswers';
-import { TableAnswerSchema } from '../tableAnswers';
+import {
+  ResearchOutputTableAnswerSchema,
+  TableAnswerSchema
+} from '../tableAnswers';
 import { AnyAnswerSchema } from "..";
 import { CURRENT_SCHEMA_VERSION } from "../../questions";
 
@@ -71,14 +79,6 @@ describe('Answer Type Validations', () => {
     expect(() => EmailAnswerSchema.parse(invalidData)).toThrow();
   });
 
-  it('should validate FilteredSearchAnswer', () => {
-    const validData = { type: 'filteredSearch', answer: ['item1', 'item2'], meta: { schemaVersion: CURRENT_SCHEMA_VERSION } };
-    expect(() => FilteredSearchAnswerSchema.parse(validData)).not.toThrow();
-
-    const invalidData = { type: 'filteredSearch', answer: 'item1', meta: { schemaVersion: CURRENT_SCHEMA_VERSION } };
-    expect(() => FilteredSearchAnswerSchema.parse(invalidData)).toThrow();
-  });
-
   it('should validate NumberAnswer', () => {
     const validData = { type: 'number', answer: 42, meta: { schemaVersion: CURRENT_SCHEMA_VERSION } };
     expect(() => NumberAnswerSchema.parse(validData)).not.toThrow();
@@ -125,6 +125,135 @@ describe('Answer Type Validations', () => {
 
     const invalidData = { type: 'multiselectBox', answer: 'option1', meta: { schemaVersion: CURRENT_SCHEMA_VERSION } };
     expect(() => MultiselectBoxAnswerSchema.parse(invalidData)).toThrow();
+  });
+
+  it('should validate LicenseSearchAnswerSchema', () => {
+    const validData = {
+      type: 'licenseSearch',
+      answer: [
+        { licenseId: 'license1', licenseName: 'License One' },
+        { licenseId: 'license2', licenseName: 'License Two' }
+      ],
+      meta: { schemaVersion: CURRENT_SCHEMA_VERSION }
+    };
+    expect(() => LicenseSearchAnswerSchema.parse(validData)).not.toThrow();
+
+    const invalidData = { type: 'licenseSearch', answer: 'license1', meta: { schemaVersion: CURRENT_SCHEMA_VERSION } };
+    expect(() => LicenseSearchAnswerSchema.parse(invalidData)).toThrow();
+  });
+
+  it('should validate MetadataStandardSearchAnswerSchema', () => {
+    const validData = {
+      type: 'metadataStandardSearch',
+      answer: [
+        { metadataStandardId: 'standard1', metadataStandardName: 'Standard Two' },
+        { metadataStandardId: 'standard2', metadataStandardName: 'Standard Two' }
+      ],
+      meta: { schemaVersion: CURRENT_SCHEMA_VERSION }
+    };
+    expect(() => MetadataStandardSearchAnswerSchema.parse(validData)).not.toThrow();
+
+    const invalidData = { type: 'metadataStandardSearch', answer: 'standard1', meta: { schemaVersion: CURRENT_SCHEMA_VERSION } };
+    expect(() => MetadataStandardSearchAnswerSchema.parse(invalidData)).toThrow();
+  });
+
+  it('should validate RepositorySearchAnswerSchema', () => {
+    const validData = {
+      type: 'repositorySearch',
+      answer: [
+        { repositoryId: 'repo1', repositoryName: 'Repository One' },
+        { repositoryId: 'repo2', repositoryName: 'Repository Two' }
+      ],
+      meta: { schemaVersion: CURRENT_SCHEMA_VERSION } };
+    expect(() => RepositorySearchAnswerSchema.parse(validData)).not.toThrow();
+
+    const invalidData = { type: 'repositorySearch', answer: 'repo1', meta: { schemaVersion: CURRENT_SCHEMA_VERSION } };
+    expect(() => RepositorySearchAnswerSchema.parse(invalidData)).toThrow();
+  });
+
+  it('should validate ResearchOutputTableAnswerSchema', () => {
+    const validData = {
+      type: 'researchOutputTable',
+      answer: [{
+        columns: [
+          {
+            type: 'text',
+            answer: 'This is a test',
+            meta: { schemaVersion: CURRENT_SCHEMA_VERSION }
+          },
+          {
+            type: 'textArea',
+            answer: 'This is a longer text answer',
+            meta: { schemaVersion: CURRENT_SCHEMA_VERSION }
+          },
+          {
+            type: 'selectBox',
+            answer: 'dataset',
+            meta: { schemaVersion: CURRENT_SCHEMA_VERSION }
+          },
+          {
+            type: 'checkBoxes',
+            answer: ['sensitive'],
+            meta: { schemaVersion: CURRENT_SCHEMA_VERSION }
+          },
+          {
+            type: 'selectBox',
+            answer: 'open',
+            meta: { schemaVersion: CURRENT_SCHEMA_VERSION }
+          },
+          {
+            type: 'date',
+            answer: '2025-11-13',
+            meta: { schemaVersion: CURRENT_SCHEMA_VERSION }
+          },
+          {
+            type: 'numberWithContext',
+            answer: { value: 12345, context: 'gb' },
+            meta: { schemaVersion: CURRENT_SCHEMA_VERSION }
+          },
+          {
+            type: 'repositorySearch',
+            answer: [{ repositoryId: 'repo1', repositoryName: 'Repository One' }],
+            meta: { schemaVersion: CURRENT_SCHEMA_VERSION }
+          },
+          {
+            type: 'metadataStandardSearch',
+            answer: [
+              { metadataStandardId: 'standard1', metadataStandardName: 'Standard One' },
+              { metadataStandardId: 'standard2', metadataStandardName: 'Standard Two' }
+            ],
+            meta: { schemaVersion: CURRENT_SCHEMA_VERSION }
+          },
+          {
+            type: 'licenseSearch',
+            answer: [{ licenseId: 'license1', licenseName: 'License One' }],
+            meta: { schemaVersion: CURRENT_SCHEMA_VERSION }
+          }
+        ],
+      }],
+      meta: { schemaVersion: CURRENT_SCHEMA_VERSION }
+    };
+    expect(() => ResearchOutputTableAnswerSchema.parse(validData)).not.toThrow();
+
+    const invalidData = {
+      type: 'researchOutputTable',
+      answer: {
+        columns: [
+          {
+            type: 'text',
+            answer: 12345,
+            meta: { schemaVersion: CURRENT_SCHEMA_VERSION }
+          },
+          {
+            type: 'selectBox',
+            answer: 'dataset',
+            meta: { schemaVersion: CURRENT_SCHEMA_VERSION }
+          }
+        ],
+      },
+      meta: { schemaVersion: CURRENT_SCHEMA_VERSION }
+    };
+    expect(() => ResearchOutputTableAnswerSchema.parse(invalidData)).toThrow();
   });
 
   it('should validate TextAnswer', () => {

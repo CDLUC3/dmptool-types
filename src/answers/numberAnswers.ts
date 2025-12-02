@@ -21,7 +21,16 @@ export const NumberRangeAnswerSchema = AnswerSchema.merge(z.object({
   }).default({})
 }));
 
+export const NumberWithContextAnswerSchema = AnswerSchema.merge(z.object({
+  type: z.literal('numberWithContext'),
+  answer: z.object ({
+    value: z.number().default(0),
+    context: z.string().default('')                       // Additional context for the number
+  })
+}));
+
 // This will ensure that object validations are against the Zod schemas defined above
 export type CurrencyAnswerType = z.infer<typeof CurrencyAnswerSchema>;
 export type NumberAnswerType = z.infer<typeof NumberAnswerSchema>;
 export type NumberRangeAnswerType = z.infer<typeof NumberRangeAnswerSchema>;
+export type NumberWithContextAnswerType = z.infer<typeof NumberWithContextAnswerSchema>;

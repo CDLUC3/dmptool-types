@@ -1,4 +1,7 @@
-import { TableQuestionSchema } from "../tableQuestions";
+import {
+  TableQuestionSchema,
+  ResearchOutputTableQuestionSchema
+} from "../tableQuestions";
 
 describe("TableQuestionSchema", () => {
   it("should validate a valid TableQuestion object", () => {
@@ -75,3 +78,153 @@ describe("TableQuestionSchema", () => {
     expect(() => TableQuestionSchema.parse(invalidTableQuestion)).toThrow();
   });
 });
+
+describe("ResearchOutputTableQuestionSchema", () => {
+  it("should validate a valid ResearchOutputTableQuestion object", () => {
+    const validResearchOutputTableQuestion = {
+      type: "researchOutputTable",
+      columns: [
+        {
+          heading: "Title",
+          required: true,
+          enabled: true,
+          content: {
+            type: "text",
+            meta: {
+              schemaVersion: "1.0"
+            }
+          }
+        },
+        {
+          heading: "Output Type",
+          required: true,
+          enabled: true,
+          content: {
+            type: "selectBox",
+            attributes: {
+              multiple: false
+            },
+            options: [
+              { label: "Foo", value: "foo" },
+              { label: "Bar", value: "bar" }
+            ],
+            meta: {
+              schemaVersion: "1.0"
+            }
+          }
+        },
+        {
+          heading: "Byte Size",
+          required: false,
+          enabled: true,
+          content: {
+            type: "numberWithContext",
+            attributes: {
+              min: 0,
+              step: 1,
+              context: [
+                { label: 'bytes', value: 'bytes' },
+                { label: 'KB (kilobytes)', value: 'kb' },
+                { label: 'MB (megabytes)', value: 'mb' },
+                { label: 'GB (gigabytes)', value: 'gb' },
+                { label: 'TB (terabytes)', value: 'tb' },
+                { label: 'PB (petabytes)', value: 'pb' }
+              ]
+            },
+            meta: {
+              schemaVersion: "1.0"
+            }
+          }
+        },
+        {
+          heading: "Repositories",
+          required: false,
+          enabled: true,
+          preferences: [
+           { label: "Repository 1", value: "https://repo.example.com/1" },
+           { label: "Repository 2", value: "https://repo.example.com/2" }
+          ],
+          content: {
+            type: "repositorySearch",
+            attributes: {
+              label: "Repository Search",
+              help: "Search for a repository",
+            },
+            graphQL: {
+              query: "query Repositories($term: String, $keywords: [String!], $repositoryType: String, $paginationOptions: PaginationOptions){ repositories(term: $term, keywords: $keywords, repositoryType: $repositoryType, paginationOptions: $paginationOptions) { totalCount currentOffset limit hasNextPage hasPreviousPage availableSortFields items { id name uri description website keywords repositoryTypes } } }",
+              displayFields: [
+                {
+                  propertyName: "name",
+                  label: "Name"
+                },
+                {
+                  propertyName: "description",
+                  label: "Description"
+                },
+                {
+                  propertyName: "website",
+                  label: "Website"
+                },
+                {
+                  propertyName: "keywords",
+                  label: "Subject Areas"
+                }
+              ],
+              answerField: "uri",
+              responseField: "repositories.items",
+              variables: [
+                {
+                  type: "string",
+                  name: "term",
+                  label: "Search term",
+                  minLength: 2
+                },
+                {
+                  type: "string",
+                  name: "repositoryType",
+                  label: "Repository Type"
+                },
+                {
+                  type: "string",
+                  name: "keywords",
+                  label: "Subject Areas"
+                }
+              ],
+            },
+            meta: {
+              schemaVersion: "1.0"
+            }
+          }
+        }
+      ],
+      meta: {
+        schemaVersion: "1.0"
+      }
+    };
+
+    expect(() => ResearchOutputTableQuestionSchema.parse(validResearchOutputTableQuestion)).not.toThrow();
+  });
+
+  it("should throw an error for an invalid ResearchOutputTableQuestion object", () => {
+    const invalidResearchOutputTableQuestion = {
+      type: "researchOutputTable",
+      columns: [
+        {
+          heading: "Title",
+          content: {
+            type: "invalid",
+            meta: {
+              schemaVersion: "1.0"
+            }
+          }
+        }
+      ],
+      meta: {
+        schemaVersion: "1.0"
+      }
+    };
+
+    expect(() => ResearchOutputTableQuestionSchema.parse(invalidResearchOutputTableQuestion)).toThrow();
+  });
+});
+

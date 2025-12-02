@@ -183,7 +183,7 @@
           "properties": {
             "type": {
               "type": "string",
-              "const": "filteredSearch"
+              "const": "licenseSearch"
             },
             "meta": {
               "$ref": "#/definitions/AnyTableColumnAnswer/anyOf/0/properties/meta"
@@ -191,11 +191,56 @@
             "answer": {
               "type": "array",
               "items": {
-                "type": "string"
+                "type": "object",
+                "properties": {
+                  "licenseId": {
+                    "type": "string",
+                    "default": ""
+                  },
+                  "licenseName": {
+                    "type": "string",
+                    "default": ""
+                  }
+                },
+                "additionalProperties": false,
+                "default": {}
               },
-              "default": [
-                ""
-              ]
+              "default": []
+            }
+          },
+          "required": [
+            "type"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string",
+              "const": "metadataStandardSearch"
+            },
+            "meta": {
+              "$ref": "#/definitions/AnyTableColumnAnswer/anyOf/0/properties/meta"
+            },
+            "answer": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "metadataStandardId": {
+                    "type": "string",
+                    "default": ""
+                  },
+                  "metadataStandardName": {
+                    "type": "string",
+                    "default": ""
+                  }
+                },
+                "additionalProperties": false,
+                "default": {}
+              },
+              "default": []
             }
           },
           "required": [
@@ -253,6 +298,37 @@
           "properties": {
             "type": {
               "type": "string",
+              "const": "numberWithContext"
+            },
+            "meta": {
+              "$ref": "#/definitions/AnyTableColumnAnswer/anyOf/0/properties/meta"
+            },
+            "answer": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": "number",
+                  "default": 0
+                },
+                "context": {
+                  "type": "string",
+                  "default": ""
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "type",
+            "answer"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string",
               "const": "radioButtons"
             },
             "meta": {
@@ -261,6 +337,41 @@
             "answer": {
               "type": "string",
               "default": ""
+            }
+          },
+          "required": [
+            "type"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string",
+              "const": "repositorySearch"
+            },
+            "meta": {
+              "$ref": "#/definitions/AnyTableColumnAnswer/anyOf/0/properties/meta"
+            },
+            "answer": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "repositoryId": {
+                    "type": "string",
+                    "default": ""
+                  },
+                  "repositoryName": {
+                    "type": "string",
+                    "default": ""
+                  }
+                },
+                "additionalProperties": false,
+                "default": {}
+              },
+              "default": []
             }
           },
           "required": [

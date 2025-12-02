@@ -1,6 +1,10 @@
 # dmptool-types CHANGELOG
 
 - Added CONTRIBUTING.md, CODE_OF_CONDUCT.md and PULL_REQUEST_TEMPLATE.md
+# v1.2.4
+- Added NumberWithContext question and answer types to support numbers with additional context (e.g. units)
+- Added LicenseSearch, MetadataStandardSearch and RepositorySearch question and answer types
+- Added ResearchOutputTable question and answer types
 
 # v1.2.3
 - Added Trivy scanning to GitHub Actions workflow

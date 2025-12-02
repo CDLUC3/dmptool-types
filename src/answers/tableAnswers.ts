@@ -7,9 +7,21 @@ import {
   RadioButtonsAnswerSchema,
   SelectBoxAnswerSchema
 } from './optionBasedAnswers';
-import { DateAnswerSchema, DateRangeAnswerSchema } from './dateAnswers';
-import { FilteredSearchAnswerSchema, AffiliationSearchAnswerSchema } from './graphQLAnswers';
-import { CurrencyAnswerSchema, NumberAnswerSchema } from './numberAnswers';
+import {
+  DateAnswerSchema,
+  DateRangeAnswerSchema
+} from './dateAnswers';
+import {
+  AffiliationSearchAnswerSchema,
+  LicenseSearchAnswerSchema,
+  MetadataStandardSearchAnswerSchema,
+  RepositorySearchAnswerSchema
+} from './graphQLAnswers';
+import {
+  CurrencyAnswerSchema,
+  NumberAnswerSchema,
+  NumberWithContextAnswerSchema
+} from './numberAnswers';
 import { EmailAnswerSchema, TextAnswerSchema, TextAreaAnswerSchema, URLAnswerSchema } from './textAnswers';
 import {CURRENT_SCHEMA_VERSION} from "../questions";
 
@@ -22,10 +34,13 @@ export const AnyTableColumnAnswerSchema = z.discriminatedUnion('type', [
   DateAnswerSchema,
   DateRangeAnswerSchema,
   EmailAnswerSchema,
-  FilteredSearchAnswerSchema,
+  LicenseSearchAnswerSchema,
+  MetadataStandardSearchAnswerSchema,
   MultiselectBoxAnswerSchema,
   NumberAnswerSchema,
+  NumberWithContextAnswerSchema,
   RadioButtonsAnswerSchema,
+  RepositorySearchAnswerSchema,
   SelectBoxAnswerSchema,
   TextAnswerSchema,
   TextAreaAnswerSchema,
@@ -49,6 +64,66 @@ export const TableAnswerSchema = AnswerSchema.merge(z.object({
   }])
 }));
 
+export const ResearchOutputTableAnswerSchema = TableAnswerSchema.merge(z.object({
+  type: z.literal('researchOutputTable'),
+  columnHeadings: z.array(z.string()).default(['Title', 'Output Type']),
+  answer: z.array(TableRowAnswerSchema).default([{
+    columns: [
+      {
+        type: 'text',
+        answer: '',
+        meta: { schemaVersion: CURRENT_SCHEMA_VERSION }
+      },
+      {
+        type: 'textArea',
+        answer: '',
+        meta: { schemaVersion: CURRENT_SCHEMA_VERSION }
+      },
+      {
+        type: 'selectBox',
+        answer: '',
+        meta: { schemaVersion: CURRENT_SCHEMA_VERSION }
+      },
+      {
+        type: 'checkBoxes',
+        answer: [],
+        meta: { schemaVersion: CURRENT_SCHEMA_VERSION }
+      },
+      {
+        type: 'selectBox',
+        answer: '',
+        meta: { schemaVersion: CURRENT_SCHEMA_VERSION }
+      },
+      {
+        type: 'date',
+        answer: '',
+        meta: { schemaVersion: CURRENT_SCHEMA_VERSION }
+      },
+      {
+        type: 'numberWithContext',
+        answer: { value: undefined, context: '' },
+        meta: { schemaVersion: CURRENT_SCHEMA_VERSION }
+      },
+      {
+        type: 'repositorySearch',
+        answer: [],
+        meta: { schemaVersion: CURRENT_SCHEMA_VERSION }
+      },
+      {
+        type: 'metadataStandardSearch',
+        answer: [],
+        meta: { schemaVersion: CURRENT_SCHEMA_VERSION }
+      },
+      {
+        type: 'licenseSearch',
+        answer: [],
+        meta: { schemaVersion: CURRENT_SCHEMA_VERSION }
+      }
+    ]
+  }])
+}));
+
 // This will ensure that object validations are against the Zod schemas defined above
 export type TableAnswerType = z.infer<typeof TableAnswerSchema>;
+export type ResearchOutputTableAnswerType = z.infer<typeof ResearchOutputTableAnswerSchema>;
 export type AnyTableColumnAnswerType = z.infer<typeof AnyTableColumnAnswerSchema>;
