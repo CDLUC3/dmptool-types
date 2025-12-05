@@ -1,5 +1,6 @@
 # dmptool-types CHANGELOG
 
+- Fixed issue with researchOutputTable preferences being filtered out in validation
 - Added CONTRIBUTING.md, CODE_OF_CONDUCT.md and PULL_REQUEST_TEMPLATE.md
 # v1.2.4
 - Added NumberWithContext question and answer types to support numbers with additional context (e.g. units)
