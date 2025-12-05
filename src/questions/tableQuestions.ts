@@ -26,7 +26,7 @@ import {
   MetadataStandardSearchQuestionSchema,
   LicenseSearchQuestionSchema
 } from './graphQLQuestions';
-import {CURRENT_SCHEMA_VERSION, QuestionSchema} from "./question";
+import { CURRENT_SCHEMA_VERSION, QuestionSchema } from "./question";
 
 const BaseAttributes = QuestionSchema.shape.attributes;
 
@@ -55,7 +55,7 @@ export const TableColumn = z.object({
   heading: z.string().default('Column A'),                        // The heading of the column
   required: z.boolean().default(false),                           // Whether the column is required
   enabled: z.boolean().default(true),                             // Whether the column is enabled
-  content: AnyTableColumnQuestionSchema.default({ type: 'textArea'}),  // The question for the column
+  content: AnyTableColumnQuestionSchema.default({ type: 'textArea' }),  // The question for the column
   meta: z.object({
     schemaVersion: z.string().default(CURRENT_SCHEMA_VERSION),         // The schema version
     labelTranslationKey: z.string().optional(),
@@ -139,14 +139,14 @@ const ResearchOutputAccessLevelColumnSchema = TableColumn.extend({
       multiple: z.literal(false),
       help: z.string().default('The initial access level for the research output'),
       labelTranslationKey: z.string().default('researchOutput.accessLevel.heading')
-    }).default({multiple: false}),
+    }).default({ multiple: false }),
     options: z.array(z.object({
       label: z.string(),
       value: z.string()
     })).default([
-      {label: 'Unrestricted Access', value: 'open'},
-      {label: 'Controlled Access', value: 'restricted'},
-      {label: 'Other', value: 'closed'},
+      { label: 'Unrestricted Access', value: 'open' },
+      { label: 'Controlled Access', value: 'restricted' },
+      { label: 'Other', value: 'closed' },
     ])
   }).default({ type: 'selectBox' })
 });
@@ -248,9 +248,25 @@ const defaultMetadataStandardColumn = ResearchOutputMetadataStandardColumnSchema
 const defaultLicenseColumn = ResearchOutputLicenseColumnSchema.parse({});
 const defaultCustomColumn = ResearchOutputCustomColumnSchema.parse({});
 
+// Add this BEFORE ResearchOutputTableQuestionSchema
+const AnyResearchOutputColumnSchema = z.union([
+  ResearchOutputTitleColumnSchema,
+  ResearchOutputDescriptionColumnSchema,
+  ResearchOutputOutputTypeColumnSchema,
+  ResearchOutputDataFlagsColumnSchema,
+  ResearchOutputAccessLevelColumnSchema,
+  ResearchOutputReleaseDateColumnSchema,
+  ResearchOutputByteSizeColumnSchema,
+  ResearchOutputRepositoryColumnSchema,
+  ResearchOutputMetadataStandardColumnSchema,
+  ResearchOutputLicenseColumnSchema,
+  ResearchOutputCustomColumnSchema,
+]);
+
+// Update ResearchOutputTableQuestionSchema
 export const ResearchOutputTableQuestionSchema = TableQuestionSchema.merge(z.object({
   type: z.literal('researchOutputTable'),
-  columns: z.array(TableColumn).default([
+  columns: z.array(AnyResearchOutputColumnSchema).default([
     defaultTitleColumn,
     defaultDescriptionColumn,
     defaultOutputTypeColumn,

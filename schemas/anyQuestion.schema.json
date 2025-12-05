@@ -998,100 +998,39 @@
             "columns": {
               "type": "array",
               "items": {
-                "type": "object",
-                "properties": {
-                  "heading": {
-                    "type": "string",
-                    "default": "Column A"
-                  },
-                  "required": {
-                    "type": "boolean",
-                    "default": false
-                  },
-                  "enabled": {
-                    "type": "boolean",
-                    "default": true
-                  },
-                  "content": {
-                    "anyOf": [
-                      {
-                        "$ref": "#/definitions/AnyQuestion/anyOf/0"
+                "anyOf": [
+                  {
+                    "type": "object",
+                    "properties": {
+                      "heading": {
+                        "type": "string",
+                        "default": "Title"
                       },
-                      {
-                        "$ref": "#/definitions/AnyQuestion/anyOf/1"
+                      "required": {
+                        "type": "boolean",
+                        "const": true
                       },
-                      {
-                        "$ref": "#/definitions/AnyQuestion/anyOf/2"
+                      "enabled": {
+                        "type": "boolean",
+                        "default": true
                       },
-                      {
-                        "$ref": "#/definitions/AnyQuestion/anyOf/3"
-                      },
-                      {
-                        "$ref": "#/definitions/AnyQuestion/anyOf/4"
-                      },
-                      {
-                        "$ref": "#/definitions/AnyQuestion/anyOf/5"
-                      },
-                      {
-                        "$ref": "#/definitions/AnyQuestion/anyOf/6"
-                      },
-                      {
-                        "$ref": "#/definitions/AnyQuestion/anyOf/7"
-                      },
-                      {
-                        "$ref": "#/definitions/AnyQuestion/anyOf/8"
-                      },
-                      {
-                        "$ref": "#/definitions/AnyQuestion/anyOf/10"
-                      },
-                      {
+                      "content": {
                         "type": "object",
                         "properties": {
                           "type": {
                             "type": "string",
-                            "const": "numberWithContext"
+                            "const": "text"
                           },
                           "attributes": {
                             "type": "object",
                             "properties": {
-                              "label": {
-                                "$ref": "#/definitions/AnyQuestion/anyOf/0/properties/attributes/properties/label"
-                              },
                               "help": {
-                                "$ref": "#/definitions/AnyQuestion/anyOf/0/properties/attributes/properties/help"
+                                "type": "string",
+                                "default": "Enter the title of this research output"
                               },
                               "labelTranslationKey": {
-                                "$ref": "#/definitions/AnyQuestion/anyOf/0/properties/attributes/properties/labelTranslationKey"
-                              },
-                              "max": {
-                                "$ref": "#/definitions/AnyQuestion/anyOf/3/properties/attributes/properties/max"
-                              },
-                              "min": {
-                                "$ref": "#/definitions/AnyQuestion/anyOf/3/properties/attributes/properties/min"
-                              },
-                              "step": {
-                                "$ref": "#/definitions/AnyQuestion/anyOf/3/properties/attributes/properties/step"
-                              },
-                              "context": {
-                                "type": "array",
-                                "items": {
-                                  "type": "object",
-                                  "properties": {
-                                    "label": {
-                                      "type": "string",
-                                      "default": ""
-                                    },
-                                    "labelTranslationKey": {
-                                      "type": "string"
-                                    },
-                                    "value": {
-                                      "type": "string",
-                                      "default": ""
-                                    }
-                                  },
-                                  "additionalProperties": false
-                                },
-                                "default": []
+                                "type": "string",
+                                "default": "researchOutput.title.heading"
                               }
                             },
                             "additionalProperties": false,
@@ -1104,15 +1043,100 @@
                         "required": [
                           "type"
                         ],
-                        "additionalProperties": false
+                        "additionalProperties": false,
+                        "default": {
+                          "type": "text"
+                        }
                       },
-                      {
-                        "$ref": "#/definitions/AnyQuestion/anyOf/12"
+                      "meta": {
+                        "type": "object",
+                        "properties": {
+                          "schemaVersion": {
+                            "type": "string",
+                            "default": "1.0"
+                          },
+                          "labelTranslationKey": {
+                            "type": "string"
+                          }
+                        },
+                        "additionalProperties": false,
+                        "default": {}
+                      }
+                    },
+                    "required": [
+                      "required"
+                    ],
+                    "additionalProperties": false
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "heading": {
+                        "type": "string",
+                        "default": "Description"
                       },
-                      {
-                        "$ref": "#/definitions/AnyQuestion/anyOf/13"
+                      "required": {
+                        "type": "boolean",
+                        "default": false
                       },
-                      {
+                      "enabled": {
+                        "$ref": "#/definitions/AnyQuestion/anyOf/14/properties/columns/items/anyOf/0/properties/enabled"
+                      },
+                      "content": {
+                        "type": "object",
+                        "properties": {
+                          "type": {
+                            "type": "string",
+                            "const": "textArea"
+                          },
+                          "attributes": {
+                            "type": "object",
+                            "properties": {
+                              "help": {
+                                "type": "string",
+                                "default": "Provide a brief description of this research output"
+                              },
+                              "labelTranslationKey": {
+                                "type": "string",
+                                "default": "researchOutput.description.heading"
+                              }
+                            },
+                            "additionalProperties": false,
+                            "default": {}
+                          },
+                          "meta": {
+                            "$ref": "#/definitions/AnyQuestion/anyOf/0/properties/meta"
+                          }
+                        },
+                        "required": [
+                          "type"
+                        ],
+                        "additionalProperties": false,
+                        "default": {
+                          "type": "textArea"
+                        }
+                      },
+                      "meta": {
+                        "$ref": "#/definitions/AnyQuestion/anyOf/14/properties/columns/items/anyOf/0/properties/meta"
+                      }
+                    },
+                    "additionalProperties": false
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "heading": {
+                        "type": "string",
+                        "default": "Output Type"
+                      },
+                      "required": {
+                        "type": "boolean",
+                        "const": true
+                      },
+                      "enabled": {
+                        "$ref": "#/definitions/AnyQuestion/anyOf/14/properties/columns/items/anyOf/0/properties/enabled"
+                      },
+                      "content": {
                         "type": "object",
                         "properties": {
                           "type": {
@@ -1122,18 +1146,17 @@
                           "attributes": {
                             "type": "object",
                             "properties": {
-                              "label": {
-                                "$ref": "#/definitions/AnyQuestion/anyOf/0/properties/attributes/properties/label"
-                              },
-                              "help": {
-                                "$ref": "#/definitions/AnyQuestion/anyOf/0/properties/attributes/properties/help"
-                              },
-                              "labelTranslationKey": {
-                                "$ref": "#/definitions/AnyQuestion/anyOf/0/properties/attributes/properties/labelTranslationKey"
-                              },
                               "multiple": {
                                 "type": "boolean",
                                 "const": false
+                              },
+                              "help": {
+                                "type": "string",
+                                "default": "Select the type that best describes this research output"
+                              },
+                              "labelTranslationKey": {
+                                "type": "string",
+                                "default": "researchOutput.outputType.heading"
                               }
                             },
                             "required": [
@@ -1160,140 +1183,563 @@
                         "required": [
                           "type"
                         ],
-                        "additionalProperties": false
+                        "additionalProperties": false,
+                        "default": {
+                          "type": "selectBox"
+                        }
                       },
-                      {
-                        "type": "object",
-                        "properties": {
-                          "type": {
-                            "type": "string",
-                            "const": "textArea"
-                          },
-                          "attributes": {
-                            "type": "object",
-                            "properties": {
-                              "label": {
-                                "$ref": "#/definitions/AnyQuestion/anyOf/0/properties/attributes/properties/label"
-                              },
-                              "help": {
-                                "$ref": "#/definitions/AnyQuestion/anyOf/0/properties/attributes/properties/help"
-                              },
-                              "labelTranslationKey": {
-                                "$ref": "#/definitions/AnyQuestion/anyOf/0/properties/attributes/properties/labelTranslationKey"
-                              },
-                              "cols": {
-                                "type": "number",
-                                "default": 20
-                              },
-                              "maxLength": {
-                                "type": "number"
-                              },
-                              "minLength": {
-                                "type": "number"
-                              },
-                              "rows": {
-                                "type": "number",
-                                "default": 2
-                              },
-                              "asRichText": {
-                                "type": "boolean",
-                                "default": true
-                              }
-                            },
-                            "additionalProperties": false,
-                            "default": {}
-                          },
-                          "meta": {
-                            "$ref": "#/definitions/AnyQuestion/anyOf/0/properties/meta"
-                          }
-                        },
-                        "required": [
-                          "type"
-                        ],
-                        "additionalProperties": false
-                      },
-                      {
-                        "type": "object",
-                        "properties": {
-                          "type": {
-                            "type": "string",
-                            "const": "text"
-                          },
-                          "attributes": {
-                            "type": "object",
-                            "properties": {
-                              "label": {
-                                "$ref": "#/definitions/AnyQuestion/anyOf/0/properties/attributes/properties/label"
-                              },
-                              "help": {
-                                "$ref": "#/definitions/AnyQuestion/anyOf/0/properties/attributes/properties/help"
-                              },
-                              "labelTranslationKey": {
-                                "$ref": "#/definitions/AnyQuestion/anyOf/0/properties/attributes/properties/labelTranslationKey"
-                              },
-                              "maxLength": {
-                                "$ref": "#/definitions/AnyQuestion/anyOf/6/properties/attributes/properties/maxLength"
-                              },
-                              "minLength": {
-                                "$ref": "#/definitions/AnyQuestion/anyOf/6/properties/attributes/properties/minLength"
-                              },
-                              "pattern": {
-                                "$ref": "#/definitions/AnyQuestion/anyOf/6/properties/attributes/properties/pattern"
-                              }
-                            },
-                            "additionalProperties": false,
-                            "default": {}
-                          },
-                          "meta": {
-                            "$ref": "#/definitions/AnyQuestion/anyOf/0/properties/meta"
-                          }
-                        },
-                        "required": [
-                          "type"
-                        ],
-                        "additionalProperties": false
-                      },
-                      {
-                        "type": "object",
-                        "properties": {
-                          "type": {
-                            "type": "string",
-                            "const": "url"
-                          },
-                          "attributes": {
-                            "$ref": "#/definitions/AnyQuestion/anyOf/14/properties/columns/items/properties/content/anyOf/15/properties/attributes",
-                            "default": {}
-                          },
-                          "meta": {
-                            "$ref": "#/definitions/AnyQuestion/anyOf/0/properties/meta"
-                          }
-                        },
-                        "required": [
-                          "type"
-                        ],
-                        "additionalProperties": false
-                      }
-                    ],
-                    "default": {
-                      "type": "textArea"
-                    }
-                  },
-                  "meta": {
-                    "type": "object",
-                    "properties": {
-                      "schemaVersion": {
-                        "type": "string",
-                        "default": "1.0"
-                      },
-                      "labelTranslationKey": {
-                        "type": "string"
+                      "meta": {
+                        "$ref": "#/definitions/AnyQuestion/anyOf/14/properties/columns/items/anyOf/0/properties/meta"
                       }
                     },
-                    "additionalProperties": false,
-                    "default": {}
+                    "required": [
+                      "required"
+                    ],
+                    "additionalProperties": false
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "heading": {
+                        "type": "string",
+                        "default": "Data Flags"
+                      },
+                      "required": {
+                        "$ref": "#/definitions/AnyQuestion/anyOf/14/properties/columns/items/anyOf/1/properties/required"
+                      },
+                      "enabled": {
+                        "type": "boolean",
+                        "default": false
+                      },
+                      "content": {
+                        "type": "object",
+                        "properties": {
+                          "type": {
+                            "$ref": "#/definitions/AnyQuestion/anyOf/2/properties/type"
+                          },
+                          "attributes": {
+                            "type": "object",
+                            "properties": {
+                              "help": {
+                                "type": "string",
+                                "default": "Select any data flags that apply to this research output"
+                              },
+                              "labelTranslationKey": {
+                                "type": "string",
+                                "default": "researchOutput.dataFlags.heading"
+                              }
+                            },
+                            "additionalProperties": false,
+                            "default": {}
+                          },
+                          "meta": {
+                            "$ref": "#/definitions/AnyQuestion/anyOf/0/properties/meta"
+                          },
+                          "options": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "label": {
+                                  "type": "string"
+                                },
+                                "value": {
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "label",
+                                "value"
+                              ],
+                              "additionalProperties": false
+                            },
+                            "default": [
+                              {
+                                "label": "May contain sensitive data?",
+                                "value": "sensitive"
+                              },
+                              {
+                                "label": "May contain personally identifiable information?",
+                                "value": "personal"
+                              }
+                            ]
+                          }
+                        },
+                        "required": [
+                          "type"
+                        ],
+                        "additionalProperties": false,
+                        "default": {
+                          "type": "checkBoxes"
+                        }
+                      },
+                      "meta": {
+                        "$ref": "#/definitions/AnyQuestion/anyOf/14/properties/columns/items/anyOf/0/properties/meta"
+                      }
+                    },
+                    "additionalProperties": false
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "heading": {
+                        "type": "string",
+                        "default": "Initial Access Level"
+                      },
+                      "required": {
+                        "$ref": "#/definitions/AnyQuestion/anyOf/14/properties/columns/items/anyOf/1/properties/required"
+                      },
+                      "enabled": {
+                        "type": "boolean",
+                        "default": false
+                      },
+                      "content": {
+                        "type": "object",
+                        "properties": {
+                          "type": {
+                            "$ref": "#/definitions/AnyQuestion/anyOf/14/properties/columns/items/anyOf/2/properties/content/properties/type"
+                          },
+                          "attributes": {
+                            "type": "object",
+                            "properties": {
+                              "multiple": {
+                                "type": "boolean",
+                                "const": false
+                              },
+                              "help": {
+                                "type": "string",
+                                "default": "The initial access level for the research output"
+                              },
+                              "labelTranslationKey": {
+                                "type": "string",
+                                "default": "researchOutput.accessLevel.heading"
+                              }
+                            },
+                            "required": [
+                              "multiple"
+                            ],
+                            "additionalProperties": false,
+                            "default": {
+                              "multiple": false
+                            }
+                          },
+                          "meta": {
+                            "$ref": "#/definitions/AnyQuestion/anyOf/0/properties/meta"
+                          },
+                          "options": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "label": {
+                                  "type": "string"
+                                },
+                                "value": {
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "label",
+                                "value"
+                              ],
+                              "additionalProperties": false
+                            },
+                            "default": [
+                              {
+                                "label": "Unrestricted Access",
+                                "value": "open"
+                              },
+                              {
+                                "label": "Controlled Access",
+                                "value": "restricted"
+                              },
+                              {
+                                "label": "Other",
+                                "value": "closed"
+                              }
+                            ]
+                          }
+                        },
+                        "required": [
+                          "type"
+                        ],
+                        "additionalProperties": false,
+                        "default": {
+                          "type": "selectBox"
+                        }
+                      },
+                      "meta": {
+                        "$ref": "#/definitions/AnyQuestion/anyOf/14/properties/columns/items/anyOf/0/properties/meta"
+                      }
+                    },
+                    "additionalProperties": false
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "heading": {
+                        "type": "string",
+                        "default": "Anticipated Release Date"
+                      },
+                      "required": {
+                        "$ref": "#/definitions/AnyQuestion/anyOf/14/properties/columns/items/anyOf/1/properties/required"
+                      },
+                      "enabled": {
+                        "type": "boolean",
+                        "default": false
+                      },
+                      "content": {
+                        "type": "object",
+                        "properties": {
+                          "type": {
+                            "$ref": "#/definitions/AnyQuestion/anyOf/4/properties/type"
+                          },
+                          "attributes": {
+                            "type": "object",
+                            "properties": {
+                              "help": {
+                                "type": "string",
+                                "default": "The anticipated release date for the research output"
+                              },
+                              "labelTranslationKey": {
+                                "type": "string",
+                                "default": "researchOutput.releaseDate.heading"
+                              }
+                            },
+                            "additionalProperties": false,
+                            "default": {}
+                          },
+                          "meta": {
+                            "$ref": "#/definitions/AnyQuestion/anyOf/0/properties/meta"
+                          }
+                        },
+                        "required": [
+                          "type"
+                        ],
+                        "additionalProperties": false,
+                        "default": {
+                          "type": "date"
+                        }
+                      },
+                      "meta": {
+                        "$ref": "#/definitions/AnyQuestion/anyOf/14/properties/columns/items/anyOf/0/properties/meta"
+                      }
+                    },
+                    "additionalProperties": false
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "heading": {
+                        "type": "string",
+                        "default": "Byte Size"
+                      },
+                      "required": {
+                        "$ref": "#/definitions/AnyQuestion/anyOf/14/properties/columns/items/anyOf/1/properties/required"
+                      },
+                      "enabled": {
+                        "type": "boolean",
+                        "default": false
+                      },
+                      "content": {
+                        "type": "object",
+                        "properties": {
+                          "type": {
+                            "type": "string",
+                            "const": "numberWithContext"
+                          },
+                          "attributes": {
+                            "type": "object",
+                            "properties": {
+                              "min": {
+                                "type": "number",
+                                "default": 0
+                              },
+                              "help": {
+                                "type": "string",
+                                "default": "The size of the research output in bytes"
+                              },
+                              "labelTranslationKey": {
+                                "type": "string",
+                                "default": "researchOutput.byteSize.heading"
+                              },
+                              "context": {
+                                "type": "array",
+                                "items": {
+                                  "type": "object",
+                                  "properties": {
+                                    "label": {
+                                      "type": "string",
+                                      "default": "MB (megabytes)"
+                                    },
+                                    "value": {
+                                      "type": "string",
+                                      "default": "mb"
+                                    }
+                                  },
+                                  "additionalProperties": false
+                                },
+                                "default": [
+                                  {
+                                    "label": "bytes",
+                                    "value": "bytes"
+                                  },
+                                  {
+                                    "label": "KB (kilobytes)",
+                                    "value": "kb"
+                                  },
+                                  {
+                                    "label": "MB (megabytes)",
+                                    "value": "mb"
+                                  },
+                                  {
+                                    "label": "GB (gigabytes)",
+                                    "value": "gb"
+                                  },
+                                  {
+                                    "label": "TB (terabytes)",
+                                    "value": "tb"
+                                  },
+                                  {
+                                    "label": "PB (petabytes)",
+                                    "value": "pb"
+                                  }
+                                ]
+                              }
+                            },
+                            "additionalProperties": false,
+                            "default": {}
+                          },
+                          "meta": {
+                            "$ref": "#/definitions/AnyQuestion/anyOf/0/properties/meta"
+                          }
+                        },
+                        "required": [
+                          "type"
+                        ],
+                        "additionalProperties": false,
+                        "default": {
+                          "type": "numberWithContext"
+                        }
+                      },
+                      "meta": {
+                        "$ref": "#/definitions/AnyQuestion/anyOf/14/properties/columns/items/anyOf/0/properties/meta"
+                      }
+                    },
+                    "additionalProperties": false
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "heading": {
+                        "type": "string",
+                        "default": "Repository"
+                      },
+                      "required": {
+                        "$ref": "#/definitions/AnyQuestion/anyOf/14/properties/columns/items/anyOf/1/properties/required"
+                      },
+                      "enabled": {
+                        "type": "boolean",
+                        "default": false
+                      },
+                      "content": {
+                        "$ref": "#/definitions/AnyQuestion/anyOf/13",
+                        "default": {
+                          "type": "repositorySearch"
+                        }
+                      },
+                      "meta": {
+                        "$ref": "#/definitions/AnyQuestion/anyOf/14/properties/columns/items/anyOf/0/properties/meta"
+                      },
+                      "preferences": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "label": {
+                              "type": "string",
+                              "default": ""
+                            },
+                            "value": {
+                              "type": "string",
+                              "default": ""
+                            }
+                          },
+                          "additionalProperties": false
+                        },
+                        "default": []
+                      },
+                      "attributes": {
+                        "type": "object",
+                        "properties": {
+                          "help": {
+                            "type": "string",
+                            "default": "Select repositor(ies) you would prefer users to deposit in"
+                          },
+                          "labelTranslationKey": {
+                            "type": "string",
+                            "default": "researchOutput.repository.heading"
+                          }
+                        },
+                        "additionalProperties": false,
+                        "default": {}
+                      }
+                    },
+                    "additionalProperties": false
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "heading": {
+                        "type": "string",
+                        "default": "Metadata Standard"
+                      },
+                      "required": {
+                        "$ref": "#/definitions/AnyQuestion/anyOf/14/properties/columns/items/anyOf/1/properties/required"
+                      },
+                      "enabled": {
+                        "type": "boolean",
+                        "default": false
+                      },
+                      "content": {
+                        "$ref": "#/definitions/AnyQuestion/anyOf/8",
+                        "default": {
+                          "type": "metadataStandardSearch"
+                        }
+                      },
+                      "meta": {
+                        "$ref": "#/definitions/AnyQuestion/anyOf/14/properties/columns/items/anyOf/0/properties/meta"
+                      },
+                      "preferences": {
+                        "type": "array",
+                        "items": {
+                          "$ref": "#/definitions/AnyQuestion/anyOf/14/properties/columns/items/anyOf/7/properties/preferences/items"
+                        },
+                        "default": []
+                      },
+                      "attributes": {
+                        "type": "object",
+                        "properties": {
+                          "help": {
+                            "type": "string",
+                            "default": "Select metadata standard(s) you would prefer users to use"
+                          },
+                          "labelTranslationKey": {
+                            "type": "string",
+                            "default": "researchOutput.metadataStandard.heading"
+                          }
+                        },
+                        "additionalProperties": false,
+                        "default": {}
+                      }
+                    },
+                    "additionalProperties": false
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "heading": {
+                        "type": "string",
+                        "default": "License"
+                      },
+                      "required": {
+                        "$ref": "#/definitions/AnyQuestion/anyOf/14/properties/columns/items/anyOf/1/properties/required"
+                      },
+                      "enabled": {
+                        "type": "boolean",
+                        "default": false
+                      },
+                      "content": {
+                        "$ref": "#/definitions/AnyQuestion/anyOf/7",
+                        "default": {
+                          "type": "licenseSearch"
+                        }
+                      },
+                      "meta": {
+                        "$ref": "#/definitions/AnyQuestion/anyOf/14/properties/columns/items/anyOf/0/properties/meta"
+                      },
+                      "preferences": {
+                        "type": "array",
+                        "items": {
+                          "$ref": "#/definitions/AnyQuestion/anyOf/14/properties/columns/items/anyOf/7/properties/preferences/items"
+                        },
+                        "default": []
+                      },
+                      "attributes": {
+                        "type": "object",
+                        "properties": {
+                          "help": {
+                            "type": "string",
+                            "default": "Select license(s) you would prefer users to apply to the research output"
+                          },
+                          "labelTranslationKey": {
+                            "type": "string",
+                            "default": "researchOutput.license.heading"
+                          }
+                        },
+                        "additionalProperties": false,
+                        "default": {}
+                      }
+                    },
+                    "additionalProperties": false
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "heading": {
+                        "type": "string",
+                        "default": "Custom Column"
+                      },
+                      "required": {
+                        "$ref": "#/definitions/AnyQuestion/anyOf/14/properties/columns/items/anyOf/1/properties/required"
+                      },
+                      "enabled": {
+                        "type": "boolean",
+                        "default": false
+                      },
+                      "content": {
+                        "type": "object",
+                        "properties": {
+                          "type": {
+                            "$ref": "#/definitions/AnyQuestion/anyOf/14/properties/columns/items/anyOf/0/properties/content/properties/type"
+                          },
+                          "attributes": {
+                            "type": "object",
+                            "properties": {
+                              "help": {
+                                "type": "string",
+                                "default": "Explanation of what we expect the user to enter."
+                              },
+                              "maxLength": {
+                                "type": "number",
+                                "default": 255
+                              },
+                              "defaultValue": {
+                                "type": "string"
+                              }
+                            },
+                            "additionalProperties": false,
+                            "default": {}
+                          },
+                          "meta": {
+                            "$ref": "#/definitions/AnyQuestion/anyOf/0/properties/meta"
+                          }
+                        },
+                        "required": [
+                          "type"
+                        ],
+                        "additionalProperties": false,
+                        "default": {
+                          "type": "text"
+                        }
+                      },
+                      "meta": {
+                        "$ref": "#/definitions/AnyQuestion/anyOf/14/properties/columns/items/anyOf/0/properties/meta"
+                      }
+                    },
+                    "additionalProperties": false
                   }
-                },
-                "additionalProperties": false
+                ]
               },
               "default": [
                 {
@@ -1691,7 +2137,47 @@
           "additionalProperties": false
         },
         {
-          "$ref": "#/definitions/AnyQuestion/anyOf/14/properties/columns/items/properties/content/anyOf/13"
+          "type": "object",
+          "properties": {
+            "type": {
+              "$ref": "#/definitions/AnyQuestion/anyOf/14/properties/columns/items/anyOf/2/properties/content/properties/type"
+            },
+            "attributes": {
+              "type": "object",
+              "properties": {
+                "label": {
+                  "$ref": "#/definitions/AnyQuestion/anyOf/0/properties/attributes/properties/label"
+                },
+                "help": {
+                  "$ref": "#/definitions/AnyQuestion/anyOf/0/properties/attributes/properties/help"
+                },
+                "labelTranslationKey": {
+                  "$ref": "#/definitions/AnyQuestion/anyOf/0/properties/attributes/properties/labelTranslationKey"
+                },
+                "multiple": {
+                  "type": "boolean",
+                  "const": false
+                }
+              },
+              "required": [
+                "multiple"
+              ],
+              "additionalProperties": false,
+              "default": {
+                "multiple": false
+              }
+            },
+            "meta": {
+              "$ref": "#/definitions/AnyQuestion/anyOf/0/properties/meta"
+            },
+            "options": {
+              "$ref": "#/definitions/AnyQuestion/anyOf/14/properties/columns/items/anyOf/2/properties/content/properties/options"
+            }
+          },
+          "required": [
+            "type"
+          ],
+          "additionalProperties": false
         },
         {
           "type": "object",
@@ -1709,7 +2195,239 @@
             "columns": {
               "type": "array",
               "items": {
-                "$ref": "#/definitions/AnyQuestion/anyOf/14/properties/columns/items"
+                "type": "object",
+                "properties": {
+                  "heading": {
+                    "type": "string",
+                    "default": "Column A"
+                  },
+                  "required": {
+                    "$ref": "#/definitions/AnyQuestion/anyOf/14/properties/columns/items/anyOf/1/properties/required"
+                  },
+                  "enabled": {
+                    "$ref": "#/definitions/AnyQuestion/anyOf/14/properties/columns/items/anyOf/0/properties/enabled"
+                  },
+                  "content": {
+                    "anyOf": [
+                      {
+                        "$ref": "#/definitions/AnyQuestion/anyOf/0"
+                      },
+                      {
+                        "$ref": "#/definitions/AnyQuestion/anyOf/1"
+                      },
+                      {
+                        "$ref": "#/definitions/AnyQuestion/anyOf/2"
+                      },
+                      {
+                        "$ref": "#/definitions/AnyQuestion/anyOf/3"
+                      },
+                      {
+                        "$ref": "#/definitions/AnyQuestion/anyOf/4"
+                      },
+                      {
+                        "$ref": "#/definitions/AnyQuestion/anyOf/5"
+                      },
+                      {
+                        "$ref": "#/definitions/AnyQuestion/anyOf/6"
+                      },
+                      {
+                        "$ref": "#/definitions/AnyQuestion/anyOf/7"
+                      },
+                      {
+                        "$ref": "#/definitions/AnyQuestion/anyOf/8"
+                      },
+                      {
+                        "$ref": "#/definitions/AnyQuestion/anyOf/10"
+                      },
+                      {
+                        "type": "object",
+                        "properties": {
+                          "type": {
+                            "$ref": "#/definitions/AnyQuestion/anyOf/14/properties/columns/items/anyOf/6/properties/content/properties/type"
+                          },
+                          "attributes": {
+                            "type": "object",
+                            "properties": {
+                              "label": {
+                                "$ref": "#/definitions/AnyQuestion/anyOf/0/properties/attributes/properties/label"
+                              },
+                              "help": {
+                                "$ref": "#/definitions/AnyQuestion/anyOf/0/properties/attributes/properties/help"
+                              },
+                              "labelTranslationKey": {
+                                "$ref": "#/definitions/AnyQuestion/anyOf/0/properties/attributes/properties/labelTranslationKey"
+                              },
+                              "max": {
+                                "$ref": "#/definitions/AnyQuestion/anyOf/3/properties/attributes/properties/max"
+                              },
+                              "min": {
+                                "$ref": "#/definitions/AnyQuestion/anyOf/3/properties/attributes/properties/min"
+                              },
+                              "step": {
+                                "$ref": "#/definitions/AnyQuestion/anyOf/3/properties/attributes/properties/step"
+                              },
+                              "context": {
+                                "type": "array",
+                                "items": {
+                                  "type": "object",
+                                  "properties": {
+                                    "label": {
+                                      "type": "string",
+                                      "default": ""
+                                    },
+                                    "labelTranslationKey": {
+                                      "type": "string"
+                                    },
+                                    "value": {
+                                      "type": "string",
+                                      "default": ""
+                                    }
+                                  },
+                                  "additionalProperties": false
+                                },
+                                "default": []
+                              }
+                            },
+                            "additionalProperties": false,
+                            "default": {}
+                          },
+                          "meta": {
+                            "$ref": "#/definitions/AnyQuestion/anyOf/0/properties/meta"
+                          }
+                        },
+                        "required": [
+                          "type"
+                        ],
+                        "additionalProperties": false
+                      },
+                      {
+                        "$ref": "#/definitions/AnyQuestion/anyOf/12"
+                      },
+                      {
+                        "$ref": "#/definitions/AnyQuestion/anyOf/13"
+                      },
+                      {
+                        "$ref": "#/definitions/AnyQuestion/anyOf/15"
+                      },
+                      {
+                        "type": "object",
+                        "properties": {
+                          "type": {
+                            "$ref": "#/definitions/AnyQuestion/anyOf/14/properties/columns/items/anyOf/1/properties/content/properties/type"
+                          },
+                          "attributes": {
+                            "type": "object",
+                            "properties": {
+                              "label": {
+                                "$ref": "#/definitions/AnyQuestion/anyOf/0/properties/attributes/properties/label"
+                              },
+                              "help": {
+                                "$ref": "#/definitions/AnyQuestion/anyOf/0/properties/attributes/properties/help"
+                              },
+                              "labelTranslationKey": {
+                                "$ref": "#/definitions/AnyQuestion/anyOf/0/properties/attributes/properties/labelTranslationKey"
+                              },
+                              "cols": {
+                                "type": "number",
+                                "default": 20
+                              },
+                              "maxLength": {
+                                "type": "number"
+                              },
+                              "minLength": {
+                                "type": "number"
+                              },
+                              "rows": {
+                                "type": "number",
+                                "default": 2
+                              },
+                              "asRichText": {
+                                "type": "boolean",
+                                "default": true
+                              }
+                            },
+                            "additionalProperties": false,
+                            "default": {}
+                          },
+                          "meta": {
+                            "$ref": "#/definitions/AnyQuestion/anyOf/0/properties/meta"
+                          }
+                        },
+                        "required": [
+                          "type"
+                        ],
+                        "additionalProperties": false
+                      },
+                      {
+                        "type": "object",
+                        "properties": {
+                          "type": {
+                            "$ref": "#/definitions/AnyQuestion/anyOf/14/properties/columns/items/anyOf/0/properties/content/properties/type"
+                          },
+                          "attributes": {
+                            "type": "object",
+                            "properties": {
+                              "label": {
+                                "$ref": "#/definitions/AnyQuestion/anyOf/0/properties/attributes/properties/label"
+                              },
+                              "help": {
+                                "$ref": "#/definitions/AnyQuestion/anyOf/0/properties/attributes/properties/help"
+                              },
+                              "labelTranslationKey": {
+                                "$ref": "#/definitions/AnyQuestion/anyOf/0/properties/attributes/properties/labelTranslationKey"
+                              },
+                              "maxLength": {
+                                "$ref": "#/definitions/AnyQuestion/anyOf/6/properties/attributes/properties/maxLength"
+                              },
+                              "minLength": {
+                                "$ref": "#/definitions/AnyQuestion/anyOf/6/properties/attributes/properties/minLength"
+                              },
+                              "pattern": {
+                                "$ref": "#/definitions/AnyQuestion/anyOf/6/properties/attributes/properties/pattern"
+                              }
+                            },
+                            "additionalProperties": false,
+                            "default": {}
+                          },
+                          "meta": {
+                            "$ref": "#/definitions/AnyQuestion/anyOf/0/properties/meta"
+                          }
+                        },
+                        "required": [
+                          "type"
+                        ],
+                        "additionalProperties": false
+                      },
+                      {
+                        "type": "object",
+                        "properties": {
+                          "type": {
+                            "type": "string",
+                            "const": "url"
+                          },
+                          "attributes": {
+                            "$ref": "#/definitions/AnyQuestion/anyOf/16/properties/columns/items/properties/content/anyOf/15/properties/attributes",
+                            "default": {}
+                          },
+                          "meta": {
+                            "$ref": "#/definitions/AnyQuestion/anyOf/0/properties/meta"
+                          }
+                        },
+                        "required": [
+                          "type"
+                        ],
+                        "additionalProperties": false
+                      }
+                    ],
+                    "default": {
+                      "type": "textArea"
+                    }
+                  },
+                  "meta": {
+                    "$ref": "#/definitions/AnyQuestion/anyOf/14/properties/columns/items/anyOf/0/properties/meta"
+                  }
+                },
+                "additionalProperties": false
               },
               "default": [
                 {}
@@ -1722,13 +2440,13 @@
           "additionalProperties": false
         },
         {
-          "$ref": "#/definitions/AnyQuestion/anyOf/14/properties/columns/items/properties/content/anyOf/14"
+          "$ref": "#/definitions/AnyQuestion/anyOf/16/properties/columns/items/properties/content/anyOf/14"
         },
         {
-          "$ref": "#/definitions/AnyQuestion/anyOf/14/properties/columns/items/properties/content/anyOf/15"
+          "$ref": "#/definitions/AnyQuestion/anyOf/16/properties/columns/items/properties/content/anyOf/15"
         },
         {
-          "$ref": "#/definitions/AnyQuestion/anyOf/14/properties/columns/items/properties/content/anyOf/16"
+          "$ref": "#/definitions/AnyQuestion/anyOf/16/properties/columns/items/properties/content/anyOf/16"
         }
       ]
     }
