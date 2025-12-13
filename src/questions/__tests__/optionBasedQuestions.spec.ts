@@ -8,7 +8,7 @@ import {
   SelectBoxQuestionType,
   BooleanQuestionSchema,
   MultiselectBoxQuestionType,
-  MultiselectBoxQuestionSchema,
+  MultiselectBoxQuestionSchema
 } from "../optionBasedQuestions";
 
 describe("BooleanQuestion", () => {
@@ -32,8 +32,12 @@ describe("BooleanQuestion", () => {
         schemaVersion: "1.0",
       },
       attributes: {
-        checked: true,
+        label: "Is it true?"
       },
+      options: [
+        { selected: true, label: 'Yes', value: '1' },
+        { selected: false, label: 'No', value: '0' }
+      ]
     };
     expect(() => BooleanQuestionSchema.parse(validBooleanQuestion)).not.toThrow();
   });

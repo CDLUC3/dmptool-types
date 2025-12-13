@@ -68,6 +68,8 @@ export const AnyAnswerSchema = z.discriminatedUnion('type', [
   URLAnswerSchema
 ]);
 
+export const AnyAnswerJSONSchema = z.toJSONSchema(AnyAnswerSchema);
+
 // Export a mapping between question types and their corresponding answer schemas
 export const AnswerSchemaMap: Record<z.infer<typeof QuestionFormatsEnum>, z.ZodTypeAny> = {
   affiliationSearch: AffiliationSearchAnswerSchema,

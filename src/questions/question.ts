@@ -27,24 +27,32 @@ export const QuestionFormatsEnum = z.enum([
   'url'
 ]);
 
-const DefaultMetaSchema = z.object({
-  schemaVersion: z.string().default(CURRENT_SCHEMA_VERSION), // The schema version
-
+export const BaseMetaSchema = z.object({
+  schemaVersion: z.string().default(CURRENT_SCHEMA_VERSION),  // The schema version
   title: z.string().optional(),                // The title of the question type
   usageDescription: z.string().optional(),     // A description of when to use the question type
 });
+// Calling Zod's `parse` on a schema creates an object that uses all the defaults defined,
+// so, for example with this schema we get `{ schemaVersion: "1.0" }`
+export const DefaultMeta = BaseMetaSchema.parse({});
 
-const DefaultAttributesSchema = z.object({
+export const BaseAttributesSchema = z.object({
   label: z.string().optional(),                // UI label for the field
   help: z.string().optional(),                 // Help/tooltip text for the field
   labelTranslationKey: z.string().optional()   // The local translation key for the label
 });
+export const DefaultAttributes = BaseAttributesSchema.parse({});
 
 // Base abstract type for all questions
 export const QuestionSchema = z.object({
-  type: QuestionFormatsEnum,                   // The type of question
-  attributes: DefaultAttributesSchema,         // Field attributes
-  meta: DefaultMetaSchema.default({}),         // Meta information for the field
+  type: QuestionFormatsEnum,            // The type of question
+  attributes: BaseAttributesSchema,  // Field attributes
+  meta: BaseMetaSchema,              // Information for the field
+});
+export const DefaultQuestionSchema = QuestionSchema.parse({
+  type: 'textArea',
+  attributes: DefaultAttributes,
+  meta: DefaultMeta
 });
 
 // This will ensure that object validations are against the Zod schemas defined above

@@ -1,34 +1,61 @@
 import { z } from "zod";
-import { QuestionSchema } from "./question";
+import {
+  BaseAttributesSchema,
+  DefaultMeta,
+  QuestionSchema
+} from "./question";
 
-const BaseAttributes = QuestionSchema.shape.attributes;
-
-const DateAttributesSchema = BaseAttributes.merge(z.object({
+const DateAttributesSchema = z.object({
+  ...BaseAttributesSchema.shape,
   max: z.string().optional(),
   min: z.string().optional(),
   step: z.number().default(1),
-}));
+});
+const DefaultDateAttributes = DateAttributesSchema.parse({});
 
 // Date question and answer
-export const DateQuestionSchema = QuestionSchema.merge(z.object({
+export const DateQuestionSchema = z.object({
+  ...QuestionSchema.shape,
   type: z.literal('date'),
-  attributes: DateAttributesSchema.default({})
-}));
+  attributes: DateAttributesSchema
+});
+export const DefaultDateQuestion = DateQuestionSchema.parse({
+  type: 'date',
+  attributes: DefaultDateAttributes,
+  meta: DefaultMeta
+})
+
+const DateRangeStartColumnSchema = z.object({
+  ...DateAttributesSchema.shape,
+  label: z.string().default('From')
+});
+const DateRangeEndColumnSchema = z.object({
+  ...DateAttributesSchema.shape,
+  label: z.string().default('To')
+})
 
 // Date range question and answer
-export const DateRangeQuestionSchema = QuestionSchema.merge(z.object({
+export const DateRangeQuestionSchema = z.object({
+  ...QuestionSchema.shape,
   type: z.literal('dateRange'),
-  attributes: BaseAttributes.default({}),
   columns: z.object({
-    start: DateAttributesSchema.merge(z.object({
-      label: z.string().default('From')
-    })).default({}),
-    end: DateAttributesSchema.merge(z.object({
-      label: z.string().default('To')
-    })).default({}),
-  }).default({})
-}));
+    start: DateRangeStartColumnSchema,
+    end: DateRangeEndColumnSchema,
+  })
+});
+export const DefaultDateRangeQuestion = DateRangeQuestionSchema.parse({
+  type: 'dateRange',
+  attributes: BaseAttributesSchema.parse({}),
+  meta: DefaultMeta,
+  columns: {
+    start: DateRangeStartColumnSchema.parse({}),
+    end: DateRangeEndColumnSchema.parse({})
+  }
+})
 
 // This will ensure that object validations are against the Zod schemas defined above
 export type DateQuestionType = z.infer<typeof DateQuestionSchema>;
 export type DateRangeQuestionType = z.infer<typeof DateRangeQuestionSchema>;
+
+export const DateQuestionJSONSchema = z.toJSONSchema(DateQuestionSchema);
+export const DateRangeQuestionJSONSchema = z.toJSONSchema(DateRangeQuestionSchema);

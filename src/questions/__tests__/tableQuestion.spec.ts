@@ -7,14 +7,16 @@ describe("TableQuestionSchema", () => {
   it("should validate a valid TableQuestion object", () => {
     const validTableQuestion = {
       type: "table",
+      attributes: {
+        label: "Table",
+      },
       columns: [
         {
           heading: "Name",
           content: {
             type: "text",
-            meta: {
-              schemaVersion: "1.0"
-            }
+            attributes: { maxLength: 100 },
+            meta: { schemaVersion: "1.0" }
           }
         },
         {
@@ -28,15 +30,11 @@ describe("TableQuestionSchema", () => {
               max: 65,
               step: 1,
             },
-            meta: {
-              schemaVersion: "1.0"
-            }
+            meta: { schemaVersion: "1.0" }
           }
         }
       ],
-      meta: {
-        schemaVersion: "1.0"
-      }
+      meta: { schemaVersion: "1.0" }
     };
 
     expect(() => TableQuestionSchema.parse(validTableQuestion)).not.toThrow();
@@ -90,9 +88,8 @@ describe("ResearchOutputTableQuestionSchema", () => {
           enabled: true,
           content: {
             type: "text",
-            meta: {
-              schemaVersion: "1.0"
-            }
+            attributes: { maxLength: 255 },
+            meta: { schemaVersion: "1.0" }
           }
         },
         {
@@ -123,17 +120,23 @@ describe("ResearchOutputTableQuestionSchema", () => {
               min: 0,
               step: 1,
               context: [
-                { label: 'bytes', value: 'bytes' },
                 { label: 'KB (kilobytes)', value: 'kb' },
-                { label: 'MB (megabytes)', value: 'mb' },
-                { label: 'GB (gigabytes)', value: 'gb' },
-                { label: 'TB (terabytes)', value: 'tb' },
-                { label: 'PB (petabytes)', value: 'pb' }
+                { label: 'MB (megabytes)', value: 'mb' }
               ]
             },
             meta: {
               schemaVersion: "1.0"
             }
+          }
+        },
+        {
+          heading: "My Custom Field",
+          required: false,
+          enabled: true,
+          content: {
+            type: "text",
+            attributes: { maxLength: 255 },
+            meta: { schemaVersion: "1.0" }
           }
         },
         {
@@ -191,15 +194,11 @@ describe("ResearchOutputTableQuestionSchema", () => {
                 }
               ],
             },
-            meta: {
-              schemaVersion: "1.0"
-            }
+            meta: { schemaVersion: "1.0" }
           }
         }
       ],
-      meta: {
-        schemaVersion: "1.0"
-      }
+      meta: { schemaVersion: "1.0" }
     };
 
     expect(() => ResearchOutputTableQuestionSchema.parse(validResearchOutputTableQuestion)).not.toThrow();

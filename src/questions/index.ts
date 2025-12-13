@@ -118,3 +118,5 @@ export interface QuestionTypeMap {
 
 // This will ensure that object validations are against the Zod schemas defined above
 export type AnyQuestionType = z.infer<typeof AnyQuestionSchema>;
+
+export const AnyQuestionJSONSchema = z.toJSONSchema(AnyQuestionSchema);
