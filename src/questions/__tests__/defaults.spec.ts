@@ -63,12 +63,11 @@ describe('questions return the expected defaults', () => {
   it('returns the expected default boolean', () => {
     const expected = {
       type: "boolean",
-      attributes: { label: 'Yes or no' },
-      meta: { schemaVersion: "1.0" },
-      options: [
-        { selected: false, label: 'Yes', value: 'yes' },
-        { selected: false, label: 'No', value: 'no' }
-      ]
+      attributes: {
+        label: 'Is it true?',
+        value: false
+      },
+      meta: { schemaVersion: "1.0" }
     };
     expect(DefaultBooleanQuestion).toEqual(expected);
   });
