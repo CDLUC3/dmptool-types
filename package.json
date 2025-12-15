@@ -21,6 +21,8 @@
   "scripts": {
     "build": "npm run clean && tsc",
     "clean": "rm -rf dist",
+    "copy:schemas": "node scripts/copySchemas.mjs",
+    "generate": "ts-node scripts/generateSchemas.ts",
     "lint": "eslint . --ignore-pattern dist/ --ignore-pattern node_modules/",
     "prepublishOnly": "npm run build",
     "test": "jest --config jest.config.ts",

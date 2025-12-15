@@ -72,9 +72,7 @@ const DefaultTableAttributes = TableAttributesSchema.parse({});
 
 export const TableColumnSchema = z.object({
   heading: z.string().default('Column A'),                        // The heading of the column
-  headingTranslationKey: z.string().optional(),                        // The local translation key for the column heading
   help: z.string().optional(),                                         // Help text for the column
-  helpTranslationKey: z.string().optional(),                           // The local translation key for the help text
   required: z.boolean().default(false),                           // Whether the column is required
   enabled: z.boolean().default(true),                             // Whether the column is enabled
   content: AnyTableColumnQuestionSchema
@@ -113,9 +111,7 @@ const ResearchOutputTableColumnPreferenceSchema = z.object({
 const ResearchOutputTitleColumnSchema = z.object({
   ...TableColumnSchema.shape,
   heading: z.string().default('Title'),
-  headingTranslationKey: z.string().default('researchOutput.title.heading'),
   help: z.string().default('Enter the title of this research output'),
-  helpTranslationKey: z.string().default('researchOutput.title.help'),
   required: z.boolean().default(true),
   content: TextQuestionSchema
 });
@@ -134,9 +130,7 @@ const DefaultResearchOutputTitleColumn = ResearchOutputTitleColumnSchema.parse({
 const ResearchOutputDescriptionColumnSchema = z.object({
   ...TableColumnSchema.shape,
   heading: z.string().default('Description'),
-  headingTranslationKey: z.string().default('researchOutput.description.heading'),
   help: z.string().default('Enter a brief description of this research output'),
-  helpTranslationKey: z.string().default('researchOutput.description.help'),
   content: TextAreaQuestionSchema
 });
 // Blank out the label and help text as these are set at the column level
@@ -165,9 +159,7 @@ const DefaultResearchOutputTypeContent = SelectBoxQuestionSchema.parse({
 const ResearchOutputTypeColumnSchema = z.object({
   ...TableColumnSchema.shape,
   heading: z.string().default('Type'),
-  headingTranslationKey: z.string().default('researchOutput.type.heading'),
   help: z.string().default('Select the type of this research output'),
-  helpTranslationKey: z.string().default('researchOutput.type.help'),
   required: z.boolean().default(true),
   content: SelectBoxQuestionSchema,
 });
@@ -190,9 +182,7 @@ const DefaultResearchOutputDataFlagsContent = CheckboxesQuestionSchema.parse({
 const ResearchOutputDataFlagsColumnSchema = z.object({
   ...TableColumnSchema.shape,
   heading: z.string().default('Data Flags'),
-  headingTranslationKey: z.string().default('researchOutput.dataFlags.heading'),
   help: z.string().default('Mark all of the statements that are true about the dataset'),
-  helpTranslationKey: z.string().default('researchOutput.dataFlags.help'),
   enabled: z.boolean().default(false),
   content: CheckboxesQuestionSchema,
 })
@@ -216,9 +206,7 @@ const DefaultResearchOutputAccessLevelContent = RadioButtonsQuestionSchema.parse
 const ResearchOutputAccessLevelColumnSchema = z.object({
   ...TableColumnSchema.shape,
   heading: z.string().default('Access Level'),
-  headingTranslationKey: z.string().default('researchOutput.accessLevel.heading'),
   help: z.string().default('Select the access level for this research output'),
-  helpTranslationKey: z.string().default('researchOutput.accessLevel.help'),
   enabled: z.boolean().default(false),
   content: RadioButtonsQuestionSchema,
 });
@@ -231,9 +219,7 @@ const DefaultResearchOutputAccessLevelColumn = ResearchOutputAccessLevelColumnSc
 const ResearchOutputReleaseDateColumnSchema = z.object({
   ...TableColumnSchema.shape,
   heading: z.string().default('Anticipated Release Date'),
-  headingTranslationKey: z.string().default('researchOutput.releaseDate.heading'),
   help: z.string().default('The anticipated release date for the research output'),
-  helpTranslationKey: z.string().default('researchOutput.releaseDate.help'),
   enabled: z.boolean().default(false),
   content: DateQuestionSchema,
 })
@@ -263,9 +249,7 @@ const DefaultResearchOutputByteSizeContent = NumberWithContextQuestionSchema.par
 const ResearchOutputByteSizeColumnSchema = z.object({
   ...TableColumnSchema.shape,
   heading: z.string().default('Byte Size'),
-  headingTranslationKey: z.string().default('researchOutput.byteSize.heading'),
   help: z.string().default('The size of the research output in bytes'),
-  helpTranslationKey: z.string().default('researchOutput.byteSize.help'),
   enabled: z.boolean().default(false),
   content: NumberWithContextQuestionSchema,
 });
@@ -278,9 +262,7 @@ const DefaultResearchOutputByteSizeColumn = ResearchOutputByteSizeColumnSchema.p
 const ResearchOutputRepositoryColumnSchema = z.object({
   ...TableColumnSchema.shape,
   heading: z.string().default('Repository'),
-  headingTranslationKey: z.string().default('researchOutput.repository.heading'),
   help: z.string().default('Select repository(ies) you would prefer users to deposit in'),
-  helpTranslationKey: z.string().default('researchOutput.repository.help'),
   enabled: z.boolean().default(false),
   content: RepositorySearchQuestionSchema,
   preferences: z.array(ResearchOutputTableColumnPreferenceSchema).default([])
@@ -295,9 +277,7 @@ const DefaultResearchOutputRepositoryColumn = ResearchOutputRepositoryColumnSche
 const ResearchOutputMetadataStandardColumnSchema = z.object({
   ...TableColumnSchema.shape,
   heading: z.string().default('Metadata Standard'),
-  headingTranslationKey: z.string().default('researchOutput.metadataStandard.heading'),
   help: z.string().default('Select metadata standard(s) you would prefer users to use'),
-  helpTranslationKey: z.string().default('researchOutput.metadataStandard.help'),
   enabled: z.boolean().default(false),
   content: MetadataStandardSearchQuestionSchema,
   preferences: z.array(ResearchOutputTableColumnPreferenceSchema).default([])
@@ -312,9 +292,7 @@ const DefaultResearchOutputMetadataStandardColumn = ResearchOutputMetadataStanda
 const ResearchOutputLicenseColumnSchema = z.object({
   ...TableColumnSchema.shape,
   heading: z.string().default('License'),
-  headingTranslationKey: z.string().default('researchOutput.license.heading'),
   help: z.string().default('Select the license you will apply to the research output'),
-  helpTranslationKey: z.string().default('researchOutput.license.help'),
   enabled: z.boolean().default(false),
   content: LicenseSearchQuestionSchema,
   preferences: z.array(ResearchOutputTableColumnPreferenceSchema).default([])
