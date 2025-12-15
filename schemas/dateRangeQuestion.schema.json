@@ -1,17 +1,53 @@
 {
-  "$ref": "#/definitions/DateRangeQuestion",
-  "definitions": {
-    "DateRangeQuestion": {
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "type": {
+      "type": "string",
+      "const": "dateRange"
+    },
+    "attributes": {
       "type": "object",
       "properties": {
-        "type": {
-          "type": "string",
-          "const": "dateRange"
+        "label": {
+          "type": "string"
         },
-        "attributes": {
+        "help": {
+          "type": "string"
+        },
+        "labelTranslationKey": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "meta": {
+      "type": "object",
+      "properties": {
+        "schemaVersion": {
+          "default": "1.0",
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "usageDescription": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "schemaVersion"
+      ],
+      "additionalProperties": false
+    },
+    "columns": {
+      "type": "object",
+      "properties": {
+        "start": {
           "type": "object",
           "properties": {
             "label": {
+              "default": "From",
               "type": "string"
             },
             "help": {
@@ -19,94 +55,67 @@
             },
             "labelTranslationKey": {
               "type": "string"
-            }
-          },
-          "additionalProperties": false,
-          "default": {}
-        },
-        "meta": {
-          "type": "object",
-          "properties": {
-            "schemaVersion": {
-              "type": "string",
-              "default": "1.0"
             },
-            "title": {
+            "max": {
               "type": "string"
             },
-            "usageDescription": {
+            "min": {
               "type": "string"
+            },
+            "step": {
+              "default": 1,
+              "type": "number"
             }
           },
-          "additionalProperties": false,
-          "default": {}
+          "required": [
+            "label",
+            "step"
+          ],
+          "additionalProperties": false
         },
-        "columns": {
+        "end": {
           "type": "object",
           "properties": {
-            "start": {
-              "type": "object",
-              "properties": {
-                "label": {
-                  "type": "string",
-                  "default": "From"
-                },
-                "help": {
-                  "$ref": "#/definitions/DateRangeQuestion/properties/attributes/properties/help"
-                },
-                "labelTranslationKey": {
-                  "$ref": "#/definitions/DateRangeQuestion/properties/attributes/properties/labelTranslationKey"
-                },
-                "max": {
-                  "type": "string"
-                },
-                "min": {
-                  "type": "string"
-                },
-                "step": {
-                  "type": "number",
-                  "default": 1
-                }
-              },
-              "additionalProperties": false,
-              "default": {}
+            "label": {
+              "default": "To",
+              "type": "string"
             },
-            "end": {
-              "type": "object",
-              "properties": {
-                "label": {
-                  "type": "string",
-                  "default": "To"
-                },
-                "help": {
-                  "$ref": "#/definitions/DateRangeQuestion/properties/attributes/properties/help"
-                },
-                "labelTranslationKey": {
-                  "$ref": "#/definitions/DateRangeQuestion/properties/attributes/properties/labelTranslationKey"
-                },
-                "max": {
-                  "$ref": "#/definitions/DateRangeQuestion/properties/columns/properties/start/properties/max"
-                },
-                "min": {
-                  "$ref": "#/definitions/DateRangeQuestion/properties/columns/properties/start/properties/min"
-                },
-                "step": {
-                  "$ref": "#/definitions/DateRangeQuestion/properties/columns/properties/start/properties/step"
-                }
-              },
-              "additionalProperties": false,
-              "default": {}
+            "help": {
+              "type": "string"
+            },
+            "labelTranslationKey": {
+              "type": "string"
+            },
+            "max": {
+              "type": "string"
+            },
+            "min": {
+              "type": "string"
+            },
+            "step": {
+              "default": 1,
+              "type": "number"
             }
           },
-          "additionalProperties": false,
-          "default": {}
+          "required": [
+            "label",
+            "step"
+          ],
+          "additionalProperties": false
         }
       },
       "required": [
-        "type"
+        "start",
+        "end"
       ],
       "additionalProperties": false
     }
   },
-  "$schema": "http://json-schema.org/draft-07/schema#"
+  "required": [
+    "type",
+    "attributes",
+    "meta",
+    "columns"
+  ],
+  "additionalProperties": false
 }

@@ -19,7 +19,7 @@
     "access": "public"
   },
   "scripts": {
-    "build": "npm run clean && npm run generate && tsc && npm run copy:schema",
+    "build": "npm run clean && npm run generate && tsc && npm run copy:schemas",
     "clean": "rm -rf dist",
     "copy:schemas": "node scripts/copySchemas.mjs",
     "generate": "ts-node scripts/generateSchemas.ts && npm run import-common-standard",

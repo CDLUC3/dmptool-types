@@ -1,1183 +1,1662 @@
 {
-  "$ref": "#/definitions/TableQuestion",
-  "definitions": {
-    "TableQuestion": {
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "type": {
+      "type": "string",
+      "const": "table"
+    },
+    "attributes": {
       "type": "object",
       "properties": {
-        "type": {
-          "type": "string",
-          "const": "table"
+        "label": {
+          "type": "string"
         },
-        "attributes": {
-          "type": "object",
-          "properties": {
-            "label": {
-              "type": "string"
-            },
-            "help": {
-              "type": "string"
-            },
-            "labelTranslationKey": {
-              "type": "string"
-            },
-            "canAddRows": {
-              "type": "boolean",
-              "default": true
-            },
-            "canRemoveRows": {
-              "type": "boolean",
-              "default": true
-            },
-            "initialRows": {
-              "type": "number",
-              "default": 1
-            },
-            "maxRows": {
-              "type": "number"
-            },
-            "minRows": {
-              "type": "number"
-            }
-          },
-          "additionalProperties": false,
-          "default": {}
+        "help": {
+          "type": "string"
         },
-        "meta": {
-          "type": "object",
-          "properties": {
-            "schemaVersion": {
-              "type": "string",
-              "default": "1.0"
-            },
-            "title": {
-              "type": "string"
-            },
-            "usageDescription": {
-              "type": "string"
-            }
-          },
-          "additionalProperties": false,
-          "default": {}
+        "labelTranslationKey": {
+          "type": "string"
         },
-        "columns": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "properties": {
-              "heading": {
-                "type": "string",
-                "default": "Column A"
-              },
-              "required": {
-                "type": "boolean",
-                "default": false
-              },
-              "enabled": {
-                "type": "boolean",
-                "default": true
-              },
-              "content": {
-                "anyOf": [
-                  {
-                    "type": "object",
-                    "properties": {
-                      "type": {
-                        "type": "string",
-                        "const": "affiliationSearch"
-                      },
-                      "attributes": {
-                        "type": "object",
-                        "properties": {
-                          "label": {
-                            "$ref": "#/definitions/TableQuestion/properties/attributes/properties/label"
-                          },
-                          "help": {
-                            "$ref": "#/definitions/TableQuestion/properties/attributes/properties/help"
-                          },
-                          "labelTranslationKey": {
-                            "$ref": "#/definitions/TableQuestion/properties/attributes/properties/labelTranslationKey"
-                          }
-                        },
-                        "additionalProperties": false,
-                        "default": {}
-                      },
-                      "meta": {
-                        "$ref": "#/definitions/TableQuestion/properties/meta"
-                      },
-                      "graphQL": {
-                        "type": "object",
-                        "properties": {
-                          "displayFields": {
-                            "type": "array",
-                            "items": {
-                              "type": "object",
-                              "properties": {
-                                "propertyName": {
-                                  "type": "string",
-                                  "const": "displayName",
-                                  "default": "displayName"
-                                },
-                                "label": {
-                                  "type": "string",
-                                  "default": "Institution"
-                                },
-                                "labelTranslationKey": {
-                                  "type": "string",
-                                  "default": "SignupPage.institution"
-                                }
-                              },
-                              "additionalProperties": false
-                            },
-                            "default": [
-                              {}
-                            ]
-                          },
-                          "localQueryId": {
-                            "type": "string"
-                          },
-                          "query": {
-                            "type": "string",
-                            "const": "query Affiliations($name: String!){ affiliations(name: $name) { totalCount nextCursor items { id displayName uri } } }",
-                            "default": "query Affiliations($name: String!){ affiliations(name: $name) { totalCount nextCursor items { id displayName uri } } }"
-                          },
-                          "responseField": {
-                            "type": "string",
-                            "const": "affiliations.items",
-                            "default": "affiliations.items"
-                          },
-                          "variables": {
-                            "type": "array",
-                            "items": {
-                              "type": "object",
-                              "properties": {
-                                "name": {
-                                  "type": "string",
-                                  "const": "name",
-                                  "default": "name"
-                                },
-                                "type": {
-                                  "type": "string",
-                                  "default": "string"
-                                },
-                                "label": {
-                                  "type": "string",
-                                  "default": "Search for your institution"
-                                },
-                                "minLength": {
-                                  "type": "number",
-                                  "const": 3,
-                                  "default": 3
-                                },
-                                "labelTranslationKey": {
-                                  "type": "string",
-                                  "default": "SignupPage.institutionHelp"
-                                }
-                              },
-                              "additionalProperties": false
-                            },
-                            "default": [
-                              {}
-                            ]
-                          },
-                          "queryId": {
-                            "type": "string",
-                            "default": "useAffiliationsQuery"
-                          },
-                          "answerField": {
-                            "type": "string",
-                            "const": "uri",
-                            "default": "uri"
-                          }
-                        },
-                        "additionalProperties": false,
-                        "default": {}
-                      }
-                    },
-                    "required": [
-                      "type"
-                    ],
-                    "additionalProperties": false
-                  },
-                  {
-                    "type": "object",
-                    "properties": {
-                      "type": {
-                        "type": "string",
-                        "const": "boolean"
-                      },
-                      "attributes": {
-                        "type": "object",
-                        "properties": {
-                          "label": {
-                            "$ref": "#/definitions/TableQuestion/properties/attributes/properties/label"
-                          },
-                          "help": {
-                            "$ref": "#/definitions/TableQuestion/properties/attributes/properties/help"
-                          },
-                          "labelTranslationKey": {
-                            "$ref": "#/definitions/TableQuestion/properties/attributes/properties/labelTranslationKey"
-                          },
-                          "checked": {
-                            "type": "boolean",
-                            "default": false
-                          }
-                        },
-                        "additionalProperties": false,
-                        "default": {}
-                      },
-                      "meta": {
-                        "$ref": "#/definitions/TableQuestion/properties/meta"
-                      }
-                    },
-                    "required": [
-                      "type"
-                    ],
-                    "additionalProperties": false
-                  },
-                  {
-                    "type": "object",
-                    "properties": {
-                      "type": {
-                        "type": "string",
-                        "const": "checkBoxes"
-                      },
-                      "attributes": {
-                        "$ref": "#/definitions/TableQuestion/properties/columns/items/properties/content/anyOf/0/properties/attributes",
-                        "default": {}
-                      },
-                      "meta": {
-                        "$ref": "#/definitions/TableQuestion/properties/meta"
-                      },
-                      "options": {
-                        "type": "array",
-                        "items": {
-                          "type": "object",
-                          "properties": {
-                            "label": {
-                              "type": "string",
-                              "default": "Option A"
-                            },
-                            "value": {
-                              "type": "string",
-                              "default": "a"
-                            },
-                            "checked": {
-                              "type": "boolean",
-                              "default": false
-                            }
-                          },
-                          "additionalProperties": false
-                        },
-                        "default": [
-                          {}
-                        ]
-                      }
-                    },
-                    "required": [
-                      "type"
-                    ],
-                    "additionalProperties": false
-                  },
-                  {
-                    "type": "object",
-                    "properties": {
-                      "type": {
-                        "type": "string",
-                        "const": "currency"
-                      },
-                      "attributes": {
-                        "type": "object",
-                        "properties": {
-                          "label": {
-                            "$ref": "#/definitions/TableQuestion/properties/attributes/properties/label"
-                          },
-                          "help": {
-                            "$ref": "#/definitions/TableQuestion/properties/attributes/properties/help"
-                          },
-                          "labelTranslationKey": {
-                            "$ref": "#/definitions/TableQuestion/properties/attributes/properties/labelTranslationKey"
-                          },
-                          "max": {
-                            "type": "number"
-                          },
-                          "min": {
-                            "type": "number",
-                            "default": 0
-                          },
-                          "step": {
-                            "type": "number",
-                            "default": 1
-                          },
-                          "denomination": {
-                            "type": "string",
-                            "default": "USD"
-                          }
-                        },
-                        "additionalProperties": false,
-                        "default": {}
-                      },
-                      "meta": {
-                        "$ref": "#/definitions/TableQuestion/properties/meta"
-                      }
-                    },
-                    "required": [
-                      "type"
-                    ],
-                    "additionalProperties": false
-                  },
-                  {
-                    "type": "object",
-                    "properties": {
-                      "type": {
-                        "type": "string",
-                        "const": "date"
-                      },
-                      "attributes": {
-                        "type": "object",
-                        "properties": {
-                          "label": {
-                            "$ref": "#/definitions/TableQuestion/properties/attributes/properties/label"
-                          },
-                          "help": {
-                            "$ref": "#/definitions/TableQuestion/properties/attributes/properties/help"
-                          },
-                          "labelTranslationKey": {
-                            "$ref": "#/definitions/TableQuestion/properties/attributes/properties/labelTranslationKey"
-                          },
-                          "max": {
-                            "type": "string"
-                          },
-                          "min": {
-                            "type": "string"
-                          },
-                          "step": {
-                            "type": "number",
-                            "default": 1
-                          }
-                        },
-                        "additionalProperties": false,
-                        "default": {}
-                      },
-                      "meta": {
-                        "$ref": "#/definitions/TableQuestion/properties/meta"
-                      }
-                    },
-                    "required": [
-                      "type"
-                    ],
-                    "additionalProperties": false
-                  },
-                  {
-                    "type": "object",
-                    "properties": {
-                      "type": {
-                        "type": "string",
-                        "const": "dateRange"
-                      },
-                      "attributes": {
-                        "$ref": "#/definitions/TableQuestion/properties/columns/items/properties/content/anyOf/0/properties/attributes",
-                        "default": {}
-                      },
-                      "meta": {
-                        "$ref": "#/definitions/TableQuestion/properties/meta"
-                      },
-                      "columns": {
-                        "type": "object",
-                        "properties": {
-                          "start": {
-                            "type": "object",
-                            "properties": {
-                              "label": {
-                                "type": "string",
-                                "default": "From"
-                              },
-                              "help": {
-                                "$ref": "#/definitions/TableQuestion/properties/attributes/properties/help"
-                              },
-                              "labelTranslationKey": {
-                                "$ref": "#/definitions/TableQuestion/properties/attributes/properties/labelTranslationKey"
-                              },
-                              "max": {
-                                "$ref": "#/definitions/TableQuestion/properties/columns/items/properties/content/anyOf/4/properties/attributes/properties/max"
-                              },
-                              "min": {
-                                "$ref": "#/definitions/TableQuestion/properties/columns/items/properties/content/anyOf/4/properties/attributes/properties/min"
-                              },
-                              "step": {
-                                "$ref": "#/definitions/TableQuestion/properties/columns/items/properties/content/anyOf/4/properties/attributes/properties/step"
-                              }
-                            },
-                            "additionalProperties": false,
-                            "default": {}
-                          },
-                          "end": {
-                            "type": "object",
-                            "properties": {
-                              "label": {
-                                "type": "string",
-                                "default": "To"
-                              },
-                              "help": {
-                                "$ref": "#/definitions/TableQuestion/properties/attributes/properties/help"
-                              },
-                              "labelTranslationKey": {
-                                "$ref": "#/definitions/TableQuestion/properties/attributes/properties/labelTranslationKey"
-                              },
-                              "max": {
-                                "$ref": "#/definitions/TableQuestion/properties/columns/items/properties/content/anyOf/4/properties/attributes/properties/max"
-                              },
-                              "min": {
-                                "$ref": "#/definitions/TableQuestion/properties/columns/items/properties/content/anyOf/4/properties/attributes/properties/min"
-                              },
-                              "step": {
-                                "$ref": "#/definitions/TableQuestion/properties/columns/items/properties/content/anyOf/4/properties/attributes/properties/step"
-                              }
-                            },
-                            "additionalProperties": false,
-                            "default": {}
-                          }
-                        },
-                        "additionalProperties": false,
-                        "default": {}
-                      }
-                    },
-                    "required": [
-                      "type"
-                    ],
-                    "additionalProperties": false
-                  },
-                  {
-                    "type": "object",
-                    "properties": {
-                      "type": {
-                        "type": "string",
-                        "const": "email"
-                      },
-                      "attributes": {
-                        "type": "object",
-                        "properties": {
-                          "label": {
-                            "$ref": "#/definitions/TableQuestion/properties/attributes/properties/label"
-                          },
-                          "help": {
-                            "$ref": "#/definitions/TableQuestion/properties/attributes/properties/help"
-                          },
-                          "labelTranslationKey": {
-                            "$ref": "#/definitions/TableQuestion/properties/attributes/properties/labelTranslationKey"
-                          },
-                          "maxLength": {
-                            "type": "number",
-                            "default": 255
-                          },
-                          "minLength": {
-                            "type": "number"
-                          },
-                          "pattern": {
-                            "type": "string"
-                          },
-                          "multiple": {
-                            "type": "boolean",
-                            "default": false
-                          }
-                        },
-                        "additionalProperties": false,
-                        "default": {}
-                      },
-                      "meta": {
-                        "$ref": "#/definitions/TableQuestion/properties/meta"
-                      }
-                    },
-                    "required": [
-                      "type"
-                    ],
-                    "additionalProperties": false
-                  },
-                  {
-                    "type": "object",
-                    "properties": {
-                      "type": {
-                        "type": "string",
-                        "const": "licenseSearch"
-                      },
-                      "attributes": {
-                        "$ref": "#/definitions/TableQuestion/properties/columns/items/properties/content/anyOf/0/properties/attributes",
-                        "default": {}
-                      },
-                      "meta": {
-                        "$ref": "#/definitions/TableQuestion/properties/meta"
-                      },
-                      "graphQL": {
-                        "type": "object",
-                        "properties": {
-                          "displayFields": {
-                            "type": "array",
-                            "items": {
-                              "type": "object",
-                              "properties": {
-                                "propertyName": {
-                                  "type": "string",
-                                  "default": "id"
-                                },
-                                "label": {
-                                  "type": "string",
-                                  "default": "Id"
-                                },
-                                "labelTranslationKey": {
-                                  "type": "string"
-                                }
-                              },
-                              "additionalProperties": false
-                            },
-                            "default": [
-                              {
-                                "propertyName": "name",
-                                "label": "Name"
-                              },
-                              {
-                                "propertyName": "description",
-                                "label": "Description"
-                              },
-                              {
-                                "propertyName": "recommended",
-                                "label": "Recommended"
-                              }
-                            ]
-                          },
-                          "localQueryId": {
-                            "$ref": "#/definitions/TableQuestion/properties/columns/items/properties/content/anyOf/0/properties/graphQL/properties/localQueryId"
-                          },
-                          "query": {
-                            "type": "string",
-                            "const": "query Licenses($term: String, $paginationOptions: PaginationOptions){ license(term: $term, paginationOptions: $paginationOptions) { totalCount currentOffset limit hasNextPage hasPreviousPage availableSortFields items { id name uri description } } }",
-                            "default": "query Licenses($term: String, $paginationOptions: PaginationOptions){ license(term: $term, paginationOptions: $paginationOptions) { totalCount currentOffset limit hasNextPage hasPreviousPage availableSortFields items { id name uri description } } }"
-                          },
-                          "responseField": {
-                            "type": "string",
-                            "const": "licenses.items",
-                            "default": "licenses.items"
-                          },
-                          "variables": {
-                            "type": "array",
-                            "items": {
-                              "type": "object",
-                              "properties": {
-                                "minLength": {
-                                  "type": "number"
-                                },
-                                "label": {
-                                  "type": "string"
-                                },
-                                "labelTranslationKey": {
-                                  "type": "string"
-                                },
-                                "name": {
-                                  "type": "string",
-                                  "default": "search"
-                                },
-                                "type": {
-                                  "type": "string",
-                                  "default": "string"
-                                },
-                                "defaultValue": {
-                                  "type": "string"
-                                }
-                              },
-                              "additionalProperties": false
-                            },
-                            "default": [
-                              {
-                                "minLength": 3,
-                                "label": "Search for a license",
-                                "name": "term",
-                                "type": "string"
-                              },
-                              {
-                                "label": "Pagination Options",
-                                "name": "paginationOptions",
-                                "type": "paginationOptions",
-                                "options": {
-                                  "type": "OFFSET",
-                                  "limit": 10,
-                                  "offset": 0,
-                                  "sortField": "name",
-                                  "sortOrder": "ASC"
-                                }
-                              }
-                            ]
-                          },
-                          "queryId": {
-                            "type": "string",
-                            "default": "useLicensesQuery"
-                          },
-                          "answerField": {
-                            "type": "string",
-                            "const": "uri",
-                            "default": "uri"
-                          }
-                        },
-                        "additionalProperties": false,
-                        "default": {}
-                      }
-                    },
-                    "required": [
-                      "type"
-                    ],
-                    "additionalProperties": false
-                  },
-                  {
-                    "type": "object",
-                    "properties": {
-                      "type": {
-                        "type": "string",
-                        "const": "metadataStandardSearch"
-                      },
-                      "attributes": {
-                        "$ref": "#/definitions/TableQuestion/properties/columns/items/properties/content/anyOf/0/properties/attributes",
-                        "default": {}
-                      },
-                      "meta": {
-                        "$ref": "#/definitions/TableQuestion/properties/meta"
-                      },
-                      "graphQL": {
-                        "type": "object",
-                        "properties": {
-                          "displayFields": {
-                            "type": "array",
-                            "items": {
-                              "$ref": "#/definitions/TableQuestion/properties/columns/items/properties/content/anyOf/7/properties/graphQL/properties/displayFields/items"
-                            },
-                            "default": [
-                              {
-                                "propertyName": "name",
-                                "label": "Name"
-                              },
-                              {
-                                "propertyName": "description",
-                                "label": "Description"
-                              },
-                              {
-                                "propertyName": "website",
-                                "label": "Website"
-                              },
-                              {
-                                "propertyName": "keywords",
-                                "label": "Subject Areas"
-                              }
-                            ]
-                          },
-                          "localQueryId": {
-                            "$ref": "#/definitions/TableQuestion/properties/columns/items/properties/content/anyOf/0/properties/graphQL/properties/localQueryId"
-                          },
-                          "query": {
-                            "type": "string",
-                            "const": "query MetadataStandards($term: String, $keywords: [String!], $paginationOptions: PaginationOptions){ metadataStandards(term: $term, keywords: $keywords, paginationOptions: $paginationOptions) { totalCount currentOffset limit hasNextPage hasPreviousPage availableSortFields items { id name uri description keywords } } }",
-                            "default": "query MetadataStandards($term: String, $keywords: [String!], $paginationOptions: PaginationOptions){ metadataStandards(term: $term, keywords: $keywords, paginationOptions: $paginationOptions) { totalCount currentOffset limit hasNextPage hasPreviousPage availableSortFields items { id name uri description keywords } } }"
-                          },
-                          "responseField": {
-                            "type": "string",
-                            "const": "metadataStandards.items",
-                            "default": "metadataStandards.items"
-                          },
-                          "variables": {
-                            "type": "array",
-                            "items": {
-                              "$ref": "#/definitions/TableQuestion/properties/columns/items/properties/content/anyOf/7/properties/graphQL/properties/variables/items"
-                            },
-                            "default": [
-                              {
-                                "minLength": 3,
-                                "label": "Search for a metadata standard",
-                                "name": "term",
-                                "type": "string"
-                              },
-                              {
-                                "minLength": 3,
-                                "label": "Subject Areas",
-                                "name": "keywords",
-                                "type": "string"
-                              },
-                              {
-                                "label": "Pagination Options",
-                                "name": "paginationOptions",
-                                "type": "paginationOptions",
-                                "options": {
-                                  "type": "OFFSET",
-                                  "limit": 10,
-                                  "offset": 0,
-                                  "sortField": "name",
-                                  "sortOrder": "ASC"
-                                }
-                              }
-                            ]
-                          },
-                          "queryId": {
-                            "type": "string",
-                            "default": "useMetadataStandardsQuery"
-                          },
-                          "answerField": {
-                            "type": "string",
-                            "const": "uri",
-                            "default": "uri"
-                          }
-                        },
-                        "additionalProperties": false,
-                        "default": {}
-                      }
-                    },
-                    "required": [
-                      "type"
-                    ],
-                    "additionalProperties": false
-                  },
-                  {
-                    "type": "object",
-                    "properties": {
-                      "type": {
-                        "type": "string",
-                        "const": "number"
-                      },
-                      "attributes": {
-                        "type": "object",
-                        "properties": {
-                          "label": {
-                            "$ref": "#/definitions/TableQuestion/properties/attributes/properties/label"
-                          },
-                          "help": {
-                            "$ref": "#/definitions/TableQuestion/properties/attributes/properties/help"
-                          },
-                          "labelTranslationKey": {
-                            "$ref": "#/definitions/TableQuestion/properties/attributes/properties/labelTranslationKey"
-                          },
-                          "max": {
-                            "$ref": "#/definitions/TableQuestion/properties/columns/items/properties/content/anyOf/3/properties/attributes/properties/max"
-                          },
-                          "min": {
-                            "$ref": "#/definitions/TableQuestion/properties/columns/items/properties/content/anyOf/3/properties/attributes/properties/min"
-                          },
-                          "step": {
-                            "$ref": "#/definitions/TableQuestion/properties/columns/items/properties/content/anyOf/3/properties/attributes/properties/step"
-                          }
-                        },
-                        "additionalProperties": false,
-                        "default": {}
-                      },
-                      "meta": {
-                        "$ref": "#/definitions/TableQuestion/properties/meta"
-                      }
-                    },
-                    "required": [
-                      "type"
-                    ],
-                    "additionalProperties": false
-                  },
-                  {
-                    "type": "object",
-                    "properties": {
-                      "type": {
-                        "type": "string",
-                        "const": "numberWithContext"
-                      },
-                      "attributes": {
-                        "type": "object",
-                        "properties": {
-                          "label": {
-                            "$ref": "#/definitions/TableQuestion/properties/attributes/properties/label"
-                          },
-                          "help": {
-                            "$ref": "#/definitions/TableQuestion/properties/attributes/properties/help"
-                          },
-                          "labelTranslationKey": {
-                            "$ref": "#/definitions/TableQuestion/properties/attributes/properties/labelTranslationKey"
-                          },
-                          "max": {
-                            "$ref": "#/definitions/TableQuestion/properties/columns/items/properties/content/anyOf/3/properties/attributes/properties/max"
-                          },
-                          "min": {
-                            "$ref": "#/definitions/TableQuestion/properties/columns/items/properties/content/anyOf/3/properties/attributes/properties/min"
-                          },
-                          "step": {
-                            "$ref": "#/definitions/TableQuestion/properties/columns/items/properties/content/anyOf/3/properties/attributes/properties/step"
-                          },
-                          "context": {
-                            "type": "array",
-                            "items": {
-                              "type": "object",
-                              "properties": {
-                                "label": {
-                                  "type": "string",
-                                  "default": ""
-                                },
-                                "labelTranslationKey": {
-                                  "type": "string"
-                                },
-                                "value": {
-                                  "type": "string",
-                                  "default": ""
-                                }
-                              },
-                              "additionalProperties": false
-                            },
-                            "default": []
-                          }
-                        },
-                        "additionalProperties": false,
-                        "default": {}
-                      },
-                      "meta": {
-                        "$ref": "#/definitions/TableQuestion/properties/meta"
-                      }
-                    },
-                    "required": [
-                      "type"
-                    ],
-                    "additionalProperties": false
-                  },
-                  {
-                    "type": "object",
-                    "properties": {
-                      "type": {
-                        "type": "string",
-                        "const": "radioButtons"
-                      },
-                      "attributes": {
-                        "$ref": "#/definitions/TableQuestion/properties/columns/items/properties/content/anyOf/0/properties/attributes",
-                        "default": {}
-                      },
-                      "meta": {
-                        "$ref": "#/definitions/TableQuestion/properties/meta"
-                      },
-                      "options": {
-                        "type": "array",
-                        "items": {
-                          "type": "object",
-                          "properties": {
-                            "label": {
-                              "$ref": "#/definitions/TableQuestion/properties/columns/items/properties/content/anyOf/2/properties/options/items/properties/label"
-                            },
-                            "value": {
-                              "$ref": "#/definitions/TableQuestion/properties/columns/items/properties/content/anyOf/2/properties/options/items/properties/value"
-                            },
-                            "selected": {
-                              "type": "boolean",
-                              "default": false
-                            }
-                          },
-                          "additionalProperties": false
-                        },
-                        "default": [
-                          {}
-                        ]
-                      }
-                    },
-                    "required": [
-                      "type"
-                    ],
-                    "additionalProperties": false
-                  },
-                  {
-                    "type": "object",
-                    "properties": {
-                      "type": {
-                        "type": "string",
-                        "const": "repositorySearch"
-                      },
-                      "attributes": {
-                        "$ref": "#/definitions/TableQuestion/properties/columns/items/properties/content/anyOf/0/properties/attributes",
-                        "default": {}
-                      },
-                      "meta": {
-                        "$ref": "#/definitions/TableQuestion/properties/meta"
-                      },
-                      "graphQL": {
-                        "type": "object",
-                        "properties": {
-                          "displayFields": {
-                            "type": "array",
-                            "items": {
-                              "$ref": "#/definitions/TableQuestion/properties/columns/items/properties/content/anyOf/7/properties/graphQL/properties/displayFields/items"
-                            },
-                            "default": [
-                              {
-                                "propertyName": "name",
-                                "label": "Name"
-                              },
-                              {
-                                "propertyName": "description",
-                                "label": "Description"
-                              },
-                              {
-                                "propertyName": "website",
-                                "label": "Website"
-                              },
-                              {
-                                "propertyName": "keywords",
-                                "label": "Subject Areas"
-                              }
-                            ]
-                          },
-                          "localQueryId": {
-                            "$ref": "#/definitions/TableQuestion/properties/columns/items/properties/content/anyOf/0/properties/graphQL/properties/localQueryId"
-                          },
-                          "query": {
-                            "type": "string",
-                            "const": "query Repositories($term: String, $keywords: [String!], $repositoryType: String, $paginationOptions: PaginationOptions){ repositories(term: $term, keywords: $keywords, repositoryType: $repositoryType, paginationOptions: $paginationOptions) { totalCount currentOffset limit hasNextPage hasPreviousPage availableSortFields items { id name uri description website keywords repositoryTypes } } }",
-                            "default": "query Repositories($term: String, $keywords: [String!], $repositoryType: String, $paginationOptions: PaginationOptions){ repositories(term: $term, keywords: $keywords, repositoryType: $repositoryType, paginationOptions: $paginationOptions) { totalCount currentOffset limit hasNextPage hasPreviousPage availableSortFields items { id name uri description website keywords repositoryTypes } } }"
-                          },
-                          "responseField": {
-                            "type": "string",
-                            "const": "repositories.items",
-                            "default": "repositories.items"
-                          },
-                          "variables": {
-                            "type": "array",
-                            "items": {
-                              "$ref": "#/definitions/TableQuestion/properties/columns/items/properties/content/anyOf/7/properties/graphQL/properties/variables/items"
-                            },
-                            "default": [
-                              {
-                                "minLength": 3,
-                                "label": "Search for a repository",
-                                "name": "term",
-                                "type": "string"
-                              },
-                              {
-                                "minLength": 3,
-                                "label": "Subject Areas",
-                                "name": "keywords",
-                                "type": "string"
-                              },
-                              {
-                                "minLength": 3,
-                                "label": "Repository type",
-                                "name": "repositoryType",
-                                "type": "string"
-                              },
-                              {
-                                "label": "Pagination Options",
-                                "name": "paginationOptions",
-                                "type": "paginationOptions",
-                                "options": {
-                                  "type": "OFFSET",
-                                  "limit": 10,
-                                  "offset": 0,
-                                  "sortField": "name",
-                                  "sortOrder": "ASC"
-                                }
-                              }
-                            ]
-                          },
-                          "queryId": {
-                            "type": "string",
-                            "default": "useRepositoriesQuery"
-                          },
-                          "answerField": {
-                            "type": "string",
-                            "const": "uri",
-                            "default": "uri"
-                          }
-                        },
-                        "additionalProperties": false,
-                        "default": {}
-                      }
-                    },
-                    "required": [
-                      "type"
-                    ],
-                    "additionalProperties": false
-                  },
-                  {
-                    "type": "object",
-                    "properties": {
-                      "type": {
-                        "type": "string",
-                        "const": "selectBox"
-                      },
-                      "attributes": {
-                        "type": "object",
-                        "properties": {
-                          "label": {
-                            "$ref": "#/definitions/TableQuestion/properties/attributes/properties/label"
-                          },
-                          "help": {
-                            "$ref": "#/definitions/TableQuestion/properties/attributes/properties/help"
-                          },
-                          "labelTranslationKey": {
-                            "$ref": "#/definitions/TableQuestion/properties/attributes/properties/labelTranslationKey"
-                          },
-                          "multiple": {
-                            "type": "boolean",
-                            "const": false
-                          }
-                        },
-                        "required": [
-                          "multiple"
-                        ],
-                        "additionalProperties": false,
-                        "default": {
-                          "multiple": false
-                        }
-                      },
-                      "meta": {
-                        "$ref": "#/definitions/TableQuestion/properties/meta"
-                      },
-                      "options": {
-                        "type": "array",
-                        "items": {
-                          "$ref": "#/definitions/TableQuestion/properties/columns/items/properties/content/anyOf/11/properties/options/items"
-                        },
-                        "default": [
-                          {}
-                        ]
-                      }
-                    },
-                    "required": [
-                      "type"
-                    ],
-                    "additionalProperties": false
-                  },
-                  {
-                    "type": "object",
-                    "properties": {
-                      "type": {
-                        "type": "string",
-                        "const": "textArea"
-                      },
-                      "attributes": {
-                        "type": "object",
-                        "properties": {
-                          "label": {
-                            "$ref": "#/definitions/TableQuestion/properties/attributes/properties/label"
-                          },
-                          "help": {
-                            "$ref": "#/definitions/TableQuestion/properties/attributes/properties/help"
-                          },
-                          "labelTranslationKey": {
-                            "$ref": "#/definitions/TableQuestion/properties/attributes/properties/labelTranslationKey"
-                          },
-                          "cols": {
-                            "type": "number",
-                            "default": 20
-                          },
-                          "maxLength": {
-                            "type": "number"
-                          },
-                          "minLength": {
-                            "type": "number"
-                          },
-                          "rows": {
-                            "type": "number",
-                            "default": 2
-                          },
-                          "asRichText": {
-                            "type": "boolean",
-                            "default": true
-                          }
-                        },
-                        "additionalProperties": false,
-                        "default": {}
-                      },
-                      "meta": {
-                        "$ref": "#/definitions/TableQuestion/properties/meta"
-                      }
-                    },
-                    "required": [
-                      "type"
-                    ],
-                    "additionalProperties": false
-                  },
-                  {
-                    "type": "object",
-                    "properties": {
-                      "type": {
-                        "type": "string",
-                        "const": "text"
-                      },
-                      "attributes": {
-                        "type": "object",
-                        "properties": {
-                          "label": {
-                            "$ref": "#/definitions/TableQuestion/properties/attributes/properties/label"
-                          },
-                          "help": {
-                            "$ref": "#/definitions/TableQuestion/properties/attributes/properties/help"
-                          },
-                          "labelTranslationKey": {
-                            "$ref": "#/definitions/TableQuestion/properties/attributes/properties/labelTranslationKey"
-                          },
-                          "maxLength": {
-                            "$ref": "#/definitions/TableQuestion/properties/columns/items/properties/content/anyOf/6/properties/attributes/properties/maxLength"
-                          },
-                          "minLength": {
-                            "$ref": "#/definitions/TableQuestion/properties/columns/items/properties/content/anyOf/6/properties/attributes/properties/minLength"
-                          },
-                          "pattern": {
-                            "$ref": "#/definitions/TableQuestion/properties/columns/items/properties/content/anyOf/6/properties/attributes/properties/pattern"
-                          }
-                        },
-                        "additionalProperties": false,
-                        "default": {}
-                      },
-                      "meta": {
-                        "$ref": "#/definitions/TableQuestion/properties/meta"
-                      }
-                    },
-                    "required": [
-                      "type"
-                    ],
-                    "additionalProperties": false
-                  },
-                  {
-                    "type": "object",
-                    "properties": {
-                      "type": {
-                        "type": "string",
-                        "const": "url"
-                      },
-                      "attributes": {
-                        "$ref": "#/definitions/TableQuestion/properties/columns/items/properties/content/anyOf/15/properties/attributes",
-                        "default": {}
-                      },
-                      "meta": {
-                        "$ref": "#/definitions/TableQuestion/properties/meta"
-                      }
-                    },
-                    "required": [
-                      "type"
-                    ],
-                    "additionalProperties": false
-                  }
-                ],
-                "default": {
-                  "type": "textArea"
-                }
-              },
-              "meta": {
-                "type": "object",
-                "properties": {
-                  "schemaVersion": {
-                    "type": "string",
-                    "default": "1.0"
-                  },
-                  "labelTranslationKey": {
-                    "type": "string"
-                  }
-                },
-                "additionalProperties": false,
-                "default": {}
-              }
-            },
-            "additionalProperties": false
-          },
-          "default": [
-            {}
-          ]
+        "canAddRows": {
+          "default": true,
+          "type": "boolean"
+        },
+        "canRemoveRows": {
+          "default": true,
+          "type": "boolean"
+        },
+        "initialRows": {
+          "default": 1,
+          "type": "number"
+        },
+        "maxRows": {
+          "type": "number"
+        },
+        "minRows": {
+          "type": "number"
         }
       },
       "required": [
-        "type"
+        "canAddRows",
+        "canRemoveRows",
+        "initialRows"
       ],
       "additionalProperties": false
+    },
+    "meta": {
+      "type": "object",
+      "properties": {
+        "schemaVersion": {
+          "default": "1.0",
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "usageDescription": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "schemaVersion"
+      ],
+      "additionalProperties": false
+    },
+    "columns": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "heading": {
+            "default": "Column A",
+            "type": "string"
+          },
+          "headingTranslationKey": {
+            "type": "string"
+          },
+          "help": {
+            "type": "string"
+          },
+          "helpTranslationKey": {
+            "type": "string"
+          },
+          "required": {
+            "default": false,
+            "type": "boolean"
+          },
+          "enabled": {
+            "default": true,
+            "type": "boolean"
+          },
+          "content": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "string",
+                    "const": "affiliationSearch"
+                  },
+                  "attributes": {
+                    "type": "object",
+                    "properties": {
+                      "label": {
+                        "type": "string"
+                      },
+                      "help": {
+                        "type": "string"
+                      },
+                      "labelTranslationKey": {
+                        "type": "string"
+                      }
+                    },
+                    "additionalProperties": false
+                  },
+                  "meta": {
+                    "type": "object",
+                    "properties": {
+                      "schemaVersion": {
+                        "default": "1.0",
+                        "type": "string"
+                      },
+                      "title": {
+                        "type": "string"
+                      },
+                      "usageDescription": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "schemaVersion"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "graphQL": {
+                    "type": "object",
+                    "properties": {
+                      "displayFields": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "propertyName": {
+                              "default": "id",
+                              "type": "string"
+                            },
+                            "label": {
+                              "default": "Id",
+                              "type": "string"
+                            },
+                            "labelTranslationKey": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "propertyName",
+                            "label"
+                          ],
+                          "additionalProperties": false
+                        }
+                      },
+                      "localQueryId": {
+                        "type": "string"
+                      },
+                      "query": {
+                        "type": "string",
+                        "const": "query Affiliations($name: String!){ affiliations(name: $name) { totalCount nextCursor items { id displayName uri } } }"
+                      },
+                      "responseField": {
+                        "default": "affiliations.items",
+                        "type": "string",
+                        "const": "affiliations.items"
+                      },
+                      "variables": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "minLength": {
+                              "type": "number"
+                            },
+                            "label": {
+                              "type": "string"
+                            },
+                            "labelTranslationKey": {
+                              "type": "string"
+                            },
+                            "name": {
+                              "default": "search",
+                              "type": "string"
+                            },
+                            "type": {
+                              "default": "string",
+                              "type": "string"
+                            },
+                            "defaultValue": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "name",
+                            "type"
+                          ],
+                          "additionalProperties": false
+                        }
+                      },
+                      "queryId": {
+                        "default": "useAffiliationsQuery",
+                        "type": "string"
+                      },
+                      "answerField": {
+                        "default": "uri",
+                        "type": "string",
+                        "const": "uri"
+                      }
+                    },
+                    "required": [
+                      "displayFields",
+                      "query",
+                      "responseField",
+                      "variables",
+                      "answerField"
+                    ],
+                    "additionalProperties": false
+                  }
+                },
+                "required": [
+                  "type",
+                  "attributes",
+                  "meta",
+                  "graphQL"
+                ],
+                "additionalProperties": false
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "string",
+                    "const": "boolean"
+                  },
+                  "attributes": {
+                    "type": "object",
+                    "properties": {
+                      "label": {
+                        "type": "string"
+                      },
+                      "help": {
+                        "type": "string"
+                      },
+                      "labelTranslationKey": {
+                        "type": "string"
+                      }
+                    },
+                    "additionalProperties": false
+                  },
+                  "meta": {
+                    "type": "object",
+                    "properties": {
+                      "schemaVersion": {
+                        "default": "1.0",
+                        "type": "string"
+                      },
+                      "title": {
+                        "type": "string"
+                      },
+                      "usageDescription": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "schemaVersion"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "options": {
+                    "minItems": 2,
+                    "maxItems": 2,
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "label": {
+                          "default": "Option A",
+                          "type": "string"
+                        },
+                        "value": {
+                          "default": "a",
+                          "type": "string"
+                        },
+                        "selected": {
+                          "default": false,
+                          "type": "boolean"
+                        }
+                      },
+                      "required": [
+                        "label",
+                        "value",
+                        "selected"
+                      ],
+                      "additionalProperties": false
+                    }
+                  }
+                },
+                "required": [
+                  "type",
+                  "attributes",
+                  "meta",
+                  "options"
+                ],
+                "additionalProperties": false
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "string",
+                    "const": "checkBoxes"
+                  },
+                  "attributes": {
+                    "type": "object",
+                    "properties": {
+                      "label": {
+                        "type": "string"
+                      },
+                      "help": {
+                        "type": "string"
+                      },
+                      "labelTranslationKey": {
+                        "type": "string"
+                      }
+                    },
+                    "additionalProperties": false
+                  },
+                  "meta": {
+                    "type": "object",
+                    "properties": {
+                      "schemaVersion": {
+                        "default": "1.0",
+                        "type": "string"
+                      },
+                      "title": {
+                        "type": "string"
+                      },
+                      "usageDescription": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "schemaVersion"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "options": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "label": {
+                          "default": "Option A",
+                          "type": "string"
+                        },
+                        "value": {
+                          "default": "a",
+                          "type": "string"
+                        },
+                        "checked": {
+                          "default": false,
+                          "type": "boolean"
+                        }
+                      },
+                      "required": [
+                        "label",
+                        "value",
+                        "checked"
+                      ],
+                      "additionalProperties": false
+                    }
+                  }
+                },
+                "required": [
+                  "type",
+                  "attributes",
+                  "meta",
+                  "options"
+                ],
+                "additionalProperties": false
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "string",
+                    "const": "currency"
+                  },
+                  "attributes": {
+                    "type": "object",
+                    "properties": {
+                      "label": {
+                        "type": "string"
+                      },
+                      "help": {
+                        "type": "string"
+                      },
+                      "labelTranslationKey": {
+                        "type": "string"
+                      },
+                      "max": {
+                        "type": "number"
+                      },
+                      "min": {
+                        "default": 0,
+                        "type": "number"
+                      },
+                      "step": {
+                        "default": 1,
+                        "type": "number"
+                      },
+                      "denomination": {
+                        "default": "USD",
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "min",
+                      "step",
+                      "denomination"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "meta": {
+                    "type": "object",
+                    "properties": {
+                      "schemaVersion": {
+                        "default": "1.0",
+                        "type": "string"
+                      },
+                      "title": {
+                        "type": "string"
+                      },
+                      "usageDescription": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "schemaVersion"
+                    ],
+                    "additionalProperties": false
+                  }
+                },
+                "required": [
+                  "type",
+                  "attributes",
+                  "meta"
+                ],
+                "additionalProperties": false
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "string",
+                    "const": "date"
+                  },
+                  "attributes": {
+                    "type": "object",
+                    "properties": {
+                      "label": {
+                        "type": "string"
+                      },
+                      "help": {
+                        "type": "string"
+                      },
+                      "labelTranslationKey": {
+                        "type": "string"
+                      },
+                      "max": {
+                        "type": "string"
+                      },
+                      "min": {
+                        "type": "string"
+                      },
+                      "step": {
+                        "default": 1,
+                        "type": "number"
+                      }
+                    },
+                    "required": [
+                      "step"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "meta": {
+                    "type": "object",
+                    "properties": {
+                      "schemaVersion": {
+                        "default": "1.0",
+                        "type": "string"
+                      },
+                      "title": {
+                        "type": "string"
+                      },
+                      "usageDescription": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "schemaVersion"
+                    ],
+                    "additionalProperties": false
+                  }
+                },
+                "required": [
+                  "type",
+                  "attributes",
+                  "meta"
+                ],
+                "additionalProperties": false
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "string",
+                    "const": "dateRange"
+                  },
+                  "attributes": {
+                    "type": "object",
+                    "properties": {
+                      "label": {
+                        "type": "string"
+                      },
+                      "help": {
+                        "type": "string"
+                      },
+                      "labelTranslationKey": {
+                        "type": "string"
+                      }
+                    },
+                    "additionalProperties": false
+                  },
+                  "meta": {
+                    "type": "object",
+                    "properties": {
+                      "schemaVersion": {
+                        "default": "1.0",
+                        "type": "string"
+                      },
+                      "title": {
+                        "type": "string"
+                      },
+                      "usageDescription": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "schemaVersion"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "columns": {
+                    "type": "object",
+                    "properties": {
+                      "start": {
+                        "type": "object",
+                        "properties": {
+                          "label": {
+                            "default": "From",
+                            "type": "string"
+                          },
+                          "help": {
+                            "type": "string"
+                          },
+                          "labelTranslationKey": {
+                            "type": "string"
+                          },
+                          "max": {
+                            "type": "string"
+                          },
+                          "min": {
+                            "type": "string"
+                          },
+                          "step": {
+                            "default": 1,
+                            "type": "number"
+                          }
+                        },
+                        "required": [
+                          "label",
+                          "step"
+                        ],
+                        "additionalProperties": false
+                      },
+                      "end": {
+                        "type": "object",
+                        "properties": {
+                          "label": {
+                            "default": "To",
+                            "type": "string"
+                          },
+                          "help": {
+                            "type": "string"
+                          },
+                          "labelTranslationKey": {
+                            "type": "string"
+                          },
+                          "max": {
+                            "type": "string"
+                          },
+                          "min": {
+                            "type": "string"
+                          },
+                          "step": {
+                            "default": 1,
+                            "type": "number"
+                          }
+                        },
+                        "required": [
+                          "label",
+                          "step"
+                        ],
+                        "additionalProperties": false
+                      }
+                    },
+                    "required": [
+                      "start",
+                      "end"
+                    ],
+                    "additionalProperties": false
+                  }
+                },
+                "required": [
+                  "type",
+                  "attributes",
+                  "meta",
+                  "columns"
+                ],
+                "additionalProperties": false
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "string",
+                    "const": "email"
+                  },
+                  "attributes": {
+                    "type": "object",
+                    "properties": {
+                      "label": {
+                        "type": "string"
+                      },
+                      "help": {
+                        "type": "string"
+                      },
+                      "labelTranslationKey": {
+                        "type": "string"
+                      },
+                      "maxLength": {
+                        "default": 255,
+                        "type": "number"
+                      },
+                      "minLength": {
+                        "type": "number"
+                      },
+                      "pattern": {
+                        "type": "string"
+                      },
+                      "multiple": {
+                        "default": false,
+                        "type": "boolean"
+                      }
+                    },
+                    "required": [
+                      "maxLength",
+                      "multiple"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "meta": {
+                    "type": "object",
+                    "properties": {
+                      "schemaVersion": {
+                        "default": "1.0",
+                        "type": "string"
+                      },
+                      "title": {
+                        "type": "string"
+                      },
+                      "usageDescription": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "schemaVersion"
+                    ],
+                    "additionalProperties": false
+                  }
+                },
+                "required": [
+                  "type",
+                  "attributes",
+                  "meta"
+                ],
+                "additionalProperties": false
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "string",
+                    "const": "licenseSearch"
+                  },
+                  "attributes": {
+                    "type": "object",
+                    "properties": {
+                      "label": {
+                        "type": "string"
+                      },
+                      "help": {
+                        "type": "string"
+                      },
+                      "labelTranslationKey": {
+                        "type": "string"
+                      }
+                    },
+                    "additionalProperties": false
+                  },
+                  "meta": {
+                    "type": "object",
+                    "properties": {
+                      "schemaVersion": {
+                        "default": "1.0",
+                        "type": "string"
+                      },
+                      "title": {
+                        "type": "string"
+                      },
+                      "usageDescription": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "schemaVersion"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "graphQL": {
+                    "type": "object",
+                    "properties": {
+                      "displayFields": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "propertyName": {
+                              "default": "id",
+                              "type": "string"
+                            },
+                            "label": {
+                              "default": "Id",
+                              "type": "string"
+                            },
+                            "labelTranslationKey": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "propertyName",
+                            "label"
+                          ],
+                          "additionalProperties": false
+                        }
+                      },
+                      "localQueryId": {
+                        "type": "string"
+                      },
+                      "query": {
+                        "type": "string",
+                        "const": "query Licenses($term: String, $paginationOptions: PaginationOptions){ license(term: $term, paginationOptions: $paginationOptions) { totalCount currentOffset limit hasNextPage hasPreviousPage availableSortFields items { id name uri description } } }"
+                      },
+                      "responseField": {
+                        "type": "string",
+                        "const": "licenses.items"
+                      },
+                      "variables": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "minLength": {
+                              "type": "number"
+                            },
+                            "label": {
+                              "type": "string"
+                            },
+                            "labelTranslationKey": {
+                              "type": "string"
+                            },
+                            "name": {
+                              "default": "search",
+                              "type": "string"
+                            },
+                            "type": {
+                              "default": "string",
+                              "type": "string"
+                            },
+                            "defaultValue": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "name",
+                            "type"
+                          ],
+                          "additionalProperties": false
+                        }
+                      },
+                      "queryId": {
+                        "default": "useLicensesQuery",
+                        "type": "string"
+                      },
+                      "answerField": {
+                        "type": "string",
+                        "const": "uri"
+                      }
+                    },
+                    "required": [
+                      "displayFields",
+                      "query",
+                      "responseField",
+                      "variables",
+                      "answerField"
+                    ],
+                    "additionalProperties": false
+                  }
+                },
+                "required": [
+                  "type",
+                  "attributes",
+                  "meta",
+                  "graphQL"
+                ],
+                "additionalProperties": false
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "string",
+                    "const": "metadataStandardSearch"
+                  },
+                  "attributes": {
+                    "type": "object",
+                    "properties": {
+                      "label": {
+                        "type": "string"
+                      },
+                      "help": {
+                        "type": "string"
+                      },
+                      "labelTranslationKey": {
+                        "type": "string"
+                      }
+                    },
+                    "additionalProperties": false
+                  },
+                  "meta": {
+                    "type": "object",
+                    "properties": {
+                      "schemaVersion": {
+                        "default": "1.0",
+                        "type": "string"
+                      },
+                      "title": {
+                        "type": "string"
+                      },
+                      "usageDescription": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "schemaVersion"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "graphQL": {
+                    "type": "object",
+                    "properties": {
+                      "displayFields": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "propertyName": {
+                              "default": "id",
+                              "type": "string"
+                            },
+                            "label": {
+                              "default": "Id",
+                              "type": "string"
+                            },
+                            "labelTranslationKey": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "propertyName",
+                            "label"
+                          ],
+                          "additionalProperties": false
+                        }
+                      },
+                      "localQueryId": {
+                        "type": "string"
+                      },
+                      "query": {
+                        "type": "string",
+                        "const": "query MetadataStandards($term: String, $keywords: [String!], $paginationOptions: PaginationOptions){ metadataStandards(term: $term, keywords: $keywords, paginationOptions: $paginationOptions) { totalCount currentOffset limit hasNextPage hasPreviousPage availableSortFields items { id name uri description keywords } } }"
+                      },
+                      "responseField": {
+                        "type": "string",
+                        "const": "metadataStandards.items"
+                      },
+                      "variables": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "minLength": {
+                              "type": "number"
+                            },
+                            "label": {
+                              "type": "string"
+                            },
+                            "labelTranslationKey": {
+                              "type": "string"
+                            },
+                            "name": {
+                              "default": "search",
+                              "type": "string"
+                            },
+                            "type": {
+                              "default": "string",
+                              "type": "string"
+                            },
+                            "defaultValue": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "name",
+                            "type"
+                          ],
+                          "additionalProperties": false
+                        }
+                      },
+                      "queryId": {
+                        "default": "useMetadataStandardsQuery",
+                        "type": "string"
+                      },
+                      "answerField": {
+                        "default": "uri",
+                        "type": "string",
+                        "const": "uri"
+                      }
+                    },
+                    "required": [
+                      "displayFields",
+                      "query",
+                      "responseField",
+                      "variables",
+                      "answerField"
+                    ],
+                    "additionalProperties": false
+                  }
+                },
+                "required": [
+                  "type",
+                  "attributes",
+                  "meta",
+                  "graphQL"
+                ],
+                "additionalProperties": false
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "string",
+                    "const": "number"
+                  },
+                  "attributes": {
+                    "type": "object",
+                    "properties": {
+                      "label": {
+                        "type": "string"
+                      },
+                      "help": {
+                        "type": "string"
+                      },
+                      "labelTranslationKey": {
+                        "type": "string"
+                      },
+                      "max": {
+                        "type": "number"
+                      },
+                      "min": {
+                        "default": 0,
+                        "type": "number"
+                      },
+                      "step": {
+                        "default": 1,
+                        "type": "number"
+                      }
+                    },
+                    "required": [
+                      "min",
+                      "step"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "meta": {
+                    "type": "object",
+                    "properties": {
+                      "schemaVersion": {
+                        "default": "1.0",
+                        "type": "string"
+                      },
+                      "title": {
+                        "type": "string"
+                      },
+                      "usageDescription": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "schemaVersion"
+                    ],
+                    "additionalProperties": false
+                  }
+                },
+                "required": [
+                  "type",
+                  "attributes",
+                  "meta"
+                ],
+                "additionalProperties": false
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "string",
+                    "const": "numberWithContext"
+                  },
+                  "attributes": {
+                    "type": "object",
+                    "properties": {
+                      "label": {
+                        "type": "string"
+                      },
+                      "help": {
+                        "type": "string"
+                      },
+                      "labelTranslationKey": {
+                        "type": "string"
+                      },
+                      "max": {
+                        "type": "number"
+                      },
+                      "min": {
+                        "default": 0,
+                        "type": "number"
+                      },
+                      "step": {
+                        "default": 1,
+                        "type": "number"
+                      },
+                      "context": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "label": {
+                              "default": "",
+                              "type": "string"
+                            },
+                            "labelTranslationKey": {
+                              "type": "string"
+                            },
+                            "value": {
+                              "default": "",
+                              "type": "string"
+                            },
+                            "selected": {
+                              "default": false,
+                              "type": "boolean"
+                            }
+                          },
+                          "required": [
+                            "label",
+                            "value",
+                            "selected"
+                          ],
+                          "additionalProperties": false
+                        }
+                      }
+                    },
+                    "required": [
+                      "min",
+                      "step",
+                      "context"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "meta": {
+                    "type": "object",
+                    "properties": {
+                      "schemaVersion": {
+                        "default": "1.0",
+                        "type": "string"
+                      },
+                      "title": {
+                        "type": "string"
+                      },
+                      "usageDescription": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "schemaVersion"
+                    ],
+                    "additionalProperties": false
+                  }
+                },
+                "required": [
+                  "type",
+                  "attributes",
+                  "meta"
+                ],
+                "additionalProperties": false
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "string",
+                    "const": "radioButtons"
+                  },
+                  "attributes": {
+                    "type": "object",
+                    "properties": {
+                      "label": {
+                        "type": "string"
+                      },
+                      "help": {
+                        "type": "string"
+                      },
+                      "labelTranslationKey": {
+                        "type": "string"
+                      }
+                    },
+                    "additionalProperties": false
+                  },
+                  "meta": {
+                    "type": "object",
+                    "properties": {
+                      "schemaVersion": {
+                        "default": "1.0",
+                        "type": "string"
+                      },
+                      "title": {
+                        "type": "string"
+                      },
+                      "usageDescription": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "schemaVersion"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "options": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "label": {
+                          "default": "Option A",
+                          "type": "string"
+                        },
+                        "value": {
+                          "default": "a",
+                          "type": "string"
+                        },
+                        "selected": {
+                          "default": false,
+                          "type": "boolean"
+                        }
+                      },
+                      "required": [
+                        "label",
+                        "value",
+                        "selected"
+                      ],
+                      "additionalProperties": false
+                    }
+                  }
+                },
+                "required": [
+                  "type",
+                  "attributes",
+                  "meta",
+                  "options"
+                ],
+                "additionalProperties": false
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "string",
+                    "const": "repositorySearch"
+                  },
+                  "attributes": {
+                    "type": "object",
+                    "properties": {
+                      "label": {
+                        "type": "string"
+                      },
+                      "help": {
+                        "type": "string"
+                      },
+                      "labelTranslationKey": {
+                        "type": "string"
+                      }
+                    },
+                    "additionalProperties": false
+                  },
+                  "meta": {
+                    "type": "object",
+                    "properties": {
+                      "schemaVersion": {
+                        "default": "1.0",
+                        "type": "string"
+                      },
+                      "title": {
+                        "type": "string"
+                      },
+                      "usageDescription": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "schemaVersion"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "graphQL": {
+                    "type": "object",
+                    "properties": {
+                      "displayFields": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "propertyName": {
+                              "default": "id",
+                              "type": "string"
+                            },
+                            "label": {
+                              "default": "Id",
+                              "type": "string"
+                            },
+                            "labelTranslationKey": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "propertyName",
+                            "label"
+                          ],
+                          "additionalProperties": false
+                        }
+                      },
+                      "localQueryId": {
+                        "type": "string"
+                      },
+                      "query": {
+                        "type": "string",
+                        "const": "query Repositories($term: String, $keywords: [String!], $repositoryType: String, $paginationOptions: PaginationOptions){ repositories(term: $term, keywords: $keywords, repositoryType: $repositoryType, paginationOptions: $paginationOptions) { totalCount currentOffset limit hasNextPage hasPreviousPage availableSortFields items { id name uri description website keywords repositoryTypes } } }"
+                      },
+                      "responseField": {
+                        "type": "string",
+                        "const": "repositories.items"
+                      },
+                      "variables": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "minLength": {
+                              "type": "number"
+                            },
+                            "label": {
+                              "type": "string"
+                            },
+                            "labelTranslationKey": {
+                              "type": "string"
+                            },
+                            "name": {
+                              "default": "search",
+                              "type": "string"
+                            },
+                            "type": {
+                              "default": "string",
+                              "type": "string"
+                            },
+                            "defaultValue": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "name",
+                            "type"
+                          ],
+                          "additionalProperties": false
+                        }
+                      },
+                      "queryId": {
+                        "default": "useRepositoriesQuery",
+                        "type": "string"
+                      },
+                      "answerField": {
+                        "type": "string",
+                        "const": "uri"
+                      }
+                    },
+                    "required": [
+                      "displayFields",
+                      "query",
+                      "responseField",
+                      "variables",
+                      "answerField"
+                    ],
+                    "additionalProperties": false
+                  }
+                },
+                "required": [
+                  "type",
+                  "attributes",
+                  "meta",
+                  "graphQL"
+                ],
+                "additionalProperties": false
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "string",
+                    "const": "selectBox"
+                  },
+                  "attributes": {
+                    "type": "object",
+                    "properties": {
+                      "label": {
+                        "type": "string"
+                      },
+                      "help": {
+                        "type": "string"
+                      },
+                      "labelTranslationKey": {
+                        "type": "string"
+                      },
+                      "multiple": {
+                        "type": "boolean",
+                        "const": false
+                      }
+                    },
+                    "required": [
+                      "multiple"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "meta": {
+                    "type": "object",
+                    "properties": {
+                      "schemaVersion": {
+                        "default": "1.0",
+                        "type": "string"
+                      },
+                      "title": {
+                        "type": "string"
+                      },
+                      "usageDescription": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "schemaVersion"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "options": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "label": {
+                          "default": "Option A",
+                          "type": "string"
+                        },
+                        "value": {
+                          "default": "a",
+                          "type": "string"
+                        },
+                        "selected": {
+                          "default": false,
+                          "type": "boolean"
+                        }
+                      },
+                      "required": [
+                        "label",
+                        "value",
+                        "selected"
+                      ],
+                      "additionalProperties": false
+                    }
+                  }
+                },
+                "required": [
+                  "type",
+                  "attributes",
+                  "meta",
+                  "options"
+                ],
+                "additionalProperties": false
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "string",
+                    "const": "textArea"
+                  },
+                  "attributes": {
+                    "type": "object",
+                    "properties": {
+                      "label": {
+                        "type": "string"
+                      },
+                      "help": {
+                        "type": "string"
+                      },
+                      "labelTranslationKey": {
+                        "type": "string"
+                      },
+                      "maxLength": {
+                        "default": 10000,
+                        "type": "number"
+                      },
+                      "minLength": {
+                        "type": "number"
+                      },
+                      "pattern": {
+                        "type": "string"
+                      },
+                      "cols": {
+                        "default": 20,
+                        "type": "number"
+                      },
+                      "rows": {
+                        "default": 2,
+                        "type": "number"
+                      },
+                      "asRichText": {
+                        "default": true,
+                        "type": "boolean"
+                      }
+                    },
+                    "required": [
+                      "maxLength",
+                      "cols",
+                      "rows",
+                      "asRichText"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "meta": {
+                    "type": "object",
+                    "properties": {
+                      "schemaVersion": {
+                        "default": "1.0",
+                        "type": "string"
+                      },
+                      "title": {
+                        "type": "string"
+                      },
+                      "usageDescription": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "schemaVersion"
+                    ],
+                    "additionalProperties": false
+                  }
+                },
+                "required": [
+                  "type",
+                  "attributes",
+                  "meta"
+                ],
+                "additionalProperties": false
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "string",
+                    "const": "text"
+                  },
+                  "attributes": {
+                    "type": "object",
+                    "properties": {
+                      "label": {
+                        "type": "string"
+                      },
+                      "help": {
+                        "type": "string"
+                      },
+                      "labelTranslationKey": {
+                        "type": "string"
+                      },
+                      "maxLength": {
+                        "default": 255,
+                        "type": "number"
+                      },
+                      "minLength": {
+                        "type": "number"
+                      },
+                      "pattern": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "maxLength"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "meta": {
+                    "type": "object",
+                    "properties": {
+                      "schemaVersion": {
+                        "default": "1.0",
+                        "type": "string"
+                      },
+                      "title": {
+                        "type": "string"
+                      },
+                      "usageDescription": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "schemaVersion"
+                    ],
+                    "additionalProperties": false
+                  }
+                },
+                "required": [
+                  "type",
+                  "attributes",
+                  "meta"
+                ],
+                "additionalProperties": false
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "string",
+                    "const": "url"
+                  },
+                  "attributes": {
+                    "type": "object",
+                    "properties": {
+                      "label": {
+                        "type": "string"
+                      },
+                      "help": {
+                        "type": "string"
+                      },
+                      "labelTranslationKey": {
+                        "type": "string"
+                      },
+                      "maxLength": {
+                        "default": 255,
+                        "type": "number"
+                      },
+                      "minLength": {
+                        "type": "number"
+                      },
+                      "pattern": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "maxLength"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "meta": {
+                    "type": "object",
+                    "properties": {
+                      "schemaVersion": {
+                        "default": "1.0",
+                        "type": "string"
+                      },
+                      "title": {
+                        "type": "string"
+                      },
+                      "usageDescription": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "schemaVersion"
+                    ],
+                    "additionalProperties": false
+                  }
+                },
+                "required": [
+                  "type",
+                  "attributes",
+                  "meta"
+                ],
+                "additionalProperties": false
+              }
+            ]
+          }
+        },
+        "required": [
+          "heading",
+          "required",
+          "enabled",
+          "content"
+        ],
+        "additionalProperties": false
+      }
     }
   },
-  "$schema": "http://json-schema.org/draft-07/schema#"
+  "required": [
+    "type",
+    "meta",
+    "columns"
+  ],
+  "additionalProperties": false
 }

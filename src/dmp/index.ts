@@ -12,6 +12,8 @@ import {ExtensionType} from "./extension";
 // Convert the downloaded JSON schema into types
 const RDA_COMMON_STANDARD_JSON_FILE = './schemas/dmp.schema.json';
 
+// Ignoring ESLint here because it doesn't like that we're only using jsonSchema as a Type
+// but that's exactly what we want to do.
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const jsonSchema = JSON.parse(fs.readFileSync(RDA_COMMON_STANDARD_JSON_FILE, 'utf8'));
 export type RDACommonStandardDMP = FromSchema<typeof jsonSchema>
