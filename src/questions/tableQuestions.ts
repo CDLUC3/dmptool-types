@@ -305,8 +305,8 @@ const DefaultResearchOutputLicenseColumn = ResearchOutputLicenseColumnSchema.par
 });
 
 const ResearchOutputCustomContentAttributesSchema = TextQuestionSchema.shape.attributes.extend({
-  label: z.string().default('').optional(),
-  help: z.string().default('Explanation of what we expect the user to enter.')
+  label: z.string().optional(),
+  help: z.string().optional()
 });
 const DefaultResearchOutputCustomContentAttributes = ResearchOutputCustomContentAttributesSchema.parse({});
 
@@ -323,6 +323,7 @@ const DefaultResearchOutputCustomContent = ResearchOutputCustomContentSchema.par
 export const ResearchOutputCustomColumnSchema = z.object({
   ...TableColumnSchema.shape,
   heading: z.string().default('Custom Column'),
+  help: z.string().default('Explanation of what we expect the user to enter.'),
   enabled: z.boolean().default(false),
   content: ResearchOutputCustomContentSchema,
 });
@@ -345,6 +346,7 @@ const AnyResearchOutputColumnSchema = z.union([
   ResearchOutputMetadataStandardColumnSchema,
   ResearchOutputLicenseColumnSchema,
   ResearchOutputCustomColumnSchema,
+  ResearchOutputCustomColumnSchema
 ]);
 
 // Update ResearchOutputTableQuestionSchema
@@ -368,6 +370,7 @@ export const DefaultResearchOutputTableQuestion = ResearchOutputTableQuestionSch
     DefaultResearchOutputRepositoryColumn,
     DefaultResearchOutputMetadataStandardColumn,
     DefaultResearchOutputLicenseColumn,
+    DefaultResearchOutputCustomColumn,
   ]
 });
 
