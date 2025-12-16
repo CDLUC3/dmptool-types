@@ -72,13 +72,7 @@
             "default": "Column A",
             "type": "string"
           },
-          "headingTranslationKey": {
-            "type": "string"
-          },
           "help": {
-            "type": "string"
-          },
-          "helpTranslationKey": {
             "type": "string"
           },
           "required": {
@@ -245,13 +239,15 @@
                       "label": {
                         "type": "string"
                       },
-                      "help": {
-                        "type": "string"
-                      },
-                      "labelTranslationKey": {
-                        "type": "string"
+                      "value": {
+                        "default": false,
+                        "type": "boolean"
                       }
                     },
+                    "required": [
+                      "label",
+                      "value"
+                    ],
                     "additionalProperties": false
                   },
                   "meta": {
@@ -272,41 +268,12 @@
                       "schemaVersion"
                     ],
                     "additionalProperties": false
-                  },
-                  "options": {
-                    "minItems": 2,
-                    "maxItems": 2,
-                    "type": "array",
-                    "items": {
-                      "type": "object",
-                      "properties": {
-                        "label": {
-                          "default": "Option A",
-                          "type": "string"
-                        },
-                        "value": {
-                          "default": "a",
-                          "type": "string"
-                        },
-                        "selected": {
-                          "default": false,
-                          "type": "boolean"
-                        }
-                      },
-                      "required": [
-                        "label",
-                        "value",
-                        "selected"
-                      ],
-                      "additionalProperties": false
-                    }
                   }
                 },
                 "required": [
                   "type",
                   "attributes",
-                  "meta",
-                  "options"
+                  "meta"
                 ],
                 "additionalProperties": false
               },

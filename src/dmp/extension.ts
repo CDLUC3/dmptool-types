@@ -2,6 +2,10 @@
 //    See: https://github.com/RDA-DMP-Common/RDA-DMP-Common-Standard
 //
 import { z } from 'zod'
+import {
+  AnyAnswerSchema,
+  DefaultTextAreaAnswer
+} from "../answers";
 
 // the DMP visibility setting (should be used to check authorization)
 const visibilityTypes = [
@@ -131,9 +135,15 @@ const ResearchFacilitySchema = z.object({
 
 const FundingOpportunitySchema = z.object({
   // The id of the project this opportunity maps to
-  project_id: z.string(),
+  project_id: z.object({
+    identifier: z.string(),
+    type: z.enum(['ark', 'doi', 'handle', 'url', 'other']).default('other')
+  }),
   // The id of the funding this opportunity maps to within the project
-  funder_id: z.string(),
+  funder_id: z.object({
+    identifier: z.string(),
+    type: z.enum(['ror', 'url', 'other']).default('ror')
+  }),
   // The opportunity id
   opportunity_identifier: z.object({
     identifier: z.string(),
@@ -145,16 +155,56 @@ const VersionSchema = z.object({
   // URL to fetch the historical version of the DMP
   access_url: z.string(),
   // The date of the version
-  version_date: z.date('yyyy-MM-dd HH:mm:ss'),
+  version_date: z.iso.datetime(),
+});
+
+const NarrativeAnswerSchema = z.object({
+  id: z.number(),
+  json: AnyAnswerSchema,
+});
+const DefaultAnswer = NarrativeAnswerSchema.parse({
+  id: 0,
+  json: DefaultTextAreaAnswer
+});
+
+const NarrativeQuestionSchema = z.object({
+  id: z.number(),
+  order: z.number(),
+  text: z.string(),
+  answer: NarrativeAnswerSchema.optional(),
+});
+const DefaultQuestion = NarrativeQuestionSchema.parse({
+  id: 0,
+  order: 0,
+  text: 'Undefined question text',
+  answer: DefaultAnswer
+});
+
+const NarrativeSectionSchema = z.object({
+  id: z.number(),
+  order: z.number(),
+  title: z.string(),
+  description: z.string().optional(),
+  question: z.array(NarrativeQuestionSchema)
+});
+const DefaultSection = NarrativeSectionSchema.parse({
+  id: 0,
+  order: 0,
+  title: 'Undefined section',
+  question: [DefaultQuestion]
 });
 
 const NarrativeTemplateSchema = z.object({
-  id: z.string().optional(),
+  id: z.number(),
   title: z.string(),
   description: z.string().optional(),
+  version: z.string().optional(),
+  section: z.array(NarrativeSectionSchema)
 });
 const DefaultNarrativeTemplate = NarrativeTemplateSchema.parse({
-  title: 'Undefined Template'
+  id: 0,
+  title: 'Undefined template',
+  section: [DefaultSection]
 });
 
 // URLs to fetch the narrative as a document other than JSON
@@ -166,10 +216,10 @@ const NarrativeURLsSchema = z.object({
 });
 
 const NarrativeSchema = z.object({
-  download_urls: NarrativeURLsSchema,
+  download_urls: NarrativeURLsSchema.optional(),
   template: NarrativeTemplateSchema.optional(),
 });
-const DefaultNarrative = NarrativeSchema.parse({
+export const DefaultNarrative = NarrativeSchema.parse({
   template: DefaultNarrativeTemplate
 })
 
@@ -179,25 +229,24 @@ export const ExtensionSchema = z.object({
   // The visibility setting for the DMP
   privacy: z.enum(visibilityTypes).default('private'),
   // Whether the DMP is featured on the public plans page of the DMP Tool website
-  featured: z.boolean().default(false),
+  featured: z.enum(['yes', 'no']).default('no'),
   // The date the DMP Id was registered as a DOI with EZID/DataCite
-  registered: z.date('yyyy-MM-dd HH:mm:ss').optional(),
+  registered: z.iso.datetime().optional(),
   // The narrative content of the DMP expressed as a JSON object
   narrative: NarrativeSchema.optional(),
   // The research domain of the project/DMP
   research_domain: ResearchDomainSchema.optional(),
   // Other works related to the DMP
-  related_identifiers: z.array(RelatedIdentifierSchema).optional(),
+  related_identifier: z.array(RelatedIdentifierSchema).optional(),
   // Research facilities used to collect or process data
-  research_facilities: z.array(ResearchFacilitySchema).optional(),
+  research_facility: z.array(ResearchFacilitySchema).optional(),
   // Historical versions of the DMP
-  versions: z.array(VersionSchema).optional(),
+  version: z.array(VersionSchema).optional(),
   // Funding opportunity / call for grant submissions related to the funding
-  funding_opportunities: z.array(FundingOpportunitySchema).optional(),
+  funding_opportunity: z.array(FundingOpportunitySchema).optional(),
 });
 export const DefaultExtensionSchema = ExtensionSchema.parse({
   provenance: 'your-application',
-  narrative: DefaultNarrative
 });
 
 export type ExtensionType = z.infer<typeof ExtensionSchema>;

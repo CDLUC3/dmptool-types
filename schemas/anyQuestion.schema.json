@@ -155,13 +155,15 @@
             "label": {
               "type": "string"
             },
-            "help": {
-              "type": "string"
-            },
-            "labelTranslationKey": {
-              "type": "string"
+            "value": {
+              "default": false,
+              "type": "boolean"
             }
           },
+          "required": [
+            "label",
+            "value"
+          ],
           "additionalProperties": false
         },
         "meta": {
@@ -182,41 +184,12 @@
             "schemaVersion"
           ],
           "additionalProperties": false
-        },
-        "options": {
-          "minItems": 2,
-          "maxItems": 2,
-          "type": "array",
-          "items": {
-            "type": "object",
-            "properties": {
-              "label": {
-                "default": "Option A",
-                "type": "string"
-              },
-              "value": {
-                "default": "a",
-                "type": "string"
-              },
-              "selected": {
-                "default": false,
-                "type": "boolean"
-              }
-            },
-            "required": [
-              "label",
-              "value",
-              "selected"
-            ],
-            "additionalProperties": false
-          }
         }
       },
       "required": [
         "type",
         "attributes",
-        "meta",
-        "options"
+        "meta"
       ],
       "additionalProperties": false
     },
@@ -1454,16 +1427,8 @@
                     "default": "Title",
                     "type": "string"
                   },
-                  "headingTranslationKey": {
-                    "default": "researchOutput.title.heading",
-                    "type": "string"
-                  },
                   "help": {
                     "default": "Enter the title of this research output",
-                    "type": "string"
-                  },
-                  "helpTranslationKey": {
-                    "default": "researchOutput.title.help",
                     "type": "string"
                   },
                   "required": {
@@ -1539,9 +1504,7 @@
                 },
                 "required": [
                   "heading",
-                  "headingTranslationKey",
                   "help",
-                  "helpTranslationKey",
                   "required",
                   "enabled",
                   "content"
@@ -1555,16 +1518,8 @@
                     "default": "Description",
                     "type": "string"
                   },
-                  "headingTranslationKey": {
-                    "default": "researchOutput.description.heading",
-                    "type": "string"
-                  },
                   "help": {
                     "default": "Enter a brief description of this research output",
-                    "type": "string"
-                  },
-                  "helpTranslationKey": {
-                    "default": "researchOutput.description.help",
                     "type": "string"
                   },
                   "required": {
@@ -1655,9 +1610,7 @@
                 },
                 "required": [
                   "heading",
-                  "headingTranslationKey",
                   "help",
-                  "helpTranslationKey",
                   "required",
                   "enabled",
                   "content"
@@ -1671,16 +1624,8 @@
                     "default": "Type",
                     "type": "string"
                   },
-                  "headingTranslationKey": {
-                    "default": "researchOutput.type.heading",
-                    "type": "string"
-                  },
                   "help": {
                     "default": "Select the type of this research output",
-                    "type": "string"
-                  },
-                  "helpTranslationKey": {
-                    "default": "researchOutput.type.help",
                     "type": "string"
                   },
                   "required": {
@@ -1777,9 +1722,7 @@
                 },
                 "required": [
                   "heading",
-                  "headingTranslationKey",
                   "help",
-                  "helpTranslationKey",
                   "required",
                   "enabled",
                   "content"
@@ -1793,16 +1736,8 @@
                     "default": "Data Flags",
                     "type": "string"
                   },
-                  "headingTranslationKey": {
-                    "default": "researchOutput.dataFlags.heading",
-                    "type": "string"
-                  },
                   "help": {
                     "default": "Mark all of the statements that are true about the dataset",
-                    "type": "string"
-                  },
-                  "helpTranslationKey": {
-                    "default": "researchOutput.dataFlags.help",
                     "type": "string"
                   },
                   "required": {
@@ -1892,9 +1827,7 @@
                 },
                 "required": [
                   "heading",
-                  "headingTranslationKey",
                   "help",
-                  "helpTranslationKey",
                   "required",
                   "enabled",
                   "content"
@@ -1908,16 +1841,8 @@
                     "default": "Access Level",
                     "type": "string"
                   },
-                  "headingTranslationKey": {
-                    "default": "researchOutput.accessLevel.heading",
-                    "type": "string"
-                  },
                   "help": {
                     "default": "Select the access level for this research output",
-                    "type": "string"
-                  },
-                  "helpTranslationKey": {
-                    "default": "researchOutput.accessLevel.help",
                     "type": "string"
                   },
                   "required": {
@@ -2007,9 +1932,7 @@
                 },
                 "required": [
                   "heading",
-                  "headingTranslationKey",
                   "help",
-                  "helpTranslationKey",
                   "required",
                   "enabled",
                   "content"
@@ -2023,16 +1946,8 @@
                     "default": "Anticipated Release Date",
                     "type": "string"
                   },
-                  "headingTranslationKey": {
-                    "default": "researchOutput.releaseDate.heading",
-                    "type": "string"
-                  },
                   "help": {
                     "default": "The anticipated release date for the research output",
-                    "type": "string"
-                  },
-                  "helpTranslationKey": {
-                    "default": "researchOutput.releaseDate.help",
                     "type": "string"
                   },
                   "required": {
@@ -2108,9 +2023,7 @@
                 },
                 "required": [
                   "heading",
-                  "headingTranslationKey",
                   "help",
-                  "helpTranslationKey",
                   "required",
                   "enabled",
                   "content"
@@ -2124,16 +2037,8 @@
                     "default": "Byte Size",
                     "type": "string"
                   },
-                  "headingTranslationKey": {
-                    "default": "researchOutput.byteSize.heading",
-                    "type": "string"
-                  },
                   "help": {
                     "default": "The size of the research output in bytes",
-                    "type": "string"
-                  },
-                  "helpTranslationKey": {
-                    "default": "researchOutput.byteSize.help",
                     "type": "string"
                   },
                   "required": {
@@ -2241,9 +2146,7 @@
                 },
                 "required": [
                   "heading",
-                  "headingTranslationKey",
                   "help",
-                  "helpTranslationKey",
                   "required",
                   "enabled",
                   "content"
@@ -2257,16 +2160,8 @@
                     "default": "Repository",
                     "type": "string"
                   },
-                  "headingTranslationKey": {
-                    "default": "researchOutput.repository.heading",
-                    "type": "string"
-                  },
                   "help": {
                     "default": "Select repository(ies) you would prefer users to deposit in",
-                    "type": "string"
-                  },
-                  "helpTranslationKey": {
-                    "default": "researchOutput.repository.help",
                     "type": "string"
                   },
                   "required": {
@@ -2441,9 +2336,7 @@
                 },
                 "required": [
                   "heading",
-                  "headingTranslationKey",
                   "help",
-                  "helpTranslationKey",
                   "required",
                   "enabled",
                   "content",
@@ -2458,16 +2351,8 @@
                     "default": "Metadata Standard",
                     "type": "string"
                   },
-                  "headingTranslationKey": {
-                    "default": "researchOutput.metadataStandard.heading",
-                    "type": "string"
-                  },
                   "help": {
                     "default": "Select metadata standard(s) you would prefer users to use",
-                    "type": "string"
-                  },
-                  "helpTranslationKey": {
-                    "default": "researchOutput.metadataStandard.help",
                     "type": "string"
                   },
                   "required": {
@@ -2643,9 +2528,7 @@
                 },
                 "required": [
                   "heading",
-                  "headingTranslationKey",
                   "help",
-                  "helpTranslationKey",
                   "required",
                   "enabled",
                   "content",
@@ -2660,16 +2543,8 @@
                     "default": "License",
                     "type": "string"
                   },
-                  "headingTranslationKey": {
-                    "default": "researchOutput.license.heading",
-                    "type": "string"
-                  },
                   "help": {
                     "default": "Select the license you will apply to the research output",
-                    "type": "string"
-                  },
-                  "helpTranslationKey": {
-                    "default": "researchOutput.license.help",
                     "type": "string"
                   },
                   "required": {
@@ -2844,9 +2719,7 @@
                 },
                 "required": [
                   "heading",
-                  "headingTranslationKey",
                   "help",
-                  "helpTranslationKey",
                   "required",
                   "enabled",
                   "content",
@@ -2861,13 +2734,8 @@
                     "default": "Custom Column",
                     "type": "string"
                   },
-                  "headingTranslationKey": {
-                    "type": "string"
-                  },
                   "help": {
-                    "type": "string"
-                  },
-                  "helpTranslationKey": {
+                    "default": "Explanation of what we expect the user to enter.",
                     "type": "string"
                   },
                   "required": {
@@ -2889,11 +2757,9 @@
                         "type": "object",
                         "properties": {
                           "label": {
-                            "default": "",
                             "type": "string"
                           },
                           "help": {
-                            "default": "Explanation of what we expect the user to enter.",
                             "type": "string"
                           },
                           "labelTranslationKey": {
@@ -2911,7 +2777,6 @@
                           }
                         },
                         "required": [
-                          "help",
                           "maxLength"
                         ],
                         "additionalProperties": false
@@ -2946,6 +2811,98 @@
                 },
                 "required": [
                   "heading",
+                  "help",
+                  "required",
+                  "enabled",
+                  "content"
+                ],
+                "additionalProperties": false
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "heading": {
+                    "default": "Custom Column",
+                    "type": "string"
+                  },
+                  "help": {
+                    "default": "Explanation of what we expect the user to enter.",
+                    "type": "string"
+                  },
+                  "required": {
+                    "default": false,
+                    "type": "boolean"
+                  },
+                  "enabled": {
+                    "default": false,
+                    "type": "boolean"
+                  },
+                  "content": {
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "type": "string",
+                        "const": "text"
+                      },
+                      "attributes": {
+                        "type": "object",
+                        "properties": {
+                          "label": {
+                            "type": "string"
+                          },
+                          "help": {
+                            "type": "string"
+                          },
+                          "labelTranslationKey": {
+                            "type": "string"
+                          },
+                          "maxLength": {
+                            "default": 255,
+                            "type": "number"
+                          },
+                          "minLength": {
+                            "type": "number"
+                          },
+                          "pattern": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "maxLength"
+                        ],
+                        "additionalProperties": false
+                      },
+                      "meta": {
+                        "type": "object",
+                        "properties": {
+                          "schemaVersion": {
+                            "default": "1.0",
+                            "type": "string"
+                          },
+                          "title": {
+                            "type": "string"
+                          },
+                          "usageDescription": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "schemaVersion"
+                        ],
+                        "additionalProperties": false
+                      }
+                    },
+                    "required": [
+                      "type",
+                      "attributes",
+                      "meta"
+                    ],
+                    "additionalProperties": false
+                  }
+                },
+                "required": [
+                  "heading",
+                  "help",
                   "required",
                   "enabled",
                   "content"
@@ -3119,13 +3076,7 @@
                 "default": "Column A",
                 "type": "string"
               },
-              "headingTranslationKey": {
-                "type": "string"
-              },
               "help": {
-                "type": "string"
-              },
-              "helpTranslationKey": {
                 "type": "string"
               },
               "required": {
@@ -3292,13 +3243,15 @@
                           "label": {
                             "type": "string"
                           },
-                          "help": {
-                            "type": "string"
-                          },
-                          "labelTranslationKey": {
-                            "type": "string"
+                          "value": {
+                            "default": false,
+                            "type": "boolean"
                           }
                         },
+                        "required": [
+                          "label",
+                          "value"
+                        ],
                         "additionalProperties": false
                       },
                       "meta": {
@@ -3319,41 +3272,12 @@
                           "schemaVersion"
                         ],
                         "additionalProperties": false
-                      },
-                      "options": {
-                        "minItems": 2,
-                        "maxItems": 2,
-                        "type": "array",
-                        "items": {
-                          "type": "object",
-                          "properties": {
-                            "label": {
-                              "default": "Option A",
-                              "type": "string"
-                            },
-                            "value": {
-                              "default": "a",
-                              "type": "string"
-                            },
-                            "selected": {
-                              "default": false,
-                              "type": "boolean"
-                            }
-                          },
-                          "required": [
-                            "label",
-                            "value",
-                            "selected"
-                          ],
-                          "additionalProperties": false
-                        }
                       }
                     },
                     "required": [
                       "type",
                       "attributes",
-                      "meta",
-                      "options"
+                      "meta"
                     ],
                     "additionalProperties": false
                   },

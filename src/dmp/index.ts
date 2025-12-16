@@ -16,7 +16,9 @@ const RDA_COMMON_STANDARD_JSON_FILE = './schemas/dmp.schema.json';
 // but that's exactly what we want to do.
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const jsonSchema = JSON.parse(fs.readFileSync(RDA_COMMON_STANDARD_JSON_FILE, 'utf8'));
-export type RDACommonStandardDMP = FromSchema<typeof jsonSchema>
 
-// Export our DMP Tool version of the RDA Common Standard with our extensions
-export type DMPToolDMPType = RDACommonStandardDMP & ExtensionType;
+// The version of the DMP that conforms to the RDA Common Standard (without our extensions)
+export type RDACommonStandardDMPType = FromSchema<typeof jsonSchema>
+
+// The version of the DMP that conforms to the RDA Common Standard (with our extensions)
+export type DMPToolDMPType = RDACommonStandardDMPType & ExtensionType;

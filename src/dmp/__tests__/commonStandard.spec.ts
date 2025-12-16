@@ -138,6 +138,37 @@ describe('validate the RDA common standard', () => {
               identifier: 'https://example.com/server/123',
               type: 'url'
             }],
+          }],
+          distribution: [{
+            title: 'Test Distribution',
+            description: 'This is a test distribution',
+            access_url: 'https://example.com/dataset/123/distribution/123456789',
+            download_url: 'https://example.com/dataset/123/distribution/123456789/download',
+            byte_size: 123456789,
+            format: ['application/zip'],
+            data_access: 'open',
+            issued: '2026-01-03',
+            license: [{
+              license_ref: 'https://spdx.org/licenses/CC-BY-4.0.html',
+              start_date: '2026-01-03'
+            }],
+            host: {
+              title: 'Test Host',
+              description: 'This is a test host',
+              url: 'https://example.com/host/123',
+              host_id: [{
+                identifier: 'https://re3data.org/2784y97245792756789',
+                type: 'url'
+              }],
+              availability: '99.99',
+              backup_frequency: 'weekly',
+              backup_type: 'tapes',
+              certified_with: 'coretrustseal',
+              geo_location: 'US',
+              pid_system: ['doi', 'ark'],
+              storage_type: 'LTO-8 tape',
+              support_versioning: 'yes'
+            }
           }]
         }],
         related_identifier: [{
