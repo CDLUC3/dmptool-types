@@ -1,6 +1,7 @@
 import fs from "fs";
+import { z } from "zod";
 import { FromSchema } from "json-schema-to-ts";
-import {ExtensionType} from "./extension";
+import { ExtensionSchema, ExtensionType } from "./extension";
 
 // The RDA Common Standard for DMPs JSON schema is automatically downloaded by
 // scripts/importRDACommonStandard.ts script. This file fetches the specified
@@ -22,3 +23,4 @@ export type RDACommonStandardDMPType = FromSchema<typeof jsonSchema>
 
 // The version of the DMP that conforms to the RDA Common Standard (with our extensions)
 export type DMPToolDMPType = RDACommonStandardDMPType & ExtensionType;
+export const ExtensionJSONSchema = z.toJSONSchema(ExtensionSchema);

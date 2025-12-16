@@ -1,7 +1,5 @@
-import {expect} from "@jest/globals";
-import {DefaultExtensionSchema, ExtensionSchema} from "../extension";
-
-// const SCHEMA_PATH = './schemas/dmp.schema.json';
+import { expect } from "@jest/globals";
+import { DefaultExtensionSchema, ExtensionSchema } from "../extension";
 
 describe('extensions', () => {
   it('validates a minimal DMP Tool extension', () => {
