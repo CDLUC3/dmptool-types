@@ -1,4 +1,8 @@
 import {
+  DefaultEmailQuestion,
+  DefaultTextAreaQuestion,
+  DefaultTextQuestion,
+  DefaultURLQuestion,
   EmailQuestionSchema,
   TextAreaQuestionSchema,
   TextQuestionSchema,
@@ -37,6 +41,15 @@ describe("Primitive Questions Zod Schemas", () => {
     expect(() => EmailQuestionSchema.parse(invalidEmailQuestion)).toThrow();
   });
 
+  it('returns the expected default email', () => {
+    const expected = {
+      type: "email",
+      attributes: { maxLength: 255, multiple: false },
+      meta: { schemaVersion: "1.0" }
+    };
+    expect(DefaultEmailQuestion).toEqual(expected);
+  });
+
   it("should validate a valid TextAreaQuestion", () => {
     const validTextAreaQuestion = {
       type: "textArea",
@@ -69,6 +82,15 @@ describe("Primitive Questions Zod Schemas", () => {
     expect(() => TextAreaQuestionSchema.parse(invalidTextAreaQuestion)).toThrow();
   });
 
+  it('returns the expected default textArea', () => {
+    const expected = {
+      type: "textArea",
+      attributes: { maxLength: 10000, asRichText: true, cols: 20, rows: 2 },
+      meta: { schemaVersion: "1.0" }
+    };
+    expect(DefaultTextAreaQuestion).toEqual(expected);
+  });
+
   it("should validate a valid TextQuestion", () => {
     const validTextQuestion = {
       type: "text",
@@ -99,6 +121,15 @@ describe("Primitive Questions Zod Schemas", () => {
     expect(() => TextQuestionSchema.parse(invalidTextQuestion)).toThrow();
   });
 
+  it('returns the expected default text', () => {
+    const expected = {
+      type: "text",
+      attributes: { maxLength: 255 },
+      meta: { schemaVersion: "1.0" }
+    };
+    expect(DefaultTextQuestion).toEqual(expected);
+  });
+
   it("should validate a valid URLQuestion", () => {
     const validURLQuestion = {
       type: "url",
@@ -127,5 +158,14 @@ describe("Primitive Questions Zod Schemas", () => {
       },
     };
     expect(() => URLQuestionSchema.parse(invalidURLQuestion)).toThrow();
+  });
+
+  it('returns the expected default url', () => {
+    const expected = {
+      type: "url",
+      attributes: { maxLength: 255 },
+      meta: { schemaVersion: "1.0" }
+    };
+    expect(DefaultURLQuestion).toEqual(expected);
   });
 });

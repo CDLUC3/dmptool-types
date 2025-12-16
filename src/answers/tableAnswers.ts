@@ -22,8 +22,14 @@ import {
   NumberAnswerSchema,
   NumberWithContextAnswerSchema
 } from './numberAnswers';
-import { EmailAnswerSchema, TextAnswerSchema, TextAreaAnswerSchema, URLAnswerSchema } from './textAnswers';
-import {CURRENT_SCHEMA_VERSION} from "../questions";
+import {
+  DefaultTextAreaAnswer,
+  EmailAnswerSchema,
+  TextAnswerSchema,
+  TextAreaAnswerSchema,
+  URLAnswerSchema
+} from './textAnswers';
+import { DefaultMeta } from "../questions";
 
 // Answers to Table Column Question Types (note that TableAnswer is not included here because we don't allow nested tables)
 export const AnyTableColumnAnswerSchema = z.discriminatedUnion('type', [
@@ -47,83 +53,57 @@ export const AnyTableColumnAnswerSchema = z.discriminatedUnion('type', [
   URLAnswerSchema
 ]);
 
-export const TableRowAnswerSchema = z.object({
+const TableRowAnswerSchema = z.object({
   columns: z.array(AnyTableColumnAnswerSchema)       // The answers for each column in the row
+});
+const DefaultTableRowAnswer = TableRowAnswerSchema.parse({
+  columns: [DefaultTextAreaAnswer]
 });
 
 // Answers to Table Question Types
-export const TableAnswerSchema = AnswerSchema.merge(z.object({
+export const TableAnswerSchema = z.object({
+  ...AnswerSchema.shape,
   type: z.literal('table'),
   columnHeadings: z.array(z.string()).default(['Column A']),
-  answer: z.array(TableRowAnswerSchema).default([{
-    columns: [{
-      type: 'textArea',
-      answer: '',
-      meta: { schemaVersion: CURRENT_SCHEMA_VERSION }
-    }]
-  }])
-}));
+  answer: z.array(TableRowAnswerSchema)
+});
+export const DefaultTableAnswer = TableAnswerSchema.parse({
+  type: 'table',
+  columnHeadings: ['Column A'],
+  answer: [DefaultTableRowAnswer],
+  meta: DefaultMeta
+});
 
-export const ResearchOutputTableAnswerSchema = TableAnswerSchema.merge(z.object({
+export const ResearchOutputTableAnswerSchema = z.object({
+  ...TableAnswerSchema.shape,
   type: z.literal('researchOutputTable'),
-  columnHeadings: z.array(z.string()).default(['Title', 'Output Type']),
-  answer: z.array(TableRowAnswerSchema).default([{
+  columnHeadings: z.array(z.string()).default(['Title', 'Type']),
+});
+export const DefaultResearchOutputTableAnswer = ResearchOutputTableAnswerSchema.parse({
+  type: 'researchOutputTable',
+  columnHeadings: ['Title', 'Type'],
+  answer: [{
     columns: [
       {
         type: 'text',
         answer: '',
-        meta: { schemaVersion: CURRENT_SCHEMA_VERSION }
-      },
-      {
-        type: 'textArea',
-        answer: '',
-        meta: { schemaVersion: CURRENT_SCHEMA_VERSION }
+        meta: DefaultMeta
       },
       {
         type: 'selectBox',
         answer: '',
-        meta: { schemaVersion: CURRENT_SCHEMA_VERSION }
-      },
-      {
-        type: 'checkBoxes',
-        answer: [],
-        meta: { schemaVersion: CURRENT_SCHEMA_VERSION }
-      },
-      {
-        type: 'selectBox',
-        answer: '',
-        meta: { schemaVersion: CURRENT_SCHEMA_VERSION }
-      },
-      {
-        type: 'date',
-        answer: '',
-        meta: { schemaVersion: CURRENT_SCHEMA_VERSION }
-      },
-      {
-        type: 'numberWithContext',
-        answer: { value: undefined, context: '' },
-        meta: { schemaVersion: CURRENT_SCHEMA_VERSION }
-      },
-      {
-        type: 'repositorySearch',
-        answer: [],
-        meta: { schemaVersion: CURRENT_SCHEMA_VERSION }
-      },
-      {
-        type: 'metadataStandardSearch',
-        answer: [],
-        meta: { schemaVersion: CURRENT_SCHEMA_VERSION }
-      },
-      {
-        type: 'licenseSearch',
-        answer: [],
-        meta: { schemaVersion: CURRENT_SCHEMA_VERSION }
+        meta: DefaultMeta
       }
     ]
-  }])
-}));
+  }],
+  meta: DefaultMeta
+});
 
 // This will ensure that object validations are against the Zod schemas defined above
 export type TableAnswerType = z.infer<typeof TableAnswerSchema>;
 export type ResearchOutputTableAnswerType = z.infer<typeof ResearchOutputTableAnswerSchema>;
 export type AnyTableColumnAnswerType = z.infer<typeof AnyTableColumnAnswerSchema>;
+
+export const TableAnswerJSONSchema = z.toJSONSchema(TableAnswerSchema);
+export const ResearchOutputTableAnswerJSONSchema = z.toJSONSchema(ResearchOutputTableAnswerSchema);
+export const AnyTableColumnAnswerJSONSchema = z.toJSONSchema(AnyTableColumnAnswerSchema);

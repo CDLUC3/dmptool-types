@@ -1,4 +1,4 @@
-import {describe, expect, it} from "@jest/globals";
+import { describe, expect, it } from "@jest/globals";
 import {
   affiliationQuery,
   AffiliationSearchQuestionSchema,
@@ -115,6 +115,7 @@ describe("LicenseSearchQuestion schema", () => {
     expect(() => LicenseSearchQuestionSchema.parse(invalidData)).toThrow();
   });
 });
+
 
 describe("MetadataStandardSearchQuestion schema", () => {
   it("should validate a correct MetadataStandardSearchQuestion object", () => {

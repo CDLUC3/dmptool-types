@@ -7,7 +7,7 @@ This package provides Types, Zod schemas and JSON schemas to aide in integration
 The current version of the schemas can always be found in `CURRENT_SCHEMA_VERSION`. You will need to include the version is any object you create using the types in this file.
 
 Naming conventions:
-- Zod schemas do not include the word `Type` (e.g. `BooleanQuestion`, `CheckboxesAnswer`)
+- Zod schemas include the word `Schema` (e.g. `BooleanQuestionSchema`, `CheckboxesAnswerSchema`)
 - Types include the word `Type` (e.g. `BooleanQuestionType`, `CheckboxesAnswerType`)
 
 ## DMP Template Support

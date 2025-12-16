@@ -1,4 +1,7 @@
-import { DateQuestionSchema, DateRangeQuestionSchema } from "../dateQuestions";
+import {
+  DateQuestionSchema,
+  DateRangeQuestionSchema
+} from "../dateQuestions";
 
 describe("DateQuestion", () => {
   it("should validate a valid DateQuestion object", () => {
@@ -52,6 +55,9 @@ describe("DateRangeQuestion", () => {
   it("should validate a valid DateRangeQuestion object", () => {
     const validDateRange = {
       type: "dateRange",
+      attributes: {
+        label: "Date Range",
+      },
       columns: {
         start: {
           label: "Start Date",

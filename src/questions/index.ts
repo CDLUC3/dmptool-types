@@ -1,37 +1,79 @@
 import { z } from 'zod';
 import { QuestionFormatsEnum } from './question';
 import {
-  CurrencyQuestionSchema, CurrencyQuestionType,
-  NumberQuestionSchema, NumberQuestionType,
-  NumberRangeQuestionSchema, NumberRangeQuestionType,
-  NumberWithContextQuestionSchema, NumberWithContextQuestionType,
+  CurrencyQuestionSchema,
+  CurrencyQuestionType,
+  DefaultCurrencyQuestion,
+  DefaultNumberQuestion,
+  DefaultNumberRangeQuestion,
+  DefaultNumberWithContextQuestion,
+  NumberQuestionSchema,
+  NumberQuestionType,
+  NumberRangeQuestionSchema,
+  NumberRangeQuestionType,
+  NumberWithContextQuestionSchema,
+  NumberWithContextQuestionType,
 } from "./numberQuestions";
 import {
-  EmailQuestionSchema, EmailQuestionType,
-  TextAreaQuestionSchema, TextAreaQuestionType,
-  TextQuestionSchema, TextQuestionType,
-  URLQuestionSchema, URLQuestionType
+  DefaultEmailQuestion,
+  DefaultTextAreaQuestion,
+  DefaultTextQuestion,
+  DefaultURLQuestion,
+  EmailQuestionSchema,
+  EmailQuestionType,
+  TextAreaQuestionSchema,
+  TextAreaQuestionType,
+  TextQuestionSchema,
+  TextQuestionType,
+  URLQuestionSchema,
+  URLQuestionType
 } from "./textQuestions";
 import {
-  DateQuestionSchema, DateQuestionType,
-  DateRangeQuestionSchema, DateRangeQuestionType
+  DateQuestionSchema,
+  DateQuestionType,
+  DateRangeQuestionSchema,
+  DateRangeQuestionType,
+  DefaultDateQuestion,
+  DefaultDateRangeQuestion
 } from "./dateQuestions";
 import {
-  BooleanQuestionSchema, BooleanQuestionType,
-  CheckboxesQuestionSchema, CheckboxesQuestionType,
-  RadioButtonsQuestionSchema, RadioButtonsQuestionType,
-  SelectBoxQuestionSchema, SelectBoxQuestionType,
-  MultiselectBoxQuestionSchema, MultiselectBoxQuestionType,
+  BooleanQuestionSchema,
+  BooleanQuestionType,
+  CheckboxesQuestionSchema,
+  CheckboxesQuestionType,
+  RadioButtonsQuestionSchema,
+  RadioButtonsQuestionType,
+  SelectBoxQuestionSchema,
+  SelectBoxQuestionType,
+  MultiselectBoxQuestionSchema,
+  MultiselectBoxQuestionType,
+  DefaultCheckboxesQuestion,
+  DefaultMultiselectBoxQuestion,
+  DefaultRadioButtonsQuestion,
+  DefaultSelectBoxQuestion,
+  DefaultBooleanQuestion,
 } from './optionBasedQuestions';
 import {
-  AffiliationSearchQuestionSchema, AffiliationSearchQuestionType,
-  LicenseSearchQuestionSchema, LicenseSearchQuestionType,
-  MetadataStandardSearchQuestionSchema, MetadataStandardSearchQuestionType,
-  RepositorySearchQuestionSchema, RepositorySearchQuestionType,
+  AffiliationSearchQuestionSchema,
+  AffiliationSearchQuestionType,
+  DefaultAffiliationSearchQuestion,
+  DefaultLicenseSearchQuestion,
+  DefaultMetadataStandardSearchQuestion,
+  DefaultRepositorySearchQuestion,
+  LicenseSearchQuestionSchema,
+  LicenseSearchQuestionType,
+  MetadataStandardSearchQuestionSchema,
+  MetadataStandardSearchQuestionType,
+  RepositorySearchQuestionSchema,
+  RepositorySearchQuestionType,
 } from './graphQLQuestions';
 import {
-  TableQuestionSchema, TableQuestionType,
-  ResearchOutputTableQuestionSchema, ResearchOutputTableQuestionType,
+  TableQuestionSchema,
+  TableQuestionType,
+  ResearchOutputTableQuestionSchema,
+  ResearchOutputTableQuestionType,
+  DefaultResearchOutputTableQuestion,
+  DefaultTableQuestion,
 } from './tableQuestions';
 
 // Export all the questions
@@ -116,5 +158,55 @@ export interface QuestionTypeMap {
   url: URLQuestionType
 };
 
+export type AllDefaultQuestionTypes =
+  | typeof DefaultAffiliationSearchQuestion
+  | typeof DefaultBooleanQuestion
+  | typeof DefaultCheckboxesQuestion
+  | typeof DefaultCurrencyQuestion
+  | typeof DefaultDateQuestion
+  | typeof DefaultDateRangeQuestion
+  | typeof DefaultEmailQuestion
+  | typeof DefaultLicenseSearchQuestion
+  | typeof DefaultMetadataStandardSearchQuestion
+  | typeof DefaultMultiselectBoxQuestion
+  | typeof DefaultNumberQuestion
+  | typeof DefaultNumberRangeQuestion
+  | typeof DefaultNumberWithContextQuestion
+  | typeof DefaultRadioButtonsQuestion
+  | typeof DefaultRepositorySearchQuestion
+  | typeof DefaultResearchOutputTableQuestion
+  | typeof DefaultSelectBoxQuestion
+  | typeof DefaultTableQuestion
+  | typeof DefaultTextAreaQuestion
+  | typeof DefaultTextQuestion
+  | typeof DefaultURLQuestion;
+
+// Export a mapping between the Types and their corresponding default structures
+export const QuestionDefaultMap: Record<z.infer<typeof QuestionFormatsEnum>, AllDefaultQuestionTypes> = {
+  affiliationSearch: DefaultAffiliationSearchQuestion,
+  boolean: DefaultAffiliationSearchQuestion,
+  checkBoxes: DefaultCheckboxesQuestion,
+  currency: DefaultCurrencyQuestion,
+  date: DefaultDateQuestion,
+  dateRange: DefaultDateRangeQuestion,
+  email: DefaultEmailQuestion,
+  licenseSearch: DefaultLicenseSearchQuestion,
+  metadataStandardSearch: DefaultMetadataStandardSearchQuestion,
+  multiselectBox: DefaultMultiselectBoxQuestion,
+  number: DefaultNumberQuestion,
+  numberRange: DefaultNumberRangeQuestion,
+  numberWithContext: DefaultNumberWithContextQuestion,
+  radioButtons: DefaultRadioButtonsQuestion,
+  repositorySearch: DefaultRepositorySearchQuestion,
+  researchOutputTable: DefaultResearchOutputTableQuestion,
+  selectBox: DefaultSelectBoxQuestion,
+  table: DefaultResearchOutputTableQuestion,
+  text: DefaultTextQuestion,
+  textArea: DefaultTextAreaQuestion,
+  url: DefaultURLQuestion,
+};
+
 // This will ensure that object validations are against the Zod schemas defined above
 export type AnyQuestionType = z.infer<typeof AnyQuestionSchema>;
+
+export const AnyQuestionJSONSchema = z.toJSONSchema(AnyQuestionSchema);

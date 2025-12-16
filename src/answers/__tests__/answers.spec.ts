@@ -13,8 +13,17 @@ import {
   RadioButtonsAnswerSchema,
   SelectBoxAnswerSchema
 } from '../optionBasedAnswers';
-import { CurrencyAnswerSchema, NumberAnswerSchema, NumberRangeAnswerSchema,} from '../numberAnswers';
-import { EmailAnswerSchema, TextAnswerSchema, TextAreaAnswerSchema, URLAnswerSchema } from '../textAnswers';
+import {
+  CurrencyAnswerSchema,
+  NumberAnswerSchema,
+  NumberRangeAnswerSchema
+} from '../numberAnswers';
+import {
+  EmailAnswerSchema,
+  TextAnswerSchema,
+  TextAreaAnswerSchema,
+  URLAnswerSchema
+} from '../textAnswers';
 import {
   ResearchOutputTableAnswerSchema,
   TableAnswerSchema

@@ -1,6 +1,6 @@
 {
   "name": "@dmptool/types",
-  "version": "1.2.6",
+  "version": "2.0.0",
   "description": "TypeScript types for DMPTool",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -19,7 +19,7 @@
     "access": "public"
   },
   "scripts": {
-    "build": "npm run clean && npm run generate && tsc && npm run copy:schemas",
+    "build": "npm run clean && tsc",
     "clean": "rm -rf dist",
     "copy:schemas": "node scripts/copySchemas.mjs",
     "generate": "ts-node scripts/generateSchemas.ts",
@@ -32,8 +32,7 @@
     "trivy-med": "./scripts/trivy-med.sh"
   },
   "dependencies": {
-    "zod": "3.24.4",
-    "zod-to-json-schema": "3.24.5"
+    "zod": "4.1.13"
   },
   "devDependencies": {
     "@eslint/js": "^9.26.0",

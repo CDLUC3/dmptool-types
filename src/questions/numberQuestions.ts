@@ -1,48 +1,105 @@
 import { z } from "zod";
-import { QuestionSchema } from "./question";
+import {
+  BaseAttributesSchema,
+  DefaultMeta,
+  QuestionSchema
+} from "./question";
 
-const BaseAttributes = QuestionSchema.shape.attributes;
-
-const NumberAttributesSchema = BaseAttributes.merge(z.object({
+const NumberAttributesSchema = z.object({
+  ...BaseAttributesSchema.shape,
   max: z.number().optional(),
   min: z.number().default(0),
   step: z.number().default(1)   // For floats, use a decimal with the level of precision: 0.01
-}))
+});
+const DefaultNumberAttributes = NumberAttributesSchema.parse({});
 
-export const CurrencyQuestionSchema = QuestionSchema.merge(z.object({
+export const CurrencyQuestionSchema = z.object({
+  ...QuestionSchema.shape,
   type: z.literal('currency'),
-  attributes: NumberAttributesSchema.merge(z.object({
+  attributes: z.object({
+    ...NumberAttributesSchema.shape,
     denomination: z.string().default('USD')
-  })).default({})
-}));
+  })
+});
+export const DefaultCurrencyQuestion = CurrencyQuestionSchema.parse({
+  type: 'currency',
+  attributes: DefaultNumberAttributes,
+  meta: DefaultMeta
+})
 
-export const NumberQuestionSchema = QuestionSchema.merge(z.object({
+export const NumberQuestionSchema = z.object({
+  ...QuestionSchema.shape,
   type: z.literal('number'),
-  attributes: NumberAttributesSchema.default({})
-}));
+  attributes: NumberAttributesSchema
+});
+export const DefaultNumberQuestion = NumberQuestionSchema.parse({
+  type: 'number',
+  attributes: DefaultNumberAttributes,
+  meta: DefaultMeta
+});
 
-export const NumberRangeQuestionSchema = QuestionSchema.merge(z.object({
+const NumberRangeStartColumnSchema = z.object({
+  ...NumberAttributesSchema.shape,
+  label: z.string().default('From'),
+  labelTranslationKey: z.string().optional(),
+});
+
+const NumberRangeEndColumnSchema = z.object({
+  ...NumberAttributesSchema.shape,
+  label: z.string().default('To'),
+  labelTranslationKey: z.string().optional(),
+})
+
+export const NumberRangeQuestionSchema = z.object({
+  ...QuestionSchema.shape,
   type: z.literal('numberRange'),
-  attributes: BaseAttributes.default({}),
   columns: z.object({
-    start: NumberAttributesSchema.default({ label: 'From' }),
-    end: NumberAttributesSchema.default({ label: 'To' }),
-  }).default({})
-}));
+    start: NumberRangeStartColumnSchema,
+    end: NumberRangeEndColumnSchema
+  })
+});
+export const DefaultNumberRangeQuestion = NumberRangeQuestionSchema.parse({
+  type: 'numberRange',
+  attributes: BaseAttributesSchema.parse({}),
+  meta: DefaultMeta,
+  columns: {
+    start: NumberRangeStartColumnSchema.parse({}),
+    end: NumberRangeEndColumnSchema.parse({})
+  }
+})
 
-export const NumberWithContextQuestionSchema = QuestionSchema.merge(z.object({
+const NumberWithContextAttributesSchema = z.object({
+  ...NumberAttributesSchema.shape,
+  // Additional context or description for the number input (e.g. units, explanation, etc.)
+  context: z.array(z.object({
+    label: z.string().default(''),
+    labelTranslationKey: z.string().optional(),
+    value: z.string().default(''),
+    selected: z.boolean().default(false)
+  }))
+});
+const DefaultNumberWithContextAttributes = NumberWithContextAttributesSchema.parse({
+  ...DefaultNumberQuestion.attributes,
+  context: []
+});
+
+export const NumberWithContextQuestionSchema = z.object({
+  ...QuestionSchema.shape,
   type: z.literal('numberWithContext'),
-  attributes: NumberAttributesSchema.merge(z.object({
-    // Additional context or description for the number input (e.g. units, explanation, etc.)
-    context: z.array(z.object({
-      label: z.string().default(''),
-      labelTranslationKey: z.string().optional(),
-      value: z.string().default('')
-    })).default([])
-  })).default({})
-}));
+  attributes: NumberWithContextAttributesSchema
+});
+export const DefaultNumberWithContextQuestion = NumberWithContextQuestionSchema.parse({
+  type: 'numberWithContext',
+  attributes: DefaultNumberWithContextAttributes,
+  meta: DefaultMeta
+});
 
 export type CurrencyQuestionType = z.infer<typeof CurrencyQuestionSchema>;
 export type NumberQuestionType = z.infer<typeof NumberQuestionSchema>;
 export type NumberRangeQuestionType = z.infer<typeof NumberRangeQuestionSchema>;
 export type NumberWithContextQuestionType = z.infer<typeof NumberWithContextQuestionSchema>;
+
+export const CurrencyQuestionJSONSchema = z.toJSONSchema(CurrencyQuestionSchema);
+export const NumberQuestionJSONSchema = z.toJSONSchema(NumberQuestionSchema);
+export const NumberRangeQuestionJSONSchema = z.toJSONSchema(NumberRangeQuestionSchema);
+export const NumberWithContextQuestionJSONSchema = z.toJSONSchema(NumberWithContextQuestionSchema);
