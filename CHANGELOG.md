@@ -1,5 +1,11 @@
 # dmptool-types CHANGELOG
 
+# v2.1.0
+- Added script to fetch the latest RDA Common Standard JSON schema
+- Added logic to generate types from the RDA Common Standard JSON schema
+- Added DMP Tool Extensions for DMP schemas and types
+- Added tests for RDA Common Standard schema and DMP Tool extensions
+
 # v1.3.0
 - Upgrade Zod to version 4
 - Removed `zod-to-json-schema` as this is now a part of Zod 4
