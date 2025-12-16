@@ -1,5 +1,11 @@
 # dmptool-types CHANGELOG
 
+# v1.3.0
+- Upgrade Zod to version 4
+- Removed `zod-to-json-schema` as this is now a part of Zod 4
+- Updated `generateSchemas` script to use the new built-in Zod JSON schema generation
+- Updated all Zod schemas to define both a Schema and a Default
+
 - Fixed issue with researchOutputTable preferences being filtered out in validation
 - Added CONTRIBUTING.md, CODE_OF_CONDUCT.md and PULL_REQUEST_TEMPLATE.md
 # v1.2.4

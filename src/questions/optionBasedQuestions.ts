@@ -35,16 +35,18 @@ const DefaultSelectBoxAttributes = selectBoxAttributes.parse({
 export const BooleanQuestionSchema = z.object({
   ...QuestionSchema.shape,
   type: z.literal('boolean'),
-  options: z.array(SelectedOptionSchema).min(2).max(2)
+  attributes: z.object({
+    label: z.string(),
+    value: z.boolean().default(false),
+  })
 });
 export const DefaultBooleanQuestion = BooleanQuestionSchema.parse({
   type: 'boolean',
-  attributes: { label: "Yes or no" },
-  meta: DefaultMeta,
-  options: [
-    { label: 'Yes', value: 'yes', selected: false },
-    { label: 'No', value: 'no', selected: false }
-  ]
+  attributes: {
+    label: 'Is it true?',
+    value: false,
+  },
+  meta: DefaultMeta
 });
 
 // Check boxes question and answer

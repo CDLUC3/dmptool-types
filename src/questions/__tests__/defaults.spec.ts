@@ -63,12 +63,11 @@ describe('questions return the expected defaults', () => {
   it('returns the expected default boolean', () => {
     const expected = {
       type: "boolean",
-      attributes: { label: 'Yes or no' },
-      meta: { schemaVersion: "1.0" },
-      options: [
-        { selected: false, label: 'Yes', value: 'yes' },
-        { selected: false, label: 'No', value: 'no' }
-      ]
+      attributes: {
+        label: 'Is it true?',
+        value: false
+      },
+      meta: { schemaVersion: "1.0" }
     };
     expect(DefaultBooleanQuestion).toEqual(expected);
   });
@@ -285,9 +284,7 @@ describe('questions return the expected defaults', () => {
       columns: [
         {
           heading: "Title",
-          headingTranslationKey: "researchOutput.title.heading",
           help: "Enter the title of this research output",
-          helpTranslationKey: "researchOutput.title.help",
           required: true,
           enabled: true,
           content: {
@@ -298,9 +295,7 @@ describe('questions return the expected defaults', () => {
         },
         {
           heading: "Description",
-          headingTranslationKey: "researchOutput.description.heading",
           help: "Enter a brief description of this research output",
-          helpTranslationKey: "researchOutput.description.help",
           required: false,
           enabled: false,
           content: {
@@ -316,9 +311,7 @@ describe('questions return the expected defaults', () => {
         },
         {
           heading: "Type",
-          headingTranslationKey: "researchOutput.type.heading",
           help: "Select the type of this research output",
-          helpTranslationKey: "researchOutput.type.help",
           required: true,
           enabled: true,
           content: {
@@ -334,9 +327,7 @@ describe('questions return the expected defaults', () => {
         },
         {
           heading: 'Data Flags',
-          headingTranslationKey: 'researchOutput.dataFlags.heading',
           help: 'Mark all of the statements that are true about the dataset',
-          helpTranslationKey: 'researchOutput.dataFlags.help',
           required: false,
           enabled: false,
           content: {
@@ -359,9 +350,7 @@ describe('questions return the expected defaults', () => {
         },
         {
           heading: 'Access Level',
-          headingTranslationKey: 'researchOutput.accessLevel.heading',
           help: 'Select the access level for this research output',
-          helpTranslationKey: 'researchOutput.accessLevel.help',
           required: false,
           enabled: false,
           content: {
@@ -377,9 +366,7 @@ describe('questions return the expected defaults', () => {
         },
         {
           heading: "Anticipated Release Date",
-          headingTranslationKey: "researchOutput.releaseDate.heading",
           help: "The anticipated release date for the research output",
-          helpTranslationKey: "researchOutput.releaseDate.help",
           required: false,
           enabled: false,
           content: {
@@ -392,9 +379,7 @@ describe('questions return the expected defaults', () => {
         },
         {
           heading: "Byte Size",
-          headingTranslationKey: "researchOutput.byteSize.heading",
           help: "The size of the research output in bytes",
-          helpTranslationKey: "researchOutput.byteSize.help",
           required: false,
           enabled: false,
           content: {
@@ -418,9 +403,7 @@ describe('questions return the expected defaults', () => {
         },
         {
           heading: "Repository(ies)",
-          headingTranslationKey: "researchOutput.repository.heading",
           help: "Select repository(ies) you would prefer users to deposit in",
-          helpTranslationKey: "researchOutput.repository.help",
           required: false,
           enabled: false,
           preferences: [],
@@ -489,9 +472,7 @@ describe('questions return the expected defaults', () => {
         },
         {
           heading: "Metadata Standard(s)",
-          headingTranslationKey: "researchOutput.metadataStandard.heading",
           help: "Select metadata standard(s) you would prefer users to use",
-          helpTranslationKey: "researchOutput.metadataStandard.help",
           required: false,
           enabled: false,
           preferences: [],
@@ -553,9 +534,7 @@ describe('questions return the expected defaults', () => {
         },
         {
           heading: "License",
-          headingTranslationKey: "researchOutput.license.heading",
           help: "Select the license you will apply to the research output",
-          helpTranslationKey: "researchOutput.license.help",
           required: false,
           enabled: false,
           preferences: [],
@@ -602,8 +581,19 @@ describe('questions return the expected defaults', () => {
             },
             meta: { schemaVersion: "1.0" }
           }
+        },
+        {
+          heading: "Custom Column",
+          help: "Explanation of what we expect the user to enter.",
+          required: false,
+          enabled: false,
+          content: {
+            type: "text",
+            attributes: { maxLength: 255 },
+            meta: { schemaVersion: "1.0" },
+          }
         }
-      ],
+      ]
     };
     expect(DefaultResearchOutputTableQuestion).toEqual(expected);
   });

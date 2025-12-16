@@ -32,12 +32,9 @@ describe("BooleanQuestion", () => {
         schemaVersion: "1.0",
       },
       attributes: {
-        label: "Is it true?"
-      },
-      options: [
-        { selected: true, label: 'Yes', value: '1' },
-        { selected: false, label: 'No', value: '0' }
-      ]
+        label: "Is it true?",
+        value: true
+      }
     };
     expect(() => BooleanQuestionSchema.parse(validBooleanQuestion)).not.toThrow();
   });
