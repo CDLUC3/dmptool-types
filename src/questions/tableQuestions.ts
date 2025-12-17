@@ -345,7 +345,6 @@ const AnyResearchOutputColumnSchema = z.union([
   ResearchOutputRepositoryColumnSchema,
   ResearchOutputMetadataStandardColumnSchema,
   ResearchOutputLicenseColumnSchema,
-  ResearchOutputCustomColumnSchema,
   ResearchOutputCustomColumnSchema
 ]);
 
@@ -377,6 +376,8 @@ export const DefaultResearchOutputTableQuestion = ResearchOutputTableQuestionSch
 // This will ensure that object validations are against the Zod schemas defined above
 export type TableQuestionType = z.infer<typeof TableQuestionSchema>;
 export type AnyTableColumnQuestionType = z.infer<typeof AnyTableColumnQuestionSchema>;
+export type ResearchOutputCustomTableColumnType = z.infer<typeof ResearchOutputCustomColumnSchema>;
+export type AnyResearchOutputColumnType = z.infer<typeof AnyResearchOutputColumnSchema>;
 export type ResearchOutputTableQuestionType = z.infer<typeof ResearchOutputTableQuestionSchema>;
 
 export const AnyTableColumnQuestionJSONSchema = z.toJSONSchema(AnyTableColumnQuestionSchema);
