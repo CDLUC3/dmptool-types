@@ -306,7 +306,9 @@ const DefaultResearchOutputLicenseColumn = ResearchOutputLicenseColumnSchema.par
 
 const ResearchOutputCustomContentAttributesSchema = TextQuestionSchema.shape.attributes.extend({
   label: z.string().optional(),
-  help: z.string().optional()
+  help: z.string().optional(),
+  maxLength: z.number().optional(),
+  defaultValue: z.string().optional(),
 });
 const DefaultResearchOutputCustomContentAttributes = ResearchOutputCustomContentAttributesSchema.parse({});
 
