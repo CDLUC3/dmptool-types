@@ -40,6 +40,7 @@ describe('Get question answer defaultJSON', () => {
     const expected = {
       type: "boolean",
       answer: false,
+      comment: "",
       meta: { schemaVersion: CURRENT_SCHEMA_VERSION },
     };
     expect(DefaultBooleanAnswer).toEqual(expected);
@@ -49,6 +50,7 @@ describe('Get question answer defaultJSON', () => {
     const expected = {
       type: "checkBoxes",
       answer: [],
+      comment: "",
       meta: { schemaVersion: CURRENT_SCHEMA_VERSION },
     };
     expect(DefaultCheckboxesAnswer).toEqual(expected);
@@ -58,6 +60,7 @@ describe('Get question answer defaultJSON', () => {
     const expected = {
       type: "currency",
       answer: 0,
+      comment: "",
       meta: { schemaVersion: CURRENT_SCHEMA_VERSION },
     };
     expect(DefaultCurrencyAnswer).toEqual(expected);
@@ -67,6 +70,7 @@ describe('Get question answer defaultJSON', () => {
     const expected = {
       type: "date",
       answer: "",
+      comment: "",
       meta: { schemaVersion: CURRENT_SCHEMA_VERSION },
     };
     expect(DefaultDateAnswer).toEqual(expected);
@@ -78,6 +82,7 @@ describe('Get question answer defaultJSON', () => {
       answer: {
         start: "",
         end: "",
+        comment: "",
       },
       meta: { schemaVersion: CURRENT_SCHEMA_VERSION },
     };
@@ -88,6 +93,7 @@ describe('Get question answer defaultJSON', () => {
     const expected = {
       type: "email",
       answer: "",
+      comment: "",
       meta: { schemaVersion: CURRENT_SCHEMA_VERSION },
     };
     expect(DefaultEmailAnswer).toEqual(expected);
@@ -121,6 +127,7 @@ describe('Get question answer defaultJSON', () => {
     const expected = {
       type: "multiselectBox",
       answer: [],
+      comment: "",
       meta: { schemaVersion: CURRENT_SCHEMA_VERSION },
     };
     expect(DefaultMultiselectBoxAnswer).toEqual(expected);
@@ -130,6 +137,7 @@ describe('Get question answer defaultJSON', () => {
     const expected = {
       type: "number",
       answer: 0,
+      comment: "",
       meta: { schemaVersion: CURRENT_SCHEMA_VERSION },
     };
     expect(DefaultNumberAnswer).toEqual(expected);
@@ -142,6 +150,7 @@ describe('Get question answer defaultJSON', () => {
         start: 0,
         end: 0,
       },
+      comment: "",
       meta: { schemaVersion: CURRENT_SCHEMA_VERSION },
     };
     expect(DefaultNumberRangeAnswer).toEqual(expected);
@@ -154,6 +163,7 @@ describe('Get question answer defaultJSON', () => {
         value: 0,
         context: "",
       },
+      comment: "",
       meta: { schemaVersion: CURRENT_SCHEMA_VERSION },
     };
     expect(DefaultNumberWithContextAnswer).toEqual(expected);
@@ -163,6 +173,7 @@ describe('Get question answer defaultJSON', () => {
     const expected = {
       type: "radioButtons",
       answer: "",
+      comment: "",
       meta: { schemaVersion: CURRENT_SCHEMA_VERSION },
     };
     expect(DefaultRadioButtonsAnswer).toEqual(expected);
@@ -194,6 +205,7 @@ describe('Get question answer defaultJSON', () => {
           {
             type: "selectBox",
             answer: "",
+            comment: "",
             meta: { schemaVersion: CURRENT_SCHEMA_VERSION },
           }
         ]
@@ -207,6 +219,7 @@ describe('Get question answer defaultJSON', () => {
     const expected = {
       type: "selectBox",
       answer: "",
+      comment: "",
       meta: { schemaVersion: CURRENT_SCHEMA_VERSION },
     };
     expect(DefaultSelectBoxAnswer).toEqual(expected);
@@ -250,6 +263,7 @@ describe('Get question answer defaultJSON', () => {
     const expected = {
       type: "url",
       answer: "",
+      comment: "",
       meta: { schemaVersion: CURRENT_SCHEMA_VERSION },
     };
     expect(DefaultURLAnswer).toEqual(expected);

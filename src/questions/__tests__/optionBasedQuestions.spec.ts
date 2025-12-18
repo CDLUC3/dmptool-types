@@ -75,7 +75,8 @@ describe("CheckboxesQuestion", () => {
       ],
       meta: {
         schemaVersion: "1.0"
-      }
+      },
+      showCommentField: false
     };
 
     expect(() => CheckboxesQuestionSchema.parse(validCheckboxesQuestion)).not.toThrow();
@@ -126,7 +127,8 @@ describe("RadioButtonsQuestion", () => {
       ],
       meta: {
         schemaVersion: "1.0"
-      }
+      },
+      showCommentField: false
     };
 
     expect(() => RadioButtonsQuestionSchema.parse(validRadioButtonsQuestion)).not.toThrow();
@@ -174,7 +176,8 @@ describe("SelectBoxQuestion", () => {
       ],
       meta: {
         schemaVersion: "1.0"
-      }
+      },
+      showCommentField: false
     };
 
     expect(() => SelectBoxQuestionSchema.parse(validSelectBoxQuestion)).not.toThrow();
@@ -227,7 +230,8 @@ describe("MultiselectBoxQuestion", () => {
       ],
       meta: {
         schemaVersion: "1.0"
-      }
+      },
+      showCommentField: false
     };
 
     expect(() => MultiselectBoxQuestionSchema.parse(validSelectBoxQuestion)).not.toThrow();
@@ -255,4 +259,3 @@ describe("MultiselectBoxQuestion", () => {
     expect(() => MultiselectBoxQuestionSchema.parse(invalidSelectBoxQuestion)).toThrow();
   });
 });
-

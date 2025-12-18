@@ -7,23 +7,27 @@ import { DefaultMeta } from "../questions";
 export const CurrencyAnswerSchema = z.object({
   ...AnswerSchema.shape,
   type: z.literal('currency'),
-  answer: z.number().default(0)
+  answer: z.number().default(0),
+  comment: z.string().optional().default('')
 });
 export const DefaultCurrencyAnswer = CurrencyAnswerSchema.parse({
   type: 'currency',
   answer: 0,
-  meta: DefaultMeta
+  meta: DefaultMeta,
+  comment: ''
 });
 
 export const NumberAnswerSchema = z.object({
   ...AnswerSchema.shape,
   type: z.literal('number'),
-  answer: z.number().default(0)
+  answer: z.number().default(0),
+  comment: z.string().optional().default('')
 });
 export const DefaultNumberAnswer = NumberAnswerSchema.parse({
   type: 'number',
   answer: 0,
-  meta: DefaultMeta
+  meta: DefaultMeta,
+  comment: ''
 });
 
 export const NumberRangeAnswerSchema = z.object({
@@ -32,7 +36,8 @@ export const NumberRangeAnswerSchema = z.object({
   answer: z.object({
     start: z.number().default(0),                        // The start number
     end: z.number() .default(0)                          // The end number
-  })
+  }),
+  comment: z.string().optional().default('')
 });
 export const DefaultNumberRangeAnswer = NumberRangeAnswerSchema.parse({
   type: 'numberRange',
@@ -40,7 +45,8 @@ export const DefaultNumberRangeAnswer = NumberRangeAnswerSchema.parse({
     start: 0,
     end: 0
   },
-  meta: DefaultMeta
+  meta: DefaultMeta,
+  comment: ''
 });
 
 export const NumberWithContextAnswerSchema = z.object({
@@ -49,7 +55,8 @@ export const NumberWithContextAnswerSchema = z.object({
   answer: z.object ({
     value: z.number().default(0),
     context: z.string().default('')                       // Additional context for the number
-  })
+  }),
+  comment: z.string().optional().default('')
 });
 export const DefaultNumberWithContextAnswer = NumberWithContextAnswerSchema.parse({
   type: 'numberWithContext',
@@ -57,7 +64,8 @@ export const DefaultNumberWithContextAnswer = NumberWithContextAnswerSchema.pars
     value: 0,
     context: ''
   },
-  meta: DefaultMeta
+  meta: DefaultMeta,
+  comment: ''
 });
 
 // This will ensure that object validations are against the Zod schemas defined above

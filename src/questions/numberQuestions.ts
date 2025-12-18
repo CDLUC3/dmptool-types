@@ -19,23 +19,27 @@ export const CurrencyQuestionSchema = z.object({
   attributes: z.object({
     ...NumberAttributesSchema.shape,
     denomination: z.string().default('USD')
-  })
+  }),
+  showCommentField: z.boolean().optional().default(false)
 });
 export const DefaultCurrencyQuestion = CurrencyQuestionSchema.parse({
   type: 'currency',
   attributes: DefaultNumberAttributes,
-  meta: DefaultMeta
+  meta: DefaultMeta,
+  showCommentField: false
 })
 
 export const NumberQuestionSchema = z.object({
   ...QuestionSchema.shape,
   type: z.literal('number'),
-  attributes: NumberAttributesSchema
+  attributes: NumberAttributesSchema,
+  showCommentField: z.boolean().optional().default(false)
 });
 export const DefaultNumberQuestion = NumberQuestionSchema.parse({
   type: 'number',
   attributes: DefaultNumberAttributes,
-  meta: DefaultMeta
+  meta: DefaultMeta,
+  showCommentField: false
 });
 
 const NumberRangeStartColumnSchema = z.object({
@@ -56,7 +60,8 @@ export const NumberRangeQuestionSchema = z.object({
   columns: z.object({
     start: NumberRangeStartColumnSchema,
     end: NumberRangeEndColumnSchema
-  })
+  }),
+  showCommentField: z.boolean().optional().default(false)
 });
 export const DefaultNumberRangeQuestion = NumberRangeQuestionSchema.parse({
   type: 'numberRange',
@@ -65,7 +70,8 @@ export const DefaultNumberRangeQuestion = NumberRangeQuestionSchema.parse({
   columns: {
     start: NumberRangeStartColumnSchema.parse({}),
     end: NumberRangeEndColumnSchema.parse({})
-  }
+  },
+  showCommentField: false
 })
 
 const NumberWithContextAttributesSchema = z.object({
@@ -80,18 +86,20 @@ const NumberWithContextAttributesSchema = z.object({
 });
 const DefaultNumberWithContextAttributes = NumberWithContextAttributesSchema.parse({
   ...DefaultNumberQuestion.attributes,
-  context: []
+  context: [],
 });
 
 export const NumberWithContextQuestionSchema = z.object({
   ...QuestionSchema.shape,
   type: z.literal('numberWithContext'),
-  attributes: NumberWithContextAttributesSchema
+  attributes: NumberWithContextAttributesSchema,
+  showCommentField: z.boolean().optional().default(false)
 });
 export const DefaultNumberWithContextQuestion = NumberWithContextQuestionSchema.parse({
   type: 'numberWithContext',
   attributes: DefaultNumberWithContextAttributes,
-  meta: DefaultMeta
+  meta: DefaultMeta,
+  showCommentField: false
 });
 
 export type CurrencyQuestionType = z.infer<typeof CurrencyQuestionSchema>;

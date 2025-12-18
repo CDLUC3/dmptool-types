@@ -7,12 +7,14 @@ import { DefaultMeta } from "../questions";
 export const DateAnswerSchema = z.object({
   ...AnswerSchema.shape,
   type: z.literal('date'),
-  answer: z.string().default('')
+  answer: z.string().default(''),
+  comment: z.string().optional().default('')
 });
 export const DefaultDateAnswer = DateAnswerSchema.parse({
   type: 'date',
   answer: '',
-  meta: DefaultMeta
+  meta: DefaultMeta,
+  comment: ''
 });
 
 export const DateRangeAnswerSchema = z.object({
@@ -20,7 +22,8 @@ export const DateRangeAnswerSchema = z.object({
   type: z.literal('dateRange'),
   answer: z.object({
     start: z.string().default(''),           // The start date (string)
-    end: z.string().default('')              // The end date (string)
+    end: z.string().default(''),              // The end date (string)
+    comment: z.string().optional().default('')
   })
 });
 export const DefaultDateRangeAnswer = DateRangeAnswerSchema.parse({
@@ -29,7 +32,8 @@ export const DefaultDateRangeAnswer = DateRangeAnswerSchema.parse({
     start: '',
     end: ''
   },
-  meta: DefaultMeta
+  meta: DefaultMeta,
+  comment: ''
 });
 
 // This will ensure that object validations are against the Zod schemas defined above
