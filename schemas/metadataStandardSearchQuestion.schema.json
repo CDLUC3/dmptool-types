@@ -1,174 +1,141 @@
 {
-  "$ref": "#/definitions/MetadataStandardSearchQuestion",
-  "definitions": {
-    "MetadataStandardSearchQuestion": {
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "type": {
+      "type": "string",
+      "const": "metadataStandardSearch"
+    },
+    "attributes": {
       "type": "object",
       "properties": {
-        "type": {
-          "type": "string",
-          "const": "metadataStandardSearch"
+        "label": {
+          "type": "string"
         },
-        "attributes": {
-          "type": "object",
-          "properties": {
-            "label": {
-              "type": "string"
-            },
-            "help": {
-              "type": "string"
-            },
-            "labelTranslationKey": {
-              "type": "string"
-            }
-          },
-          "additionalProperties": false,
-          "default": {}
+        "help": {
+          "type": "string"
         },
-        "meta": {
-          "type": "object",
-          "properties": {
-            "schemaVersion": {
-              "type": "string",
-              "default": "1.0"
-            },
-            "title": {
-              "type": "string"
-            },
-            "usageDescription": {
-              "type": "string"
-            }
-          },
-          "additionalProperties": false,
-          "default": {}
+        "labelTranslationKey": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "meta": {
+      "type": "object",
+      "properties": {
+        "schemaVersion": {
+          "default": "1.0",
+          "type": "string"
         },
-        "graphQL": {
-          "type": "object",
-          "properties": {
-            "displayFields": {
-              "type": "array",
-              "items": {
-                "type": "object",
-                "properties": {
-                  "propertyName": {
-                    "type": "string",
-                    "default": "id"
-                  },
-                  "label": {
-                    "type": "string",
-                    "default": "Id"
-                  },
-                  "labelTranslationKey": {
-                    "type": "string"
-                  }
-                },
-                "additionalProperties": false
-              },
-              "default": [
-                {
-                  "propertyName": "name",
-                  "label": "Name"
-                },
-                {
-                  "propertyName": "description",
-                  "label": "Description"
-                },
-                {
-                  "propertyName": "website",
-                  "label": "Website"
-                },
-                {
-                  "propertyName": "keywords",
-                  "label": "Subject Areas"
-                }
-              ]
-            },
-            "localQueryId": {
-              "type": "string"
-            },
-            "query": {
-              "type": "string",
-              "const": "query MetadataStandards($term: String, $keywords: [String!], $paginationOptions: PaginationOptions){ metadataStandards(term: $term, keywords: $keywords, paginationOptions: $paginationOptions) { totalCount currentOffset limit hasNextPage hasPreviousPage availableSortFields items { id name uri description keywords } } }",
-              "default": "query MetadataStandards($term: String, $keywords: [String!], $paginationOptions: PaginationOptions){ metadataStandards(term: $term, keywords: $keywords, paginationOptions: $paginationOptions) { totalCount currentOffset limit hasNextPage hasPreviousPage availableSortFields items { id name uri description keywords } } }"
-            },
-            "responseField": {
-              "type": "string",
-              "const": "metadataStandards.items",
-              "default": "metadataStandards.items"
-            },
-            "variables": {
-              "type": "array",
-              "items": {
-                "type": "object",
-                "properties": {
-                  "minLength": {
-                    "type": "number"
-                  },
-                  "label": {
-                    "type": "string"
-                  },
-                  "labelTranslationKey": {
-                    "type": "string"
-                  },
-                  "name": {
-                    "type": "string",
-                    "default": "search"
-                  },
-                  "type": {
-                    "type": "string",
-                    "default": "string"
-                  },
-                  "defaultValue": {
-                    "type": "string"
-                  }
-                },
-                "additionalProperties": false
-              },
-              "default": [
-                {
-                  "minLength": 3,
-                  "label": "Search for a metadata standard",
-                  "name": "term",
-                  "type": "string"
-                },
-                {
-                  "minLength": 3,
-                  "label": "Subject Areas",
-                  "name": "keywords",
-                  "type": "string"
-                },
-                {
-                  "label": "Pagination Options",
-                  "name": "paginationOptions",
-                  "type": "paginationOptions",
-                  "options": {
-                    "type": "OFFSET",
-                    "limit": 10,
-                    "offset": 0,
-                    "sortField": "name",
-                    "sortOrder": "ASC"
-                  }
-                }
-              ]
-            },
-            "queryId": {
-              "type": "string",
-              "default": "useMetadataStandardsQuery"
-            },
-            "answerField": {
-              "type": "string",
-              "const": "uri",
-              "default": "uri"
-            }
-          },
-          "additionalProperties": false,
-          "default": {}
+        "title": {
+          "type": "string"
+        },
+        "usageDescription": {
+          "type": "string"
         }
       },
       "required": [
-        "type"
+        "schemaVersion"
+      ],
+      "additionalProperties": false
+    },
+    "graphQL": {
+      "type": "object",
+      "properties": {
+        "displayFields": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "propertyName": {
+                "default": "id",
+                "type": "string"
+              },
+              "label": {
+                "default": "Id",
+                "type": "string"
+              },
+              "labelTranslationKey": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "propertyName",
+              "label"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "localQueryId": {
+          "type": "string"
+        },
+        "query": {
+          "type": "string",
+          "const": "query MetadataStandards($term: String, $keywords: [String!], $paginationOptions: PaginationOptions){ metadataStandards(term: $term, keywords: $keywords, paginationOptions: $paginationOptions) { totalCount currentOffset limit hasNextPage hasPreviousPage availableSortFields items { id name uri description keywords } } }"
+        },
+        "responseField": {
+          "type": "string",
+          "const": "metadataStandards.items"
+        },
+        "variables": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "minLength": {
+                "type": "number"
+              },
+              "label": {
+                "type": "string"
+              },
+              "labelTranslationKey": {
+                "type": "string"
+              },
+              "name": {
+                "default": "search",
+                "type": "string"
+              },
+              "type": {
+                "default": "string",
+                "type": "string"
+              },
+              "defaultValue": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "name",
+              "type"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "queryId": {
+          "default": "useMetadataStandardsQuery",
+          "type": "string"
+        },
+        "answerField": {
+          "default": "uri",
+          "type": "string",
+          "const": "uri"
+        }
+      },
+      "required": [
+        "displayFields",
+        "query",
+        "responseField",
+        "variables",
+        "answerField"
       ],
       "additionalProperties": false
     }
   },
-  "$schema": "http://json-schema.org/draft-07/schema#"
+  "required": [
+    "type",
+    "attributes",
+    "meta",
+    "graphQL"
+  ],
+  "additionalProperties": false
 }
