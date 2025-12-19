@@ -1,605 +1,1546 @@
 {
-  "$ref": "#/definitions/AnyAnswer",
-  "definitions": {
-    "AnyAnswer": {
-      "anyOf": [
-        {
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "oneOf": [
+    {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "const": "affiliationSearch"
+        },
+        "meta": {
           "type": "object",
           "properties": {
-            "type": {
-              "type": "string",
-              "const": "affiliationSearch"
-            },
-            "meta": {
-              "type": "object",
-              "properties": {
-                "schemaVersion": {
-                  "type": "string",
-                  "default": "1.0"
-                }
-              },
-              "additionalProperties": false,
-              "default": {}
-            },
-            "answer": {
-              "type": "object",
-              "properties": {
-                "affiliationId": {
-                  "type": "string",
-                  "default": ""
-                },
-                "affiliationName": {
-                  "type": "string",
-                  "default": ""
-                }
-              },
-              "additionalProperties": false,
-              "default": {}
+            "schemaVersion": {
+              "default": "1.0",
+              "type": "string"
             }
           },
           "required": [
-            "type"
+            "schemaVersion"
           ],
           "additionalProperties": false
         },
-        {
+        "answer": {
           "type": "object",
           "properties": {
-            "type": {
-              "type": "string",
-              "const": "boolean"
+            "affiliationId": {
+              "default": "",
+              "type": "string"
             },
-            "meta": {
-              "$ref": "#/definitions/AnyAnswer/anyOf/0/properties/meta"
-            },
-            "answer": {
-              "type": "boolean",
-              "default": false
+            "affiliationName": {
+              "default": "",
+              "type": "string"
             }
           },
           "required": [
-            "type"
+            "affiliationId",
+            "affiliationName"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "type",
+        "meta",
+        "answer"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "const": "boolean"
+        },
+        "meta": {
+          "type": "object",
+          "properties": {
+            "schemaVersion": {
+              "default": "1.0",
+              "type": "string"
+            }
+          },
+          "required": [
+            "schemaVersion"
           ],
           "additionalProperties": false
         },
-        {
+        "answer": {
+          "default": false,
+          "type": "boolean"
+        },
+        "comment": {
+          "default": "",
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "meta",
+        "answer",
+        "comment"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "const": "checkBoxes"
+        },
+        "meta": {
           "type": "object",
           "properties": {
-            "type": {
-              "type": "string",
-              "const": "checkBoxes"
+            "schemaVersion": {
+              "default": "1.0",
+              "type": "string"
+            }
+          },
+          "required": [
+            "schemaVersion"
+          ],
+          "additionalProperties": false
+        },
+        "answer": {
+          "default": [
+            ""
+          ],
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "comment": {
+          "default": "",
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "meta",
+        "answer",
+        "comment"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "const": "currency"
+        },
+        "meta": {
+          "type": "object",
+          "properties": {
+            "schemaVersion": {
+              "default": "1.0",
+              "type": "string"
+            }
+          },
+          "required": [
+            "schemaVersion"
+          ],
+          "additionalProperties": false
+        },
+        "answer": {
+          "default": 0,
+          "type": "number"
+        },
+        "comment": {
+          "default": "",
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "meta",
+        "answer",
+        "comment"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "const": "date"
+        },
+        "meta": {
+          "type": "object",
+          "properties": {
+            "schemaVersion": {
+              "default": "1.0",
+              "type": "string"
+            }
+          },
+          "required": [
+            "schemaVersion"
+          ],
+          "additionalProperties": false
+        },
+        "answer": {
+          "default": "",
+          "type": "string"
+        },
+        "comment": {
+          "default": "",
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "meta",
+        "answer",
+        "comment"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "const": "dateRange"
+        },
+        "meta": {
+          "type": "object",
+          "properties": {
+            "schemaVersion": {
+              "default": "1.0",
+              "type": "string"
+            }
+          },
+          "required": [
+            "schemaVersion"
+          ],
+          "additionalProperties": false
+        },
+        "answer": {
+          "type": "object",
+          "properties": {
+            "start": {
+              "default": "",
+              "type": "string"
             },
-            "meta": {
-              "$ref": "#/definitions/AnyAnswer/anyOf/0/properties/meta"
+            "end": {
+              "default": "",
+              "type": "string"
             },
-            "answer": {
-              "type": "array",
-              "items": {
+            "comment": {
+              "default": "",
+              "type": "string"
+            }
+          },
+          "required": [
+            "start",
+            "end",
+            "comment"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "type",
+        "meta",
+        "answer"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "const": "email"
+        },
+        "meta": {
+          "type": "object",
+          "properties": {
+            "schemaVersion": {
+              "default": "1.0",
+              "type": "string"
+            }
+          },
+          "required": [
+            "schemaVersion"
+          ],
+          "additionalProperties": false
+        },
+        "answer": {
+          "default": "",
+          "type": "string"
+        },
+        "comment": {
+          "default": "",
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "meta",
+        "answer",
+        "comment"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "const": "licenseSearch"
+        },
+        "meta": {
+          "type": "object",
+          "properties": {
+            "schemaVersion": {
+              "default": "1.0",
+              "type": "string"
+            }
+          },
+          "required": [
+            "schemaVersion"
+          ],
+          "additionalProperties": false
+        },
+        "answer": {
+          "default": [],
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "licenseId": {
+                "default": "",
                 "type": "string"
               },
-              "default": [
-                ""
-              ]
+              "licenseName": {
+                "default": "",
+                "type": "string"
+              }
+            },
+            "required": [
+              "licenseId",
+              "licenseName"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [
+        "type",
+        "meta",
+        "answer"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "const": "metadataStandardSearch"
+        },
+        "meta": {
+          "type": "object",
+          "properties": {
+            "schemaVersion": {
+              "default": "1.0",
+              "type": "string"
             }
           },
           "required": [
-            "type"
+            "schemaVersion"
           ],
           "additionalProperties": false
         },
-        {
-          "type": "object",
-          "properties": {
-            "type": {
-              "type": "string",
-              "const": "currency"
-            },
-            "meta": {
-              "$ref": "#/definitions/AnyAnswer/anyOf/0/properties/meta"
-            },
-            "answer": {
-              "type": "number",
-              "default": 0
-            }
-          },
-          "required": [
-            "type"
-          ],
-          "additionalProperties": false
-        },
-        {
-          "type": "object",
-          "properties": {
-            "type": {
-              "type": "string",
-              "const": "date"
-            },
-            "meta": {
-              "$ref": "#/definitions/AnyAnswer/anyOf/0/properties/meta"
-            },
-            "answer": {
-              "type": "string",
-              "default": ""
-            }
-          },
-          "required": [
-            "type"
-          ],
-          "additionalProperties": false
-        },
-        {
-          "type": "object",
-          "properties": {
-            "type": {
-              "type": "string",
-              "const": "dateRange"
-            },
-            "meta": {
-              "$ref": "#/definitions/AnyAnswer/anyOf/0/properties/meta"
-            },
-            "answer": {
-              "type": "object",
-              "properties": {
-                "start": {
-                  "type": "string",
-                  "default": ""
-                },
-                "end": {
-                  "type": "string",
-                  "default": ""
-                }
-              },
-              "additionalProperties": false,
-              "default": {}
-            }
-          },
-          "required": [
-            "type"
-          ],
-          "additionalProperties": false
-        },
-        {
-          "type": "object",
-          "properties": {
-            "type": {
-              "type": "string",
-              "const": "email"
-            },
-            "meta": {
-              "$ref": "#/definitions/AnyAnswer/anyOf/0/properties/meta"
-            },
-            "answer": {
-              "type": "string",
-              "default": ""
-            }
-          },
-          "required": [
-            "type"
-          ],
-          "additionalProperties": false
-        },
-        {
-          "type": "object",
-          "properties": {
-            "type": {
-              "type": "string",
-              "const": "licenseSearch"
-            },
-            "meta": {
-              "$ref": "#/definitions/AnyAnswer/anyOf/0/properties/meta"
-            },
-            "answer": {
-              "type": "array",
-              "items": {
-                "type": "object",
-                "properties": {
-                  "licenseId": {
-                    "type": "string",
-                    "default": ""
-                  },
-                  "licenseName": {
-                    "type": "string",
-                    "default": ""
-                  }
-                },
-                "additionalProperties": false,
-                "default": {}
-              },
-              "default": []
-            }
-          },
-          "required": [
-            "type"
-          ],
-          "additionalProperties": false
-        },
-        {
-          "type": "object",
-          "properties": {
-            "type": {
-              "type": "string",
-              "const": "metadataStandardSearch"
-            },
-            "meta": {
-              "$ref": "#/definitions/AnyAnswer/anyOf/0/properties/meta"
-            },
-            "answer": {
-              "type": "array",
-              "items": {
-                "type": "object",
-                "properties": {
-                  "metadataStandardId": {
-                    "type": "string",
-                    "default": ""
-                  },
-                  "metadataStandardName": {
-                    "type": "string",
-                    "default": ""
-                  }
-                },
-                "additionalProperties": false,
-                "default": {}
-              },
-              "default": []
-            }
-          },
-          "required": [
-            "type"
-          ],
-          "additionalProperties": false
-        },
-        {
-          "type": "object",
-          "properties": {
-            "type": {
-              "type": "string",
-              "const": "multiselectBox"
-            },
-            "meta": {
-              "$ref": "#/definitions/AnyAnswer/anyOf/0/properties/meta"
-            },
-            "answer": {
-              "type": "array",
-              "items": {
+        "answer": {
+          "default": [],
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "metadataStandardId": {
+                "default": "",
                 "type": "string"
               },
-              "default": [
-                ""
-              ]
+              "metadataStandardName": {
+                "default": "",
+                "type": "string"
+              }
+            },
+            "required": [
+              "metadataStandardId",
+              "metadataStandardName"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [
+        "type",
+        "meta",
+        "answer"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "const": "multiselectBox"
+        },
+        "meta": {
+          "type": "object",
+          "properties": {
+            "schemaVersion": {
+              "default": "1.0",
+              "type": "string"
             }
           },
           "required": [
-            "type"
+            "schemaVersion"
           ],
           "additionalProperties": false
         },
-        {
+        "answer": {
+          "default": [
+            ""
+          ],
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "comment": {
+          "default": "",
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "meta",
+        "answer",
+        "comment"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "const": "number"
+        },
+        "meta": {
           "type": "object",
           "properties": {
-            "type": {
-              "type": "string",
-              "const": "number"
-            },
-            "meta": {
-              "$ref": "#/definitions/AnyAnswer/anyOf/0/properties/meta"
-            },
-            "answer": {
-              "type": "number",
-              "default": 0
+            "schemaVersion": {
+              "default": "1.0",
+              "type": "string"
             }
           },
           "required": [
-            "type"
+            "schemaVersion"
           ],
           "additionalProperties": false
         },
-        {
+        "answer": {
+          "default": 0,
+          "type": "number"
+        },
+        "comment": {
+          "default": "",
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "meta",
+        "answer",
+        "comment"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "const": "numberRange"
+        },
+        "meta": {
           "type": "object",
           "properties": {
-            "type": {
-              "type": "string",
-              "const": "numberRange"
-            },
-            "meta": {
-              "$ref": "#/definitions/AnyAnswer/anyOf/0/properties/meta"
-            },
-            "answer": {
-              "type": "object",
-              "properties": {
-                "start": {
-                  "type": "number",
-                  "default": 0
-                },
-                "end": {
-                  "type": "number",
-                  "default": 0
-                }
-              },
-              "additionalProperties": false,
-              "default": {}
+            "schemaVersion": {
+              "default": "1.0",
+              "type": "string"
             }
           },
           "required": [
-            "type"
+            "schemaVersion"
           ],
           "additionalProperties": false
         },
-        {
+        "answer": {
           "type": "object",
           "properties": {
-            "type": {
-              "type": "string",
-              "const": "radioButtons"
+            "start": {
+              "default": 0,
+              "type": "number"
             },
-            "meta": {
-              "$ref": "#/definitions/AnyAnswer/anyOf/0/properties/meta"
-            },
-            "answer": {
-              "type": "string",
-              "default": ""
+            "end": {
+              "default": 0,
+              "type": "number"
             }
           },
           "required": [
-            "type"
+            "start",
+            "end"
           ],
           "additionalProperties": false
         },
-        {
+        "comment": {
+          "default": "",
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "meta",
+        "answer",
+        "comment"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "const": "radioButtons"
+        },
+        "meta": {
           "type": "object",
           "properties": {
-            "type": {
-              "type": "string",
-              "const": "repositorySearch"
-            },
-            "meta": {
-              "$ref": "#/definitions/AnyAnswer/anyOf/0/properties/meta"
-            },
-            "answer": {
-              "type": "array",
-              "items": {
-                "type": "object",
-                "properties": {
-                  "repositoryId": {
-                    "type": "string",
-                    "default": ""
-                  },
-                  "repositoryName": {
-                    "type": "string",
-                    "default": ""
-                  }
-                },
-                "additionalProperties": false,
-                "default": {}
-              },
-              "default": []
+            "schemaVersion": {
+              "default": "1.0",
+              "type": "string"
             }
           },
           "required": [
-            "type"
+            "schemaVersion"
           ],
           "additionalProperties": false
         },
-        {
+        "answer": {
+          "default": "",
+          "type": "string"
+        },
+        "comment": {
+          "default": "",
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "meta",
+        "answer",
+        "comment"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "const": "repositorySearch"
+        },
+        "meta": {
           "type": "object",
           "properties": {
-            "type": {
-              "type": "string",
-              "const": "selectBox"
-            },
-            "meta": {
-              "$ref": "#/definitions/AnyAnswer/anyOf/0/properties/meta"
-            },
-            "answer": {
-              "type": "string",
-              "default": ""
+            "schemaVersion": {
+              "default": "1.0",
+              "type": "string"
             }
           },
           "required": [
-            "type"
+            "schemaVersion"
           ],
           "additionalProperties": false
         },
-        {
-          "type": "object",
-          "properties": {
-            "type": {
-              "type": "string",
-              "const": "table"
-            },
-            "meta": {
-              "$ref": "#/definitions/AnyAnswer/anyOf/0/properties/meta"
-            },
-            "columnHeadings": {
-              "type": "array",
-              "items": {
+        "answer": {
+          "default": [],
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "repositoryId": {
+                "default": "",
                 "type": "string"
               },
-              "default": [
-                "Column A"
-              ]
+              "repositoryName": {
+                "default": "",
+                "type": "string"
+              }
             },
-            "answer": {
-              "type": "array",
-              "items": {
-                "type": "object",
-                "properties": {
-                  "columns": {
-                    "type": "array",
-                    "items": {
-                      "anyOf": [
-                        {
-                          "$ref": "#/definitions/AnyAnswer/anyOf/0"
+            "required": [
+              "repositoryId",
+              "repositoryName"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [
+        "type",
+        "meta",
+        "answer"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "const": "selectBox"
+        },
+        "meta": {
+          "type": "object",
+          "properties": {
+            "schemaVersion": {
+              "default": "1.0",
+              "type": "string"
+            }
+          },
+          "required": [
+            "schemaVersion"
+          ],
+          "additionalProperties": false
+        },
+        "answer": {
+          "default": "",
+          "type": "string"
+        },
+        "comment": {
+          "default": "",
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "meta",
+        "answer",
+        "comment"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "const": "table"
+        },
+        "meta": {
+          "type": "object",
+          "properties": {
+            "schemaVersion": {
+              "default": "1.0",
+              "type": "string"
+            }
+          },
+          "required": [
+            "schemaVersion"
+          ],
+          "additionalProperties": false
+        },
+        "columnHeadings": {
+          "default": [
+            "Column A"
+          ],
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "answer": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "columns": {
+                "type": "array",
+                "items": {
+                  "oneOf": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "const": "affiliationSearch"
                         },
-                        {
-                          "$ref": "#/definitions/AnyAnswer/anyOf/1"
-                        },
-                        {
-                          "$ref": "#/definitions/AnyAnswer/anyOf/2"
-                        },
-                        {
-                          "$ref": "#/definitions/AnyAnswer/anyOf/3"
-                        },
-                        {
-                          "$ref": "#/definitions/AnyAnswer/anyOf/4"
-                        },
-                        {
-                          "$ref": "#/definitions/AnyAnswer/anyOf/5"
-                        },
-                        {
-                          "$ref": "#/definitions/AnyAnswer/anyOf/6"
-                        },
-                        {
-                          "$ref": "#/definitions/AnyAnswer/anyOf/7"
-                        },
-                        {
-                          "$ref": "#/definitions/AnyAnswer/anyOf/8"
-                        },
-                        {
-                          "$ref": "#/definitions/AnyAnswer/anyOf/9"
-                        },
-                        {
-                          "$ref": "#/definitions/AnyAnswer/anyOf/10"
-                        },
-                        {
+                        "meta": {
                           "type": "object",
                           "properties": {
-                            "type": {
-                              "type": "string",
-                              "const": "numberWithContext"
-                            },
-                            "meta": {
-                              "$ref": "#/definitions/AnyAnswer/anyOf/0/properties/meta"
-                            },
-                            "answer": {
-                              "type": "object",
-                              "properties": {
-                                "value": {
-                                  "type": "number",
-                                  "default": 0
-                                },
-                                "context": {
-                                  "type": "string",
-                                  "default": ""
-                                }
-                              },
-                              "additionalProperties": false
+                            "schemaVersion": {
+                              "default": "1.0",
+                              "type": "string"
                             }
                           },
                           "required": [
-                            "type",
-                            "answer"
+                            "schemaVersion"
                           ],
                           "additionalProperties": false
                         },
-                        {
-                          "$ref": "#/definitions/AnyAnswer/anyOf/12"
-                        },
-                        {
-                          "$ref": "#/definitions/AnyAnswer/anyOf/13"
-                        },
-                        {
-                          "$ref": "#/definitions/AnyAnswer/anyOf/14"
-                        },
-                        {
+                        "answer": {
                           "type": "object",
                           "properties": {
-                            "type": {
-                              "type": "string",
-                              "const": "text"
+                            "affiliationId": {
+                              "default": "",
+                              "type": "string"
                             },
-                            "meta": {
-                              "$ref": "#/definitions/AnyAnswer/anyOf/0/properties/meta"
-                            },
-                            "answer": {
-                              "type": "string",
-                              "default": ""
+                            "affiliationName": {
+                              "default": "",
+                              "type": "string"
                             }
                           },
                           "required": [
-                            "type"
-                          ],
-                          "additionalProperties": false
-                        },
-                        {
-                          "type": "object",
-                          "properties": {
-                            "type": {
-                              "type": "string",
-                              "const": "textArea"
-                            },
-                            "meta": {
-                              "$ref": "#/definitions/AnyAnswer/anyOf/0/properties/meta"
-                            },
-                            "answer": {
-                              "type": "string",
-                              "default": ""
-                            }
-                          },
-                          "required": [
-                            "type"
-                          ],
-                          "additionalProperties": false
-                        },
-                        {
-                          "type": "object",
-                          "properties": {
-                            "type": {
-                              "type": "string",
-                              "const": "url"
-                            },
-                            "meta": {
-                              "$ref": "#/definitions/AnyAnswer/anyOf/0/properties/meta"
-                            },
-                            "answer": {
-                              "type": "string",
-                              "default": ""
-                            }
-                          },
-                          "required": [
-                            "type"
+                            "affiliationId",
+                            "affiliationName"
                           ],
                           "additionalProperties": false
                         }
-                      ]
-                    }
-                  }
-                },
-                "required": [
-                  "columns"
-                ],
-                "additionalProperties": false
-              },
-              "default": [
-                {
-                  "columns": [
+                      },
+                      "required": [
+                        "type",
+                        "meta",
+                        "answer"
+                      ],
+                      "additionalProperties": false
+                    },
                     {
-                      "type": "textArea",
-                      "answer": "",
-                      "meta": {
-                        "schemaVersion": "1.0"
-                      }
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "const": "boolean"
+                        },
+                        "meta": {
+                          "type": "object",
+                          "properties": {
+                            "schemaVersion": {
+                              "default": "1.0",
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "schemaVersion"
+                          ],
+                          "additionalProperties": false
+                        },
+                        "answer": {
+                          "default": false,
+                          "type": "boolean"
+                        },
+                        "comment": {
+                          "default": "",
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "type",
+                        "meta",
+                        "answer",
+                        "comment"
+                      ],
+                      "additionalProperties": false
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "const": "checkBoxes"
+                        },
+                        "meta": {
+                          "type": "object",
+                          "properties": {
+                            "schemaVersion": {
+                              "default": "1.0",
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "schemaVersion"
+                          ],
+                          "additionalProperties": false
+                        },
+                        "answer": {
+                          "default": [
+                            ""
+                          ],
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        },
+                        "comment": {
+                          "default": "",
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "type",
+                        "meta",
+                        "answer",
+                        "comment"
+                      ],
+                      "additionalProperties": false
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "const": "currency"
+                        },
+                        "meta": {
+                          "type": "object",
+                          "properties": {
+                            "schemaVersion": {
+                              "default": "1.0",
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "schemaVersion"
+                          ],
+                          "additionalProperties": false
+                        },
+                        "answer": {
+                          "default": 0,
+                          "type": "number"
+                        },
+                        "comment": {
+                          "default": "",
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "type",
+                        "meta",
+                        "answer",
+                        "comment"
+                      ],
+                      "additionalProperties": false
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "const": "date"
+                        },
+                        "meta": {
+                          "type": "object",
+                          "properties": {
+                            "schemaVersion": {
+                              "default": "1.0",
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "schemaVersion"
+                          ],
+                          "additionalProperties": false
+                        },
+                        "answer": {
+                          "default": "",
+                          "type": "string"
+                        },
+                        "comment": {
+                          "default": "",
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "type",
+                        "meta",
+                        "answer",
+                        "comment"
+                      ],
+                      "additionalProperties": false
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "const": "dateRange"
+                        },
+                        "meta": {
+                          "type": "object",
+                          "properties": {
+                            "schemaVersion": {
+                              "default": "1.0",
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "schemaVersion"
+                          ],
+                          "additionalProperties": false
+                        },
+                        "answer": {
+                          "type": "object",
+                          "properties": {
+                            "start": {
+                              "default": "",
+                              "type": "string"
+                            },
+                            "end": {
+                              "default": "",
+                              "type": "string"
+                            },
+                            "comment": {
+                              "default": "",
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "start",
+                            "end",
+                            "comment"
+                          ],
+                          "additionalProperties": false
+                        }
+                      },
+                      "required": [
+                        "type",
+                        "meta",
+                        "answer"
+                      ],
+                      "additionalProperties": false
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "const": "email"
+                        },
+                        "meta": {
+                          "type": "object",
+                          "properties": {
+                            "schemaVersion": {
+                              "default": "1.0",
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "schemaVersion"
+                          ],
+                          "additionalProperties": false
+                        },
+                        "answer": {
+                          "default": "",
+                          "type": "string"
+                        },
+                        "comment": {
+                          "default": "",
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "type",
+                        "meta",
+                        "answer",
+                        "comment"
+                      ],
+                      "additionalProperties": false
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "const": "licenseSearch"
+                        },
+                        "meta": {
+                          "type": "object",
+                          "properties": {
+                            "schemaVersion": {
+                              "default": "1.0",
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "schemaVersion"
+                          ],
+                          "additionalProperties": false
+                        },
+                        "answer": {
+                          "default": [],
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "licenseId": {
+                                "default": "",
+                                "type": "string"
+                              },
+                              "licenseName": {
+                                "default": "",
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "licenseId",
+                              "licenseName"
+                            ],
+                            "additionalProperties": false
+                          }
+                        }
+                      },
+                      "required": [
+                        "type",
+                        "meta",
+                        "answer"
+                      ],
+                      "additionalProperties": false
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "const": "metadataStandardSearch"
+                        },
+                        "meta": {
+                          "type": "object",
+                          "properties": {
+                            "schemaVersion": {
+                              "default": "1.0",
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "schemaVersion"
+                          ],
+                          "additionalProperties": false
+                        },
+                        "answer": {
+                          "default": [],
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "metadataStandardId": {
+                                "default": "",
+                                "type": "string"
+                              },
+                              "metadataStandardName": {
+                                "default": "",
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "metadataStandardId",
+                              "metadataStandardName"
+                            ],
+                            "additionalProperties": false
+                          }
+                        }
+                      },
+                      "required": [
+                        "type",
+                        "meta",
+                        "answer"
+                      ],
+                      "additionalProperties": false
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "const": "multiselectBox"
+                        },
+                        "meta": {
+                          "type": "object",
+                          "properties": {
+                            "schemaVersion": {
+                              "default": "1.0",
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "schemaVersion"
+                          ],
+                          "additionalProperties": false
+                        },
+                        "answer": {
+                          "default": [
+                            ""
+                          ],
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        },
+                        "comment": {
+                          "default": "",
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "type",
+                        "meta",
+                        "answer",
+                        "comment"
+                      ],
+                      "additionalProperties": false
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "const": "number"
+                        },
+                        "meta": {
+                          "type": "object",
+                          "properties": {
+                            "schemaVersion": {
+                              "default": "1.0",
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "schemaVersion"
+                          ],
+                          "additionalProperties": false
+                        },
+                        "answer": {
+                          "default": 0,
+                          "type": "number"
+                        },
+                        "comment": {
+                          "default": "",
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "type",
+                        "meta",
+                        "answer",
+                        "comment"
+                      ],
+                      "additionalProperties": false
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "const": "numberWithContext"
+                        },
+                        "meta": {
+                          "type": "object",
+                          "properties": {
+                            "schemaVersion": {
+                              "default": "1.0",
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "schemaVersion"
+                          ],
+                          "additionalProperties": false
+                        },
+                        "answer": {
+                          "type": "object",
+                          "properties": {
+                            "value": {
+                              "default": 0,
+                              "type": "number"
+                            },
+                            "context": {
+                              "default": "",
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "value",
+                            "context"
+                          ],
+                          "additionalProperties": false
+                        },
+                        "comment": {
+                          "default": "",
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "type",
+                        "meta",
+                        "answer",
+                        "comment"
+                      ],
+                      "additionalProperties": false
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "const": "radioButtons"
+                        },
+                        "meta": {
+                          "type": "object",
+                          "properties": {
+                            "schemaVersion": {
+                              "default": "1.0",
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "schemaVersion"
+                          ],
+                          "additionalProperties": false
+                        },
+                        "answer": {
+                          "default": "",
+                          "type": "string"
+                        },
+                        "comment": {
+                          "default": "",
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "type",
+                        "meta",
+                        "answer",
+                        "comment"
+                      ],
+                      "additionalProperties": false
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "const": "repositorySearch"
+                        },
+                        "meta": {
+                          "type": "object",
+                          "properties": {
+                            "schemaVersion": {
+                              "default": "1.0",
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "schemaVersion"
+                          ],
+                          "additionalProperties": false
+                        },
+                        "answer": {
+                          "default": [],
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "repositoryId": {
+                                "default": "",
+                                "type": "string"
+                              },
+                              "repositoryName": {
+                                "default": "",
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "repositoryId",
+                              "repositoryName"
+                            ],
+                            "additionalProperties": false
+                          }
+                        }
+                      },
+                      "required": [
+                        "type",
+                        "meta",
+                        "answer"
+                      ],
+                      "additionalProperties": false
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "const": "selectBox"
+                        },
+                        "meta": {
+                          "type": "object",
+                          "properties": {
+                            "schemaVersion": {
+                              "default": "1.0",
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "schemaVersion"
+                          ],
+                          "additionalProperties": false
+                        },
+                        "answer": {
+                          "default": "",
+                          "type": "string"
+                        },
+                        "comment": {
+                          "default": "",
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "type",
+                        "meta",
+                        "answer",
+                        "comment"
+                      ],
+                      "additionalProperties": false
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "const": "text"
+                        },
+                        "meta": {
+                          "type": "object",
+                          "properties": {
+                            "schemaVersion": {
+                              "default": "1.0",
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "schemaVersion"
+                          ],
+                          "additionalProperties": false
+                        },
+                        "answer": {
+                          "default": "",
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "type",
+                        "meta",
+                        "answer"
+                      ],
+                      "additionalProperties": false
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "const": "textArea"
+                        },
+                        "meta": {
+                          "type": "object",
+                          "properties": {
+                            "schemaVersion": {
+                              "default": "1.0",
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "schemaVersion"
+                          ],
+                          "additionalProperties": false
+                        },
+                        "answer": {
+                          "default": "",
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "type",
+                        "meta",
+                        "answer"
+                      ],
+                      "additionalProperties": false
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "const": "url"
+                        },
+                        "meta": {
+                          "type": "object",
+                          "properties": {
+                            "schemaVersion": {
+                              "default": "1.0",
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "schemaVersion"
+                          ],
+                          "additionalProperties": false
+                        },
+                        "answer": {
+                          "default": "",
+                          "type": "string"
+                        },
+                        "comment": {
+                          "default": "",
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "type",
+                        "meta",
+                        "answer",
+                        "comment"
+                      ],
+                      "additionalProperties": false
                     }
                   ]
                 }
-              ]
+              }
+            },
+            "required": [
+              "columns"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [
+        "type",
+        "meta",
+        "columnHeadings",
+        "answer"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "const": "text"
+        },
+        "meta": {
+          "type": "object",
+          "properties": {
+            "schemaVersion": {
+              "default": "1.0",
+              "type": "string"
             }
           },
           "required": [
-            "type"
+            "schemaVersion"
           ],
           "additionalProperties": false
         },
-        {
-          "$ref": "#/definitions/AnyAnswer/anyOf/15/properties/answer/items/properties/columns/items/anyOf/15"
-        },
-        {
-          "$ref": "#/definitions/AnyAnswer/anyOf/15/properties/answer/items/properties/columns/items/anyOf/16"
-        },
-        {
-          "$ref": "#/definitions/AnyAnswer/anyOf/15/properties/answer/items/properties/columns/items/anyOf/17"
+        "answer": {
+          "default": "",
+          "type": "string"
         }
-      ]
+      },
+      "required": [
+        "type",
+        "meta",
+        "answer"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "const": "textArea"
+        },
+        "meta": {
+          "type": "object",
+          "properties": {
+            "schemaVersion": {
+              "default": "1.0",
+              "type": "string"
+            }
+          },
+          "required": [
+            "schemaVersion"
+          ],
+          "additionalProperties": false
+        },
+        "answer": {
+          "default": "",
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "meta",
+        "answer"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "const": "url"
+        },
+        "meta": {
+          "type": "object",
+          "properties": {
+            "schemaVersion": {
+              "default": "1.0",
+              "type": "string"
+            }
+          },
+          "required": [
+            "schemaVersion"
+          ],
+          "additionalProperties": false
+        },
+        "answer": {
+          "default": "",
+          "type": "string"
+        },
+        "comment": {
+          "default": "",
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "meta",
+        "answer",
+        "comment"
+      ],
+      "additionalProperties": false
     }
-  },
-  "$schema": "http://json-schema.org/draft-07/schema#"
+  ]
 }

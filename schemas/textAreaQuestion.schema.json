@@ -1,70 +1,78 @@
 {
-  "$ref": "#/definitions/TextAreaQuestion",
-  "definitions": {
-    "TextAreaQuestion": {
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "type": {
+      "type": "string",
+      "const": "textArea"
+    },
+    "attributes": {
       "type": "object",
       "properties": {
-        "type": {
-          "type": "string",
-          "const": "textArea"
+        "label": {
+          "type": "string"
         },
-        "attributes": {
-          "type": "object",
-          "properties": {
-            "label": {
-              "type": "string"
-            },
-            "help": {
-              "type": "string"
-            },
-            "labelTranslationKey": {
-              "type": "string"
-            },
-            "cols": {
-              "type": "number",
-              "default": 20
-            },
-            "maxLength": {
-              "type": "number"
-            },
-            "minLength": {
-              "type": "number"
-            },
-            "rows": {
-              "type": "number",
-              "default": 2
-            },
-            "asRichText": {
-              "type": "boolean",
-              "default": true
-            }
-          },
-          "additionalProperties": false,
-          "default": {}
+        "help": {
+          "type": "string"
         },
-        "meta": {
-          "type": "object",
-          "properties": {
-            "schemaVersion": {
-              "type": "string",
-              "default": "1.0"
-            },
-            "title": {
-              "type": "string"
-            },
-            "usageDescription": {
-              "type": "string"
-            }
-          },
-          "additionalProperties": false,
-          "default": {}
+        "labelTranslationKey": {
+          "type": "string"
+        },
+        "maxLength": {
+          "default": 10000,
+          "type": "number"
+        },
+        "minLength": {
+          "type": "number"
+        },
+        "pattern": {
+          "type": "string"
+        },
+        "cols": {
+          "default": 20,
+          "type": "number"
+        },
+        "rows": {
+          "default": 2,
+          "type": "number"
+        },
+        "asRichText": {
+          "default": true,
+          "type": "boolean"
         }
       },
       "required": [
-        "type"
+        "maxLength",
+        "cols",
+        "rows",
+        "asRichText"
+      ],
+      "additionalProperties": false
+    },
+    "meta": {
+      "type": "object",
+      "properties": {
+        "schemaVersion": {
+          "default": "1.0",
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "usageDescription": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "schemaVersion"
       ],
       "additionalProperties": false
     }
   },
-  "$schema": "http://json-schema.org/draft-07/schema#"
+  "required": [
+    "type",
+    "attributes",
+    "meta"
+  ],
+  "additionalProperties": false
 }
