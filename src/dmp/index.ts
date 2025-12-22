@@ -12,7 +12,7 @@ import { ExtensionSchema, ExtensionType } from "./extension";
 // a Zod schema, but it is not there yet.
 //
 // Convert the downloaded JSON schema into types
-const RDA_COMMON_STANDARD_JSON_FILE = '../schemas/dmp.schema.json';
+const RDA_COMMON_STANDARD_JSON_FILE = '../../schemas/dmp.schema.json';
 
 // Ignoring ESLint here because it doesn't like that we're only using jsonSchema as a Type
 // but that's exactly what we want to do.
