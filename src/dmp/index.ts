@@ -1,4 +1,5 @@
-import fs from "fs";
+import fs from "node:fs";
+import path from "node:path";
 import { z } from "zod";
 import { FromSchema } from "json-schema-to-ts";
 import { ExtensionSchema, ExtensionType } from "./extension";
@@ -11,11 +12,13 @@ import { ExtensionSchema, ExtensionType } from "./extension";
 // a Zod schema, but it is not there yet.
 //
 // Convert the downloaded JSON schema into types
-const RDA_COMMON_STANDARD_JSON_FILE = './schemas/dmp.schema.json';
+const RDA_COMMON_STANDARD_JSON_FILE = '../schemas/dmp.schema.json';
 
 // Ignoring ESLint here because it doesn't like that we're only using jsonSchema as a Type
 // but that's exactly what we want to do.
-const jsonSchema = JSON.parse(fs.readFileSync(RDA_COMMON_STANDARD_JSON_FILE, 'utf8'));
+const schemaPath = path.resolve(__dirname, RDA_COMMON_STANDARD_JSON_FILE);
+
+const jsonSchema = JSON.parse(fs.readFileSync(schemaPath, 'utf8'));
 export const RDACommonStandardDMPJSONSchema = jsonSchema;
 
 // The version of the DMP that conforms to the RDA Common Standard (without our extensions)
