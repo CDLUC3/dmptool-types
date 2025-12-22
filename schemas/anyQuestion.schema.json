@@ -2841,7 +2841,6 @@
                             "type": "string"
                           },
                           "maxLength": {
-                            "default": 255,
                             "type": "number"
                           },
                           "minLength": {
@@ -2849,102 +2848,11 @@
                           },
                           "pattern": {
                             "type": "string"
-                          }
-                        },
-                        "required": [
-                          "maxLength"
-                        ],
-                        "additionalProperties": false
-                      },
-                      "meta": {
-                        "type": "object",
-                        "properties": {
-                          "schemaVersion": {
-                            "default": "1.0",
-                            "type": "string"
                           },
-                          "title": {
-                            "type": "string"
-                          },
-                          "usageDescription": {
+                          "defaultValue": {
                             "type": "string"
                           }
                         },
-                        "required": [
-                          "schemaVersion"
-                        ],
-                        "additionalProperties": false
-                      }
-                    },
-                    "required": [
-                      "type",
-                      "attributes",
-                      "meta"
-                    ],
-                    "additionalProperties": false
-                  }
-                },
-                "required": [
-                  "heading",
-                  "help",
-                  "required",
-                  "enabled",
-                  "content"
-                ],
-                "additionalProperties": false
-              },
-              {
-                "type": "object",
-                "properties": {
-                  "heading": {
-                    "default": "Custom Column",
-                    "type": "string"
-                  },
-                  "help": {
-                    "default": "Explanation of what we expect the user to enter.",
-                    "type": "string"
-                  },
-                  "required": {
-                    "default": false,
-                    "type": "boolean"
-                  },
-                  "enabled": {
-                    "default": false,
-                    "type": "boolean"
-                  },
-                  "content": {
-                    "type": "object",
-                    "properties": {
-                      "type": {
-                        "type": "string",
-                        "const": "text"
-                      },
-                      "attributes": {
-                        "type": "object",
-                        "properties": {
-                          "label": {
-                            "type": "string"
-                          },
-                          "help": {
-                            "type": "string"
-                          },
-                          "labelTranslationKey": {
-                            "type": "string"
-                          },
-                          "maxLength": {
-                            "default": 255,
-                            "type": "number"
-                          },
-                          "minLength": {
-                            "type": "number"
-                          },
-                          "pattern": {
-                            "type": "string"
-                          }
-                        },
-                        "required": [
-                          "maxLength"
-                        ],
                         "additionalProperties": false
                       },
                       "meta": {

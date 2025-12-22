@@ -54,6 +54,7 @@ import {
   TextAnswerJSONSchema,
   URLAnswerJSONSchema
 } from '../src';
+import {ExtensionJSONSchema} from "../src/dmp";
 
 // Convert the Zod schemas to JSON schemas and then write them to the /schemas folder
 fs.writeFileSync('./schemas/anyQuestion.schema.json', JSON.stringify(AnyQuestionJSONSchema, null, 2));
@@ -124,5 +125,7 @@ fs.writeFileSync('./schemas/textAnswer.schema.json', JSON.stringify(TextAnswerJS
 
 fs.writeFileSync('./schemas/urlQuestion.schema.json', JSON.stringify(URLQuestionJSONSchema, null, 2));
 fs.writeFileSync('./schemas/urlAnswer.schema.json', JSON.stringify(URLAnswerJSONSchema, null, 2));
+
+fs.writeFileSync('./schemas/dmpExtension.schema.json', JSON.stringify(ExtensionJSONSchema, null, 2));
 
 console.log('JSON Schema generated!');
