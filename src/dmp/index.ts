@@ -12,18 +12,35 @@ import { ExtensionSchema, ExtensionType } from "./extension";
 // a Zod schema, but it is not there yet.
 //
 // Convert the downloaded JSON schema into types
-const schemaCandidatePaths = [
-  path.resolve(__dirname, "..", "schemas", "dmp.schema.json"),
-  path.resolve(__dirname, "..", "..", "schemas", "dmp.schema.json"),
-];
+// First try resolving via the package export (works when installed from GitHub branch or npm)
+function resolveSchemaPath(): string | undefined {
+  // Try using Node's module resolution against the package export
+  try {
+    // require.resolve respects the "exports" map in package.json
+    const resolved = require.resolve("@dmptool/types/schemas/dmp.schema.json");
+    if (resolved && fs.existsSync(resolved)) {
+      return resolved;
+    }
+  } catch {
+    // ignore and fall back to local paths below
+  }
 
-const RDA_COMMON_STANDARD_JSON_FILE = schemaCandidatePaths.find((candidate) =>
-  fs.existsSync(candidate)
-);
+  // Fallbacks based on local file structure when running from source or built dist
+  const schemaCandidatePaths = [
+    // When running compiled code: dist/dmp/index.js -> dist/schemas/dmp.schema.json
+    path.resolve(__dirname, "..", "schemas", "dmp.schema.json"),
+    // When running from source (ts-node) or unusual layouts: packageRoot/schemas/dmp.schema.json
+    path.resolve(__dirname, "..", "..", "schemas", "dmp.schema.json"),
+  ];
+
+  return schemaCandidatePaths.find((candidate) => fs.existsSync(candidate));
+}
+
+const RDA_COMMON_STANDARD_JSON_FILE = resolveSchemaPath();
 
 if (!RDA_COMMON_STANDARD_JSON_FILE) {
   throw new Error(
-    "Unable to locate dmp.schema.json. Looked in dist/schemas and repo-level schemas."
+    "Unable to locate dmp.schema.json. Tried package export '@dmptool/types/schemas/dmp.schema.json' and common local paths (dist/schemas and repo-level schemas)."
   );
 }
 
