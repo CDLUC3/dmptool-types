@@ -13,6 +13,9 @@
       "import": "./dist/index.js",
       "require": "./dist/index.js",
       "types": "./dist/index.d.ts"
+    },
+    "./schemas/*": {
+      "default": "./dist/schemas/*.json"
     }
   },
   "publishConfig": {
