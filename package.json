@@ -15,8 +15,8 @@
       "require": "./dist/index.js",
       "types": "./dist/index.d.ts"
     },
-    "./schemas/*": {
-      "default": "./dist/schemas/*.json"
+    "./schemas/*.json": {
+      "default": "./schemas/*.json"
     }
   },
   "publishConfig": {

@@ -21,6 +21,8 @@ function resolveSchemaPath(): string | undefined {
     if (resolved && fs.existsSync(resolved)) {
       return resolved;
     }
+    // If require.resolve found a path but it doesn't exist, log it for debugging
+    console.warn(`[dmptool-types] require.resolve found path but it doesn't exist: ${resolved}`);
   } catch {
     // ignore and fall back to local paths below
   }
@@ -36,8 +38,8 @@ function resolveSchemaPath(): string | undefined {
     // When running from source with ts-node: src/dmp/index.ts -> compiled as dist/dmp/index.js -> schemas/dmp.schema.json at repo root
     path.resolve(__dirname, "..", "..", "schemas", "dmp.schema.json"),
     // When installed as node_module from GitHub: node_modules/@dmptool/types/dist/dmp/index.js
-    // But dist was gitignored, so schemas are at: node_modules/@dmptool/types/schemas/dmp.schema.json
-    path.resolve(__dirname, "..", "..", "schemas", "dmp.schema.json"),
+    // Go up to package root, then into schemas: dist/dmp -> dist -> package_root -> schemas
+    path.resolve(__dirname, "..", "..", "..", "schemas", "dmp.schema.json"),
   ];
 
   // Remove duplicates while preserving order
@@ -51,9 +53,17 @@ if (!RDA_COMMON_STANDARD_JSON_FILE) {
   const attemptedPaths = [
     path.resolve(__dirname, "..", "schemas", "dmp.schema.json"),
     path.resolve(__dirname, "..", "..", "schemas", "dmp.schema.json"),
+    path.resolve(__dirname, "..", "..", "..", "schemas", "dmp.schema.json"),
   ];
   throw new Error(
     `Unable to locate dmp.schema.json. Current __dirname: ${__dirname}. Attempted paths: ${attemptedPaths.join(", ")}`
+  );
+}
+
+// Double-check the file exists before trying to read it
+if (!fs.existsSync(RDA_COMMON_STANDARD_JSON_FILE)) {
+  throw new Error(
+    `Schema file path was resolved to ${RDA_COMMON_STANDARD_JSON_FILE} but the file does not exist. This may indicate an issue with the package installation or build process.`
   );
 }
 
