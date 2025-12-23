@@ -26,21 +26,34 @@ function resolveSchemaPath(): string | undefined {
   }
 
   // Fallbacks based on local file structure when running from source or built dist
+  // This handles multiple installation scenarios:
+  // 1. npm/published package with dist/schemas
+  // 2. Source code with ts-node/ts-node-dev
+  // 3. GitHub branch installation where dist is gitignored but schemas/ is committed
   const schemaCandidatePaths = [
-    // When running compiled code: dist/dmp/index.js -> dist/schemas/dmp.schema.json
+    // When running compiled code from dist: dist/dmp/index.js -> dist/schemas/dmp.schema.json
     path.resolve(__dirname, "..", "schemas", "dmp.schema.json"),
-    // When running from source (ts-node) or unusual layouts: packageRoot/schemas/dmp.schema.json
+    // When running from source with ts-node: src/dmp/index.ts -> compiled as dist/dmp/index.js -> schemas/dmp.schema.json at repo root
+    path.resolve(__dirname, "..", "..", "schemas", "dmp.schema.json"),
+    // When installed as node_module from GitHub: node_modules/@dmptool/types/dist/dmp/index.js
+    // But dist was gitignored, so schemas are at: node_modules/@dmptool/types/schemas/dmp.schema.json
     path.resolve(__dirname, "..", "..", "schemas", "dmp.schema.json"),
   ];
 
-  return schemaCandidatePaths.find((candidate) => fs.existsSync(candidate));
+  // Remove duplicates while preserving order
+  const uniquePaths = Array.from(new Set(schemaCandidatePaths));
+  return uniquePaths.find((candidate) => fs.existsSync(candidate));
 }
 
 const RDA_COMMON_STANDARD_JSON_FILE = resolveSchemaPath();
 
 if (!RDA_COMMON_STANDARD_JSON_FILE) {
+  const attemptedPaths = [
+    path.resolve(__dirname, "..", "schemas", "dmp.schema.json"),
+    path.resolve(__dirname, "..", "..", "schemas", "dmp.schema.json"),
+  ];
   throw new Error(
-    "Unable to locate dmp.schema.json. Tried package export '@dmptool/types/schemas/dmp.schema.json' and common local paths (dist/schemas and repo-level schemas)."
+    `Unable to locate dmp.schema.json. Current __dirname: ${__dirname}. Attempted paths: ${attemptedPaths.join(", ")}`
   );
 }
 
