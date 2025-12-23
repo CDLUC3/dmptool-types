@@ -113,13 +113,18 @@
         "end"
       ],
       "additionalProperties": false
+    },
+    "showCommentField": {
+      "default": false,
+      "type": "boolean"
     }
   },
   "required": [
     "type",
     "attributes",
     "meta",
-    "columns"
+    "columns",
+    "showCommentField"
   ],
   "additionalProperties": false
 }

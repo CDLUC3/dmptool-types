@@ -65,13 +65,18 @@
         ],
         "additionalProperties": false
       }
+    },
+    "showCommentField": {
+      "default": false,
+      "type": "boolean"
     }
   },
   "required": [
     "type",
     "attributes",
     "meta",
-    "options"
+    "options",
+    "showCommentField"
   ],
   "additionalProperties": false
 }

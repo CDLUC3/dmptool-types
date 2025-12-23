@@ -184,12 +184,17 @@
             "schemaVersion"
           ],
           "additionalProperties": false
+        },
+        "showCommentField": {
+          "default": false,
+          "type": "boolean"
         }
       },
       "required": [
         "type",
         "attributes",
-        "meta"
+        "meta",
+        "showCommentField"
       ],
       "additionalProperties": false
     },
@@ -259,13 +264,18 @@
             ],
             "additionalProperties": false
           }
+        },
+        "showCommentField": {
+          "default": false,
+          "type": "boolean"
         }
       },
       "required": [
         "type",
         "attributes",
         "meta",
-        "options"
+        "options",
+        "showCommentField"
       ],
       "additionalProperties": false
     },
@@ -329,12 +339,17 @@
             "schemaVersion"
           ],
           "additionalProperties": false
+        },
+        "showCommentField": {
+          "default": false,
+          "type": "boolean"
         }
       },
       "required": [
         "type",
         "attributes",
-        "meta"
+        "meta",
+        "showCommentField"
       ],
       "additionalProperties": false
     },
@@ -391,12 +406,17 @@
             "schemaVersion"
           ],
           "additionalProperties": false
+        },
+        "showCommentField": {
+          "default": false,
+          "type": "boolean"
         }
       },
       "required": [
         "type",
         "attributes",
-        "meta"
+        "meta",
+        "showCommentField"
       ],
       "additionalProperties": false
     },
@@ -510,13 +530,18 @@
             "end"
           ],
           "additionalProperties": false
+        },
+        "showCommentField": {
+          "default": false,
+          "type": "boolean"
         }
       },
       "required": [
         "type",
         "attributes",
         "meta",
-        "columns"
+        "columns",
+        "showCommentField"
       ],
       "additionalProperties": false
     },
@@ -578,12 +603,17 @@
             "schemaVersion"
           ],
           "additionalProperties": false
+        },
+        "showCommentField": {
+          "default": false,
+          "type": "boolean"
         }
       },
       "required": [
         "type",
         "attributes",
-        "meta"
+        "meta",
+        "showCommentField"
       ],
       "additionalProperties": false
     },
@@ -921,12 +951,17 @@
             "schemaVersion"
           ],
           "additionalProperties": false
+        },
+        "showCommentField": {
+          "default": false,
+          "type": "boolean"
         }
       },
       "required": [
         "type",
         "attributes",
-        "meta"
+        "meta",
+        "showCommentField"
       ],
       "additionalProperties": false
     },
@@ -1015,12 +1050,17 @@
             "schemaVersion"
           ],
           "additionalProperties": false
+        },
+        "showCommentField": {
+          "default": false,
+          "type": "boolean"
         }
       },
       "required": [
         "type",
         "attributes",
-        "meta"
+        "meta",
+        "showCommentField"
       ],
       "additionalProperties": false
     },
@@ -1090,13 +1130,18 @@
             ],
             "additionalProperties": false
           }
+        },
+        "showCommentField": {
+          "default": false,
+          "type": "boolean"
         }
       },
       "required": [
         "type",
         "attributes",
         "meta",
-        "options"
+        "options",
+        "showCommentField"
       ],
       "additionalProperties": false
     },
@@ -1312,13 +1357,18 @@
             ],
             "additionalProperties": false
           }
+        },
+        "showCommentField": {
+          "default": false,
+          "type": "boolean"
         }
       },
       "required": [
         "type",
         "attributes",
         "meta",
-        "options"
+        "options",
+        "showCommentField"
       ],
       "additionalProperties": false
     },
@@ -1514,12 +1564,17 @@
             "schemaVersion"
           ],
           "additionalProperties": false
+        },
+        "showCommentField": {
+          "default": false,
+          "type": "boolean"
         }
       },
       "required": [
         "type",
         "attributes",
-        "meta"
+        "meta",
+        "showCommentField"
       ],
       "additionalProperties": false
     }

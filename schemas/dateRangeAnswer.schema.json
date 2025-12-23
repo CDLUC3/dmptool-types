@@ -29,11 +29,16 @@
         "end": {
           "default": "",
           "type": "string"
+        },
+        "comment": {
+          "default": "",
+          "type": "string"
         }
       },
       "required": [
         "start",
-        "end"
+        "end",
+        "comment"
       ],
       "additionalProperties": false
     }

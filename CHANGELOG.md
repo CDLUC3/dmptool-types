@@ -1,6 +1,8 @@
 # dmptool-types CHANGELOG
 
 # v2.1.0
+- Added code to allow loading dmptool-types from github repo instead of npm package for pre-release testing.
+- Added `showCommentField` and `comment` to most question and answers (except ones ticket said not to)
 - Added script to fetch the latest RDA Common Standard JSON schema
 - Added logic to generate types from the RDA Common Standard JSON schema
 - Added DMP Tool Extensions for DMP schemas and types

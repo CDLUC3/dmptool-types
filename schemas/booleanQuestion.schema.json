@@ -41,12 +41,17 @@
         "schemaVersion"
       ],
       "additionalProperties": false
+    },
+    "showCommentField": {
+      "default": false,
+      "type": "boolean"
     }
   },
   "required": [
     "type",
     "attributes",
-    "meta"
+    "meta",
+    "showCommentField"
   ],
   "additionalProperties": false
 }

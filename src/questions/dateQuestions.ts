@@ -17,12 +17,14 @@ const DefaultDateAttributes = DateAttributesSchema.parse({});
 export const DateQuestionSchema = z.object({
   ...QuestionSchema.shape,
   type: z.literal('date'),
-  attributes: DateAttributesSchema
+  attributes: DateAttributesSchema,
+  showCommentField: z.boolean().optional().default(false)
 });
 export const DefaultDateQuestion = DateQuestionSchema.parse({
   type: 'date',
   attributes: DefaultDateAttributes,
-  meta: DefaultMeta
+  meta: DefaultMeta,
+  showCommentField: false
 })
 
 const DateRangeStartColumnSchema = z.object({
@@ -41,7 +43,8 @@ export const DateRangeQuestionSchema = z.object({
   columns: z.object({
     start: DateRangeStartColumnSchema,
     end: DateRangeEndColumnSchema,
-  })
+  }),
+  showCommentField: z.boolean().optional().default(false)
 });
 export const DefaultDateRangeQuestion = DateRangeQuestionSchema.parse({
   type: 'dateRange',
@@ -50,7 +53,8 @@ export const DefaultDateRangeQuestion = DateRangeQuestionSchema.parse({
   columns: {
     start: DateRangeStartColumnSchema.parse({}),
     end: DateRangeEndColumnSchema.parse({})
-  }
+  },
+  showCommentField: false
 })
 
 // This will ensure that object validations are against the Zod schemas defined above

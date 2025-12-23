@@ -36,12 +36,17 @@
         "context"
       ],
       "additionalProperties": false
+    },
+    "comment": {
+      "default": "",
+      "type": "string"
     }
   },
   "required": [
     "type",
     "meta",
-    "answer"
+    "answer",
+    "comment"
   ],
   "additionalProperties": false
 }

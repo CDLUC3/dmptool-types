@@ -171,12 +171,17 @@
                                     "answer": {
                                       "default": false,
                                       "type": "boolean"
+                                    },
+                                    "comment": {
+                                      "default": "",
+                                      "type": "string"
                                     }
                                   },
                                   "required": [
                                     "type",
                                     "meta",
-                                    "answer"
+                                    "answer",
+                                    "comment"
                                   ],
                                   "additionalProperties": false
                                 },
@@ -208,12 +213,17 @@
                                       "items": {
                                         "type": "string"
                                       }
+                                    },
+                                    "comment": {
+                                      "default": "",
+                                      "type": "string"
                                     }
                                   },
                                   "required": [
                                     "type",
                                     "meta",
-                                    "answer"
+                                    "answer",
+                                    "comment"
                                   ],
                                   "additionalProperties": false
                                 },
@@ -240,12 +250,17 @@
                                     "answer": {
                                       "default": 0,
                                       "type": "number"
+                                    },
+                                    "comment": {
+                                      "default": "",
+                                      "type": "string"
                                     }
                                   },
                                   "required": [
                                     "type",
                                     "meta",
-                                    "answer"
+                                    "answer",
+                                    "comment"
                                   ],
                                   "additionalProperties": false
                                 },
@@ -272,12 +287,17 @@
                                     "answer": {
                                       "default": "",
                                       "type": "string"
+                                    },
+                                    "comment": {
+                                      "default": "",
+                                      "type": "string"
                                     }
                                   },
                                   "required": [
                                     "type",
                                     "meta",
-                                    "answer"
+                                    "answer",
+                                    "comment"
                                   ],
                                   "additionalProperties": false
                                 },
@@ -311,11 +331,16 @@
                                         "end": {
                                           "default": "",
                                           "type": "string"
+                                        },
+                                        "comment": {
+                                          "default": "",
+                                          "type": "string"
                                         }
                                       },
                                       "required": [
                                         "start",
-                                        "end"
+                                        "end",
+                                        "comment"
                                       ],
                                       "additionalProperties": false
                                     }
@@ -350,12 +375,17 @@
                                     "answer": {
                                       "default": "",
                                       "type": "string"
+                                    },
+                                    "comment": {
+                                      "default": "",
+                                      "type": "string"
                                     }
                                   },
                                   "required": [
                                     "type",
                                     "meta",
-                                    "answer"
+                                    "answer",
+                                    "comment"
                                   ],
                                   "additionalProperties": false
                                 },
@@ -487,12 +517,17 @@
                                       "items": {
                                         "type": "string"
                                       }
+                                    },
+                                    "comment": {
+                                      "default": "",
+                                      "type": "string"
                                     }
                                   },
                                   "required": [
                                     "type",
                                     "meta",
-                                    "answer"
+                                    "answer",
+                                    "comment"
                                   ],
                                   "additionalProperties": false
                                 },
@@ -519,12 +554,17 @@
                                     "answer": {
                                       "default": 0,
                                       "type": "number"
+                                    },
+                                    "comment": {
+                                      "default": "",
+                                      "type": "string"
                                     }
                                   },
                                   "required": [
                                     "type",
                                     "meta",
-                                    "answer"
+                                    "answer",
+                                    "comment"
                                   ],
                                   "additionalProperties": false
                                 },
@@ -565,12 +605,17 @@
                                         "end"
                                       ],
                                       "additionalProperties": false
+                                    },
+                                    "comment": {
+                                      "default": "",
+                                      "type": "string"
                                     }
                                   },
                                   "required": [
                                     "type",
                                     "meta",
-                                    "answer"
+                                    "answer",
+                                    "comment"
                                   ],
                                   "additionalProperties": false
                                 },
@@ -597,12 +642,17 @@
                                     "answer": {
                                       "default": "",
                                       "type": "string"
+                                    },
+                                    "comment": {
+                                      "default": "",
+                                      "type": "string"
                                     }
                                   },
                                   "required": [
                                     "type",
                                     "meta",
-                                    "answer"
+                                    "answer",
+                                    "comment"
                                   ],
                                   "additionalProperties": false
                                 },
@@ -679,12 +729,17 @@
                                     "answer": {
                                       "default": "",
                                       "type": "string"
+                                    },
+                                    "comment": {
+                                      "default": "",
+                                      "type": "string"
                                     }
                                   },
                                   "required": [
                                     "type",
                                     "meta",
-                                    "answer"
+                                    "answer",
+                                    "comment"
                                   ],
                                   "additionalProperties": false
                                 },
@@ -795,12 +850,17 @@
                                                     "answer": {
                                                       "default": false,
                                                       "type": "boolean"
+                                                    },
+                                                    "comment": {
+                                                      "default": "",
+                                                      "type": "string"
                                                     }
                                                   },
                                                   "required": [
                                                     "type",
                                                     "meta",
-                                                    "answer"
+                                                    "answer",
+                                                    "comment"
                                                   ],
                                                   "additionalProperties": false
                                                 },
@@ -832,12 +892,17 @@
                                                       "items": {
                                                         "type": "string"
                                                       }
+                                                    },
+                                                    "comment": {
+                                                      "default": "",
+                                                      "type": "string"
                                                     }
                                                   },
                                                   "required": [
                                                     "type",
                                                     "meta",
-                                                    "answer"
+                                                    "answer",
+                                                    "comment"
                                                   ],
                                                   "additionalProperties": false
                                                 },
@@ -864,12 +929,17 @@
                                                     "answer": {
                                                       "default": 0,
                                                       "type": "number"
+                                                    },
+                                                    "comment": {
+                                                      "default": "",
+                                                      "type": "string"
                                                     }
                                                   },
                                                   "required": [
                                                     "type",
                                                     "meta",
-                                                    "answer"
+                                                    "answer",
+                                                    "comment"
                                                   ],
                                                   "additionalProperties": false
                                                 },
@@ -896,12 +966,17 @@
                                                     "answer": {
                                                       "default": "",
                                                       "type": "string"
+                                                    },
+                                                    "comment": {
+                                                      "default": "",
+                                                      "type": "string"
                                                     }
                                                   },
                                                   "required": [
                                                     "type",
                                                     "meta",
-                                                    "answer"
+                                                    "answer",
+                                                    "comment"
                                                   ],
                                                   "additionalProperties": false
                                                 },
@@ -935,11 +1010,16 @@
                                                         "end": {
                                                           "default": "",
                                                           "type": "string"
+                                                        },
+                                                        "comment": {
+                                                          "default": "",
+                                                          "type": "string"
                                                         }
                                                       },
                                                       "required": [
                                                         "start",
-                                                        "end"
+                                                        "end",
+                                                        "comment"
                                                       ],
                                                       "additionalProperties": false
                                                     }
@@ -974,12 +1054,17 @@
                                                     "answer": {
                                                       "default": "",
                                                       "type": "string"
+                                                    },
+                                                    "comment": {
+                                                      "default": "",
+                                                      "type": "string"
                                                     }
                                                   },
                                                   "required": [
                                                     "type",
                                                     "meta",
-                                                    "answer"
+                                                    "answer",
+                                                    "comment"
                                                   ],
                                                   "additionalProperties": false
                                                 },
@@ -1111,12 +1196,17 @@
                                                       "items": {
                                                         "type": "string"
                                                       }
+                                                    },
+                                                    "comment": {
+                                                      "default": "",
+                                                      "type": "string"
                                                     }
                                                   },
                                                   "required": [
                                                     "type",
                                                     "meta",
-                                                    "answer"
+                                                    "answer",
+                                                    "comment"
                                                   ],
                                                   "additionalProperties": false
                                                 },
@@ -1143,12 +1233,17 @@
                                                     "answer": {
                                                       "default": 0,
                                                       "type": "number"
+                                                    },
+                                                    "comment": {
+                                                      "default": "",
+                                                      "type": "string"
                                                     }
                                                   },
                                                   "required": [
                                                     "type",
                                                     "meta",
-                                                    "answer"
+                                                    "answer",
+                                                    "comment"
                                                   ],
                                                   "additionalProperties": false
                                                 },
@@ -1189,12 +1284,17 @@
                                                         "context"
                                                       ],
                                                       "additionalProperties": false
+                                                    },
+                                                    "comment": {
+                                                      "default": "",
+                                                      "type": "string"
                                                     }
                                                   },
                                                   "required": [
                                                     "type",
                                                     "meta",
-                                                    "answer"
+                                                    "answer",
+                                                    "comment"
                                                   ],
                                                   "additionalProperties": false
                                                 },
@@ -1221,12 +1321,17 @@
                                                     "answer": {
                                                       "default": "",
                                                       "type": "string"
+                                                    },
+                                                    "comment": {
+                                                      "default": "",
+                                                      "type": "string"
                                                     }
                                                   },
                                                   "required": [
                                                     "type",
                                                     "meta",
-                                                    "answer"
+                                                    "answer",
+                                                    "comment"
                                                   ],
                                                   "additionalProperties": false
                                                 },
@@ -1303,12 +1408,17 @@
                                                     "answer": {
                                                       "default": "",
                                                       "type": "string"
+                                                    },
+                                                    "comment": {
+                                                      "default": "",
+                                                      "type": "string"
                                                     }
                                                   },
                                                   "required": [
                                                     "type",
                                                     "meta",
-                                                    "answer"
+                                                    "answer",
+                                                    "comment"
                                                   ],
                                                   "additionalProperties": false
                                                 },
@@ -1399,12 +1509,17 @@
                                                     "answer": {
                                                       "default": "",
                                                       "type": "string"
+                                                    },
+                                                    "comment": {
+                                                      "default": "",
+                                                      "type": "string"
                                                     }
                                                   },
                                                   "required": [
                                                     "type",
                                                     "meta",
-                                                    "answer"
+                                                    "answer",
+                                                    "comment"
                                                   ],
                                                   "additionalProperties": false
                                                 }
@@ -1514,12 +1629,17 @@
                                     "answer": {
                                       "default": "",
                                       "type": "string"
+                                    },
+                                    "comment": {
+                                      "default": "",
+                                      "type": "string"
                                     }
                                   },
                                   "required": [
                                     "type",
                                     "meta",
-                                    "answer"
+                                    "answer",
+                                    "comment"
                                   ],
                                   "additionalProperties": false
                                 }

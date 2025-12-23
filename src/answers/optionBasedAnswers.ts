@@ -6,56 +6,66 @@ import { DefaultMeta } from "../questions";
 export const BooleanAnswerSchema = z.object({
   ...AnswerSchema.shape,
   type: z.literal('boolean'),
-  answer: z.boolean().default(false)
+  answer: z.boolean().default(false),
+  comment: z.string().optional().default('')
 });
 export const DefaultBooleanAnswer = BooleanAnswerSchema.parse({
   type: 'boolean',
   answer: false,
-  meta: DefaultMeta
+  meta: DefaultMeta,
+  commnent: ''
 });
 
 export const CheckboxesAnswerSchema = z.object({
   ...AnswerSchema.shape,
   type: z.literal('checkBoxes'),
-  answer: z.array(z.string()).default([''])
+  answer: z.array(z.string()).default(['']),
+  comment: z.string().optional().default('')
 });
 export const DefaultCheckboxesAnswer = CheckboxesAnswerSchema.parse({
   type: 'checkBoxes',
   answer: [],
-  meta: DefaultMeta
+  meta: DefaultMeta,
+  comment: ''
 });
 
 export const RadioButtonsAnswerSchema = z.object({
   ...AnswerSchema.shape,
   type: z.literal('radioButtons'),
-  answer: z.string().default('')
+  answer: z.string().default(''),
+  comment: z.string().optional().default('')
 });
 export const DefaultRadioButtonsAnswer = RadioButtonsAnswerSchema.parse({
   type: 'radioButtons',
   answer: '',
-  meta: DefaultMeta
+  meta: DefaultMeta,
+  comment: ''
 });
 
 export const SelectBoxAnswerSchema = z.object({
   ...AnswerSchema.shape,
   type: z.literal('selectBox'),
-  answer: z.string().default('')
+  answer: z.string().default(''),
+  comment: z.string().optional().default('')
 });
 export const DefaultSelectBoxAnswer = SelectBoxAnswerSchema.parse({
   type: 'selectBox',
   answer: '',
-  meta: DefaultMeta
+  meta: DefaultMeta,
+  comment: ''
 });
 
 export const MultiselectBoxAnswerSchema = z.object({
   ...AnswerSchema.shape,
   type: z.literal('multiselectBox'),
-  answer: z.array(z.string()).default([''])
+  answer: z.array(z.string()).default(['']),
+  comment: z.string().optional().default('')
 });
 export const DefaultMultiselectBoxAnswer = MultiselectBoxAnswerSchema.parse({
   type: 'multiselectBox',
   answer: [],
-  meta: DefaultMeta
+  meta: DefaultMeta,
+  comment: ''
 });
 
 // This will ensure that object validations are against the Zod schemas defined above
