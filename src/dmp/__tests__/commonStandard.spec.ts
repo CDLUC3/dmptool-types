@@ -22,10 +22,10 @@ describe('validate the RDA common standard', () => {
         contact: {
           name: 'Test Contact',
           mbox: 'tester@example.com',
-          contact_id: {
+          contact_id: [{
             identifier: '123456789',
             type: 'other'
-          }
+          }]
         },
         dataset: [{
           title: 'Test Dataset',
@@ -66,10 +66,10 @@ describe('validate the RDA common standard', () => {
         contact: {
           name: 'Test Contact',
           mbox: 'tester@example.com',
-          contact_id: {
+          contact_id: [{
             identifier: 'https://orcid.org/0000-0000-0000-0000',
             type: 'orcid'
-          },
+          }],
           affiliation: [{
             name: 'Test University',
             affiliation_id: {
@@ -80,10 +80,10 @@ describe('validate the RDA common standard', () => {
         },
         contributor: [{
           name: 'Test Contact',
-          contributor_id: {
+          contributor_id: [{
             identifier: 'https://orcid.org/0000-0000-0000-0000',
             type: 'orcid'
-          },
+          }],
           affiliation: [{
             name: 'Test University',
             affiliation_id: {
@@ -117,10 +117,10 @@ describe('validate the RDA common standard', () => {
           metadata: [{
             description: 'Description of metadata',
             language: 'eng',
-            metadata_standard_id: {
+            metadata_standard_id: [{
               identifier: 'https://example.com/metadata-standards/123',
               type: 'url'
-            }
+            }]
           }],
           preservation_statement: 'Statement about preservation',
           security_and_privacy: [{
@@ -185,19 +185,23 @@ describe('validate the RDA common standard', () => {
       project: [{
         title: 'Test Project',
         description: 'This is a test project',
-        project_id: {
+        project_id: [{
           identifier: '123456789',
           type: 'other'
-        },
+        }],
         start: '2025-01-01',
         end: '2028-01-31',
         funding: [{
           name: 'Funder Organization',
-          funding_status: 'planned',
+          funding_status: 'granted',
           funder_id: {
             identifier: 'https://ror.org/0987654321',
             type: 'ror'
-          }
+          },
+          grant_id: [{
+            identifier: '123456789',
+            type: 'other'
+          }]
         }]
       }]
     };

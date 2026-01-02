@@ -28,7 +28,8 @@ describe('extensions', () => {
         identifier: 'https://doi.org/10.1234/dmp.123456789',
         descriptor: 'cites',
         work_type: 'dataset',
-        type: 'doi'
+        type: 'doi',
+        citation: 'Citation for this dataset'
       }],
       research_facility: [{
         name: 'Super telescope',
@@ -52,18 +53,26 @@ describe('extensions', () => {
           type: 'url'
         }
       }],
+      funding_project: [{
+        project_id: {
+          identifier: '123456789',
+          type: 'other'
+        },
+        funder_id: {
+          identifier: 'https://ror.org/0987654321',
+          type: 'ror'
+        },
+        project_identifier: {
+          identifier: 'https://example.com/erbgierg',
+          type: 'url'
+        }
+      }],
       version: [{
-        access_url: 'https://example.com/dmp/123456789?version=2026-01-01T10:32:45Z',
+        access_url: 'https://example.com/dmps/123456789?version=2026-01-01T10:32:45Z',
         version_date: '2026-01-01T10:32:45Z',
       }],
       narrative: {
-        download_urls: {
-          csv: 'https://example.com/dmp/123456789/narrative.csv',
-          docx: 'https://example.com/dmp/123456789/narrative.docx',
-          html: 'https://example.com/dmp/123456789/narrative.html',
-          pdf: 'https://example.com/dmp/123456789/narrative.pdf',
-          txt: 'https://example.com/dmp/123456789/narrative.txt',
-        },
+        download_url: 'https://example.com/dmps/123456789/narrative',
         template: {
           id: 1234567,
           title: 'Narrative Template',
