@@ -19,6 +19,9 @@
       ],
       "additionalProperties": false
     },
+    "comment": {
+      "type": "string"
+    },
     "answer": {
       "type": "object",
       "properties": {
@@ -36,17 +39,12 @@
         "context"
       ],
       "additionalProperties": false
-    },
-    "comment": {
-      "default": "",
-      "type": "string"
     }
   },
   "required": [
     "type",
     "meta",
-    "answer",
-    "comment"
+    "answer"
   ],
   "additionalProperties": false
 }

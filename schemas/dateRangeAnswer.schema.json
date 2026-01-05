@@ -19,6 +19,9 @@
       ],
       "additionalProperties": false
     },
+    "comment": {
+      "type": "string"
+    },
     "answer": {
       "type": "object",
       "properties": {
@@ -29,16 +32,11 @@
         "end": {
           "default": "",
           "type": "string"
-        },
-        "comment": {
-          "default": "",
-          "type": "string"
         }
       },
       "required": [
         "start",
-        "end",
-        "comment"
+        "end"
       ],
       "additionalProperties": false
     }

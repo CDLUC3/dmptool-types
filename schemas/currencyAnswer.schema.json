@@ -19,20 +19,18 @@
       ],
       "additionalProperties": false
     },
+    "comment": {
+      "type": "string"
+    },
     "answer": {
       "default": 0,
       "type": "number"
-    },
-    "comment": {
-      "default": "",
-      "type": "string"
     }
   },
   "required": [
     "type",
     "meta",
-    "answer",
-    "comment"
+    "answer"
   ],
   "additionalProperties": false
 }

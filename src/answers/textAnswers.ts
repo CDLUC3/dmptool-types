@@ -7,14 +7,12 @@ import { DefaultMeta } from "../questions";
 export const EmailAnswerSchema = z.object({
   ...AnswerSchema.shape,
   type: z.literal('email'),
-  answer: z.string().default(''),
-  comment: z.string().optional().default('')
+  answer: z.string().default('')
 });
 export const DefaultEmailAnswer = EmailAnswerSchema.parse({
   type: 'email',
   answer: '',
-  meta: DefaultMeta,
-  comment: ''
+  meta: DefaultMeta
 });
 
 export const TextAnswerSchema = z.object({
@@ -42,14 +40,12 @@ export const DefaultTextAreaAnswer = TextAreaAnswerSchema.parse({
 export const URLAnswerSchema = z.object({
   ...AnswerSchema.shape,
   type: z.literal('url'),
-  answer: z.string().default(''),
-  comment: z.string().optional().default('')
+  answer: z.string().default('')
 });
 export const DefaultURLAnswer = URLAnswerSchema.parse({
   type: 'url',
   answer: '',
-  meta: DefaultMeta,
-  comment: ''
+  meta: DefaultMeta
 });
 
 // This will ensure that object validations are against the Zod schemas defined above

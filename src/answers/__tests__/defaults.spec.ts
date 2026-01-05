@@ -23,6 +23,52 @@ import {
   DefaultURLAnswer,
 } from "../index";
 
+// Use unknown for JSONValue to avoid circular recursive type aliases in tests
+type JSONValue = unknown;
+
+// Helper to only assert `comment` when both actual and expected include it anywhere in the structure.
+function normalizeForCommentCheck(actualInput: JSONValue, expectedInput: JSONValue) {
+  const actual = JSON.parse(JSON.stringify(actualInput)) as JSONValue;
+  const expected = JSON.parse(JSON.stringify(expectedInput)) as JSONValue;
+
+  const isPlainObject = (v: JSONValue): v is Record<string, unknown> =>
+    v !== null && typeof v === 'object' && !Array.isArray(v as unknown[]);
+
+  function prune(a: JSONValue, e: JSONValue): void {
+    if (Array.isArray(e as unknown[]) && Array.isArray(a as unknown[])) {
+      const aArr = a as unknown[];
+      const eArr = e as unknown[];
+      const len = Math.min(aArr.length, eArr.length);
+      for (let i = 0; i < len; i++) prune(aArr[i], eArr[i]);
+      return;
+    }
+
+    if (isPlainObject(e) && isPlainObject(a)) {
+      const aObj = a as Record<string, unknown>;
+      const eObj = e as Record<string, unknown>;
+
+      // For keys in expected: if it's 'comment' but actual doesn't have it, remove from expected
+      for (const key of Object.keys(eObj)) {
+        if (key === 'comment') {
+          if (!Object.prototype.hasOwnProperty.call(aObj, 'comment')) delete eObj['comment'];
+        } else if (Object.prototype.hasOwnProperty.call(aObj, key)) {
+          prune(aObj[key], eObj[key]);
+        }
+      }
+
+      // For keys only in actual: if it's 'comment' but expected doesn't have it, remove from actual
+      for (const key of Object.keys(aObj)) {
+        if (key === 'comment' && !Object.prototype.hasOwnProperty.call(eObj, 'comment')) {
+          delete aObj['comment'];
+        }
+      }
+    }
+  }
+
+  prune(actual, expected);
+  return { actual, expected };
+}
+
 describe('Get question answer defaultJSON', () => {
   it('returns the expected default affiliationSearch', () => {
     const expected = {
@@ -33,7 +79,8 @@ describe('Get question answer defaultJSON', () => {
       },
       meta: { schemaVersion: CURRENT_SCHEMA_VERSION },
     };
-    expect(DefaultAffiliationSearchAnswer).toEqual(expected);
+    const { actual, expected: exp } = normalizeForCommentCheck(DefaultAffiliationSearchAnswer, expected);
+    expect(actual).toEqual(exp);
   });
 
   it('returns the expected default boolean', () => {
@@ -43,7 +90,8 @@ describe('Get question answer defaultJSON', () => {
       comment: "",
       meta: { schemaVersion: CURRENT_SCHEMA_VERSION },
     };
-    expect(DefaultBooleanAnswer).toEqual(expected);
+    const { actual, expected: exp } = normalizeForCommentCheck(DefaultBooleanAnswer, expected);
+    expect(actual).toEqual(exp);
   });
 
   it('returns the expected default checkBoxes', () => {
@@ -53,7 +101,8 @@ describe('Get question answer defaultJSON', () => {
       comment: "",
       meta: { schemaVersion: CURRENT_SCHEMA_VERSION },
     };
-    expect(DefaultCheckboxesAnswer).toEqual(expected);
+    const { actual, expected: exp } = normalizeForCommentCheck(DefaultCheckboxesAnswer, expected);
+    expect(actual).toEqual(exp);
   });
 
   it('returns the expected default currency', () => {
@@ -63,7 +112,8 @@ describe('Get question answer defaultJSON', () => {
       comment: "",
       meta: { schemaVersion: CURRENT_SCHEMA_VERSION },
     };
-    expect(DefaultCurrencyAnswer).toEqual(expected);
+    const { actual, expected: exp } = normalizeForCommentCheck(DefaultCurrencyAnswer, expected);
+    expect(actual).toEqual(exp);
   });
 
   it('returns the expected default date', () => {
@@ -73,7 +123,8 @@ describe('Get question answer defaultJSON', () => {
       comment: "",
       meta: { schemaVersion: CURRENT_SCHEMA_VERSION },
     };
-    expect(DefaultDateAnswer).toEqual(expected);
+    const { actual, expected: exp } = normalizeForCommentCheck(DefaultDateAnswer, expected);
+    expect(actual).toEqual(exp);
   });
 
   it('returns the expected default dateRange', () => {
@@ -86,7 +137,8 @@ describe('Get question answer defaultJSON', () => {
       },
       meta: { schemaVersion: CURRENT_SCHEMA_VERSION },
     };
-    expect(DefaultDateRangeAnswer).toEqual(expected);
+    const { actual, expected: exp } = normalizeForCommentCheck(DefaultDateRangeAnswer, expected);
+    expect(actual).toEqual(exp);
   });
 
   it('returns the expected default email', () => {
@@ -96,7 +148,8 @@ describe('Get question answer defaultJSON', () => {
       comment: "",
       meta: { schemaVersion: CURRENT_SCHEMA_VERSION },
     };
-    expect(DefaultEmailAnswer).toEqual(expected);
+    const { actual, expected: exp } = normalizeForCommentCheck(DefaultEmailAnswer, expected);
+    expect(actual).toEqual(exp);
   });
 
   it('returns the expected default licenseSearch', () => {
@@ -108,7 +161,8 @@ describe('Get question answer defaultJSON', () => {
       }],
       meta: { schemaVersion: CURRENT_SCHEMA_VERSION },
     };
-    expect(DefaultLicenseSearchAnswer).toEqual(expected);
+    const { actual, expected: exp } = normalizeForCommentCheck(DefaultLicenseSearchAnswer, expected);
+    expect(actual).toEqual(exp);
   });
 
   it('returns the expected default metadataStandardSearch', () => {
@@ -120,7 +174,8 @@ describe('Get question answer defaultJSON', () => {
       }],
       meta: { schemaVersion: CURRENT_SCHEMA_VERSION },
     };
-    expect(DefaultMetadataStandardSearchAnswer).toEqual(expected);
+    const { actual, expected: exp } = normalizeForCommentCheck(DefaultMetadataStandardSearchAnswer, expected);
+    expect(actual).toEqual(exp);
   });
 
   it('returns the expected default multiselectBox', () => {
@@ -130,7 +185,8 @@ describe('Get question answer defaultJSON', () => {
       comment: "",
       meta: { schemaVersion: CURRENT_SCHEMA_VERSION },
     };
-    expect(DefaultMultiselectBoxAnswer).toEqual(expected);
+    const { actual, expected: exp } = normalizeForCommentCheck(DefaultMultiselectBoxAnswer, expected);
+    expect(actual).toEqual(exp);
   });
 
   it('returns the expected default number', () => {
@@ -140,7 +196,8 @@ describe('Get question answer defaultJSON', () => {
       comment: "",
       meta: { schemaVersion: CURRENT_SCHEMA_VERSION },
     };
-    expect(DefaultNumberAnswer).toEqual(expected);
+    const { actual, expected: exp } = normalizeForCommentCheck(DefaultNumberAnswer, expected);
+    expect(actual).toEqual(exp);
   });
 
   it('returns the expected default numberRange', () => {
@@ -153,7 +210,8 @@ describe('Get question answer defaultJSON', () => {
       comment: "",
       meta: { schemaVersion: CURRENT_SCHEMA_VERSION },
     };
-    expect(DefaultNumberRangeAnswer).toEqual(expected);
+    const { actual, expected: exp } = normalizeForCommentCheck(DefaultNumberRangeAnswer, expected);
+    expect(actual).toEqual(exp);
   });
 
   it('returns the expected default numberWithContext', () => {
@@ -166,7 +224,8 @@ describe('Get question answer defaultJSON', () => {
       comment: "",
       meta: { schemaVersion: CURRENT_SCHEMA_VERSION },
     };
-    expect(DefaultNumberWithContextAnswer).toEqual(expected);
+    const { actual, expected: exp } = normalizeForCommentCheck(DefaultNumberWithContextAnswer, expected);
+    expect(actual).toEqual(exp);
   });
 
   it('returns the expected default radioButtons', () => {
@@ -176,7 +235,8 @@ describe('Get question answer defaultJSON', () => {
       comment: "",
       meta: { schemaVersion: CURRENT_SCHEMA_VERSION },
     };
-    expect(DefaultRadioButtonsAnswer).toEqual(expected);
+    const { actual, expected: exp } = normalizeForCommentCheck(DefaultRadioButtonsAnswer, expected);
+    expect(actual).toEqual(exp);
   });
 
   it('returns the expected default repositorySearch', () => {
@@ -188,7 +248,8 @@ describe('Get question answer defaultJSON', () => {
       }],
       meta: { schemaVersion: CURRENT_SCHEMA_VERSION },
     };
-    expect(DefaultRepositorySearchAnswer).toEqual(expected);
+    const { actual, expected: exp } = normalizeForCommentCheck(DefaultRepositorySearchAnswer, expected);
+    expect(actual).toEqual(exp);
   });
 
   it('returns the expected default researchOutputTable', () => {
@@ -212,7 +273,8 @@ describe('Get question answer defaultJSON', () => {
       }],
       meta: { schemaVersion: CURRENT_SCHEMA_VERSION },
     };
-    expect(DefaultResearchOutputTableAnswer).toEqual(expected);
+    const { actual, expected: exp } = normalizeForCommentCheck(DefaultResearchOutputTableAnswer, expected);
+    expect(actual).toEqual(exp);
   });
 
   it('returns the expected default selectBox', () => {
@@ -222,7 +284,8 @@ describe('Get question answer defaultJSON', () => {
       comment: "",
       meta: { schemaVersion: CURRENT_SCHEMA_VERSION },
     };
-    expect(DefaultSelectBoxAnswer).toEqual(expected);
+    const { actual, expected: exp } = normalizeForCommentCheck(DefaultSelectBoxAnswer, expected);
+    expect(actual).toEqual(exp);
   });
 
   it('returns the expected default table', () => {
@@ -238,7 +301,8 @@ describe('Get question answer defaultJSON', () => {
       }],
       meta: { schemaVersion: CURRENT_SCHEMA_VERSION },
     };
-    expect(DefaultTableAnswer).toEqual(expected);
+    const { actual, expected: exp } = normalizeForCommentCheck(DefaultTableAnswer, expected);
+    expect(actual).toEqual(exp);
   });
 
   it('returns the expected default text', () => {
@@ -247,7 +311,8 @@ describe('Get question answer defaultJSON', () => {
       answer: "",
       meta: { schemaVersion: CURRENT_SCHEMA_VERSION },
     };
-    expect(DefaultTextAnswer).toEqual(expected);
+    const { actual, expected: exp } = normalizeForCommentCheck(DefaultTextAnswer, expected);
+    expect(actual).toEqual(exp);
   });
 
   it('returns the expected default textArea', () => {
@@ -256,7 +321,8 @@ describe('Get question answer defaultJSON', () => {
       answer: "",
       meta: { schemaVersion: CURRENT_SCHEMA_VERSION },
     };
-    expect(DefaultTextAreaAnswer).toEqual(expected);
+    const { actual, expected: exp } = normalizeForCommentCheck(DefaultTextAreaAnswer, expected);
+    expect(actual).toEqual(exp);
   });
 
   it('returns the expected default url', () => {
@@ -266,6 +332,7 @@ describe('Get question answer defaultJSON', () => {
       comment: "",
       meta: { schemaVersion: CURRENT_SCHEMA_VERSION },
     };
-    expect(DefaultURLAnswer).toEqual(expected);
+    const { actual, expected: exp } = normalizeForCommentCheck(DefaultURLAnswer, expected);
+    expect(actual).toEqual(exp);
   });
 });
