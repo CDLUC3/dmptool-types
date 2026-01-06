@@ -67,7 +67,6 @@
       }
     },
     "showCommentField": {
-      "default": false,
       "type": "boolean"
     }
   },
@@ -75,8 +74,7 @@
     "type",
     "attributes",
     "meta",
-    "options",
-    "showCommentField"
+    "options"
   ],
   "additionalProperties": false
 }

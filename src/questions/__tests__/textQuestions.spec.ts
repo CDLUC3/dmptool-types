@@ -45,8 +45,7 @@ describe("Primitive Questions Zod Schemas", () => {
     const expected = {
       type: "email",
       attributes: { maxLength: 255, multiple: false },
-      meta: { schemaVersion: "1.0" },
-      showCommentField: false
+      meta: { schemaVersion: "1.0" }
     };
     expect(DefaultEmailQuestion).toEqual(expected);
   });
@@ -165,8 +164,7 @@ describe("Primitive Questions Zod Schemas", () => {
     const expected = {
       type: "url",
       attributes: { maxLength: 255 },
-      meta: { schemaVersion: "1.0" },
-      showCommentField: false
+      meta: { schemaVersion: "1.0" }
     };
     expect(DefaultURLQuestion).toEqual(expected);
   });

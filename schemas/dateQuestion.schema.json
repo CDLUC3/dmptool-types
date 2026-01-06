@@ -54,15 +54,13 @@
       "additionalProperties": false
     },
     "showCommentField": {
-      "default": false,
       "type": "boolean"
     }
   },
   "required": [
     "type",
     "attributes",
-    "meta",
-    "showCommentField"
+    "meta"
   ],
   "additionalProperties": false
 }

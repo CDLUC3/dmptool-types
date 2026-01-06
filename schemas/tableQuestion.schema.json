@@ -270,15 +270,13 @@
                     "additionalProperties": false
                   },
                   "showCommentField": {
-                    "default": false,
                     "type": "boolean"
                   }
                 },
                 "required": [
                   "type",
                   "attributes",
-                  "meta",
-                  "showCommentField"
+                  "meta"
                 ],
                 "additionalProperties": false
               },
@@ -350,7 +348,6 @@
                     }
                   },
                   "showCommentField": {
-                    "default": false,
                     "type": "boolean"
                   }
                 },
@@ -358,8 +355,7 @@
                   "type",
                   "attributes",
                   "meta",
-                  "options",
-                  "showCommentField"
+                  "options"
                 ],
                 "additionalProperties": false
               },
@@ -425,15 +421,13 @@
                     "additionalProperties": false
                   },
                   "showCommentField": {
-                    "default": false,
                     "type": "boolean"
                   }
                 },
                 "required": [
                   "type",
                   "attributes",
-                  "meta",
-                  "showCommentField"
+                  "meta"
                 ],
                 "additionalProperties": false
               },
@@ -492,15 +486,13 @@
                     "additionalProperties": false
                   },
                   "showCommentField": {
-                    "default": false,
                     "type": "boolean"
                   }
                 },
                 "required": [
                   "type",
                   "attributes",
-                  "meta",
-                  "showCommentField"
+                  "meta"
                 ],
                 "additionalProperties": false
               },
@@ -616,7 +608,6 @@
                     "additionalProperties": false
                   },
                   "showCommentField": {
-                    "default": false,
                     "type": "boolean"
                   }
                 },
@@ -624,8 +615,7 @@
                   "type",
                   "attributes",
                   "meta",
-                  "columns",
-                  "showCommentField"
+                  "columns"
                 ],
                 "additionalProperties": false
               },
@@ -689,15 +679,13 @@
                     "additionalProperties": false
                   },
                   "showCommentField": {
-                    "default": false,
                     "type": "boolean"
                   }
                 },
                 "required": [
                   "type",
                   "attributes",
-                  "meta",
-                  "showCommentField"
+                  "meta"
                 ],
                 "additionalProperties": false
               },
@@ -1037,15 +1025,13 @@
                     "additionalProperties": false
                   },
                   "showCommentField": {
-                    "default": false,
                     "type": "boolean"
                   }
                 },
                 "required": [
                   "type",
                   "attributes",
-                  "meta",
-                  "showCommentField"
+                  "meta"
                 ],
                 "additionalProperties": false
               },
@@ -1136,15 +1122,13 @@
                     "additionalProperties": false
                   },
                   "showCommentField": {
-                    "default": false,
                     "type": "boolean"
                   }
                 },
                 "required": [
                   "type",
                   "attributes",
-                  "meta",
-                  "showCommentField"
+                  "meta"
                 ],
                 "additionalProperties": false
               },
@@ -1216,7 +1200,6 @@
                     }
                   },
                   "showCommentField": {
-                    "default": false,
                     "type": "boolean"
                   }
                 },
@@ -1224,8 +1207,7 @@
                   "type",
                   "attributes",
                   "meta",
-                  "options",
-                  "showCommentField"
+                  "options"
                 ],
                 "additionalProperties": false
               },
@@ -1443,7 +1425,6 @@
                     }
                   },
                   "showCommentField": {
-                    "default": false,
                     "type": "boolean"
                   }
                 },
@@ -1451,8 +1432,7 @@
                   "type",
                   "attributes",
                   "meta",
-                  "options",
-                  "showCommentField"
+                  "options"
                 ],
                 "additionalProperties": false
               },
@@ -1650,15 +1630,13 @@
                     "additionalProperties": false
                   },
                   "showCommentField": {
-                    "default": false,
                     "type": "boolean"
                   }
                 },
                 "required": [
                   "type",
                   "attributes",
-                  "meta",
-                  "showCommentField"
+                  "meta"
                 ],
                 "additionalProperties": false
               }

@@ -67,8 +67,7 @@ describe('questions return the expected defaults', () => {
         label: 'Is it true?',
         value: false
       },
-      meta: { schemaVersion: "1.0" },
-      showCommentField: false
+      meta: { schemaVersion: "1.0" }
     };
     expect(DefaultBooleanQuestion).toEqual(expected);
   });
@@ -78,8 +77,7 @@ describe('questions return the expected defaults', () => {
       type: "checkBoxes",
       attributes: {},
       meta: { schemaVersion: "1.0" },
-      options: [{ label: 'Option A', checked: false, value: 'a' }],
-      showCommentField: false
+      options: [{ label: 'Option A', checked: false, value: 'a' }]
     };
     expect(DefaultCheckboxesQuestion).toEqual(expected);
   });
@@ -88,8 +86,7 @@ describe('questions return the expected defaults', () => {
     const expected = {
       type: "currency",
       attributes: { min: 0, step: 1, denomination: 'USD' },
-      meta: { schemaVersion: "1.0" },
-      showCommentField: false
+      meta: { schemaVersion: "1.0" }
     };
     expect(DefaultCurrencyQuestion).toEqual(expected);
   });
@@ -98,8 +95,7 @@ describe('questions return the expected defaults', () => {
     const expected = {
       type: "date",
       attributes: { step: 1 },
-      meta: { schemaVersion: "1.0" },
-      showCommentField: false
+      meta: { schemaVersion: "1.0" }
     };
     expect(DefaultDateQuestion).toEqual(expected);
   });
@@ -112,8 +108,7 @@ describe('questions return the expected defaults', () => {
       columns: {
         start: { label: 'From', step: 1 },
         end: { label: 'To', step: 1 }
-      },
-      showCommentField: false
+      }
     };
     expect(DefaultDateRangeQuestion).toEqual(expected);
   });
@@ -231,8 +226,7 @@ describe('questions return the expected defaults', () => {
       type: "multiselectBox",
       attributes: { multiple: true },
       meta: { schemaVersion: "1.0" },
-      options: [{ label: 'Option A', selected: false, value: 'a' }],
-      showCommentField: false
+      options: [{ label: 'Option A', selected: false, value: 'a' }]
     };
     expect(DefaultMultiselectBoxQuestion).toEqual(expected);
   });
@@ -241,8 +235,7 @@ describe('questions return the expected defaults', () => {
     const expected = {
       type: "number",
       attributes: { min: 0, step: 1 },
-      meta: { schemaVersion: "1.0" },
-      showCommentField: false
+      meta: { schemaVersion: "1.0" }
     };
     expect(DefaultNumberQuestion).toEqual(expected);
   });
@@ -255,8 +248,7 @@ describe('questions return the expected defaults', () => {
       columns: {
         start: { label: "From", min: 0, step: 1 },
         end: { label: "To", min: 0, step: 1 },
-      },
-      showCommentField: false
+      }
     };
     expect(DefaultNumberRangeQuestion).toEqual(expected);
   });
@@ -265,8 +257,7 @@ describe('questions return the expected defaults', () => {
     const expected = {
       type: "numberWithContext",
       attributes: { min: 0, step: 1, context: [] },
-      meta: { schemaVersion: "1.0" },
-      showCommentField: false
+      meta: { schemaVersion: "1.0" }
     };
     expect(DefaultNumberWithContextQuestion).toEqual(expected);
   });
@@ -276,8 +267,7 @@ describe('questions return the expected defaults', () => {
       type: "radioButtons",
       attributes: {},
       meta: { schemaVersion: "1.0" },
-      options: [{ label: 'Option A', selected: false, value: 'a' }],
-      showCommentField: false
+      options: [{ label: 'Option A', selected: false, value: 'a' }]
     };
     expect(DefaultRadioButtonsQuestion).toEqual(expected);
   });
@@ -332,8 +322,7 @@ describe('questions return the expected defaults', () => {
               { label: 'Software', value: 'software', selected: false },
               { label: 'Other', value: 'other', selected: false }
             ],
-            meta: { schemaVersion: "1.0" },
-            showCommentField: false
+            meta: { schemaVersion: "1.0" }
           }
         },
         {
@@ -356,8 +345,7 @@ describe('questions return the expected defaults', () => {
                 value: 'personal',
                 checked: false
               },
-            ],
-            showCommentField: false
+            ]
           }
         },
         {
@@ -373,8 +361,7 @@ describe('questions return the expected defaults', () => {
               { label: 'Open Access', value: 'open', selected: false },
               { label: 'Restricted Access', value: 'restricted', selected: false },
               { label: 'Other', value: 'closed', selected: false },
-            ],
-            showCommentField: false
+            ]
           }
         },
         {
@@ -387,8 +374,7 @@ describe('questions return the expected defaults', () => {
             attributes: {
               step: 1
             },
-            meta: { schemaVersion: "1.0" },
-            showCommentField: false
+            meta: { schemaVersion: "1.0" }
           }
         },
         {
@@ -412,8 +398,7 @@ describe('questions return the expected defaults', () => {
             },
             meta: {
               schemaVersion: "1.0"
-            },
-            showCommentField: false
+            }
           }
         },
         {
@@ -685,8 +670,7 @@ describe('questions return the expected defaults', () => {
       type: "selectBox",
       attributes: { multiple: false },
       meta: { schemaVersion: "1.0" },
-      options: [{ label: 'Option A', selected: false, value: 'a' }],
-      showCommentField: false
+      options: [{ label: 'Option A', selected: false, value: 'a' }]
     };
     expect(DefaultSelectBoxQuestion).toEqual(expected);
   });

@@ -39,7 +39,7 @@ export const BooleanQuestionSchema = z.object({
     label: z.string(),
     value: z.boolean().default(false),
   }),
-  showCommentField: z.boolean().optional().default(false)
+  showCommentField: z.boolean().optional()
 });
 export const DefaultBooleanQuestion = BooleanQuestionSchema.parse({
   type: 'boolean',
@@ -47,8 +47,7 @@ export const DefaultBooleanQuestion = BooleanQuestionSchema.parse({
     label: 'Is it true?',
     value: false,
   },
-  meta: DefaultMeta,
-  showCommentField: false
+  meta: DefaultMeta
 });
 
 // Check boxes question and answer
@@ -56,14 +55,13 @@ export const CheckboxesQuestionSchema = z.object({
   ...QuestionSchema.shape,
   type: z.literal('checkBoxes'),
   options: z.array(CheckedOptionSchema),
-  showCommentField: z.boolean().optional().default(false)
+  showCommentField: z.boolean().optional()
 });
 export const DefaultCheckboxesQuestion = CheckboxesQuestionSchema.parse({
   type: 'checkBoxes',
   attributes: CheckedOptionSchema,
   meta: DefaultMeta,
-  options: [DefaultCheckedOption],
-  showCommentField: false
+  options: [DefaultCheckedOption]
 });
 
 // Radio buttons question and answer
@@ -71,14 +69,13 @@ export const RadioButtonsQuestionSchema = z.object({
   ...QuestionSchema.shape,
   type: z.literal('radioButtons'),
   options: z.array(SelectedOptionSchema),
-  showCommentField: z.boolean().optional().default(false)
+  showCommentField: z.boolean().optional()
 });
 export const DefaultRadioButtonsQuestion = RadioButtonsQuestionSchema.parse({
   type: 'radioButtons',
   attributes: DefaultSelectBoxAttributes,
   meta: DefaultMeta,
-  options: [DefaultSelectedOption],
-  showCommentField: false
+  options: [DefaultSelectedOption]
 });
 
 // Select box question and answer
@@ -87,14 +84,13 @@ export const SelectBoxQuestionSchema = z.object({
   type: z.literal('selectBox'),
   options: z.array(SelectedOptionSchema),
   attributes: selectBoxAttributes,
-  showCommentField: z.boolean().optional().default(false)
+  showCommentField: z.boolean().optional()
 });
 export const DefaultSelectBoxQuestion = SelectBoxQuestionSchema.parse({
   type: 'selectBox',
   attributes: DefaultSelectBoxAttributes,
   meta: DefaultMeta,
-  options: [DefaultSelectedOption],
-  showCommentField: false
+  options: [DefaultSelectedOption]
 });
 
 const multiselectBoxAttributes = z.object({
@@ -111,14 +107,13 @@ export const MultiselectBoxQuestionSchema = z.object({
   type: z.literal('multiselectBox'),
   options: z.array(SelectedOptionSchema),
   attributes: multiselectBoxAttributes,
-  showCommentField: z.boolean().optional().default(false)
+  showCommentField: z.boolean().optional()
 });
 export const DefaultMultiselectBoxQuestion = MultiselectBoxQuestionSchema.parse({
   type: 'multiselectBox',
   attributes: DefaultMultiselectBoxAttributes,
   meta: DefaultMeta,
-  options: [DefaultSelectedOption],
-  showCommentField: false
+  options: [DefaultSelectedOption]
 });
 
 // This will ensure that object validations are against the Zod schemas defined above

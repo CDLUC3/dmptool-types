@@ -21,13 +21,12 @@ export const EmailQuestionSchema = z.object({
     ...TextAttributesSchema.shape,
     multiple: z.boolean().default(false),
   }),
-  showCommentField: z.boolean().optional().default(false)
+  showCommentField: z.boolean().optional()
 });
 export const DefaultEmailQuestion = EmailQuestionSchema.parse({
   type: 'email',
   attributes: EmailQuestionSchema.shape.attributes,
-  meta: DefaultMeta,
-  showCommentField: false
+  meta: DefaultMeta
 });
 
 // Text area question and answer
@@ -65,13 +64,12 @@ export const URLQuestionSchema = z.object({
   ...QuestionSchema.shape,
   type: z.literal('url'),
   attributes: TextAttributesSchema,
-  showCommentField: z.boolean().optional().default(false)
+  showCommentField: z.boolean().optional()
 });
 export const DefaultURLQuestion = URLQuestionSchema.parse({
   type: 'url',
   attributes: DefaultTextAttributes,
-  meta: DefaultMeta,
-  showCommentField: false
+  meta: DefaultMeta
 });
 
 // This will ensure that object validations are against the Zod schemas defined above

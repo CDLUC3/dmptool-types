@@ -87,7 +87,6 @@ describe('Get question answer defaultJSON', () => {
     const expected = {
       type: "boolean",
       answer: false,
-      comment: "",
       meta: { schemaVersion: CURRENT_SCHEMA_VERSION },
     };
     const { actual, expected: exp } = normalizeForCommentCheck(DefaultBooleanAnswer, expected);
@@ -98,7 +97,6 @@ describe('Get question answer defaultJSON', () => {
     const expected = {
       type: "checkBoxes",
       answer: [],
-      comment: "",
       meta: { schemaVersion: CURRENT_SCHEMA_VERSION },
     };
     const { actual, expected: exp } = normalizeForCommentCheck(DefaultCheckboxesAnswer, expected);
@@ -109,7 +107,6 @@ describe('Get question answer defaultJSON', () => {
     const expected = {
       type: "currency",
       answer: 0,
-      comment: "",
       meta: { schemaVersion: CURRENT_SCHEMA_VERSION },
     };
     const { actual, expected: exp } = normalizeForCommentCheck(DefaultCurrencyAnswer, expected);
@@ -120,7 +117,6 @@ describe('Get question answer defaultJSON', () => {
     const expected = {
       type: "date",
       answer: "",
-      comment: "",
       meta: { schemaVersion: CURRENT_SCHEMA_VERSION },
     };
     const { actual, expected: exp } = normalizeForCommentCheck(DefaultDateAnswer, expected);
@@ -133,7 +129,6 @@ describe('Get question answer defaultJSON', () => {
       answer: {
         start: "",
         end: "",
-        comment: "",
       },
       meta: { schemaVersion: CURRENT_SCHEMA_VERSION },
     };
@@ -145,7 +140,6 @@ describe('Get question answer defaultJSON', () => {
     const expected = {
       type: "email",
       answer: "",
-      comment: "",
       meta: { schemaVersion: CURRENT_SCHEMA_VERSION },
     };
     const { actual, expected: exp } = normalizeForCommentCheck(DefaultEmailAnswer, expected);
@@ -182,7 +176,6 @@ describe('Get question answer defaultJSON', () => {
     const expected = {
       type: "multiselectBox",
       answer: [],
-      comment: "",
       meta: { schemaVersion: CURRENT_SCHEMA_VERSION },
     };
     const { actual, expected: exp } = normalizeForCommentCheck(DefaultMultiselectBoxAnswer, expected);
@@ -193,7 +186,6 @@ describe('Get question answer defaultJSON', () => {
     const expected = {
       type: "number",
       answer: 0,
-      comment: "",
       meta: { schemaVersion: CURRENT_SCHEMA_VERSION },
     };
     const { actual, expected: exp } = normalizeForCommentCheck(DefaultNumberAnswer, expected);
@@ -207,7 +199,6 @@ describe('Get question answer defaultJSON', () => {
         start: 0,
         end: 0,
       },
-      comment: "",
       meta: { schemaVersion: CURRENT_SCHEMA_VERSION },
     };
     const { actual, expected: exp } = normalizeForCommentCheck(DefaultNumberRangeAnswer, expected);
@@ -221,7 +212,6 @@ describe('Get question answer defaultJSON', () => {
         value: 0,
         context: "",
       },
-      comment: "",
       meta: { schemaVersion: CURRENT_SCHEMA_VERSION },
     };
     const { actual, expected: exp } = normalizeForCommentCheck(DefaultNumberWithContextAnswer, expected);
@@ -232,7 +222,6 @@ describe('Get question answer defaultJSON', () => {
     const expected = {
       type: "radioButtons",
       answer: "",
-      comment: "",
       meta: { schemaVersion: CURRENT_SCHEMA_VERSION },
     };
     const { actual, expected: exp } = normalizeForCommentCheck(DefaultRadioButtonsAnswer, expected);
@@ -266,7 +255,6 @@ describe('Get question answer defaultJSON', () => {
           {
             type: "selectBox",
             answer: "",
-            comment: "",
             meta: { schemaVersion: CURRENT_SCHEMA_VERSION },
           }
         ]
@@ -281,7 +269,6 @@ describe('Get question answer defaultJSON', () => {
     const expected = {
       type: "selectBox",
       answer: "",
-      comment: "",
       meta: { schemaVersion: CURRENT_SCHEMA_VERSION },
     };
     const { actual, expected: exp } = normalizeForCommentCheck(DefaultSelectBoxAnswer, expected);
@@ -329,7 +316,6 @@ describe('Get question answer defaultJSON', () => {
     const expected = {
       type: "url",
       answer: "",
-      comment: "",
       meta: { schemaVersion: CURRENT_SCHEMA_VERSION },
     };
     const { actual, expected: exp } = normalizeForCommentCheck(DefaultURLAnswer, expected);
