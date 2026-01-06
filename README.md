@@ -222,14 +222,14 @@ of  `@dmptool/types` to npm until you know the changes are working as expected. 
 may also fix tests or make other changes to the backend or frontend to use the new types
 schema if it causes breaking changes.
 
-in the existing package.json it looks like the following (most of the section omitted):
+in the existing package.json it looks like the following (most of the file omitted):
 
 ```json
+{
   "dependencies": {
-  ...
-  "@dmptool/types": "2.0.0",
-  ...
+    "@dmptool/types": "2.0.0",
   }
+}
 ```
 
 To test frontend or backed locally with new types, change the version to point to the
@@ -242,14 +242,14 @@ commit hash since it makes it more clear for caching algorithms that code has ch
 see the latest commit hash by doing `git log -1` in the dmptool-types repo
 (be sure that commit is on github!).
 
-Example:
+Example (most of the file omitted):
 
 ```json
+{
   "dependencies": {
-  ...
-  "@dmptool/types": "github:CDLUC3/dmptool-types#3804909b252dcf3af4487438ed9321d6a06decd1",
-  ...
+    "@dmptool/types": "github:CDLUC3/dmptool-types#3804909b252dcf3af4487438ed9321d6a06decd1",
   }
+}
 ```
 
 After changing you need to run `npm install` again to update the dependency and probably need
