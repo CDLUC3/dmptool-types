@@ -1,5 +1,6 @@
 import fs from 'fs';
 import { Validator } from 'jsonschema';
+import { RDACommonStandardDMPType } from "../index";
 
 const SCHEMA_PATH = './schemas/dmp.schema.json';
 
@@ -8,7 +9,7 @@ describe('validate the RDA common standard', () => {
     const validator = new Validator();
     const schema = await fs.readFileSync(SCHEMA_PATH, 'utf8');
 
-    const dmp = {
+    const dmp: RDACommonStandardDMPType = {
       dmp: {
         title: 'Test DMP',
         dmp_id: {
@@ -49,7 +50,7 @@ describe('validate the RDA common standard', () => {
     const validator = new Validator();
     const schema = await fs.readFileSync(SCHEMA_PATH, 'utf8');
 
-    const dmp = {
+    const dmp: RDACommonStandardDMPType = {
       dmp: {
         title: 'Test DMP',
         description: 'This is a test DMP',

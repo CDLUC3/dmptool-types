@@ -1,9 +1,10 @@
 import { expect } from "@jest/globals";
 import { DefaultExtensionSchema, ExtensionSchema } from "../extension";
+import { DMPToolExtensionType } from "../index";
 
 describe('extensions', () => {
   it('validates a minimal DMP Tool extension', () => {
-    const expected = {
+    const expected: DMPToolExtensionType = {
       provenance: 'your-application',
       privacy: 'private',
       featured: 'no',
@@ -12,7 +13,7 @@ describe('extensions', () => {
   });
 
   it('validates a full DMP Tool extension', () => {
-    const validData = {
+    const validData: DMPToolExtensionType = {
       provenance: 'your-application',
       privacy: 'private',
       featured: 'no',
@@ -24,13 +25,6 @@ describe('extensions', () => {
           type: 'url'
         }
       },
-      related_identifier: [{
-        identifier: 'https://doi.org/10.1234/dmp.123456789',
-        descriptor: 'cites',
-        work_type: 'dataset',
-        type: 'doi',
-        citation: 'Citation for this dataset'
-      }],
       research_facility: [{
         name: 'Super telescope',
         type: 'observatory',
@@ -69,7 +63,7 @@ describe('extensions', () => {
       }],
       version: [{
         access_url: 'https://example.com/dmps/123456789?version=2026-01-01T10:32:45Z',
-        version_date: '2026-01-01T10:32:45Z',
+        version: '2026-01-01T10:32:45Z',
       }],
       narrative: {
         download_url: 'https://example.com/dmps/123456789/narrative',
@@ -95,7 +89,7 @@ describe('extensions', () => {
                     repositoryId: 'https://example.com/repository/123456789',
                     repositoryName: 'Example Repository',
                   }],
-                  meta: { schemaVersion: '1.0' }
+                  meta: {schemaVersion: '1.0'}
                 }
               },
             }]

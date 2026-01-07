@@ -85,7 +85,7 @@ const VersionSchema = z.object({
   // URL to fetch the historical version of the DMP
   access_url: z.string(),
   // The date of the version
-  version_date: z.iso.datetime(),
+  version: z.iso.datetime(),
 });
 
 const NarrativeAnswerSchema = z.object({
@@ -172,5 +172,3 @@ export const ExtensionSchema = z.object({
 export const DefaultExtensionSchema = ExtensionSchema.parse({
   provenance: 'your-application',
 });
-
-export type ExtensionType = z.infer<typeof ExtensionSchema>;

@@ -1,7 +1,7 @@
 import fs from "fs";
 import { z } from "zod";
 import { FromSchema } from "json-schema-to-ts";
-import { ExtensionSchema, ExtensionType } from "./extension";
+import { ExtensionSchema } from "./extension";
 
 // The RDA Common Standard for DMPs JSON schema is automatically downloaded by
 // scripts/importRDACommonStandard.ts script. This file fetches the specified
@@ -21,6 +21,18 @@ export const RDACommonStandardDMPJSONSchema = jsonSchema;
 // The version of the DMP that conforms to the RDA Common Standard (without our extensions)
 export type RDACommonStandardDMPType = FromSchema<typeof jsonSchema>
 
-// The version of the DMP that conforms to the RDA Common Standard (with our extensions)
-export type DMPToolDMPType = RDACommonStandardDMPType & ExtensionType;
+// The DMP Tool extensions to the RDA Common Standard
+export type DMPToolExtensionType = z.infer<typeof ExtensionSchema>;
+export const DMPToolExtensionSchema = ExtensionSchema;
 export const ExtensionJSONSchema = z.toJSONSchema(ExtensionSchema);
+
+// Get the top level `dmp` object from the RDA Common Standard DMP and merge it with the DMP Tool extensions
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+type RDAInner = RDACommonStandardDMPType extends { dmp: infer T } ? T : any;
+type MergedDMP = RDAInner & DMPToolExtensionType;
+
+// Export the merged DMP as a type
+// eslint-disable-next-line @typescript-eslint/consistent-type-definitions
+export type DMPToolDMPType = {
+  dmp: MergedDMP;
+};
