@@ -53,6 +53,9 @@
             "default": "a",
             "type": "string"
           },
+          "description": {
+            "type": "string"
+          },
           "selected": {
             "default": false,
             "type": "boolean"

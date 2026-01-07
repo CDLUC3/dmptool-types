@@ -9,6 +9,7 @@ import {
 const OptionSchema = z.object({
   label: z.string().default('Option A'),
   value: z.string().default('a'),
+  description: z.string().optional(),
 });
 
 const CheckedOptionSchema = z.object({

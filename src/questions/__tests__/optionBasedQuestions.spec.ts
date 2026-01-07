@@ -259,3 +259,20 @@ describe("MultiselectBoxQuestion", () => {
     expect(() => MultiselectBoxQuestionSchema.parse(invalidSelectBoxQuestion)).toThrow();
   });
 });
+
+describe("Option descriptions", () => {
+  it("should accept and preserve an optional description on options", () => {
+    const selectWithDescription: SelectBoxQuestionType = {
+      type: "selectBox",
+      attributes: { multiple: false },
+      options: [
+        { label: "Data paper", value: "data-paper", selected: false, description: "A published description of a dataset" },
+      ],
+      meta: { schemaVersion: "1.0" }
+    };
+
+    const parsed = SelectBoxQuestionSchema.parse(selectWithDescription);
+    expect(parsed.options[0].description).toBe("A published description of a dataset");
+  });
+});
+

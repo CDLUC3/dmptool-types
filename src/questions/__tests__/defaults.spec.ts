@@ -318,9 +318,9 @@ describe('questions return the expected defaults', () => {
             type: "selectBox",
             attributes: { multiple: false },
             options: [
-              { label: 'Dataset', value: 'dataset', selected: false },
-              { label: 'Software', value: 'software', selected: false },
-              { label: 'Other', value: 'other', selected: false }
+              { label: 'Dataset', value: 'dataset' },
+              { label: 'Software', value: 'software' },
+              { label: 'Other', value: 'other' }
             ],
             meta: { schemaVersion: "1.0" }
           }

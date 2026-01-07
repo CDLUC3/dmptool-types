@@ -334,6 +334,9 @@
                           "default": "a",
                           "type": "string"
                         },
+                        "description": {
+                          "type": "string"
+                        },
                         "checked": {
                           "default": false,
                           "type": "boolean"
@@ -1186,6 +1189,9 @@
                           "default": "a",
                           "type": "string"
                         },
+                        "description": {
+                          "type": "string"
+                        },
                         "selected": {
                           "default": false,
                           "type": "boolean"
@@ -1409,6 +1415,9 @@
                         },
                         "value": {
                           "default": "a",
+                          "type": "string"
+                        },
+                        "description": {
                           "type": "string"
                         },
                         "selected": {
