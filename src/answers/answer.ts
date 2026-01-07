@@ -10,12 +10,14 @@ export const AnswerSchema = z.object({
   type: QuestionFormatsEnum,                                    // The type of answer
   meta: z.object({
     schemaVersion: z.string().default(CURRENT_SCHEMA_VERSION), // The schema version of the answer
-  })
+  }),
+  comment: z.string().optional()                              // Optional comment associated with the answer
 });
 export const DefaultAnswer = AnswerSchema.parse({
   type: 'textArea',
   answer: "",
-  meta: DefaultMeta
+  meta: DefaultMeta,
+  comment: ""
 });
 
 // This will ensure that object validations are against the Zod schemas defined above

@@ -19,6 +19,9 @@
       ],
       "additionalProperties": false
     },
+    "comment": {
+      "type": "string"
+    },
     "answer": {
       "default": "",
       "type": "string"

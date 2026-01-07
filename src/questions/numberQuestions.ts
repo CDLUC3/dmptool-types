@@ -19,7 +19,8 @@ export const CurrencyQuestionSchema = z.object({
   attributes: z.object({
     ...NumberAttributesSchema.shape,
     denomination: z.string().default('USD')
-  })
+  }),
+  showCommentField: z.boolean().optional()
 });
 export const DefaultCurrencyQuestion = CurrencyQuestionSchema.parse({
   type: 'currency',
@@ -30,7 +31,8 @@ export const DefaultCurrencyQuestion = CurrencyQuestionSchema.parse({
 export const NumberQuestionSchema = z.object({
   ...QuestionSchema.shape,
   type: z.literal('number'),
-  attributes: NumberAttributesSchema
+  attributes: NumberAttributesSchema,
+  showCommentField: z.boolean().optional()
 });
 export const DefaultNumberQuestion = NumberQuestionSchema.parse({
   type: 'number',
@@ -56,7 +58,8 @@ export const NumberRangeQuestionSchema = z.object({
   columns: z.object({
     start: NumberRangeStartColumnSchema,
     end: NumberRangeEndColumnSchema
-  })
+  }),
+  showCommentField: z.boolean().optional()
 });
 export const DefaultNumberRangeQuestion = NumberRangeQuestionSchema.parse({
   type: 'numberRange',
@@ -80,13 +83,14 @@ const NumberWithContextAttributesSchema = z.object({
 });
 const DefaultNumberWithContextAttributes = NumberWithContextAttributesSchema.parse({
   ...DefaultNumberQuestion.attributes,
-  context: []
+  context: [],
 });
 
 export const NumberWithContextQuestionSchema = z.object({
   ...QuestionSchema.shape,
   type: z.literal('numberWithContext'),
-  attributes: NumberWithContextAttributesSchema
+  attributes: NumberWithContextAttributesSchema,
+  showCommentField: z.boolean().optional()
 });
 export const DefaultNumberWithContextQuestion = NumberWithContextQuestionSchema.parse({
   type: 'numberWithContext',

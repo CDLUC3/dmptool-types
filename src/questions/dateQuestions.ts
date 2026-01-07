@@ -17,7 +17,8 @@ const DefaultDateAttributes = DateAttributesSchema.parse({});
 export const DateQuestionSchema = z.object({
   ...QuestionSchema.shape,
   type: z.literal('date'),
-  attributes: DateAttributesSchema
+  attributes: DateAttributesSchema,
+  showCommentField: z.boolean().optional()
 });
 export const DefaultDateQuestion = DateQuestionSchema.parse({
   type: 'date',
@@ -41,7 +42,8 @@ export const DateRangeQuestionSchema = z.object({
   columns: z.object({
     start: DateRangeStartColumnSchema,
     end: DateRangeEndColumnSchema,
-  })
+  }),
+  showCommentField: z.boolean().optional()
 });
 export const DefaultDateRangeQuestion = DateRangeQuestionSchema.parse({
   type: 'dateRange',

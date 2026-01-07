@@ -184,6 +184,9 @@
             "schemaVersion"
           ],
           "additionalProperties": false
+        },
+        "showCommentField": {
+          "type": "boolean"
         }
       },
       "required": [
@@ -259,6 +262,9 @@
             ],
             "additionalProperties": false
           }
+        },
+        "showCommentField": {
+          "type": "boolean"
         }
       },
       "required": [
@@ -329,6 +335,9 @@
             "schemaVersion"
           ],
           "additionalProperties": false
+        },
+        "showCommentField": {
+          "type": "boolean"
         }
       },
       "required": [
@@ -391,6 +400,9 @@
             "schemaVersion"
           ],
           "additionalProperties": false
+        },
+        "showCommentField": {
+          "type": "boolean"
         }
       },
       "required": [
@@ -510,6 +522,9 @@
             "end"
           ],
           "additionalProperties": false
+        },
+        "showCommentField": {
+          "type": "boolean"
         }
       },
       "required": [
@@ -578,6 +593,9 @@
             "schemaVersion"
           ],
           "additionalProperties": false
+        },
+        "showCommentField": {
+          "type": "boolean"
         }
       },
       "required": [
@@ -939,6 +957,9 @@
             ],
             "additionalProperties": false
           }
+        },
+        "showCommentField": {
+          "type": "boolean"
         }
       },
       "required": [
@@ -1004,6 +1025,9 @@
             "schemaVersion"
           ],
           "additionalProperties": false
+        },
+        "showCommentField": {
+          "type": "boolean"
         }
       },
       "required": [
@@ -1127,6 +1151,9 @@
             "end"
           ],
           "additionalProperties": false
+        },
+        "showCommentField": {
+          "type": "boolean"
         }
       },
       "required": [
@@ -1203,6 +1230,9 @@
             ],
             "additionalProperties": false
           }
+        },
+        "showCommentField": {
+          "type": "boolean"
         }
       },
       "required": [
@@ -1709,6 +1739,9 @@
                           ],
                           "additionalProperties": false
                         }
+                      },
+                      "showCommentField": {
+                        "type": "boolean"
                       }
                     },
                     "required": [
@@ -1814,6 +1847,9 @@
                           ],
                           "additionalProperties": false
                         }
+                      },
+                      "showCommentField": {
+                        "type": "boolean"
                       }
                     },
                     "required": [
@@ -1919,6 +1955,9 @@
                           ],
                           "additionalProperties": false
                         }
+                      },
+                      "showCommentField": {
+                        "type": "boolean"
                       }
                     },
                     "required": [
@@ -2011,6 +2050,9 @@
                           "schemaVersion"
                         ],
                         "additionalProperties": false
+                      },
+                      "showCommentField": {
+                        "type": "boolean"
                       }
                     },
                     "required": [
@@ -2134,6 +2176,9 @@
                           "schemaVersion"
                         ],
                         "additionalProperties": false
+                      },
+                      "showCommentField": {
+                        "type": "boolean"
                       }
                     },
                     "required": [
@@ -2901,6 +2946,9 @@
             ],
             "additionalProperties": false
           }
+        },
+        "showCommentField": {
+          "type": "boolean"
         }
       },
       "required": [
@@ -3180,6 +3228,9 @@
                           "schemaVersion"
                         ],
                         "additionalProperties": false
+                      },
+                      "showCommentField": {
+                        "type": "boolean"
                       }
                     },
                     "required": [
@@ -3255,6 +3306,9 @@
                           ],
                           "additionalProperties": false
                         }
+                      },
+                      "showCommentField": {
+                        "type": "boolean"
                       }
                     },
                     "required": [
@@ -3325,6 +3379,9 @@
                           "schemaVersion"
                         ],
                         "additionalProperties": false
+                      },
+                      "showCommentField": {
+                        "type": "boolean"
                       }
                     },
                     "required": [
@@ -3387,6 +3444,9 @@
                           "schemaVersion"
                         ],
                         "additionalProperties": false
+                      },
+                      "showCommentField": {
+                        "type": "boolean"
                       }
                     },
                     "required": [
@@ -3506,6 +3566,9 @@
                           "end"
                         ],
                         "additionalProperties": false
+                      },
+                      "showCommentField": {
+                        "type": "boolean"
                       }
                     },
                     "required": [
@@ -3574,6 +3637,9 @@
                           "schemaVersion"
                         ],
                         "additionalProperties": false
+                      },
+                      "showCommentField": {
+                        "type": "boolean"
                       }
                     },
                     "required": [
@@ -3917,6 +3983,9 @@
                           "schemaVersion"
                         ],
                         "additionalProperties": false
+                      },
+                      "showCommentField": {
+                        "type": "boolean"
                       }
                     },
                     "required": [
@@ -4011,6 +4080,9 @@
                           "schemaVersion"
                         ],
                         "additionalProperties": false
+                      },
+                      "showCommentField": {
+                        "type": "boolean"
                       }
                     },
                     "required": [
@@ -4086,6 +4158,9 @@
                           ],
                           "additionalProperties": false
                         }
+                      },
+                      "showCommentField": {
+                        "type": "boolean"
                       }
                     },
                     "required": [
@@ -4308,6 +4383,9 @@
                           ],
                           "additionalProperties": false
                         }
+                      },
+                      "showCommentField": {
+                        "type": "boolean"
                       }
                     },
                     "required": [
@@ -4510,6 +4588,9 @@
                           "schemaVersion"
                         ],
                         "additionalProperties": false
+                      },
+                      "showCommentField": {
+                        "type": "boolean"
                       }
                     },
                     "required": [
@@ -4731,6 +4812,9 @@
             "schemaVersion"
           ],
           "additionalProperties": false
+        },
+        "showCommentField": {
+          "type": "boolean"
         }
       },
       "required": [
