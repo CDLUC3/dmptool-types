@@ -19,12 +19,6 @@ const CheckedOptionSchema = z.object({
 });
 const DefaultCheckedOption = CheckedOptionSchema.parse({});
 
-const SelectedOptionSchema = z.object({
-  ...OptionSchema.shape,
-  selected: z.boolean().default(false),
-});
-const DefaultSelectedOption = SelectedOptionSchema.parse({});
-
 const selectBoxAttributes = z.object({
   ...BaseAttributesSchema.shape,
   multiple: z.literal(false)
