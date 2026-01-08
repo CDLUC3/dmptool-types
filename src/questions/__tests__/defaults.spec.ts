@@ -188,7 +188,7 @@ describe('questions return the expected defaults', () => {
             type: "OFFSET",
             name: "paginationOptions",
             label: "Pagination Options",
-            labelTranslationKey: "PaginationOptions.label",
+            labelTranslationKey: "PaginationOptions.label"
           }
         ],
         responseField: "metadataStandards.items",
@@ -374,7 +374,7 @@ describe('questions return the expected defaults', () => {
             attributes: {
               step: 1
             },
-            meta: { schemaVersion: "1.0" },
+            meta: { schemaVersion: "1.0" }
           }
         },
         {

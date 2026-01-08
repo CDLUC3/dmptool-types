@@ -38,7 +38,8 @@ export const BooleanQuestionSchema = z.object({
   attributes: z.object({
     label: z.string(),
     value: z.boolean().default(false),
-  })
+  }),
+  showCommentField: z.boolean().optional()
 });
 export const DefaultBooleanQuestion = BooleanQuestionSchema.parse({
   type: 'boolean',
@@ -54,6 +55,7 @@ export const CheckboxesQuestionSchema = z.object({
   ...QuestionSchema.shape,
   type: z.literal('checkBoxes'),
   options: z.array(CheckedOptionSchema),
+  showCommentField: z.boolean().optional()
 });
 export const DefaultCheckboxesQuestion = CheckboxesQuestionSchema.parse({
   type: 'checkBoxes',
@@ -67,6 +69,7 @@ export const RadioButtonsQuestionSchema = z.object({
   ...QuestionSchema.shape,
   type: z.literal('radioButtons'),
   options: z.array(SelectedOptionSchema),
+  showCommentField: z.boolean().optional()
 });
 export const DefaultRadioButtonsQuestion = RadioButtonsQuestionSchema.parse({
   type: 'radioButtons',
@@ -80,7 +83,8 @@ export const SelectBoxQuestionSchema = z.object({
   ...QuestionSchema.shape,
   type: z.literal('selectBox'),
   options: z.array(SelectedOptionSchema),
-  attributes: selectBoxAttributes
+  attributes: selectBoxAttributes,
+  showCommentField: z.boolean().optional()
 });
 export const DefaultSelectBoxQuestion = SelectBoxQuestionSchema.parse({
   type: 'selectBox',
@@ -102,7 +106,8 @@ export const MultiselectBoxQuestionSchema = z.object({
   ...SelectBoxQuestionSchema.shape,
   type: z.literal('multiselectBox'),
   options: z.array(SelectedOptionSchema),
-  attributes: multiselectBoxAttributes
+  attributes: multiselectBoxAttributes,
+  showCommentField: z.boolean().optional()
 });
 export const DefaultMultiselectBoxQuestion = MultiselectBoxQuestionSchema.parse({
   type: 'multiselectBox',

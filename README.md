@@ -215,7 +215,73 @@ To just generate JSON schemas from the Zod schemas: `npm run generate`
 
 To build the Types, Zod schemas and JSON schemas all at once: `npm run build`
 
-To publish changes:
+### Pre-testing changes from dmptool-types in the backend or frontend
+
+It's possible to test changes so you don't have to publish the new version
+of  `@dmptool/types` to npm until you know the changes are working as expected. You
+may also fix tests or make other changes to the backend or frontend to use the new types
+schema if it causes breaking changes.
+
+in the existing package.json it looks like the following (most of the file omitted):
+
+```json
+{
+  "dependencies": {
+    "@dmptool/types": "2.0.0",
+  }
+}
+```
+
+To test frontend or backed locally with new types, change the version to point to the
+GitHub repo instead. You should have committed and pushed your changes to a branch in
+the dmptool-types repo before doing this.
+
+While you can put a branch name after the `#` here, it's better to use a specific
+commit hash since it makes it more clear for caching algorithms that code has changed
+(while a branch name may stay the same, even with changes to the branch). You can
+see the latest commit hash by doing `git log -1` in the dmptool-types repo
+(be sure that commit is on github!).
+
+Example (most of the file omitted):
+
+```json
+{
+  "dependencies": {
+    "@dmptool/types": "github:CDLUC3/dmptool-types#3804909b252dcf3af4487438ed9321d6a06decd1",
+  }
+}
+```
+
+After changing you need to run `npm install` again to update the dependency and probably need
+to stop docker and do `docker compose up` again (if you're using docker for local development).
+
+This may also help you decide how to set SEMVER version number as a MAJOR, MINOR or PATCH change
+when you go to publish the types package to NPM depending on if breaking existing code.
+
+After you've tested your changes and are happy with them, be sure to change the package.json
+`@dmptool/types` back to the previous npm repository and version. After you've published
+the types to NPM (see section below), you can then update the backend and frontend package.json files
+to use the new version from NPM.
+
+It's tricky to manage these changes since they potentially may require changes to
+three different repositories in parallel since likely the types changes will at
+least require version number changes to be published to NPM and then the frontend
+and backend will need to update their dependencies to use the new version of the
+types package, also.
+
+Be careful with testing locally since if other people are working in parallel with
+types or other backend/frontend changes then the compatibility may change if you're pulling
+latest changes in only some of the repos from upstream, but not others.
+
+Problems may not be obvious or easy to figure out when things get out of sync and
+you can waste a lot of time trying to figure out why something isn't working.
+One way to keep things in sync is to create parallel feature branches on all three
+repos when starting the work,so the changes stay the same and can be tested together
+and act like an atomic unit rather than some parts drifting out of sync. If you pull
+in latest changes from upstream on one repo, be sure to do it on all three repos.
+
+
+### To publish changes:
 - Increment the `version` in `package.json`
 - Run `npm login` and login to you npm account
 - Run `npm publish --access public`
@@ -242,3 +308,6 @@ latest: 1.0.0
 
 published 6 minutes ago by npm-user-name <email-address>
 ```
+
+After publishing changes you'll need to update the `@dmptool/types` dependency in both the
+backend and frontend repos to use the new version number and run `npm install` again.

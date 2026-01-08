@@ -21,6 +21,9 @@
           ],
           "additionalProperties": false
         },
+        "comment": {
+          "type": "string"
+        },
         "answer": {
           "type": "object",
           "properties": {
@@ -67,6 +70,9 @@
           ],
           "additionalProperties": false
         },
+        "comment": {
+          "type": "string"
+        },
         "answer": {
           "default": false,
           "type": "boolean"
@@ -98,6 +104,9 @@
             "schemaVersion"
           ],
           "additionalProperties": false
+        },
+        "comment": {
+          "type": "string"
         },
         "answer": {
           "default": [
@@ -136,6 +145,9 @@
           ],
           "additionalProperties": false
         },
+        "comment": {
+          "type": "string"
+        },
         "answer": {
           "default": 0,
           "type": "number"
@@ -168,6 +180,9 @@
           ],
           "additionalProperties": false
         },
+        "comment": {
+          "type": "string"
+        },
         "answer": {
           "default": "",
           "type": "string"
@@ -199,6 +214,9 @@
             "schemaVersion"
           ],
           "additionalProperties": false
+        },
+        "comment": {
+          "type": "string"
         },
         "answer": {
           "type": "object",
@@ -246,6 +264,9 @@
           ],
           "additionalProperties": false
         },
+        "comment": {
+          "type": "string"
+        },
         "answer": {
           "default": "",
           "type": "string"
@@ -277,6 +298,9 @@
             "schemaVersion"
           ],
           "additionalProperties": false
+        },
+        "comment": {
+          "type": "string"
         },
         "answer": {
           "default": [],
@@ -328,6 +352,9 @@
           ],
           "additionalProperties": false
         },
+        "comment": {
+          "type": "string"
+        },
         "answer": {
           "default": [],
           "type": "array",
@@ -378,6 +405,9 @@
           ],
           "additionalProperties": false
         },
+        "comment": {
+          "type": "string"
+        },
         "answer": {
           "default": [
             ""
@@ -415,6 +445,9 @@
           ],
           "additionalProperties": false
         },
+        "comment": {
+          "type": "string"
+        },
         "answer": {
           "default": 0,
           "type": "number"
@@ -446,6 +479,9 @@
             "schemaVersion"
           ],
           "additionalProperties": false
+        },
+        "comment": {
+          "type": "string"
         },
         "answer": {
           "type": "object",
@@ -493,6 +529,9 @@
           ],
           "additionalProperties": false
         },
+        "comment": {
+          "type": "string"
+        },
         "answer": {
           "default": "",
           "type": "string"
@@ -524,6 +563,9 @@
             "schemaVersion"
           ],
           "additionalProperties": false
+        },
+        "comment": {
+          "type": "string"
         },
         "answer": {
           "default": [],
@@ -575,6 +617,9 @@
           ],
           "additionalProperties": false
         },
+        "comment": {
+          "type": "string"
+        },
         "answer": {
           "default": "",
           "type": "string"
@@ -606,6 +651,9 @@
             "schemaVersion"
           ],
           "additionalProperties": false
+        },
+        "comment": {
+          "type": "string"
         },
         "columnHeadings": {
           "default": [
@@ -644,6 +692,9 @@
                             "schemaVersion"
                           ],
                           "additionalProperties": false
+                        },
+                        "comment": {
+                          "type": "string"
                         },
                         "answer": {
                           "type": "object",
@@ -691,6 +742,9 @@
                           ],
                           "additionalProperties": false
                         },
+                        "comment": {
+                          "type": "string"
+                        },
                         "answer": {
                           "default": false,
                           "type": "boolean"
@@ -722,6 +776,9 @@
                             "schemaVersion"
                           ],
                           "additionalProperties": false
+                        },
+                        "comment": {
+                          "type": "string"
                         },
                         "answer": {
                           "default": [
@@ -760,6 +817,9 @@
                           ],
                           "additionalProperties": false
                         },
+                        "comment": {
+                          "type": "string"
+                        },
                         "answer": {
                           "default": 0,
                           "type": "number"
@@ -792,6 +852,9 @@
                           ],
                           "additionalProperties": false
                         },
+                        "comment": {
+                          "type": "string"
+                        },
                         "answer": {
                           "default": "",
                           "type": "string"
@@ -823,6 +886,9 @@
                             "schemaVersion"
                           ],
                           "additionalProperties": false
+                        },
+                        "comment": {
+                          "type": "string"
                         },
                         "answer": {
                           "type": "object",
@@ -870,6 +936,9 @@
                           ],
                           "additionalProperties": false
                         },
+                        "comment": {
+                          "type": "string"
+                        },
                         "answer": {
                           "default": "",
                           "type": "string"
@@ -901,6 +970,9 @@
                             "schemaVersion"
                           ],
                           "additionalProperties": false
+                        },
+                        "comment": {
+                          "type": "string"
                         },
                         "answer": {
                           "default": [],
@@ -952,6 +1024,9 @@
                           ],
                           "additionalProperties": false
                         },
+                        "comment": {
+                          "type": "string"
+                        },
                         "answer": {
                           "default": [],
                           "type": "array",
@@ -1002,6 +1077,9 @@
                           ],
                           "additionalProperties": false
                         },
+                        "comment": {
+                          "type": "string"
+                        },
                         "answer": {
                           "default": [
                             ""
@@ -1039,6 +1117,9 @@
                           ],
                           "additionalProperties": false
                         },
+                        "comment": {
+                          "type": "string"
+                        },
                         "answer": {
                           "default": 0,
                           "type": "number"
@@ -1070,6 +1151,9 @@
                             "schemaVersion"
                           ],
                           "additionalProperties": false
+                        },
+                        "comment": {
+                          "type": "string"
                         },
                         "answer": {
                           "type": "object",
@@ -1117,6 +1201,9 @@
                           ],
                           "additionalProperties": false
                         },
+                        "comment": {
+                          "type": "string"
+                        },
                         "answer": {
                           "default": "",
                           "type": "string"
@@ -1148,6 +1235,9 @@
                             "schemaVersion"
                           ],
                           "additionalProperties": false
+                        },
+                        "comment": {
+                          "type": "string"
                         },
                         "answer": {
                           "default": [],
@@ -1199,6 +1289,9 @@
                           ],
                           "additionalProperties": false
                         },
+                        "comment": {
+                          "type": "string"
+                        },
                         "answer": {
                           "default": "",
                           "type": "string"
@@ -1230,6 +1323,9 @@
                             "schemaVersion"
                           ],
                           "additionalProperties": false
+                        },
+                        "comment": {
+                          "type": "string"
                         },
                         "answer": {
                           "default": "",
@@ -1263,6 +1359,9 @@
                           ],
                           "additionalProperties": false
                         },
+                        "comment": {
+                          "type": "string"
+                        },
                         "answer": {
                           "default": "",
                           "type": "string"
@@ -1294,6 +1393,9 @@
                             "schemaVersion"
                           ],
                           "additionalProperties": false
+                        },
+                        "comment": {
+                          "type": "string"
                         },
                         "answer": {
                           "default": "",
@@ -1346,6 +1448,9 @@
           ],
           "additionalProperties": false
         },
+        "comment": {
+          "type": "string"
+        },
         "answer": {
           "default": "",
           "type": "string"
@@ -1378,6 +1483,9 @@
           ],
           "additionalProperties": false
         },
+        "comment": {
+          "type": "string"
+        },
         "answer": {
           "default": "",
           "type": "string"
@@ -1409,6 +1517,9 @@
             "schemaVersion"
           ],
           "additionalProperties": false
+        },
+        "comment": {
+          "type": "string"
         },
         "answer": {
           "default": "",

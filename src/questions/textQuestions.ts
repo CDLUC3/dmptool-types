@@ -20,7 +20,8 @@ export const EmailQuestionSchema = z.object({
   attributes: z.object({
     ...TextAttributesSchema.shape,
     multiple: z.boolean().default(false),
-  })
+  }),
+  showCommentField: z.boolean().optional()
 });
 export const DefaultEmailQuestion = EmailQuestionSchema.parse({
   type: 'email',
@@ -62,7 +63,8 @@ export const DefaultTextQuestion = TextQuestionSchema.parse({
 export const URLQuestionSchema = z.object({
   ...QuestionSchema.shape,
   type: z.literal('url'),
-  attributes: TextAttributesSchema
+  attributes: TextAttributesSchema,
+  showCommentField: z.boolean().optional()
 });
 export const DefaultURLQuestion = URLQuestionSchema.parse({
   type: 'url',

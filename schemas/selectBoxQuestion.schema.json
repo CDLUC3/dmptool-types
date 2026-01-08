@@ -72,6 +72,9 @@
         ],
         "additionalProperties": false
       }
+    },
+    "showCommentField": {
+      "type": "boolean"
     }
   },
   "required": [
