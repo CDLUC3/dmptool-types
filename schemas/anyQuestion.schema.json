@@ -950,16 +950,11 @@
               },
               "description": {
                 "type": "string"
-              },
-              "selected": {
-                "default": false,
-                "type": "boolean"
               }
             },
             "required": [
               "label",
-              "value",
-              "selected"
+              "value"
             ],
             "additionalProperties": false
           }
@@ -1226,16 +1221,11 @@
               },
               "description": {
                 "type": "string"
-              },
-              "selected": {
-                "default": false,
-                "type": "boolean"
               }
             },
             "required": [
               "label",
-              "value",
-              "selected"
+              "value"
             ],
             "additionalProperties": false
           }
@@ -1738,16 +1728,11 @@
                             },
                             "description": {
                               "type": "string"
-                            },
-                            "selected": {
-                              "default": false,
-                              "type": "boolean"
                             }
                           },
                           "required": [
                             "label",
-                            "value",
-                            "selected"
+                            "value"
                           ],
                           "additionalProperties": false
                         }
@@ -1960,16 +1945,11 @@
                             },
                             "description": {
                               "type": "string"
-                            },
-                            "selected": {
-                              "default": false,
-                              "type": "boolean"
                             }
                           },
                           "required": [
                             "label",
-                            "value",
-                            "selected"
+                            "value"
                           ],
                           "additionalProperties": false
                         }
@@ -2954,16 +2934,11 @@
               },
               "description": {
                 "type": "string"
-              },
-              "selected": {
-                "default": false,
-                "type": "boolean"
               }
             },
             "required": [
               "label",
-              "value",
-              "selected"
+              "value"
             ],
             "additionalProperties": false
           }
@@ -4172,16 +4147,11 @@
                             },
                             "description": {
                               "type": "string"
-                            },
-                            "selected": {
-                              "default": false,
-                              "type": "boolean"
                             }
                           },
                           "required": [
                             "label",
-                            "value",
-                            "selected"
+                            "value"
                           ],
                           "additionalProperties": false
                         }
@@ -4400,16 +4370,11 @@
                             },
                             "description": {
                               "type": "string"
-                            },
-                            "selected": {
-                              "default": false,
-                              "type": "boolean"
                             }
                           },
                           "required": [
                             "label",
-                            "value",
-                            "selected"
+                            "value"
                           ],
                           "additionalProperties": false
                         }
