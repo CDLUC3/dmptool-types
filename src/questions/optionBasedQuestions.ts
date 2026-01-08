@@ -11,6 +11,7 @@ const OptionSchema = z.object({
   value: z.string().default('a'),
   description: z.string().optional(),
 });
+const DefaultOption = OptionSchema.parse({});
 
 const CheckedOptionSchema = z.object({
   ...OptionSchema.shape,
@@ -69,21 +70,23 @@ export const DefaultCheckboxesQuestion = CheckboxesQuestionSchema.parse({
 export const RadioButtonsQuestionSchema = z.object({
   ...QuestionSchema.shape,
   type: z.literal('radioButtons'),
-  options: z.array(SelectedOptionSchema),
+  // Questions should not include the `selected` flag on options
+  options: z.array(OptionSchema),
   showCommentField: z.boolean().optional()
 });
 export const DefaultRadioButtonsQuestion = RadioButtonsQuestionSchema.parse({
   type: 'radioButtons',
   attributes: DefaultSelectBoxAttributes,
   meta: DefaultMeta,
-  options: [DefaultSelectedOption]
+  options: [DefaultOption]
 });
 
 // Select box question and answer
 export const SelectBoxQuestionSchema = z.object({
   ...QuestionSchema.shape,
   type: z.literal('selectBox'),
-  options: z.array(SelectedOptionSchema),
+  // Questions should not include the `selected` flag on options
+  options: z.array(OptionSchema),
   attributes: selectBoxAttributes,
   showCommentField: z.boolean().optional()
 });
@@ -91,7 +94,7 @@ export const DefaultSelectBoxQuestion = SelectBoxQuestionSchema.parse({
   type: 'selectBox',
   attributes: DefaultSelectBoxAttributes,
   meta: DefaultMeta,
-  options: [DefaultSelectedOption]
+  options: [DefaultOption]
 });
 
 const multiselectBoxAttributes = z.object({
@@ -106,7 +109,8 @@ const DefaultMultiselectBoxAttributes = multiselectBoxAttributes.parse({
 export const MultiselectBoxQuestionSchema = z.object({
   ...SelectBoxQuestionSchema.shape,
   type: z.literal('multiselectBox'),
-  options: z.array(SelectedOptionSchema),
+  // Questions should not include the `selected` flag on options
+  options: z.array(OptionSchema),
   attributes: multiselectBoxAttributes,
   showCommentField: z.boolean().optional()
 });
@@ -114,7 +118,7 @@ export const DefaultMultiselectBoxQuestion = MultiselectBoxQuestionSchema.parse(
   type: 'multiselectBox',
   attributes: DefaultMultiselectBoxAttributes,
   meta: DefaultMeta,
-  options: [DefaultSelectedOption]
+  options: [DefaultOption]
 });
 
 // This will ensure that object validations are against the Zod schemas defined above
