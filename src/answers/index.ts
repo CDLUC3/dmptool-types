@@ -101,6 +101,7 @@ export const AnyAnswerSchema = z.discriminatedUnion('type', [
   NumberRangeAnswerSchema,
   RadioButtonsAnswerSchema,
   RepositorySearchAnswerSchema,
+  ResearchOutputTableAnswerSchema,
   SelectBoxAnswerSchema,
   TableAnswerSchema,
   TextAnswerSchema,
