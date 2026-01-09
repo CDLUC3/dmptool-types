@@ -60,15 +60,13 @@
             "default": "a",
             "type": "string"
           },
-          "selected": {
-            "default": false,
-            "type": "boolean"
+          "description": {
+            "type": "string"
           }
         },
         "required": [
           "label",
-          "value",
-          "selected"
+          "value"
         ],
         "additionalProperties": false
       }

@@ -334,6 +334,9 @@
                           "default": "a",
                           "type": "string"
                         },
+                        "description": {
+                          "type": "string"
+                        },
                         "checked": {
                           "default": false,
                           "type": "boolean"
@@ -1186,15 +1189,13 @@
                           "default": "a",
                           "type": "string"
                         },
-                        "selected": {
-                          "default": false,
-                          "type": "boolean"
+                        "description": {
+                          "type": "string"
                         }
                       },
                       "required": [
                         "label",
-                        "value",
-                        "selected"
+                        "value"
                       ],
                       "additionalProperties": false
                     }
@@ -1411,15 +1412,13 @@
                           "default": "a",
                           "type": "string"
                         },
-                        "selected": {
-                          "default": false,
-                          "type": "boolean"
+                        "description": {
+                          "type": "string"
                         }
                       },
                       "required": [
                         "label",
-                        "value",
-                        "selected"
+                        "value"
                       ],
                       "additionalProperties": false
                     }

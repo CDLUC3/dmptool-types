@@ -1,5 +1,10 @@
 # dmptool-types CHANGELOG
 
+# v2.2.1
+- Removing "selected" from questions and just keep in answers for radio/select/multiselect.
+- The above removes the selected for resourceTypes and custom types.
+- Added missing "description" for providing help-icon info for some options.
+
 # v2.2.0
 - Added code to allow loading dmptool-types from github repo instead of npm package for pre-release testing.
 - Added to README instructions on how to load dmptool-types from github repo.
