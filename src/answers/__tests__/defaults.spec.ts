@@ -249,11 +249,13 @@ describe('Get question answer defaultJSON', () => {
         columns: [
           {
             type: "text",
+            commonStandardId: 'title',
             answer: "",
             meta: { schemaVersion: CURRENT_SCHEMA_VERSION },
           },
           {
             type: "selectBox",
+            commonStandardId: 'type',
             answer: "",
             meta: { schemaVersion: CURRENT_SCHEMA_VERSION },
           }

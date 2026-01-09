@@ -187,46 +187,55 @@ describe('Answer Type Validations', () => {
         columns: [
           {
             type: 'text',
+            commonStandardId: 'title',
             answer: 'This is a test',
             meta: { schemaVersion: CURRENT_SCHEMA_VERSION }
           },
           {
             type: 'textArea',
+            commonStandardId: 'description',
             answer: 'This is a longer text answer',
             meta: { schemaVersion: CURRENT_SCHEMA_VERSION }
           },
           {
             type: 'selectBox',
+            commonStandardId: 'data_flags',
             answer: 'dataset',
             meta: { schemaVersion: CURRENT_SCHEMA_VERSION }
           },
           {
             type: 'checkBoxes',
+            commonStandardId: 'data_flags',
             answer: ['sensitive'],
             meta: { schemaVersion: CURRENT_SCHEMA_VERSION }
           },
           {
             type: 'selectBox',
+            commonStandardId: 'data_access',
             answer: 'open',
             meta: { schemaVersion: CURRENT_SCHEMA_VERSION }
           },
           {
             type: 'date',
+            commonStandardId: 'issued',
             answer: '2025-11-13',
             meta: { schemaVersion: CURRENT_SCHEMA_VERSION }
           },
           {
             type: 'numberWithContext',
+            commonStandardId: 'byte_size',
             answer: { value: 12345, context: 'gb' },
             meta: { schemaVersion: CURRENT_SCHEMA_VERSION }
           },
           {
             type: 'repositorySearch',
+            commonStandardId: 'host',
             answer: [{ repositoryId: 'repo1', repositoryName: 'Repository One' }],
             meta: { schemaVersion: CURRENT_SCHEMA_VERSION }
           },
           {
             type: 'metadataStandardSearch',
+            commonStandardId: 'metadata',
             answer: [
               { metadataStandardId: 'standard1', metadataStandardName: 'Standard One' },
               { metadataStandardId: 'standard2', metadataStandardName: 'Standard Two' }
@@ -235,6 +244,7 @@ describe('Answer Type Validations', () => {
           },
           {
             type: 'licenseSearch',
+            commonStandardId: 'license_ref',
             answer: [{ licenseId: 'license1', licenseName: 'License One' }],
             meta: { schemaVersion: CURRENT_SCHEMA_VERSION }
           }
@@ -251,11 +261,13 @@ describe('Answer Type Validations', () => {
         columns: [
           {
             type: 'text',
+            commonStandardId: 'title',
             answer: 12345,
             meta: { schemaVersion: CURRENT_SCHEMA_VERSION }
           },
           {
             type: 'selectBox',
+            commonStandardId: 'type',
             answer: 'dataset',
             meta: { schemaVersion: CURRENT_SCHEMA_VERSION }
           }

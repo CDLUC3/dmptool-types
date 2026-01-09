@@ -84,6 +84,7 @@ describe("ResearchOutputTableQuestionSchema", () => {
       columns: [
         {
           heading: "Title",
+          commonStandardId: 'title',
           required: true,
           enabled: true,
           content: {
@@ -94,6 +95,7 @@ describe("ResearchOutputTableQuestionSchema", () => {
         },
         {
           heading: "Output Type",
+          commonStandardId: 'type',
           required: true,
           enabled: true,
           content: {
@@ -112,6 +114,7 @@ describe("ResearchOutputTableQuestionSchema", () => {
         },
         {
           heading: "Byte Size",
+          commonStandardId: 'byte_size',
           required: false,
           enabled: true,
           content: {
@@ -141,6 +144,7 @@ describe("ResearchOutputTableQuestionSchema", () => {
         },
         {
           heading: "Repositories",
+          commonStandardId: 'host',
           required: false,
           enabled: true,
           preferences: [
@@ -210,6 +214,7 @@ describe("ResearchOutputTableQuestionSchema", () => {
       columns: [
         {
           heading: "Title",
+          commonStandardId: 'title',
           content: {
             type: "invalid",
             meta: {
