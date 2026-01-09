@@ -247,7 +247,7 @@ describe('Answer Type Validations', () => {
     const invalidData = {
       type: 'researchOutputTable',
       columnHeadings: ['Title', 'Output Type'],
-      answer: {
+      answer: [{
         columns: [
           {
             type: 'text',
@@ -260,7 +260,7 @@ describe('Answer Type Validations', () => {
             meta: { schemaVersion: CURRENT_SCHEMA_VERSION }
           }
         ],
-      },
+      }],
       meta: { schemaVersion: CURRENT_SCHEMA_VERSION }
     };
     expect(() => ResearchOutputTableAnswerSchema.parse(invalidData)).toThrow();

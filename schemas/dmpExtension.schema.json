@@ -693,6 +693,803 @@
                                   "properties": {
                                     "type": {
                                       "type": "string",
+                                      "const": "researchOutputTable"
+                                    },
+                                    "meta": {
+                                      "type": "object",
+                                      "properties": {
+                                        "schemaVersion": {
+                                          "default": "1.0",
+                                          "type": "string"
+                                        }
+                                      },
+                                      "required": [
+                                        "schemaVersion"
+                                      ],
+                                      "additionalProperties": false
+                                    },
+                                    "comment": {
+                                      "type": "string"
+                                    },
+                                    "columnHeadings": {
+                                      "default": [
+                                        "Title",
+                                        "Type"
+                                      ],
+                                      "type": "array",
+                                      "items": {
+                                        "type": "string"
+                                      }
+                                    },
+                                    "answer": {
+                                      "type": "array",
+                                      "items": {
+                                        "type": "object",
+                                        "properties": {
+                                          "columns": {
+                                            "type": "array",
+                                            "items": {
+                                              "oneOf": [
+                                                {
+                                                  "type": "object",
+                                                  "properties": {
+                                                    "type": {
+                                                      "type": "string",
+                                                      "const": "affiliationSearch"
+                                                    },
+                                                    "meta": {
+                                                      "type": "object",
+                                                      "properties": {
+                                                        "schemaVersion": {
+                                                          "default": "1.0",
+                                                          "type": "string"
+                                                        }
+                                                      },
+                                                      "required": [
+                                                        "schemaVersion"
+                                                      ],
+                                                      "additionalProperties": false
+                                                    },
+                                                    "comment": {
+                                                      "type": "string"
+                                                    },
+                                                    "answer": {
+                                                      "type": "object",
+                                                      "properties": {
+                                                        "affiliationId": {
+                                                          "default": "",
+                                                          "type": "string"
+                                                        },
+                                                        "affiliationName": {
+                                                          "default": "",
+                                                          "type": "string"
+                                                        }
+                                                      },
+                                                      "required": [
+                                                        "affiliationId",
+                                                        "affiliationName"
+                                                      ],
+                                                      "additionalProperties": false
+                                                    }
+                                                  },
+                                                  "required": [
+                                                    "type",
+                                                    "meta",
+                                                    "answer"
+                                                  ],
+                                                  "additionalProperties": false
+                                                },
+                                                {
+                                                  "type": "object",
+                                                  "properties": {
+                                                    "type": {
+                                                      "type": "string",
+                                                      "const": "boolean"
+                                                    },
+                                                    "meta": {
+                                                      "type": "object",
+                                                      "properties": {
+                                                        "schemaVersion": {
+                                                          "default": "1.0",
+                                                          "type": "string"
+                                                        }
+                                                      },
+                                                      "required": [
+                                                        "schemaVersion"
+                                                      ],
+                                                      "additionalProperties": false
+                                                    },
+                                                    "comment": {
+                                                      "type": "string"
+                                                    },
+                                                    "answer": {
+                                                      "default": false,
+                                                      "type": "boolean"
+                                                    }
+                                                  },
+                                                  "required": [
+                                                    "type",
+                                                    "meta",
+                                                    "answer"
+                                                  ],
+                                                  "additionalProperties": false
+                                                },
+                                                {
+                                                  "type": "object",
+                                                  "properties": {
+                                                    "type": {
+                                                      "type": "string",
+                                                      "const": "checkBoxes"
+                                                    },
+                                                    "meta": {
+                                                      "type": "object",
+                                                      "properties": {
+                                                        "schemaVersion": {
+                                                          "default": "1.0",
+                                                          "type": "string"
+                                                        }
+                                                      },
+                                                      "required": [
+                                                        "schemaVersion"
+                                                      ],
+                                                      "additionalProperties": false
+                                                    },
+                                                    "comment": {
+                                                      "type": "string"
+                                                    },
+                                                    "answer": {
+                                                      "default": [
+                                                        ""
+                                                      ],
+                                                      "type": "array",
+                                                      "items": {
+                                                        "type": "string"
+                                                      }
+                                                    }
+                                                  },
+                                                  "required": [
+                                                    "type",
+                                                    "meta",
+                                                    "answer"
+                                                  ],
+                                                  "additionalProperties": false
+                                                },
+                                                {
+                                                  "type": "object",
+                                                  "properties": {
+                                                    "type": {
+                                                      "type": "string",
+                                                      "const": "currency"
+                                                    },
+                                                    "meta": {
+                                                      "type": "object",
+                                                      "properties": {
+                                                        "schemaVersion": {
+                                                          "default": "1.0",
+                                                          "type": "string"
+                                                        }
+                                                      },
+                                                      "required": [
+                                                        "schemaVersion"
+                                                      ],
+                                                      "additionalProperties": false
+                                                    },
+                                                    "comment": {
+                                                      "type": "string"
+                                                    },
+                                                    "answer": {
+                                                      "default": 0,
+                                                      "type": "number"
+                                                    }
+                                                  },
+                                                  "required": [
+                                                    "type",
+                                                    "meta",
+                                                    "answer"
+                                                  ],
+                                                  "additionalProperties": false
+                                                },
+                                                {
+                                                  "type": "object",
+                                                  "properties": {
+                                                    "type": {
+                                                      "type": "string",
+                                                      "const": "date"
+                                                    },
+                                                    "meta": {
+                                                      "type": "object",
+                                                      "properties": {
+                                                        "schemaVersion": {
+                                                          "default": "1.0",
+                                                          "type": "string"
+                                                        }
+                                                      },
+                                                      "required": [
+                                                        "schemaVersion"
+                                                      ],
+                                                      "additionalProperties": false
+                                                    },
+                                                    "comment": {
+                                                      "type": "string"
+                                                    },
+                                                    "answer": {
+                                                      "default": "",
+                                                      "type": "string"
+                                                    }
+                                                  },
+                                                  "required": [
+                                                    "type",
+                                                    "meta",
+                                                    "answer"
+                                                  ],
+                                                  "additionalProperties": false
+                                                },
+                                                {
+                                                  "type": "object",
+                                                  "properties": {
+                                                    "type": {
+                                                      "type": "string",
+                                                      "const": "dateRange"
+                                                    },
+                                                    "meta": {
+                                                      "type": "object",
+                                                      "properties": {
+                                                        "schemaVersion": {
+                                                          "default": "1.0",
+                                                          "type": "string"
+                                                        }
+                                                      },
+                                                      "required": [
+                                                        "schemaVersion"
+                                                      ],
+                                                      "additionalProperties": false
+                                                    },
+                                                    "comment": {
+                                                      "type": "string"
+                                                    },
+                                                    "answer": {
+                                                      "type": "object",
+                                                      "properties": {
+                                                        "start": {
+                                                          "default": "",
+                                                          "type": "string"
+                                                        },
+                                                        "end": {
+                                                          "default": "",
+                                                          "type": "string"
+                                                        }
+                                                      },
+                                                      "required": [
+                                                        "start",
+                                                        "end"
+                                                      ],
+                                                      "additionalProperties": false
+                                                    }
+                                                  },
+                                                  "required": [
+                                                    "type",
+                                                    "meta",
+                                                    "answer"
+                                                  ],
+                                                  "additionalProperties": false
+                                                },
+                                                {
+                                                  "type": "object",
+                                                  "properties": {
+                                                    "type": {
+                                                      "type": "string",
+                                                      "const": "email"
+                                                    },
+                                                    "meta": {
+                                                      "type": "object",
+                                                      "properties": {
+                                                        "schemaVersion": {
+                                                          "default": "1.0",
+                                                          "type": "string"
+                                                        }
+                                                      },
+                                                      "required": [
+                                                        "schemaVersion"
+                                                      ],
+                                                      "additionalProperties": false
+                                                    },
+                                                    "comment": {
+                                                      "type": "string"
+                                                    },
+                                                    "answer": {
+                                                      "default": "",
+                                                      "type": "string"
+                                                    }
+                                                  },
+                                                  "required": [
+                                                    "type",
+                                                    "meta",
+                                                    "answer"
+                                                  ],
+                                                  "additionalProperties": false
+                                                },
+                                                {
+                                                  "type": "object",
+                                                  "properties": {
+                                                    "type": {
+                                                      "type": "string",
+                                                      "const": "licenseSearch"
+                                                    },
+                                                    "meta": {
+                                                      "type": "object",
+                                                      "properties": {
+                                                        "schemaVersion": {
+                                                          "default": "1.0",
+                                                          "type": "string"
+                                                        }
+                                                      },
+                                                      "required": [
+                                                        "schemaVersion"
+                                                      ],
+                                                      "additionalProperties": false
+                                                    },
+                                                    "comment": {
+                                                      "type": "string"
+                                                    },
+                                                    "answer": {
+                                                      "default": [],
+                                                      "type": "array",
+                                                      "items": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                          "licenseId": {
+                                                            "default": "",
+                                                            "type": "string"
+                                                          },
+                                                          "licenseName": {
+                                                            "default": "",
+                                                            "type": "string"
+                                                          }
+                                                        },
+                                                        "required": [
+                                                          "licenseId",
+                                                          "licenseName"
+                                                        ],
+                                                        "additionalProperties": false
+                                                      }
+                                                    }
+                                                  },
+                                                  "required": [
+                                                    "type",
+                                                    "meta",
+                                                    "answer"
+                                                  ],
+                                                  "additionalProperties": false
+                                                },
+                                                {
+                                                  "type": "object",
+                                                  "properties": {
+                                                    "type": {
+                                                      "type": "string",
+                                                      "const": "metadataStandardSearch"
+                                                    },
+                                                    "meta": {
+                                                      "type": "object",
+                                                      "properties": {
+                                                        "schemaVersion": {
+                                                          "default": "1.0",
+                                                          "type": "string"
+                                                        }
+                                                      },
+                                                      "required": [
+                                                        "schemaVersion"
+                                                      ],
+                                                      "additionalProperties": false
+                                                    },
+                                                    "comment": {
+                                                      "type": "string"
+                                                    },
+                                                    "answer": {
+                                                      "default": [],
+                                                      "type": "array",
+                                                      "items": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                          "metadataStandardId": {
+                                                            "default": "",
+                                                            "type": "string"
+                                                          },
+                                                          "metadataStandardName": {
+                                                            "default": "",
+                                                            "type": "string"
+                                                          }
+                                                        },
+                                                        "required": [
+                                                          "metadataStandardId",
+                                                          "metadataStandardName"
+                                                        ],
+                                                        "additionalProperties": false
+                                                      }
+                                                    }
+                                                  },
+                                                  "required": [
+                                                    "type",
+                                                    "meta",
+                                                    "answer"
+                                                  ],
+                                                  "additionalProperties": false
+                                                },
+                                                {
+                                                  "type": "object",
+                                                  "properties": {
+                                                    "type": {
+                                                      "type": "string",
+                                                      "const": "multiselectBox"
+                                                    },
+                                                    "meta": {
+                                                      "type": "object",
+                                                      "properties": {
+                                                        "schemaVersion": {
+                                                          "default": "1.0",
+                                                          "type": "string"
+                                                        }
+                                                      },
+                                                      "required": [
+                                                        "schemaVersion"
+                                                      ],
+                                                      "additionalProperties": false
+                                                    },
+                                                    "comment": {
+                                                      "type": "string"
+                                                    },
+                                                    "answer": {
+                                                      "default": [
+                                                        ""
+                                                      ],
+                                                      "type": "array",
+                                                      "items": {
+                                                        "type": "string"
+                                                      }
+                                                    }
+                                                  },
+                                                  "required": [
+                                                    "type",
+                                                    "meta",
+                                                    "answer"
+                                                  ],
+                                                  "additionalProperties": false
+                                                },
+                                                {
+                                                  "type": "object",
+                                                  "properties": {
+                                                    "type": {
+                                                      "type": "string",
+                                                      "const": "number"
+                                                    },
+                                                    "meta": {
+                                                      "type": "object",
+                                                      "properties": {
+                                                        "schemaVersion": {
+                                                          "default": "1.0",
+                                                          "type": "string"
+                                                        }
+                                                      },
+                                                      "required": [
+                                                        "schemaVersion"
+                                                      ],
+                                                      "additionalProperties": false
+                                                    },
+                                                    "comment": {
+                                                      "type": "string"
+                                                    },
+                                                    "answer": {
+                                                      "default": 0,
+                                                      "type": "number"
+                                                    }
+                                                  },
+                                                  "required": [
+                                                    "type",
+                                                    "meta",
+                                                    "answer"
+                                                  ],
+                                                  "additionalProperties": false
+                                                },
+                                                {
+                                                  "type": "object",
+                                                  "properties": {
+                                                    "type": {
+                                                      "type": "string",
+                                                      "const": "numberWithContext"
+                                                    },
+                                                    "meta": {
+                                                      "type": "object",
+                                                      "properties": {
+                                                        "schemaVersion": {
+                                                          "default": "1.0",
+                                                          "type": "string"
+                                                        }
+                                                      },
+                                                      "required": [
+                                                        "schemaVersion"
+                                                      ],
+                                                      "additionalProperties": false
+                                                    },
+                                                    "comment": {
+                                                      "type": "string"
+                                                    },
+                                                    "answer": {
+                                                      "type": "object",
+                                                      "properties": {
+                                                        "value": {
+                                                          "default": 0,
+                                                          "type": "number"
+                                                        },
+                                                        "context": {
+                                                          "default": "",
+                                                          "type": "string"
+                                                        }
+                                                      },
+                                                      "required": [
+                                                        "value",
+                                                        "context"
+                                                      ],
+                                                      "additionalProperties": false
+                                                    }
+                                                  },
+                                                  "required": [
+                                                    "type",
+                                                    "meta",
+                                                    "answer"
+                                                  ],
+                                                  "additionalProperties": false
+                                                },
+                                                {
+                                                  "type": "object",
+                                                  "properties": {
+                                                    "type": {
+                                                      "type": "string",
+                                                      "const": "radioButtons"
+                                                    },
+                                                    "meta": {
+                                                      "type": "object",
+                                                      "properties": {
+                                                        "schemaVersion": {
+                                                          "default": "1.0",
+                                                          "type": "string"
+                                                        }
+                                                      },
+                                                      "required": [
+                                                        "schemaVersion"
+                                                      ],
+                                                      "additionalProperties": false
+                                                    },
+                                                    "comment": {
+                                                      "type": "string"
+                                                    },
+                                                    "answer": {
+                                                      "default": "",
+                                                      "type": "string"
+                                                    }
+                                                  },
+                                                  "required": [
+                                                    "type",
+                                                    "meta",
+                                                    "answer"
+                                                  ],
+                                                  "additionalProperties": false
+                                                },
+                                                {
+                                                  "type": "object",
+                                                  "properties": {
+                                                    "type": {
+                                                      "type": "string",
+                                                      "const": "repositorySearch"
+                                                    },
+                                                    "meta": {
+                                                      "type": "object",
+                                                      "properties": {
+                                                        "schemaVersion": {
+                                                          "default": "1.0",
+                                                          "type": "string"
+                                                        }
+                                                      },
+                                                      "required": [
+                                                        "schemaVersion"
+                                                      ],
+                                                      "additionalProperties": false
+                                                    },
+                                                    "comment": {
+                                                      "type": "string"
+                                                    },
+                                                    "answer": {
+                                                      "default": [],
+                                                      "type": "array",
+                                                      "items": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                          "repositoryId": {
+                                                            "default": "",
+                                                            "type": "string"
+                                                          },
+                                                          "repositoryName": {
+                                                            "default": "",
+                                                            "type": "string"
+                                                          }
+                                                        },
+                                                        "required": [
+                                                          "repositoryId",
+                                                          "repositoryName"
+                                                        ],
+                                                        "additionalProperties": false
+                                                      }
+                                                    }
+                                                  },
+                                                  "required": [
+                                                    "type",
+                                                    "meta",
+                                                    "answer"
+                                                  ],
+                                                  "additionalProperties": false
+                                                },
+                                                {
+                                                  "type": "object",
+                                                  "properties": {
+                                                    "type": {
+                                                      "type": "string",
+                                                      "const": "selectBox"
+                                                    },
+                                                    "meta": {
+                                                      "type": "object",
+                                                      "properties": {
+                                                        "schemaVersion": {
+                                                          "default": "1.0",
+                                                          "type": "string"
+                                                        }
+                                                      },
+                                                      "required": [
+                                                        "schemaVersion"
+                                                      ],
+                                                      "additionalProperties": false
+                                                    },
+                                                    "comment": {
+                                                      "type": "string"
+                                                    },
+                                                    "answer": {
+                                                      "default": "",
+                                                      "type": "string"
+                                                    }
+                                                  },
+                                                  "required": [
+                                                    "type",
+                                                    "meta",
+                                                    "answer"
+                                                  ],
+                                                  "additionalProperties": false
+                                                },
+                                                {
+                                                  "type": "object",
+                                                  "properties": {
+                                                    "type": {
+                                                      "type": "string",
+                                                      "const": "text"
+                                                    },
+                                                    "meta": {
+                                                      "type": "object",
+                                                      "properties": {
+                                                        "schemaVersion": {
+                                                          "default": "1.0",
+                                                          "type": "string"
+                                                        }
+                                                      },
+                                                      "required": [
+                                                        "schemaVersion"
+                                                      ],
+                                                      "additionalProperties": false
+                                                    },
+                                                    "comment": {
+                                                      "type": "string"
+                                                    },
+                                                    "answer": {
+                                                      "default": "",
+                                                      "type": "string"
+                                                    }
+                                                  },
+                                                  "required": [
+                                                    "type",
+                                                    "meta",
+                                                    "answer"
+                                                  ],
+                                                  "additionalProperties": false
+                                                },
+                                                {
+                                                  "type": "object",
+                                                  "properties": {
+                                                    "type": {
+                                                      "type": "string",
+                                                      "const": "textArea"
+                                                    },
+                                                    "meta": {
+                                                      "type": "object",
+                                                      "properties": {
+                                                        "schemaVersion": {
+                                                          "default": "1.0",
+                                                          "type": "string"
+                                                        }
+                                                      },
+                                                      "required": [
+                                                        "schemaVersion"
+                                                      ],
+                                                      "additionalProperties": false
+                                                    },
+                                                    "comment": {
+                                                      "type": "string"
+                                                    },
+                                                    "answer": {
+                                                      "default": "",
+                                                      "type": "string"
+                                                    }
+                                                  },
+                                                  "required": [
+                                                    "type",
+                                                    "meta",
+                                                    "answer"
+                                                  ],
+                                                  "additionalProperties": false
+                                                },
+                                                {
+                                                  "type": "object",
+                                                  "properties": {
+                                                    "type": {
+                                                      "type": "string",
+                                                      "const": "url"
+                                                    },
+                                                    "meta": {
+                                                      "type": "object",
+                                                      "properties": {
+                                                        "schemaVersion": {
+                                                          "default": "1.0",
+                                                          "type": "string"
+                                                        }
+                                                      },
+                                                      "required": [
+                                                        "schemaVersion"
+                                                      ],
+                                                      "additionalProperties": false
+                                                    },
+                                                    "comment": {
+                                                      "type": "string"
+                                                    },
+                                                    "answer": {
+                                                      "default": "",
+                                                      "type": "string"
+                                                    }
+                                                  },
+                                                  "required": [
+                                                    "type",
+                                                    "meta",
+                                                    "answer"
+                                                  ],
+                                                  "additionalProperties": false
+                                                }
+                                              ]
+                                            }
+                                          }
+                                        },
+                                        "required": [
+                                          "columns"
+                                        ],
+                                        "additionalProperties": false
+                                      }
+                                    }
+                                  },
+                                  "required": [
+                                    "type",
+                                    "meta",
+                                    "columnHeadings",
+                                    "answer"
+                                  ],
+                                  "additionalProperties": false
+                                },
+                                {
+                                  "type": "object",
+                                  "properties": {
+                                    "type": {
+                                      "type": "string",
                                       "const": "selectBox"
                                     },
                                     "meta": {
