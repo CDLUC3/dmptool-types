@@ -246,6 +246,7 @@ describe('Answer Type Validations', () => {
 
     const invalidData = {
       type: 'researchOutputTable',
+      columnHeadings: ['Title', 'Output Type'],
       answer: {
         columns: [
           {

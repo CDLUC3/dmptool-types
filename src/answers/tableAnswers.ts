@@ -53,10 +53,10 @@ export const AnyTableColumnAnswerSchema = z.discriminatedUnion('type', [
   URLAnswerSchema
 ]);
 
-const TableRowAnswerSchema = z.object({
+export const TableRowAnswerSchema = z.object({
   columns: z.array(AnyTableColumnAnswerSchema)       // The answers for each column in the row
 });
-const DefaultTableRowAnswer = TableRowAnswerSchema.parse({
+export const DefaultTableRowAnswer = TableRowAnswerSchema.parse({
   columns: [DefaultTextAreaAnswer]
 });
 
@@ -101,9 +101,11 @@ export const DefaultResearchOutputTableAnswer = ResearchOutputTableAnswerSchema.
 
 // This will ensure that object validations are against the Zod schemas defined above
 export type TableAnswerType = z.infer<typeof TableAnswerSchema>;
+export type TableRowAnswerType = z.infer<typeof TableRowAnswerSchema>;
 export type ResearchOutputTableAnswerType = z.infer<typeof ResearchOutputTableAnswerSchema>;
 export type AnyTableColumnAnswerType = z.infer<typeof AnyTableColumnAnswerSchema>;
 
 export const TableAnswerJSONSchema = z.toJSONSchema(TableAnswerSchema);
+export const TableRowAnswerJSONSchema = z.toJSONSchema(TableRowAnswerSchema);
 export const ResearchOutputTableAnswerJSONSchema = z.toJSONSchema(ResearchOutputTableAnswerSchema);
 export const AnyTableColumnAnswerJSONSchema = z.toJSONSchema(AnyTableColumnAnswerSchema);
