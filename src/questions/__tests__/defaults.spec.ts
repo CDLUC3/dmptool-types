@@ -226,7 +226,7 @@ describe('questions return the expected defaults', () => {
       type: "multiselectBox",
       attributes: { multiple: true },
       meta: { schemaVersion: "1.0" },
-      options: [{ label: 'Option A', selected: false, value: 'a' }]
+      options: [{ label: 'Option A', value: 'a' }]
     };
     expect(DefaultMultiselectBoxQuestion).toEqual(expected);
   });
@@ -267,7 +267,7 @@ describe('questions return the expected defaults', () => {
       type: "radioButtons",
       attributes: {},
       meta: { schemaVersion: "1.0" },
-      options: [{ label: 'Option A', selected: false, value: 'a' }]
+      options: [{ label: 'Option A', value: 'a' }]
     };
     expect(DefaultRadioButtonsQuestion).toEqual(expected);
   });
@@ -318,9 +318,9 @@ describe('questions return the expected defaults', () => {
             type: "selectBox",
             attributes: { multiple: false },
             options: [
-              { label: 'Dataset', value: 'dataset', selected: false },
-              { label: 'Software', value: 'software', selected: false },
-              { label: 'Other', value: 'other', selected: false }
+              { label: 'Dataset', value: 'dataset' },
+              { label: 'Software', value: 'software' },
+              { label: 'Other', value: 'other' }
             ],
             meta: { schemaVersion: "1.0" }
           }
@@ -358,9 +358,9 @@ describe('questions return the expected defaults', () => {
             meta: { schemaVersion: "1.0" },
             attributes: {},
             options: [
-              { label: 'Open Access', value: 'open', selected: false },
-              { label: 'Restricted Access', value: 'restricted', selected: false },
-              { label: 'Other', value: 'closed', selected: false },
+              { label: 'Open Access', value: 'open' },
+              { label: 'Restricted Access', value: 'restricted' },
+              { label: 'Other', value: 'closed' },
             ]
           }
         },
@@ -389,7 +389,7 @@ describe('questions return the expected defaults', () => {
               step: 1,
               context: [
                 { label: 'bytes', value: 'bytes', selected: false },
-                { label: 'KB (kilobytes)', value: 'kb', selected: true },
+                { label: 'KB (kilobytes)', value: 'kb', selected: false },
                 { label: 'MB (megabytes)', value: 'mb', selected: false },
                 { label: 'GB (gigabytes)', value: 'gb', selected: false },
                 { label: 'TB (terabytes)', value: 'tb', selected: false },
@@ -670,7 +670,7 @@ describe('questions return the expected defaults', () => {
       type: "selectBox",
       attributes: { multiple: false },
       meta: { schemaVersion: "1.0" },
-      options: [{ label: 'Option A', selected: false, value: 'a' }]
+      options: [{ label: 'Option A', value: 'a' }]
     };
     expect(DefaultSelectBoxQuestion).toEqual(expected);
   });

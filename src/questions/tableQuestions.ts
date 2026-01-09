@@ -193,9 +193,9 @@ const DefaultResearchOutputDataFlagsColumn = ResearchOutputDataFlagsColumnSchema
 });
 
 const DefaultResearchOutputAccessLevelOptions = [
-  { label: 'Open Access', value: 'open', selected: false },
-  { label: 'Restricted Access', value: 'restricted', selected: false },
-  { label: 'Other', value: 'closed', selected: false },
+  { label: 'Open Access', value: 'open' },
+  { label: 'Restricted Access', value: 'restricted' },
+  { label: 'Other', value: 'closed' },
 ];
 const DefaultResearchOutputAccessLevelContent = RadioButtonsQuestionSchema.parse({
   type: 'radioButtons',
@@ -230,12 +230,12 @@ const DefaultResearchOutputReleaseDateColumn = ResearchOutputReleaseDateColumnSc
 });
 
 const DefaultResearchOutputByteSizeOptions = [
-  { label: 'bytes', value: 'bytes', selected: false },
-  { label: 'KB (kilobytes)', value: 'kb', selected: true },
-  { label: 'MB (megabytes)', value: 'mb', selected: false },
-  { label: 'GB (gigabytes)', value: 'gb', selected: false },
-  { label: 'TB (terabytes)', value: 'tb', selected: false },
-  { label: 'PB (petabytes)', value: 'pb', selected: false }
+  { label: 'bytes', value: 'bytes' },
+  { label: 'KB (kilobytes)', value: 'kb' },
+  { label: 'MB (megabytes)', value: 'mb' },
+  { label: 'GB (gigabytes)', value: 'gb' },
+  { label: 'TB (terabytes)', value: 'tb' },
+  { label: 'PB (petabytes)', value: 'pb' }
 ];
 const DefaultResearchOutputByteSizeContentAttributes = {
   ...DefaultNumberWithContextQuestion.attributes,

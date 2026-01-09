@@ -53,6 +53,9 @@
             "default": "a",
             "type": "string"
           },
+          "description": {
+            "type": "string"
+          },
           "checked": {
             "default": false,
             "type": "boolean"

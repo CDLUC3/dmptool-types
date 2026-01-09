@@ -117,12 +117,10 @@ describe("RadioButtonsQuestion", () => {
         {
           label: "Male",
           value: "male",
-          selected: true,
         },
         {
           label: "Female",
           value: "female",
-          selected: true,
         },
       ],
       meta: {
@@ -140,8 +138,7 @@ describe("RadioButtonsQuestion", () => {
       options: [
         {
           label: "Male",
-          value: "male",
-          selected: "true", // Invalid type for selected
+          value: "male"
         },
       ],
       meta: {
@@ -166,12 +163,10 @@ describe("SelectBoxQuestion", () => {
         {
           label: "USA",
           value: "us",
-          selected: true,
         },
         {
           label: "Canada",
           value: "ca",
-          selected: false,
         },
       ],
       meta: {
@@ -190,8 +185,7 @@ describe("SelectBoxQuestion", () => {
       options: [
         {
           label: "USA",
-          value: "us",
-          selected: "true", // Invalid type for selected
+          value: "us"
         },
       ],
       attributes: {
@@ -220,12 +214,10 @@ describe("MultiselectBoxQuestion", () => {
         {
           label: "USA",
           value: "us",
-          selected: true,
         },
         {
           label: "Canada",
           value: "ca",
-          selected: false,
         },
       ],
       meta: {
@@ -244,8 +236,7 @@ describe("MultiselectBoxQuestion", () => {
       options: [
         {
           label: "USA",
-          value: "us",
-          selected: "true", // Invalid type for selected
+          value: "us"
         },
       ],
       attributes: {
@@ -259,3 +250,20 @@ describe("MultiselectBoxQuestion", () => {
     expect(() => MultiselectBoxQuestionSchema.parse(invalidSelectBoxQuestion)).toThrow();
   });
 });
+
+describe("Option descriptions", () => {
+  it("should accept and preserve an optional description on options", () => {
+    const selectWithDescription: SelectBoxQuestionType = {
+      type: "selectBox",
+      attributes: { multiple: false },
+      options: [
+        { label: "Data paper", value: "data-paper", description: "A published description of a dataset" },
+      ],
+      meta: { schemaVersion: "1.0" }
+    };
+
+    const parsed = SelectBoxQuestionSchema.parse(selectWithDescription);
+    expect(parsed.options[0].description).toBe("A published description of a dataset");
+  });
+});
+
