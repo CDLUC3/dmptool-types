@@ -146,6 +146,9 @@ export const DefaultNarrative = NarrativeSchema.parse({
 })
 
 export const ExtensionSchema = z.object({
+  // TODO: Would eventually be nice to set this to the RDA_COMMON_STANDARD_VERSION
+  //       when Zod's toJSONSchema allows it
+  rda_schema_version: z.string().default("1.2"),
   // The name of the system that owns this record
   provenance: z.string(),
   // The visibility setting for the DMP

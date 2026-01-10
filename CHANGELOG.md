@@ -1,5 +1,10 @@
 # dmptool-types CHANGELOG
 
+# v3.0.0
+- Added `rda_schema_version` to the DMP Tool extensions schema.
+- Added `commonStandardId` to all Research Output Table questions and answers.
+- 
+
 # v2.2.1
 - Removing "selected" from questions and just keep in answers for radio/select/multiselect.
 - The above removes the selected for resourceTypes and custom types.

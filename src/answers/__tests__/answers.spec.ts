@@ -199,7 +199,7 @@ describe('Answer Type Validations', () => {
           },
           {
             type: 'selectBox',
-            commonStandardId: 'data_flags',
+            commonStandardId: 'type',
             answer: 'dataset',
             meta: { schemaVersion: CURRENT_SCHEMA_VERSION }
           },

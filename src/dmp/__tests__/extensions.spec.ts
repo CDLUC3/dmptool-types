@@ -5,6 +5,7 @@ import { DMPToolExtensionType } from "../index";
 describe('extensions', () => {
   it('validates a minimal DMP Tool extension', () => {
     const expected: DMPToolExtensionType = {
+      rda_schema_version: "1.2",
       provenance: 'your-application',
       privacy: 'private',
       featured: 'no',
@@ -14,6 +15,7 @@ describe('extensions', () => {
 
   it('validates a full DMP Tool extension', () => {
     const validData: DMPToolExtensionType = {
+      rda_schema_version: "1.2",
       provenance: 'your-application',
       privacy: 'private',
       featured: 'no',

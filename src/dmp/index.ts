@@ -11,6 +11,17 @@ import { ExtensionSchema } from "./extension";
 // At this time, there is a PR to add support for converting a JSON Schema into
 // a Zod schema, but it is not there yet.
 //
+
+// Define the current version of the RDA Common Standard. This will be used to
+// mark DMP Tool extension records with the version of the RDA Common Standard
+// that the DMP conforms to.
+//
+// TODO: For some reason, Zod's `z.toJSONSchema(ExtensionSchema)` below is unable
+//       to work with a reference to this constant (or any variable really and
+//       requires all defaults be hard-coded values!), so be sure to update the
+//       `extension.ts` file to set the version there as well.
+export const RDA_COMMON_STANDARD_VERSION = "1.2";
+
 // Convert the downloaded JSON schema into types
 // First try resolving via the package export (works when installed from GitHub branch or npm)
 function resolveSchemaPath(): string | undefined {
