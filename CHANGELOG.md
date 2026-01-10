@@ -12,6 +12,7 @@
 - Added `tombstoned` date to `src/dmp/extension.ts`
 - Fixed an issue with the definition of the `DMPToolDMPType` which was not properly combining the `extension` and `dmp` schemas. 
 - Added `resolveJsonModule` to the `tsconfig`
+- Ran `npm upgrade` to update all dependencies
 
 # v2.2.1
 - Removing "selected" from questions and just keep in answers for radio/select/multiselect.
