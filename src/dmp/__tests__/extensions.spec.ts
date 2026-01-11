@@ -7,6 +7,7 @@ describe('extensions', () => {
     const expected: DMPToolExtensionType = {
       rda_schema_version: "1.2",
       provenance: 'your-application',
+      status: 'draft',
       privacy: 'private',
       featured: 'no',
     };
@@ -17,6 +18,7 @@ describe('extensions', () => {
     const validData: DMPToolExtensionType = {
       rda_schema_version: "1.2",
       provenance: 'your-application',
+      status: 'complete',
       privacy: 'private',
       featured: 'no',
       registered: '2026-01-01T10:32:45Z',
