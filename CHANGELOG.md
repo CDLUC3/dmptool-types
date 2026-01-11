@@ -2,6 +2,7 @@
 
 # v3.0.0
 - Added `rda_schema_version` to the DMP Tool extensions schema and `RDA_COMMON_STANDARD_VERSION` constant.
+- Added `status` to the DMP Tool extensions schema.
 - Added `commonStandardId` to all Research Output Table questions and answers to help tie info to the RDA Common Standard.
 - Updated `AnyAnswerSchema` so that it now includes `ResearchOutputTableAnswerSchema`
 - Added separate `ResearchOutput` `TableColumnAnswer` and `TableRowAnswer` to support new `commonStandardId` fields.
