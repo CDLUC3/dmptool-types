@@ -9,6 +9,15 @@
     "provenance": {
       "type": "string"
     },
+    "status": {
+      "default": "draft",
+      "type": "string",
+      "enum": [
+        "archived",
+        "draft",
+        "complete"
+      ]
+    },
     "privacy": {
       "default": "private",
       "type": "string",
@@ -2461,6 +2470,7 @@
   "required": [
     "rda_schema_version",
     "provenance",
+    "status",
     "privacy",
     "featured"
   ],

@@ -23,6 +23,13 @@ const researchFacilityTypes = [
   'other',
 ];
 
+// The possible statuses of a DMP
+const statusTypes = [
+  'archived',
+  'draft',
+  'complete',
+];
+
 const ResearchDomainSchema = z.object({
   // The human-readable name for the research domain
   name: z.string(),
@@ -152,7 +159,7 @@ export const ExtensionSchema = z.object({
   // The name of the system that owns this record
   provenance: z.string(),
   // The current status of the DMP
-  status: z.enum(['archived', 'draft', 'complete']).default('draft'),
+  status: z.enum(statusTypes).default('draft'),
   // The visibility setting for the DMP
   privacy: z.enum(visibilityTypes).default('private'),
   // Whether the DMP is featured on the public plans page of the DMP Tool website
