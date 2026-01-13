@@ -45,7 +45,7 @@ const ResearchDomainSchema = z.object({
   // The identifier for the research domain
   research_domain_identifier: z.object({
     identifier: z.string(),
-    type: z.enum(identifierTypes)//.default('url')
+    type: z.enum(identifierTypes)
   }).optional(),
 });
 
@@ -53,11 +53,11 @@ const ResearchFacilitySchema = z.object({
   // The human-readable name of the research facility
   name: z.string(),
   // The facility type
-  type: z.enum(researchFacilityTypes),//.default('other'),
+  type: z.enum(researchFacilityTypes),
   // The identifier for the research facility
   research_facility_identifier: z.object({
     identifier: z.string(),
-    type: z.enum(identifierTypes)//.default('url')
+    type: z.enum(identifierTypes)
   }).optional(),
 });
 
@@ -65,17 +65,17 @@ const FundingOpportunitySchema = z.object({
   // The id of the project this opportunity maps to
   project_id: z.object({
     identifier: z.string(),
-    type: z.enum(identifierTypes)//.default('other')
+    type: z.enum(identifierTypes)
   }),
   // The id of the funding this opportunity maps to within the project
   funder_id: z.object({
     identifier: z.string(),
-    type: z.enum(identifierTypes)//.default('ror')
+    type: z.enum(identifierTypes)
   }),
   // The opportunity id
   opportunity_identifier: z.object({
     identifier: z.string(),
-    type: z.enum(identifierTypes)//.default('url')
+    type: z.enum(identifierTypes)
   })
 });
 
@@ -83,17 +83,17 @@ const FundingProjectNumberSchema = z.object({
   // The id of the project this opportunity maps to
   project_id: z.object({
     identifier: z.string(),
-    type: z.enum(identifierTypes)//.default('other')
+    type: z.enum(identifierTypes)
   }),
   // The id of the funding this opportunity maps to within the project
   funder_id: z.object({
     identifier: z.string(),
-    type: z.enum(identifierTypes)//.default('ror')
+    type: z.enum(identifierTypes)
   }),
   // The funder's identifier for this project
   project_identifier: z.object({
     identifier: z.string(),
-    type: z.enum(identifierTypes)//.default('url')
+    type: z.enum(identifierTypes)
   })
 });
 
