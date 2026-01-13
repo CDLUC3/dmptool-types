@@ -2203,18 +2203,19 @@
               "type": "string"
             },
             "type": {
-              "default": "url",
               "type": "string",
               "enum": [
                 "ark",
                 "doi",
                 "handle",
+                "ror",
                 "url",
                 "other"
               ]
             }
           },
           "required": [
+            "identifier",
             "type"
           ],
           "additionalProperties": false
@@ -2234,7 +2235,6 @@
             "type": "string"
           },
           "type": {
-            "default": "other",
             "type": "string",
             "enum": [
               "data_center",
@@ -2251,12 +2251,12 @@
                 "type": "string"
               },
               "type": {
-                "default": "url",
                 "type": "string",
                 "enum": [
                   "ark",
                   "doi",
                   "handle",
+                  "ror",
                   "url",
                   "other"
                 ]
@@ -2271,8 +2271,7 @@
         },
         "required": [
           "name",
-          "type",
-          "research_facility_identifier"
+          "type"
         ],
         "additionalProperties": false
       }
@@ -2310,12 +2309,12 @@
                 "type": "string"
               },
               "type": {
-                "default": "other",
                 "type": "string",
                 "enum": [
                   "ark",
                   "doi",
                   "handle",
+                  "ror",
                   "url",
                   "other"
                 ]
@@ -2334,9 +2333,11 @@
                 "type": "string"
               },
               "type": {
-                "default": "ror",
                 "type": "string",
                 "enum": [
+                  "ark",
+                  "doi",
+                  "handle",
                   "ror",
                   "url",
                   "other"
@@ -2356,12 +2357,12 @@
                 "type": "string"
               },
               "type": {
-                "default": "url",
                 "type": "string",
                 "enum": [
                   "ark",
                   "doi",
                   "handle",
+                  "ror",
                   "url",
                   "other"
                 ]
@@ -2394,12 +2395,12 @@
                 "type": "string"
               },
               "type": {
-                "default": "other",
                 "type": "string",
                 "enum": [
                   "ark",
                   "doi",
                   "handle",
+                  "ror",
                   "url",
                   "other"
                 ]
@@ -2418,9 +2419,11 @@
                 "type": "string"
               },
               "type": {
-                "default": "ror",
                 "type": "string",
                 "enum": [
+                  "ark",
+                  "doi",
+                  "handle",
                   "ror",
                   "url",
                   "other"
@@ -2440,12 +2443,12 @@
                 "type": "string"
               },
               "type": {
-                "default": "url",
                 "type": "string",
                 "enum": [
                   "ark",
                   "doi",
                   "handle",
+                  "ror",
                   "url",
                   "other"
                 ]

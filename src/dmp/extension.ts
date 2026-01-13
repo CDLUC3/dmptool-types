@@ -30,13 +30,22 @@ const statusTypes = [
   'complete',
 ];
 
+const identifierTypes = [
+  'ark',
+  'doi',
+  'handle',
+  'ror',
+  'url',
+  'other',
+];
+
 const ResearchDomainSchema = z.object({
   // The human-readable name for the research domain
   name: z.string(),
   // The identifier for the research domain
   research_domain_identifier: z.object({
-    identifier: z.string().optional(),
-    type: z.enum(['ark', 'doi', 'handle', 'url', 'other']).default('url')
+    identifier: z.string(),
+    type: z.enum(identifierTypes)//.default('url')
   }).optional(),
 });
 
@@ -44,29 +53,29 @@ const ResearchFacilitySchema = z.object({
   // The human-readable name of the research facility
   name: z.string(),
   // The facility type
-  type: z.enum(researchFacilityTypes).default('other'),
+  type: z.enum(researchFacilityTypes),//.default('other'),
   // The identifier for the research facility
   research_facility_identifier: z.object({
     identifier: z.string(),
-    type: z.enum(['ark', 'doi', 'handle', 'url', 'other']).default('url')
-  }),
+    type: z.enum(identifierTypes)//.default('url')
+  }).optional(),
 });
 
 const FundingOpportunitySchema = z.object({
   // The id of the project this opportunity maps to
   project_id: z.object({
     identifier: z.string(),
-    type: z.enum(['ark', 'doi', 'handle', 'url', 'other']).default('other')
+    type: z.enum(identifierTypes)//.default('other')
   }),
   // The id of the funding this opportunity maps to within the project
   funder_id: z.object({
     identifier: z.string(),
-    type: z.enum(['ror', 'url', 'other']).default('ror')
+    type: z.enum(identifierTypes)//.default('ror')
   }),
   // The opportunity id
   opportunity_identifier: z.object({
     identifier: z.string(),
-    type: z.enum(['ark', 'doi', 'handle', 'url', 'other']).default('url')
+    type: z.enum(identifierTypes)//.default('url')
   })
 });
 
@@ -74,17 +83,17 @@ const FundingProjectNumberSchema = z.object({
   // The id of the project this opportunity maps to
   project_id: z.object({
     identifier: z.string(),
-    type: z.enum(['ark', 'doi', 'handle', 'url', 'other']).default('other')
+    type: z.enum(identifierTypes)//.default('other')
   }),
   // The id of the funding this opportunity maps to within the project
   funder_id: z.object({
     identifier: z.string(),
-    type: z.enum(['ror', 'url', 'other']).default('ror')
+    type: z.enum(identifierTypes)//.default('ror')
   }),
   // The funder's identifier for this project
   project_identifier: z.object({
     identifier: z.string(),
-    type: z.enum(['ark', 'doi', 'handle', 'url', 'other']).default('url')
+    type: z.enum(identifierTypes)//.default('url')
   })
 });
 
