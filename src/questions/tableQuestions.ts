@@ -111,6 +111,7 @@ const ResearchOutputTableColumnPreferenceSchema = z.object({
 const ResearchOutputTitleColumnSchema = z.object({
   ...TableColumnSchema.shape,
   heading: z.string().default('Title'),
+  commonStandardId: z.string().optional(),
   help: z.string().default('Enter the title of this research output'),
   required: z.boolean().default(true),
   content: TextQuestionSchema
@@ -122,7 +123,11 @@ const DefaultResearchOutputTitleContent = {
   help: '',
 }
 const DefaultResearchOutputTitleColumn = ResearchOutputTitleColumnSchema.parse({
+  // This commonStandardId is tied to how we render the dataset in the RDA Common Standard.
+  // Any change will also need to be made to `buildDataset` function of
+  // `src/lambda/layer/dmp.ts` in the `dmptool-infrastructure` repo.`
   heading: 'Title',
+  commonStandardId: 'title',
   required: true,
   content: DefaultResearchOutputTitleContent
 });
@@ -130,6 +135,7 @@ const DefaultResearchOutputTitleColumn = ResearchOutputTitleColumnSchema.parse({
 const ResearchOutputDescriptionColumnSchema = z.object({
   ...TableColumnSchema.shape,
   heading: z.string().default('Description'),
+  commonStandardId: z.string().optional(),
   help: z.string().default('Enter a brief description of this research output'),
   content: TextAreaQuestionSchema
 });
@@ -140,7 +146,11 @@ const DefaultResearchOutputDescriptionContent = {
   help: '',
 }
 const DefaultResearchOutputDescriptionColumn = ResearchOutputDescriptionColumnSchema.parse({
+  // This commonStandardId is tied to how we render the dataset in the RDA Common Standard.
+  // Any change will also need to be made to `buildDataset` function of
+  // `src/lambda/layer/dmp.ts` in the `dmptool-infrastructure` repo.`
   heading: 'Description',
+  commonStandardId: 'description',
   enabled: false,
   content: DefaultResearchOutputDescriptionContent
 });
@@ -159,12 +169,17 @@ const DefaultResearchOutputTypeContent = SelectBoxQuestionSchema.parse({
 const ResearchOutputTypeColumnSchema = z.object({
   ...TableColumnSchema.shape,
   heading: z.string().default('Type'),
+  commonStandardId: z.string().optional(),
   help: z.string().default('Select the type of this research output'),
   required: z.boolean().default(true),
   content: SelectBoxQuestionSchema,
 });
 const DefaultResearchOutputTypeColumn = ResearchOutputTypeColumnSchema.parse({
+  // This commonStandardId is tied to how we render the dataset in the RDA Common Standard.
+  // Any change will also need to be made to `buildDataset` function of
+  // `src/lambda/layer/dmp.ts` in the `dmptool-infrastructure` repo.`
   heading: 'Type',
+  commonStandardId: 'type',
   required: true,
   content: DefaultResearchOutputTypeContent,
 });
@@ -182,12 +197,17 @@ const DefaultResearchOutputDataFlagsContent = CheckboxesQuestionSchema.parse({
 const ResearchOutputDataFlagsColumnSchema = z.object({
   ...TableColumnSchema.shape,
   heading: z.string().default('Data Flags'),
+  commonStandardId: z.string().optional(),
   help: z.string().default('Mark all of the statements that are true about the dataset'),
   enabled: z.boolean().default(false),
   content: CheckboxesQuestionSchema,
 })
 const DefaultResearchOutputDataFlagsColumn = ResearchOutputDataFlagsColumnSchema.parse({
+  // This commonStandardId is tied to how we render the dataset in the RDA Common Standard.
+  // Any change will also need to be made to `buildDataset` function of
+  // `src/lambda/layer/dmp.ts` in the `dmptool-infrastructure` repo.`
   heading: 'Data Flags',
+  commonStandardId: 'data_flags',
   enabled: false,
   content: DefaultResearchOutputDataFlagsContent
 });
@@ -206,12 +226,17 @@ const DefaultResearchOutputAccessLevelContent = RadioButtonsQuestionSchema.parse
 const ResearchOutputAccessLevelColumnSchema = z.object({
   ...TableColumnSchema.shape,
   heading: z.string().default('Access Level'),
+  commonStandardId: z.string().optional(),
   help: z.string().default('Select the access level for this research output'),
   enabled: z.boolean().default(false),
   content: RadioButtonsQuestionSchema,
 });
 const DefaultResearchOutputAccessLevelColumn = ResearchOutputAccessLevelColumnSchema.parse({
+  // This commonStandardId is tied to how we render the dataset in the RDA Common Standard.
+  // Any change will also need to be made to `buildDataset` function of
+  // `src/lambda/layer/dmp.ts` in the `dmptool-infrastructure` repo.`
   heading: 'Access Level',
+  commonStandardId: 'data_access',
   enabled: false,
   content: DefaultResearchOutputAccessLevelContent
 });
@@ -219,12 +244,17 @@ const DefaultResearchOutputAccessLevelColumn = ResearchOutputAccessLevelColumnSc
 const ResearchOutputReleaseDateColumnSchema = z.object({
   ...TableColumnSchema.shape,
   heading: z.string().default('Anticipated Release Date'),
+  commonStandardId: z.string().optional(),
   help: z.string().default('The anticipated release date for the research output'),
   enabled: z.boolean().default(false),
   content: DateQuestionSchema,
 })
 const DefaultResearchOutputReleaseDateColumn = ResearchOutputReleaseDateColumnSchema.parse({
+  // This commonStandardId is tied to how we render the dataset in the RDA Common Standard.
+  // Any change will also need to be made to `buildDataset` function of
+  // `src/lambda/layer/dmp.ts` in the `dmptool-infrastructure` repo.`
   heading: 'Anticipated Release Date',
+  commonStandardId: 'issued',
   enabled: false,
   content: DefaultDateQuestion,
 });
@@ -249,12 +279,17 @@ const DefaultResearchOutputByteSizeContent = NumberWithContextQuestionSchema.par
 const ResearchOutputByteSizeColumnSchema = z.object({
   ...TableColumnSchema.shape,
   heading: z.string().default('Byte Size'),
+  commonStandardId: z.string().optional(),
   help: z.string().default('The size of the research output in bytes'),
   enabled: z.boolean().default(false),
   content: NumberWithContextQuestionSchema,
 });
 const DefaultResearchOutputByteSizeColumn = ResearchOutputByteSizeColumnSchema.parse({
+  // This commonStandardId is tied to how we render the dataset in the RDA Common Standard.
+  // Any change will also need to be made to `buildDataset` function of
+  // `src/lambda/layer/dmp.ts` in the `dmptool-infrastructure` repo.`
   heading: 'Byte Size',
+  commonStandardId: 'byte_size',
   enabled: false,
   content: DefaultResearchOutputByteSizeContent
 });
@@ -262,6 +297,7 @@ const DefaultResearchOutputByteSizeColumn = ResearchOutputByteSizeColumnSchema.p
 const ResearchOutputRepositoryColumnSchema = z.object({
   ...TableColumnSchema.shape,
   heading: z.string().default('Repository'),
+  commonStandardId: z.string().optional(),
   help: z.string().default('Select repository(ies) you would prefer users to deposit in'),
   enabled: z.boolean().default(false),
   content: RepositorySearchQuestionSchema,
@@ -269,6 +305,7 @@ const ResearchOutputRepositoryColumnSchema = z.object({
 });
 const DefaultResearchOutputRepositoryColumn = ResearchOutputRepositoryColumnSchema.parse({
   heading: 'Repository(ies)',
+  commonStandardId: 'host',
   enabled: false,
   content: DefaultRepositorySearchQuestion,
   preferences: []
@@ -277,13 +314,18 @@ const DefaultResearchOutputRepositoryColumn = ResearchOutputRepositoryColumnSche
 const ResearchOutputMetadataStandardColumnSchema = z.object({
   ...TableColumnSchema.shape,
   heading: z.string().default('Metadata Standard'),
+  commonStandardId: z.string().optional(),
   help: z.string().default('Select metadata standard(s) you would prefer users to use'),
   enabled: z.boolean().default(false),
   content: MetadataStandardSearchQuestionSchema,
   preferences: z.array(ResearchOutputTableColumnPreferenceSchema).default([])
 });
 const DefaultResearchOutputMetadataStandardColumn = ResearchOutputMetadataStandardColumnSchema.parse({
+  // This commonStandardId is tied to how we render the dataset in the RDA Common Standard.
+  // Any change will also need to be made to `buildDataset` function of
+  // `src/lambda/layer/dmp.ts` in the `dmptool-infrastructure` repo.`
   heading: 'Metadata Standard(s)',
+  commonStandardId: 'metadata',
   enabled: false,
   content: DefaultMetadataStandardSearchQuestion,
   preferences: []
@@ -292,13 +334,18 @@ const DefaultResearchOutputMetadataStandardColumn = ResearchOutputMetadataStanda
 const ResearchOutputLicenseColumnSchema = z.object({
   ...TableColumnSchema.shape,
   heading: z.string().default('License'),
+  commonStandardId: z.string().optional(),
   help: z.string().default('Select the license you will apply to the research output'),
   enabled: z.boolean().default(false),
   content: LicenseSearchQuestionSchema,
   preferences: z.array(ResearchOutputTableColumnPreferenceSchema).default([])
 });
 const DefaultResearchOutputLicenseColumn = ResearchOutputLicenseColumnSchema.parse({
+  // This commonStandardId is tied to how we render the dataset in the RDA Common Standard.
+  // Any change will also need to be made to `buildDataset` function of
+  // `src/lambda/layer/dmp.ts` in the `dmptool-infrastructure` repo.`
   heading: 'License',
+  commonStandardId: 'license_ref',
   enabled: false,
   content: DefaultLicenseSearchQuestion,
   preferences: []

@@ -23,81 +23,20 @@ const researchFacilityTypes = [
   'other',
 ];
 
-// Relation types are derived from the DataCite schema
-const relationTypes = [
-  "is_cited_by",
-  "cites",
-  "is_supplement_to",
-  "is_supplemented_by",
-  "is_continued_by",
-  "continues",
-  "is_described_by",
-  "describes",
-  "has_metadata",
-  "is_metadata_for",
-  "has_version",
-  "is_version_of",
-  "is_new_version_of",
-  "is_previous_version_of",
-  "is_part_of",
-  "has_part",
-  "is_published_in",
-  "is_referenced_by",
-  "references",
-  "is_documented_by",
-  "documents",
-  "is_compiled_by",
-  "compiles",
-  "is_variant_form_of",
-  "is_original_form_of",
-  "is_identical_to",
-  "is_reviewed_by",
-  "reviews",
-  "is_derived_from",
-  "is_source_of",
-  "is_required_by",
-  "requires",
-  "obsoletes",
-  "is_obsoleted_by",
-  "is_collected_by",
-  "collects",
-  "is_translation_of",
-  "has_translation"
+// The possible statuses of a DMP
+const statusTypes = [
+  'archived',
+  'draft',
+  'complete',
 ];
 
-// Work types are derived from the DataCite schema
-const workTypes = [
-  "audiovisual",
-  "book",
-  "book_chapter",
-  "collection",
-  "computational_notebook",
-  "conference_paper",
-  "conference_proceeding",
-  "data_paper",
-  "dataset",
-  "dissertation",
-  "event",
-  "image",
-  "instrument",
-  "interactive_resource",
-  "journal",
-  "journal_article",
-  "model",
-  "output_management_plan",
-  "peer_review",
-  "physical_object",
-  "preprint",
-  "project",
-  "report",
-  "service",
-  "software",
-  "sound",
-  "standard",
-  "study_registration",
-  "text",
-  "workflow",
-  "other"
+const identifierTypes = [
+  'ark',
+  'doi',
+  'handle',
+  'ror',
+  'url',
+  'other',
 ];
 
 const ResearchDomainSchema = z.object({
@@ -105,49 +44,56 @@ const ResearchDomainSchema = z.object({
   name: z.string(),
   // The identifier for the research domain
   research_domain_identifier: z.object({
-    identifier: z.string().optional(),
-    type: z.enum(['ark', 'doi', 'handle', 'url', 'other']).default('url')
-  }),
-});
-
-const RelatedIdentifierSchema = z.object({
-  // The description of how the DMP is related to the work (e.g. the DMP "cites" the work)
-  descriptor: z.enum(relationTypes).default('cites'),
-  // The identifier of the work
-  identifier: z.string(),
-  // The type of identifier
-  type: z.enum(['ark', 'doi', 'handle', 'url']).default('url'),
-  // The type of the work
-  work_type: z.enum(workTypes).default('dataset'),
+    identifier: z.string(),
+    type: z.enum(identifierTypes)
+  }).optional(),
 });
 
 const ResearchFacilitySchema = z.object({
   // The human-readable name of the research facility
   name: z.string(),
   // The facility type
-  type: z.enum(researchFacilityTypes).default('other'),
+  type: z.enum(researchFacilityTypes),
   // The identifier for the research facility
   research_facility_identifier: z.object({
     identifier: z.string(),
-    type: z.enum(['ark', 'doi', 'handle', 'url', 'other']).default('url')
-  }),
+    type: z.enum(identifierTypes)
+  }).optional(),
 });
 
 const FundingOpportunitySchema = z.object({
   // The id of the project this opportunity maps to
   project_id: z.object({
     identifier: z.string(),
-    type: z.enum(['ark', 'doi', 'handle', 'url', 'other']).default('other')
+    type: z.enum(identifierTypes)
   }),
   // The id of the funding this opportunity maps to within the project
   funder_id: z.object({
     identifier: z.string(),
-    type: z.enum(['ror', 'url', 'other']).default('ror')
+    type: z.enum(identifierTypes)
   }),
   // The opportunity id
   opportunity_identifier: z.object({
     identifier: z.string(),
-    type: z.enum(['ark', 'doi', 'handle', 'url', 'other']).default('url')
+    type: z.enum(identifierTypes)
+  })
+});
+
+const FundingProjectNumberSchema = z.object({
+  // The id of the project this opportunity maps to
+  project_id: z.object({
+    identifier: z.string(),
+    type: z.enum(identifierTypes)
+  }),
+  // The id of the funding this opportunity maps to within the project
+  funder_id: z.object({
+    identifier: z.string(),
+    type: z.enum(identifierTypes)
+  }),
+  // The funder's identifier for this project
+  project_identifier: z.object({
+    identifier: z.string(),
+    type: z.enum(identifierTypes)
   })
 });
 
@@ -155,7 +101,7 @@ const VersionSchema = z.object({
   // URL to fetch the historical version of the DMP
   access_url: z.string(),
   // The date of the version
-  version_date: z.iso.datetime(),
+  version: z.iso.datetime(),
 });
 
 const NarrativeAnswerSchema = z.object({
@@ -207,16 +153,8 @@ const DefaultNarrativeTemplate = NarrativeTemplateSchema.parse({
   section: [DefaultSection]
 });
 
-// URLs to fetch the narrative as a document other than JSON
-const NarrativeURLsSchema = z.object({
-  csv: z.string().optional(),
-  docx: z.string().optional(),
-  html: z.string().optional(),
-  pdf: z.string().optional(),
-});
-
 const NarrativeSchema = z.object({
-  download_urls: NarrativeURLsSchema.optional(),
+  download_url: z.string().optional(),
   template: NarrativeTemplateSchema.optional(),
 });
 export const DefaultNarrative = NarrativeSchema.parse({
@@ -224,29 +162,34 @@ export const DefaultNarrative = NarrativeSchema.parse({
 })
 
 export const ExtensionSchema = z.object({
+  // TODO: Would eventually be nice to set this to the RDA_COMMON_STANDARD_VERSION
+  //       when Zod's toJSONSchema allows it
+  rda_schema_version: z.string().default("1.2"),
   // The name of the system that owns this record
   provenance: z.string(),
+  // The current status of the DMP
+  status: z.enum(statusTypes).default('draft'),
   // The visibility setting for the DMP
   privacy: z.enum(visibilityTypes).default('private'),
   // Whether the DMP is featured on the public plans page of the DMP Tool website
   featured: z.enum(['yes', 'no']).default('no'),
   // The date the DMP Id was registered as a DOI with EZID/DataCite
   registered: z.iso.datetime().optional(),
+  // The date the DMP's DOI was tomb-stoned
+  tombstoned: z.iso.datetime().optional(),
   // The narrative content of the DMP expressed as a JSON object
   narrative: NarrativeSchema.optional(),
   // The research domain of the project/DMP
   research_domain: ResearchDomainSchema.optional(),
-  // Other works related to the DMP
-  related_identifier: z.array(RelatedIdentifierSchema).optional(),
   // Research facilities used to collect or process data
   research_facility: z.array(ResearchFacilitySchema).optional(),
   // Historical versions of the DMP
   version: z.array(VersionSchema).optional(),
   // Funding opportunity / call for grant submissions related to the funding
   funding_opportunity: z.array(FundingOpportunitySchema).optional(),
+  // Funding project number (defined by the funder)
+  funding_project: z.array(FundingProjectNumberSchema).optional(),
 });
 export const DefaultExtensionSchema = ExtensionSchema.parse({
   provenance: 'your-application',
 });
-
-export type ExtensionType = z.infer<typeof ExtensionSchema>;

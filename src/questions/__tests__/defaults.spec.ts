@@ -284,6 +284,7 @@ describe('questions return the expected defaults', () => {
       columns: [
         {
           heading: "Title",
+          commonStandardId: 'title',
           help: "Enter the title of this research output",
           required: true,
           enabled: true,
@@ -295,6 +296,7 @@ describe('questions return the expected defaults', () => {
         },
         {
           heading: "Description",
+          commonStandardId: 'description',
           help: "Enter a brief description of this research output",
           required: false,
           enabled: false,
@@ -311,6 +313,7 @@ describe('questions return the expected defaults', () => {
         },
         {
           heading: "Type",
+          commonStandardId: 'type',
           help: "Select the type of this research output",
           required: true,
           enabled: true,
@@ -327,6 +330,7 @@ describe('questions return the expected defaults', () => {
         },
         {
           heading: 'Data Flags',
+          commonStandardId: 'data_flags',
           help: 'Mark all of the statements that are true about the dataset',
           required: false,
           enabled: false,
@@ -350,6 +354,7 @@ describe('questions return the expected defaults', () => {
         },
         {
           heading: 'Access Level',
+          commonStandardId: 'data_access',
           help: 'Select the access level for this research output',
           required: false,
           enabled: false,
@@ -366,6 +371,7 @@ describe('questions return the expected defaults', () => {
         },
         {
           heading: "Anticipated Release Date",
+          commonStandardId: 'issued',
           help: "The anticipated release date for the research output",
           required: false,
           enabled: false,
@@ -379,6 +385,7 @@ describe('questions return the expected defaults', () => {
         },
         {
           heading: "Byte Size",
+          commonStandardId: 'byte_size',
           help: "The size of the research output in bytes",
           required: false,
           enabled: false,
@@ -403,6 +410,7 @@ describe('questions return the expected defaults', () => {
         },
         {
           heading: "Repository(ies)",
+          commonStandardId: 'host',
           help: "Select repository(ies) you would prefer users to deposit in",
           required: false,
           enabled: false,
@@ -472,6 +480,7 @@ describe('questions return the expected defaults', () => {
         },
         {
           heading: "Metadata Standard(s)",
+          commonStandardId: 'metadata',
           help: "Select metadata standard(s) you would prefer users to use",
           required: false,
           enabled: false,
@@ -534,6 +543,7 @@ describe('questions return the expected defaults', () => {
         },
         {
           heading: "License",
+          commonStandardId: 'license_ref',
           help: "Select the license you will apply to the research output",
           required: false,
           enabled: false,

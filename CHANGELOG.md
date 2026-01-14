@@ -1,5 +1,20 @@
 # dmptool-types CHANGELOG
 
+# v3.0.0
+- Added `rda_schema_version` to the DMP Tool extensions schema and `RDA_COMMON_STANDARD_VERSION` constant.
+- Added `status` to the DMP Tool extensions schema.
+- Added `commonStandardId` to all Research Output Table questions and answers to help tie info to the RDA Common Standard.
+- Updated `AnyAnswerSchema` so that it now includes `ResearchOutputTableAnswerSchema`
+- Added separate `ResearchOutput` `TableColumnAnswer` and `TableRowAnswer` to support new `commonStandardId` fields.
+- Removed unused `relationTypes`, `workTypes` and `RelatedIdentifierSchema` from the `src/dmp/extension.ts` since these are now supported by the RDA Common Standard.
+- Added a `FundingProjectNumberSchema` to `src/dmp/extension.ts` to support the new `funding_project_number` field.
+- Renamed `version_date` to `version` in the `src/dmp/extension.ts` 
+- Removed individual MIME type entries from `NarrativeURLsSchema` and replaced with single `download_url` entry in the `src/dmp/extension.ts`
+- Added `tombstoned` date to `src/dmp/extension.ts`
+- Fixed an issue with the definition of the `DMPToolDMPType` which was not properly combining the `extension` and `dmp` schemas. 
+- Added `resolveJsonModule` to the `tsconfig`
+- Ran `npm upgrade` to update all dependencies
+
 # v2.2.1
 - Removing "selected" from questions and just keep in answers for radio/select/multiselect.
 - The above removes the selected for resourceTypes and custom types.

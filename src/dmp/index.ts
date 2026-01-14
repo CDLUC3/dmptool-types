@@ -2,7 +2,7 @@ import fs from "fs";
 import path from "path";
 import { z } from "zod";
 import { FromSchema } from "json-schema-to-ts";
-import { ExtensionSchema, ExtensionType } from "./extension";
+import { ExtensionSchema } from "./extension";
 
 // The RDA Common Standard for DMPs JSON schema is automatically downloaded by
 // scripts/importRDACommonStandard.ts script. This file fetches the specified
@@ -11,6 +11,17 @@ import { ExtensionSchema, ExtensionType } from "./extension";
 // At this time, there is a PR to add support for converting a JSON Schema into
 // a Zod schema, but it is not there yet.
 //
+
+// Define the current version of the RDA Common Standard. This will be used to
+// mark DMP Tool extension records with the version of the RDA Common Standard
+// that the DMP conforms to.
+//
+// TODO: For some reason, Zod's `z.toJSONSchema(ExtensionSchema)` below is unable
+//       to work with a reference to this constant (or any variable really and
+//       requires all defaults be hard-coded values!), so be sure to update the
+//       `extension.ts` file to set the version there as well.
+export const RDA_COMMON_STANDARD_VERSION = "1.2";
+
 // Convert the downloaded JSON schema into types
 // First try resolving via the package export (works when installed from GitHub branch or npm)
 function resolveSchemaPath(): string | undefined {
@@ -75,6 +86,18 @@ export const RDACommonStandardDMPJSONSchema = jsonSchema;
 // The version of the DMP that conforms to the RDA Common Standard (without our extensions)
 export type RDACommonStandardDMPType = FromSchema<typeof jsonSchema>;
 
-// The version of the DMP that conforms to the RDA Common Standard (with our extensions)
-export type DMPToolDMPType = RDACommonStandardDMPType & ExtensionType;
+// The DMP Tool extensions to the RDA Common Standard
+export type DMPToolExtensionType = z.infer<typeof ExtensionSchema>;
+export const DMPToolExtensionSchema = ExtensionSchema;
 export const ExtensionJSONSchema = z.toJSONSchema(ExtensionSchema);
+
+// Get the top level `dmp` object from the RDA Common Standard DMP and merge it with the DMP Tool extensions
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+type RDAInner = RDACommonStandardDMPType extends { dmp: infer T } ? T : any;
+type MergedDMP = RDAInner & DMPToolExtensionType;
+
+// Export the merged DMP as a type
+// eslint-disable-next-line @typescript-eslint/consistent-type-definitions
+export type DMPToolDMPType = {
+  dmp: MergedDMP;
+};

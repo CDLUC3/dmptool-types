@@ -1,10 +1,13 @@
 import { expect } from "@jest/globals";
 import { DefaultExtensionSchema, ExtensionSchema } from "../extension";
+import { DMPToolExtensionType } from "../index";
 
 describe('extensions', () => {
   it('validates a minimal DMP Tool extension', () => {
-    const expected = {
+    const expected: DMPToolExtensionType = {
+      rda_schema_version: "1.2",
       provenance: 'your-application',
+      status: 'draft',
       privacy: 'private',
       featured: 'no',
     };
@@ -12,8 +15,10 @@ describe('extensions', () => {
   });
 
   it('validates a full DMP Tool extension', () => {
-    const validData = {
+    const validData: DMPToolExtensionType = {
+      rda_schema_version: "1.2",
       provenance: 'your-application',
+      status: 'complete',
       privacy: 'private',
       featured: 'no',
       registered: '2026-01-01T10:32:45Z',
@@ -24,12 +29,6 @@ describe('extensions', () => {
           type: 'url'
         }
       },
-      related_identifier: [{
-        identifier: 'https://doi.org/10.1234/dmp.123456789',
-        descriptor: 'cites',
-        work_type: 'dataset',
-        type: 'doi'
-      }],
       research_facility: [{
         name: 'Super telescope',
         type: 'observatory',
@@ -52,18 +51,26 @@ describe('extensions', () => {
           type: 'url'
         }
       }],
+      funding_project: [{
+        project_id: {
+          identifier: '123456789',
+          type: 'other'
+        },
+        funder_id: {
+          identifier: 'https://ror.org/0987654321',
+          type: 'ror'
+        },
+        project_identifier: {
+          identifier: 'https://example.com/erbgierg',
+          type: 'url'
+        }
+      }],
       version: [{
-        access_url: 'https://example.com/dmp/123456789?version=2026-01-01T10:32:45Z',
-        version_date: '2026-01-01T10:32:45Z',
+        access_url: 'https://example.com/dmps/123456789?version=2026-01-01T10:32:45Z',
+        version: '2026-01-01T10:32:45Z',
       }],
       narrative: {
-        download_urls: {
-          csv: 'https://example.com/dmp/123456789/narrative.csv',
-          docx: 'https://example.com/dmp/123456789/narrative.docx',
-          html: 'https://example.com/dmp/123456789/narrative.html',
-          pdf: 'https://example.com/dmp/123456789/narrative.pdf',
-          txt: 'https://example.com/dmp/123456789/narrative.txt',
-        },
+        download_url: 'https://example.com/dmps/123456789/narrative',
         template: {
           id: 1234567,
           title: 'Narrative Template',
@@ -86,7 +93,7 @@ describe('extensions', () => {
                     repositoryId: 'https://example.com/repository/123456789',
                     repositoryName: 'Example Repository',
                   }],
-                  meta: { schemaVersion: '1.0' }
+                  meta: {schemaVersion: '1.0'}
                 }
               },
             }]

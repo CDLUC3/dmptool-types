@@ -1529,6 +1529,9 @@
                       "meta"
                     ],
                     "additionalProperties": false
+                  },
+                  "commonStandardId": {
+                    "type": "string"
                   }
                 },
                 "required": [
@@ -1635,6 +1638,9 @@
                       "meta"
                     ],
                     "additionalProperties": false
+                  },
+                  "commonStandardId": {
+                    "type": "string"
                   }
                 },
                 "required": [
@@ -1748,6 +1754,9 @@
                       "options"
                     ],
                     "additionalProperties": false
+                  },
+                  "commonStandardId": {
+                    "type": "string"
                   }
                 },
                 "required": [
@@ -1859,6 +1868,9 @@
                       "options"
                     ],
                     "additionalProperties": false
+                  },
+                  "commonStandardId": {
+                    "type": "string"
                   }
                 },
                 "required": [
@@ -1965,6 +1977,9 @@
                       "options"
                     ],
                     "additionalProperties": false
+                  },
+                  "commonStandardId": {
+                    "type": "string"
                   }
                 },
                 "required": [
@@ -2059,6 +2074,9 @@
                       "meta"
                     ],
                     "additionalProperties": false
+                  },
+                  "commonStandardId": {
+                    "type": "string"
                   }
                 },
                 "required": [
@@ -2185,6 +2203,9 @@
                       "meta"
                     ],
                     "additionalProperties": false
+                  },
+                  "commonStandardId": {
+                    "type": "string"
                   }
                 },
                 "required": [
@@ -2353,6 +2374,9 @@
                       "graphQL"
                     ],
                     "additionalProperties": false
+                  },
+                  "commonStandardId": {
+                    "type": "string"
                   },
                   "preferences": {
                     "default": [],
@@ -2546,6 +2570,9 @@
                     ],
                     "additionalProperties": false
                   },
+                  "commonStandardId": {
+                    "type": "string"
+                  },
                   "preferences": {
                     "default": [],
                     "type": "array",
@@ -2736,6 +2763,9 @@
                       "graphQL"
                     ],
                     "additionalProperties": false
+                  },
+                  "commonStandardId": {
+                    "type": "string"
                   },
                   "preferences": {
                     "default": [],
