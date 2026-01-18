@@ -74,6 +74,7 @@ import {
   ResearchOutputTableQuestionType,
   DefaultResearchOutputTableQuestion,
   DefaultTableQuestion,
+  DefaultResearchOutputCustomColumn,
 } from './tableQuestions';
 
 // Export all the questions
@@ -175,6 +176,7 @@ export type AllDefaultQuestionTypes =
   | typeof DefaultRadioButtonsQuestion
   | typeof DefaultRepositorySearchQuestion
   | typeof DefaultResearchOutputTableQuestion
+  | typeof DefaultResearchOutputCustomColumn
   | typeof DefaultSelectBoxQuestion
   | typeof DefaultTableQuestion
   | typeof DefaultTextAreaQuestion
@@ -184,7 +186,7 @@ export type AllDefaultQuestionTypes =
 // Export a mapping between the Types and their corresponding default structures
 export const QuestionDefaultMap: Record<z.infer<typeof QuestionFormatsEnum>, AllDefaultQuestionTypes> = {
   affiliationSearch: DefaultAffiliationSearchQuestion,
-  boolean: DefaultAffiliationSearchQuestion,
+  boolean: DefaultBooleanQuestion,
   checkBoxes: DefaultCheckboxesQuestion,
   currency: DefaultCurrencyQuestion,
   date: DefaultDateQuestion,
@@ -200,7 +202,7 @@ export const QuestionDefaultMap: Record<z.infer<typeof QuestionFormatsEnum>, All
   repositorySearch: DefaultRepositorySearchQuestion,
   researchOutputTable: DefaultResearchOutputTableQuestion,
   selectBox: DefaultSelectBoxQuestion,
-  table: DefaultResearchOutputTableQuestion,
+  table: DefaultTableQuestion,
   text: DefaultTextQuestion,
   textArea: DefaultTextAreaQuestion,
   url: DefaultURLQuestion,

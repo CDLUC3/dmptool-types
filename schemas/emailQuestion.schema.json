@@ -28,6 +28,9 @@
         "pattern": {
           "type": "string"
         },
+        "defaultValue": {
+          "type": "string"
+        },
         "multiple": {
           "default": false,
           "type": "boolean"

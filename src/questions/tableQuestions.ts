@@ -231,7 +231,7 @@ const ResearchOutputAccessLevelColumnSchema = z.object({
   enabled: z.boolean().default(false),
   content: RadioButtonsQuestionSchema,
 });
-const DefaultResearchOutputAccessLevelColumn = ResearchOutputAccessLevelColumnSchema.parse({
+export const DefaultResearchOutputAccessLevelColumn = ResearchOutputAccessLevelColumnSchema.parse({
   // This commonStandardId is tied to how we render the dataset in the RDA Common Standard.
   // Any change will also need to be made to `buildDataset` function of
   // `src/lambda/layer/dmp.ts` in the `dmptool-infrastructure` repo.`

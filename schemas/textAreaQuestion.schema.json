@@ -28,6 +28,9 @@
         "pattern": {
           "type": "string"
         },
+        "defaultValue": {
+          "type": "string"
+        },
         "cols": {
           "default": 20,
           "type": "number"

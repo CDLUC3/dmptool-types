@@ -56,15 +56,14 @@
           "description": {
             "type": "string"
           },
-          "checked": {
+          "selected": {
             "default": false,
             "type": "boolean"
           }
         },
         "required": [
           "label",
-          "value",
-          "checked"
+          "value"
         ],
         "additionalProperties": false
       }

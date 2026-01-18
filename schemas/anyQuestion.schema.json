@@ -253,15 +253,14 @@
               "description": {
                 "type": "string"
               },
-              "checked": {
+              "selected": {
                 "default": false,
                 "type": "boolean"
               }
             },
             "required": [
               "label",
-              "value",
-              "checked"
+              "value"
             ],
             "additionalProperties": false
           }
@@ -565,6 +564,9 @@
               "type": "number"
             },
             "pattern": {
+              "type": "string"
+            },
+            "defaultValue": {
               "type": "string"
             },
             "multiple": {
@@ -950,6 +952,10 @@
               },
               "description": {
                 "type": "string"
+              },
+              "selected": {
+                "default": false,
+                "type": "boolean"
               }
             },
             "required": [
@@ -1221,6 +1227,10 @@
               },
               "description": {
                 "type": "string"
+              },
+              "selected": {
+                "default": false,
+                "type": "boolean"
               }
             },
             "required": [
@@ -1496,6 +1506,9 @@
                           },
                           "pattern": {
                             "type": "string"
+                          },
+                          "defaultValue": {
+                            "type": "string"
                           }
                         },
                         "required": [
@@ -1589,6 +1602,9 @@
                             "type": "number"
                           },
                           "pattern": {
+                            "type": "string"
+                          },
+                          "defaultValue": {
                             "type": "string"
                           },
                           "cols": {
@@ -1734,6 +1750,10 @@
                             },
                             "description": {
                               "type": "string"
+                            },
+                            "selected": {
+                              "default": false,
+                              "type": "boolean"
                             }
                           },
                           "required": [
@@ -1844,15 +1864,14 @@
                             "description": {
                               "type": "string"
                             },
-                            "checked": {
+                            "selected": {
                               "default": false,
                               "type": "boolean"
                             }
                           },
                           "required": [
                             "label",
-                            "value",
-                            "checked"
+                            "value"
                           ],
                           "additionalProperties": false
                         }
@@ -1957,6 +1976,10 @@
                             },
                             "description": {
                               "type": "string"
+                            },
+                            "selected": {
+                              "default": false,
+                              "type": "boolean"
                             }
                           },
                           "required": [
@@ -2964,6 +2987,10 @@
               },
               "description": {
                 "type": "string"
+              },
+              "selected": {
+                "default": false,
+                "type": "boolean"
               }
             },
             "required": [
@@ -3323,15 +3350,14 @@
                             "description": {
                               "type": "string"
                             },
-                            "checked": {
+                            "selected": {
                               "default": false,
                               "type": "boolean"
                             }
                           },
                           "required": [
                             "label",
-                            "value",
-                            "checked"
+                            "value"
                           ],
                           "additionalProperties": false
                         }
@@ -3635,6 +3661,9 @@
                             "type": "number"
                           },
                           "pattern": {
+                            "type": "string"
+                          },
+                          "defaultValue": {
                             "type": "string"
                           },
                           "multiple": {
@@ -4177,6 +4206,10 @@
                             },
                             "description": {
                               "type": "string"
+                            },
+                            "selected": {
+                              "default": false,
+                              "type": "boolean"
                             }
                           },
                           "required": [
@@ -4400,6 +4433,10 @@
                             },
                             "description": {
                               "type": "string"
+                            },
+                            "selected": {
+                              "default": false,
+                              "type": "boolean"
                             }
                           },
                           "required": [
@@ -4448,6 +4485,9 @@
                             "type": "number"
                           },
                           "pattern": {
+                            "type": "string"
+                          },
+                          "defaultValue": {
                             "type": "string"
                           },
                           "cols": {
@@ -4526,6 +4566,9 @@
                           },
                           "pattern": {
                             "type": "string"
+                          },
+                          "defaultValue": {
+                            "type": "string"
                           }
                         },
                         "required": [
@@ -4587,6 +4630,9 @@
                             "type": "number"
                           },
                           "pattern": {
+                            "type": "string"
+                          },
+                          "defaultValue": {
                             "type": "string"
                           }
                         },
@@ -4674,6 +4720,9 @@
             "pattern": {
               "type": "string"
             },
+            "defaultValue": {
+              "type": "string"
+            },
             "cols": {
               "default": 20,
               "type": "number"
@@ -4750,6 +4799,9 @@
             },
             "pattern": {
               "type": "string"
+            },
+            "defaultValue": {
+              "type": "string"
             }
           },
           "required": [
@@ -4811,6 +4863,9 @@
               "type": "number"
             },
             "pattern": {
+              "type": "string"
+            },
+            "defaultValue": {
               "type": "string"
             }
           },

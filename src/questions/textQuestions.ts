@@ -9,8 +9,10 @@ const TextAttributesSchema = z.object({
   ...BaseAttributesSchema.shape,
   maxLength: z.number().default(255),
   minLength: z.number().optional(),
-  pattern: z.string().optional()
+  pattern: z.string().optional(),
+  defaultValue: z.string().optional()
 });
+
 const DefaultTextAttributes = TextAttributesSchema.parse({});
 
 // Email question and answer

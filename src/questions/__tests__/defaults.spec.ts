@@ -77,7 +77,7 @@ describe('questions return the expected defaults', () => {
       type: "checkBoxes",
       attributes: {},
       meta: { schemaVersion: "1.0" },
-      options: [{ label: 'Option A', checked: false, value: 'a' }]
+      options: [{ label: 'Option A', selected: false, value: 'a' }]
     };
     expect(DefaultCheckboxesQuestion).toEqual(expected);
   });
@@ -226,7 +226,7 @@ describe('questions return the expected defaults', () => {
       type: "multiselectBox",
       attributes: { multiple: true },
       meta: { schemaVersion: "1.0" },
-      options: [{ label: 'Option A', value: 'a' }]
+      options: [{ label: 'Option A', value: 'a', selected: false }]
     };
     expect(DefaultMultiselectBoxQuestion).toEqual(expected);
   });
@@ -243,7 +243,7 @@ describe('questions return the expected defaults', () => {
   it('returns the expected default numberRange', () => {
     const expected = {
       type: "numberRange",
-      attributes: { },
+      attributes: {},
       meta: { schemaVersion: "1.0" },
       columns: {
         start: { label: "From", min: 0, step: 1 },
@@ -267,7 +267,7 @@ describe('questions return the expected defaults', () => {
       type: "radioButtons",
       attributes: {},
       meta: { schemaVersion: "1.0" },
-      options: [{ label: 'Option A', value: 'a' }]
+      options: [{ label: 'Option A', value: 'a', selected: false }]
     };
     expect(DefaultRadioButtonsQuestion).toEqual(expected);
   });
@@ -321,9 +321,9 @@ describe('questions return the expected defaults', () => {
             type: "selectBox",
             attributes: { multiple: false },
             options: [
-              { label: 'Dataset', value: 'dataset' },
-              { label: 'Software', value: 'software' },
-              { label: 'Other', value: 'other' }
+              { label: 'Dataset', value: 'dataset', selected: false },
+              { label: 'Software', value: 'software', selected: false },
+              { label: 'Other', value: 'other', selected: false }
             ],
             meta: { schemaVersion: "1.0" }
           }
@@ -342,12 +342,12 @@ describe('questions return the expected defaults', () => {
               {
                 label: 'May contain sensitive data?',
                 value: 'sensitive',
-                checked: false
+                selected: false
               },
               {
                 label: 'May contain personally identifiable information?',
                 value: 'personal',
-                checked: false
+                selected: false
               },
             ]
           }
@@ -363,9 +363,9 @@ describe('questions return the expected defaults', () => {
             meta: { schemaVersion: "1.0" },
             attributes: {},
             options: [
-              { label: 'Open Access', value: 'open' },
-              { label: 'Restricted Access', value: 'restricted' },
-              { label: 'Other', value: 'closed' },
+              { label: 'Open Access', value: 'open', selected: false },
+              { label: 'Restricted Access', value: 'restricted', selected: false },
+              { label: 'Other', value: 'closed', selected: false },
             ]
           }
         },
@@ -680,7 +680,7 @@ describe('questions return the expected defaults', () => {
       type: "selectBox",
       attributes: { multiple: false },
       meta: { schemaVersion: "1.0" },
-      options: [{ label: 'Option A', value: 'a' }]
+      options: [{ label: 'Option A', value: 'a', selected: false }]
     };
     expect(DefaultSelectBoxQuestion).toEqual(expected);
   });

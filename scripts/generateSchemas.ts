@@ -20,6 +20,7 @@ import {
   NumberWithContextQuestionJSONSchema,
   RadioButtonsQuestionJSONSchema,
   RepositorySearchQuestionJSONSchema,
+  ResearchOutputTableQuestionJSONSchema,
   SelectBoxQuestionJSONSchema,
   TableQuestionJSONSchema,
   TextAreaQuestionJSONSchema,
@@ -54,7 +55,7 @@ import {
   TextAnswerJSONSchema,
   URLAnswerJSONSchema
 } from '../src';
-import {ExtensionJSONSchema} from "../src/dmp";
+import { ExtensionJSONSchema } from "../src/dmp";
 
 // Convert the Zod schemas to JSON schemas and then write them to the /schemas folder
 fs.writeFileSync('./schemas/anyQuestion.schema.json', JSON.stringify(AnyQuestionJSONSchema, null, 2));
@@ -108,7 +109,7 @@ fs.writeFileSync('./schemas/radioButtonsAnswer.schema.json', JSON.stringify(Radi
 fs.writeFileSync('./schemas/repositorySearchQuestion.schema.json', JSON.stringify(RepositorySearchQuestionJSONSchema, null, 2));
 fs.writeFileSync('./schemas/repositorySearchAnswer.schema.json', JSON.stringify(RepositorySearchAnswerJSONSchema, null, 2));
 
-fs.writeFileSync('./schemas/researchOutputTableQuestion.schema.json', JSON.stringify(RepositorySearchQuestionJSONSchema, null, 2));
+fs.writeFileSync('./schemas/researchOutputTableQuestion.schema.json', JSON.stringify(ResearchOutputTableQuestionJSONSchema, null, 2));
 fs.writeFileSync('./schemas/researchOutputTableAnswer.schema.json', JSON.stringify(ResearchOutputTableAnswerSchema, null, 2));
 
 fs.writeFileSync('./schemas/selectBoxQuestion.schema.json', JSON.stringify(SelectBoxQuestionJSONSchema, null, 2));
