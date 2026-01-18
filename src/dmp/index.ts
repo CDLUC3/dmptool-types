@@ -48,8 +48,10 @@ try {
         if (fs.existsSync(resolved)) {
           return resolved;
         }
+        // If require.resolve found a path but it doesn't exist, log it for debugging
+        console.warn(`[dmptool-types] require.resolve found path but it doesn't exist: ${resolved}`);
       } catch {
-        // ignore
+        // ignore and fall back to local paths below
       }
 
 
@@ -72,8 +74,8 @@ try {
       return uniquePaths.find((candidate) => fs.existsSync(candidate));
     }
 
-    const schemaPath = resolveSchemaPath();
-    if (!schemaPath) {
+    const RDA_COMMON_STANDARD_JSON_FILE = resolveSchemaPath();
+    if (!RDA_COMMON_STANDARD_JSON_FILE) {
       const attemptedPaths = [
         path.resolve(__dirname, "..", "schemas", "dmp.schema.json"),
         path.resolve(__dirname, "..", "..", "schemas", "dmp.schema.json"),
@@ -85,13 +87,13 @@ try {
     }
 
     // Double-check the file exists before trying to read it
-    if (!fs.existsSync(schemaPath)) {
+    if (!fs.existsSync(RDA_COMMON_STANDARD_JSON_FILE)) {
       throw new Error(
-        `Schema file path was resolved to ${schemaPath} but the file does not exist. This may indicate an issue with the package installation or build process.`
+        `Schema file path was resolved to ${RDA_COMMON_STANDARD_JSON_FILE} but the file does not exist. This may indicate an issue with the package installation or build process.`
       );
     }
 
-    rdaSchemaJson = JSON.parse(fs.readFileSync(schemaPath, "utf8"));
+    rdaSchemaJson = JSON.parse(fs.readFileSync(RDA_COMMON_STANDARD_JSON_FILE, "utf8"));
   } else {
     throw new Error("Schema must be bundled for browser use or the package must include schemas/ directory");
   }
