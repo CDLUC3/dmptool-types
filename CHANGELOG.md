@@ -1,5 +1,14 @@
 # dmptool-types CHANGELOG
 
+# v4.0.0
+- Fixed bug in `generateSchemas.ts` where `researchOutputTableQuestion.schema.json` was mapped to `RepositorySearchQuestionJSONSchema` instead of `ResearchOutputTableQuestionJSONSchema`
+- Updated `src/dmp/index.ts` to remove `fs` from the import because it runs immediately when a client imports this file, and then `fs` is then undefined
+- Added `DefaultResearchOutputCustomColumn` to `src/questions/index.ts` and fixed some typos in the `QuestionDefaultMap`
+- Added `selected` back to `OptionsSchema` in `src/questions/optionBasedQuestion.ts`, since that specifies what the template creatore wanted as the defaults, as opposed to what is checked in the answer. This applies to all options questions, so `checked` was removed from `CheckedOptionSchema` here.
+- Updated `src/questions/tableQuestion.ts` so that `DefaultResearchOutputAccessLevelColumn` is exported
+- Added `defaultValue` to `TextAttributesSchema` because the schema was automatically removing the `defaultSchema` from `DefaultResearchOutputCustomContent`
+- Updated `src/questions/__tests__/optionBasedQuestions.spec.ts` to use `selected` in place of `checked` for checkboxes
+
 # v3.0.0
 - Added `rda_schema_version` to the DMP Tool extensions schema and `RDA_COMMON_STANDARD_VERSION` constant.
 - Added `status` to the DMP Tool extensions schema.

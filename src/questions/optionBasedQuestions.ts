@@ -8,22 +8,21 @@ import {
 // A select box, radio buttons, or checkboxes option
 
 // NOTE: Question option shapes are intentionally minimal: they describe the configurable
-// properties of each option (label, value, description). We deliberately do NOT include
-// answer-state flags such as `selected` on question definitions because those represent
-// user response state and belong in answer objects/schemas (not in the question configuration).
+// properties of each option (label, value, description). However, we deliberately included
+// `selected` on question definitions in order to save default selection state for options.
 // For checkboxes we include a `checked` default on the question option to allow a configured
-// default checked state. Radio/select/multiselect questions should not contain `selected`;
-// user selections are captured by the answer schemas.
+// default checked state. Radio/select/multiselect questions SHOULD include `selected`;
+// in order to save which options should be selected by default.
 const OptionSchema = z.object({
   label: z.string().default('Option A'),
   value: z.string().default('a'),
   description: z.string().optional(),
+  selected: z.boolean().default(false).optional()// For setting default selected option(s)
 });
 const DefaultOption = OptionSchema.parse({});
 
 const CheckedOptionSchema = z.object({
   ...OptionSchema.shape,
-  checked: z.boolean().default(false),
 });
 const DefaultCheckedOption = CheckedOptionSchema.parse({});
 

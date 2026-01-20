@@ -65,12 +65,12 @@ describe("CheckboxesQuestion", () => {
         {
           label: "Apple",
           value: "apple",
-          checked: true,
+          selected: true,
         },
         {
           label: "Banana",
           value: "banana",
-          checked: false,
+          selected: false,
         },
       ],
       meta: {
@@ -93,7 +93,7 @@ describe("CheckboxesQuestion", () => {
         {
           label: "Apple",
           value: "apple",
-          checked: "true", // Invalid type for checked
+          selected: "true", // Invalid type for checked
         },
       ],
       meta: {

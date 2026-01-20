@@ -27,6 +27,9 @@
         },
         "pattern": {
           "type": "string"
+        },
+        "defaultValue": {
+          "type": "string"
         }
       },
       "required": [
