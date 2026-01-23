@@ -121,22 +121,8 @@ describe('questions return the expected defaults', () => {
       graphQL: {
         query: licenseQuery,
         queryId: "useLicensesQuery",
-        variables: [
-          {
-            type: "string",
-            name: "term",
-            label: "Search for a license",
-            labelTranslationKey: "LicenseSearch.term",
-            minLength: 3
-          },
-          {
-            type: "OFFSET",
-            name: "paginationOptions",
-            label: "Pagination Options",
-            labelTranslationKey: "PaginationOptions.label",
-          }
-        ],
-        responseField: "licenses.items",
+        variables: [],
+        responseField: "licenses",
         answerField: "uri",
         displayFields: [
           {
@@ -552,7 +538,7 @@ describe('questions return the expected defaults', () => {
             type: "licenseSearch",
             attributes: {},
             graphQL: {
-              query: "query Licenses($term: String, $paginationOptions: PaginationOptions){ license(term: $term, paginationOptions: $paginationOptions) { totalCount currentOffset limit hasNextPage hasPreviousPage availableSortFields items { id name uri description } } }",
+              query: "query Licenses{ licenses { id name uri description } }",
               queryId: 'useLicensesQuery',
               displayFields: [
                 {
@@ -572,22 +558,8 @@ describe('questions return the expected defaults', () => {
                 },
               ],
               answerField: "uri",
-              responseField: "licenses.items",
-              variables: [
-                {
-                  type: "string",
-                  name: "term",
-                  label: "Search for a license",
-                  labelTranslationKey: "LicenseSearch.term",
-                  minLength: 3
-                },
-                {
-                  type: "OFFSET",
-                  name: "paginationOptions",
-                  label: "Pagination Options",
-                  labelTranslationKey: "PaginationOptions.label"
-                }
-              ],
+              responseField: "licenses",
+              variables: [],
             },
             meta: { schemaVersion: "1.0" }
           }

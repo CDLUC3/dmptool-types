@@ -338,30 +338,14 @@ export const DefaultMetadataStandardSearchQuestion = MetadataStandardSearchQuest
 });
 
 export const licenseQuery = '' +
-  'query Licenses($term: String, $paginationOptions: PaginationOptions){ ' +
-    'license(term: $term, paginationOptions: $paginationOptions) { ' +
-       'totalCount ' +
-       'currentOffset ' +
-       'limit ' +
-       'hasNextPage ' +
-       'hasPreviousPage ' +
-       'availableSortFields ' +
-       'items { ' +
-         'id ' +
-         'name ' +
-         'uri ' +
-         'description ' +
-       '} ' +
+  'query Licenses{ ' +
+    'licenses { ' +
+       'id ' +
+       'name ' +
+       'uri ' +
+       'description ' +
     '} ' +
   '}';
-
-const DefaultLicenseSearchTermVariable = GraphQLVariable.parse({
-  name: 'term',
-  type: 'string',
-  label: 'Search for a license',
-  minLength: 3,
-  labelTranslationKey: 'LicenseSearch.term'
-});
 
 const DefaultLicenseNameDisplayField = GraphQLDisplayField.parse({
   propertyName: 'name',
@@ -388,15 +372,12 @@ export const LicenseGraphQLQuery = z.object({
   variables: z.array(GraphQLVariable),
   answerField: z.literal('uri'),
   displayFields: z.array(GraphQLDisplayField),
-  responseField: z.literal("licenses.items"),
+  responseField: z.literal("licenses"),
 });
 export const DefaultLicenseGraphQLQuery = LicenseGraphQLQuery.parse({
   query: licenseQuery,
-  variables: [
-    DefaultLicenseSearchTermVariable,
-    DefaultGraphQLPaginationVariables
-  ],
-  responseField: 'licenses.items',
+  variables: [],
+  responseField: 'licenses',
   answerField: 'uri',
   displayFields: [
     DefaultLicenseNameDisplayField,
