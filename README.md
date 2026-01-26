@@ -24,7 +24,7 @@ The available question schemas/types are:
 - `DateQuestion` A date field. Supports `YYYY-MM-DD` format.
 - `DateRangeQuestion` A series of 2 date fields. Meant to capture "From" and "To" or "Start" and "End" dates.
 - `EmailQuestion` An email address. Supports multiple emails that are comma separated.
-- `LicenseSearch` A GraphQL enabled question to search for relevant Licenses
+- `LicenseSearch` A GraphQL enabled question to fetch all Licenses
 - `MetadataStandardSearch` A GraphQL enabled question to search for relevant Metadata Standards
 - `MultiselectBoxQuestion` A select box that allows for multiple selections
 - `NumberQuestion` A numeric field. Supports both integers and floats.
