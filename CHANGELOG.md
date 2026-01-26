@@ -1,6 +1,9 @@
 # dmptool-types CHANGELOG
 
-# v4.0.0
+# v3.1.0
+- Updated LicenseSearch to use updated `licenses` graphQL query
+
+# v3.0.0
 - Fixed bug in `generateSchemas.ts` where `researchOutputTableQuestion.schema.json` was mapped to `RepositorySearchQuestionJSONSchema` instead of `ResearchOutputTableQuestionJSONSchema`
 - Updated `src/dmp/index.ts` to remove `fs` from the import because it runs immediately when a client imports this file, and then `fs` is then undefined
 - Added `DefaultResearchOutputCustomColumn` to `src/questions/index.ts` and fixed some typos in the `QuestionDefaultMap`
@@ -9,7 +12,7 @@
 - Added `defaultValue` to `TextAttributesSchema` because the schema was automatically removing the `defaultSchema` from `DefaultResearchOutputCustomContent`
 - Updated `src/questions/__tests__/optionBasedQuestions.spec.ts` to use `selected` in place of `checked` for checkboxes
 
-# v3.0.0
+# v2.3.0
 - Added `rda_schema_version` to the DMP Tool extensions schema and `RDA_COMMON_STANDARD_VERSION` constant.
 - Added `status` to the DMP Tool extensions schema.
 - Added `commonStandardId` to all Research Output Table questions and answers to help tie info to the RDA Common Standard.

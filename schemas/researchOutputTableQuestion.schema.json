@@ -1329,11 +1329,11 @@
                       },
                       "query": {
                         "type": "string",
-                        "const": "query Licenses($term: String, $paginationOptions: PaginationOptions){ license(term: $term, paginationOptions: $paginationOptions) { totalCount currentOffset limit hasNextPage hasPreviousPage availableSortFields items { id name uri description } } }"
+                        "const": "query Licenses{ licenses { id name uri description } }"
                       },
                       "responseField": {
                         "type": "string",
-                        "const": "licenses.items"
+                        "const": "licenses"
                       },
                       "variables": {
                         "type": "array",

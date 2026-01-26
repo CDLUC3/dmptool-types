@@ -63,7 +63,7 @@ describe("LicenseSearchQuestion schema", () => {
         help: "Search for a license",
       },
       graphQL: {
-        query: "query Licenses($term: String, $paginationOptions: PaginationOptions){ license(term: $term, paginationOptions: $paginationOptions) { totalCount currentOffset limit hasNextPage hasPreviousPage availableSortFields items { id name uri description } } }",
+        query: "query Licenses{ licenses { id name uri description } }",
         displayFields: [
           {
             propertyName: "name",
@@ -79,15 +79,8 @@ describe("LicenseSearchQuestion schema", () => {
           }
         ],
         answerField: "uri",
-        responseField: "licenses.items",
-        variables: [
-          {
-            type: "string",
-            name: "term",
-            label: "Search term",
-            minLength: 2
-          },
-        ],
+        responseField: "licenses",
+        variables: [],
       },
       meta: {
         schemaVersion: "1.0"
@@ -105,7 +98,6 @@ describe("LicenseSearchQuestion schema", () => {
         query: 'myInvalidQuery { licenses { id name } }',
         variables: [
           {
-            name: "term",
             type: "invalid"
           },
         ],
