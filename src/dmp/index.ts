@@ -36,6 +36,7 @@ try {
     // Only try fs operations on server
     /* eslint-disable @typescript-eslint/no-require-imports */
     const fs = eval('require')("fs"); // eval prevents bundlers from trying to include fs in browser builds
+    /* eslint-disable @typescript-eslint/no-require-imports */
     const path = eval('require')("path");
     // Convert the downloaded JSON schema into types
     // First try resolving via the package export (works when installed from GitHub branch or npm)
