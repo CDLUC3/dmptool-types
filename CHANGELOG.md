@@ -1,5 +1,7 @@
 # dmptool-types CHANGELOG
 
+# v3.1.1
+- Fixing `Can't resolve 'fs'` errors on client side.
 # v3.1.0
 - Updated LicenseSearch to use updated `licenses` graphQL query
 
