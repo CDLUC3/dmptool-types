@@ -35,10 +35,9 @@ try {
   if (typeof window === 'undefined') {
     // Only try fs operations on server
     /* eslint-disable @typescript-eslint/no-require-imports */
-    const fs = require("fs");
+    const fs = typeof window === 'undefined' ? require("fs") : null;
     /* eslint-disable @typescript-eslint/no-require-imports */
-    const path = require("path");
-
+    const path = typeof window === 'undefined' ? require("path") : null;
     // Convert the downloaded JSON schema into types
     // First try resolving via the package export (works when installed from GitHub branch or npm)
     function resolveSchemaPath(): string | undefined {
