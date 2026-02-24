@@ -1,8 +1,12 @@
 # dmptool-types CHANGELOG
 
+# v3.1.2
+- Add override for minimatch dependency, upgrade all dependencies 
+
 # v3.1.1
 - Fixing `Can't resolve 'fs'` errors on client side.
 - Updated version in package.json to `3.1.1`
+
 # v3.1.0
 - Updated LicenseSearch to use updated `licenses` graphQL query
 
