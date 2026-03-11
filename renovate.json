@@ -2,5 +2,22 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
     "config:recommended"
+  ],
+  "enabledManagers": [
+    "npm",
+    "nvm"
+  ],
+  "baseBranches": [
+    "main"
+  ],
+  "ignorePaths": [
+    ".github",
+    ".husky"
+  ],
+  "minimumReleaseAge": "3 days",
+  "abandonmentThreshold": "2 years",
+  "bumpVersion": "minor",
+  "schedule": [
+    "* 0-2 * * 0,3"
   ]
 }
