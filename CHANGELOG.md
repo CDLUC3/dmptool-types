@@ -1,16 +1,20 @@
 # dmptool-types CHANGELOG
 
-# v3.1.2
+## v3.1.3
+- Update override for minimatch dependency, upgrade all dependencies that needed it
+- Update `renovate` config 
+
+## v3.1.2
 - Add override for minimatch dependency, upgrade all dependencies 
 
-# v3.1.1
+## v3.1.1
 - Fixing `Can't resolve 'fs'` errors on client side.
 - Updated version in package.json to `3.1.1`
 
-# v3.1.0
+## v3.1.0
 - Updated LicenseSearch to use updated `licenses` graphQL query
 
-# v3.0.0
+## v3.0.0
 - Fixed bug in `generateSchemas.ts` where `researchOutputTableQuestion.schema.json` was mapped to `RepositorySearchQuestionJSONSchema` instead of `ResearchOutputTableQuestionJSONSchema`
 - Updated `src/dmp/index.ts` to remove `fs` from the import because it runs immediately when a client imports this file, and then `fs` is then undefined
 - Added `DefaultResearchOutputCustomColumn` to `src/questions/index.ts` and fixed some typos in the `QuestionDefaultMap`
@@ -19,7 +23,7 @@
 - Added `defaultValue` to `TextAttributesSchema` because the schema was automatically removing the `defaultSchema` from `DefaultResearchOutputCustomContent`
 - Updated `src/questions/__tests__/optionBasedQuestions.spec.ts` to use `selected` in place of `checked` for checkboxes
 
-# v2.3.0
+## v2.3.0
 - Added `rda_schema_version` to the DMP Tool extensions schema and `RDA_COMMON_STANDARD_VERSION` constant.
 - Added `status` to the DMP Tool extensions schema.
 - Added `commonStandardId` to all Research Output Table questions and answers to help tie info to the RDA Common Standard.
@@ -34,36 +38,36 @@
 - Added `resolveJsonModule` to the `tsconfig`
 - Ran `npm upgrade` to update all dependencies
 
-# v2.2.1
+## v2.2.1
 - Removing "selected" from questions and just keep in answers for radio/select/multiselect.
 - The above removes the selected for resourceTypes and custom types.
 - Added missing "description" for providing help-icon info for some options.
 
-# v2.2.0
+## v2.2.0
 - Added code to allow loading dmptool-types from github repo instead of npm package for pre-release testing.
 - Added to README instructions on how to load dmptool-types from github repo.
 - Added `showCommentField` and `comment` to most question and answers (except ones ticket said not to)
 
-# v2.1.0
+## v2.1.0
 - Added script to fetch the latest RDA Common Standard JSON schema
 - Added logic to generate types from the RDA Common Standard JSON schema
 - Added DMP Tool Extensions for DMP schemas and types
 - Added tests for RDA Common Standard schema and DMP Tool extensions
 
-# v1.3.0
+## v1.3.0
 - Upgrade Zod to version 4
 - Removed `zod-to-json-schema` as this is now a part of Zod 4
 - Updated `generateSchemas` script to use the new built-in Zod JSON schema generation
 - Updated all Zod schemas to define both a Schema and a Default
-
 - Fixed issue with researchOutputTable preferences being filtered out in validation
 - Added CONTRIBUTING.md, CODE_OF_CONDUCT.md and PULL_REQUEST_TEMPLATE.md
-# v1.2.4
+
+## v1.2.4
 - Added NumberWithContext question and answer types to support numbers with additional context (e.g. units)
 - Added LicenseSearch, MetadataStandardSearch and RepositorySearch question and answer types
 - Added ResearchOutputTable question and answer types
 
-# v1.2.3
+## v1.2.3
 - Added Trivy scanning to GitHub Actions workflow
 - Added Trivy script files and new scripts in package.json 
 - Removed `fs` from package.json because `0.0.1-security` is compromised and `fs` is a built-in Node module anyway
@@ -74,7 +78,6 @@
 - Updated `TableQuestionType` to allow for an array of questions for each column
 
 ## v1.1.0
-
 - Added `QuestionTypeMap` and `AnswerTypeMap` that maps the `type` label to the corresponding Type
 - Refactored `primitiveQuestions` into separate `numberQuestions` and `textQuestions`
 - Added `label` and `help` to the base attributes for every question type
@@ -83,18 +86,15 @@
 - Refactored Option and Range question types so that the nested objects are just the `attributes` properties
 
 ## v1.0.8
-
 - Added `NumberRangeQuestionType` and `NumberRangeAnswerType`
 
 ## v1.0.7
-
 - Added the `numberRange` question and answer types
 - Renamed `datePicker` and `datePickerAnswer` to `date` and `dateAnswer`
 - Updated Zod schemas so that `attributes` objects themselves are optional (unless they have a required property)
 - Updated `tableQuestion` so that it includes a way to define column headings
 
 ## v1.0.6
-
 - Initial Jest and ESLint config
 - Zod packages
 - DMP Template Question and Answer Zod schemas and derived Typescript types
