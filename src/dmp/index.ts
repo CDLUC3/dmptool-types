@@ -98,7 +98,7 @@ try {
 
 // Ignoring ESLint here because it doesn't like that we're only using jsonSchema as a Type
 // but that's exactly what we want to do.
-export const RDACommonStandardDMPJSONSchema = rdaSchemaJson;;
+export const RDACommonStandardDMPJSONSchema = rdaSchemaJson;
 
 // The version of the DMP that conforms to the RDA Common Standard (without our extensions)
 export type RDACommonStandardDMPType = FromSchema<typeof rdaSchemaJson>;
@@ -116,4 +116,37 @@ type MergedDMP = RDAInner & DMPToolExtensionType;
 // eslint-disable-next-line @typescript-eslint/consistent-type-definitions
 export type DMPToolDMPType = {
   dmp: MergedDMP;
+};
+
+export const DMPToolDMPJSONSchema = {
+  $id: "https://github.com/CDLUC3/dmptool-types/blob/main/schemas/dmptoolDmp.schema.json",
+  title: 'RDA DMP Common Standard for machine-actionable DMPs with extensions for the DMP Tool system',
+  description: 'This is a metadata application profile to provide basic interoperability between systems producing or consuming machine-actionable data management plans (maDMPS) with the DMP Tool.\n\nThis application profile is intended to cover a wide range of use cases and does not set any business (e.g. funder specific) requirements. It represents information over the whole DMP lifecycle.',
+
+  // 3. Definitions must be at the ROOT level (sibling to properties)
+  $defs: {
+    DMPData: rdaSchemaJson.properties.dmp,
+    ...(rdaSchemaJson.$defs || rdaSchemaJson.definitions || {}),
+    DMPToolExtension: {
+      type: "object",
+      properties: ExtensionJSONSchema.properties,
+      required: ExtensionJSONSchema.required || [],
+      additionalProperties: false
+    }
+  },
+
+  // 4. Schema constraints at the ROOT level
+  type: 'object',
+  required: ['dmp'],
+
+  // 5. THE PROPERTIES (One single object here)
+  properties: {
+    dmp: {
+      // Use allOf to combine the RDA 'DMPData' and our local 'DMPToolExtension'
+      allOf: [
+        { $ref: "#/$defs/DMPData" },
+        { $ref: "#/$defs/DMPToolExtension" }
+      ]
+    }
+  }
 };
