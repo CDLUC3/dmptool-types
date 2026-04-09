@@ -25,7 +25,7 @@ import {
   TableQuestionJSONSchema,
   TextAreaQuestionJSONSchema,
   TextQuestionJSONSchema,
-  URLQuestionJSONSchema
+  URLQuestionJSONSchema, DMPToolDMPJSONSchema
 } from "../src";
 
 // Answer imports
@@ -128,5 +128,7 @@ fs.writeFileSync('./schemas/urlQuestion.schema.json', JSON.stringify(URLQuestion
 fs.writeFileSync('./schemas/urlAnswer.schema.json', JSON.stringify(URLAnswerJSONSchema, null, 2));
 
 fs.writeFileSync('./schemas/dmpExtension.schema.json', JSON.stringify(ExtensionJSONSchema, null, 2));
+
+fs.writeFileSync('./schemas/dmptoolDmp.schema.json', JSON.stringify(DMPToolDMPJSONSchema, null, 2));
 
 console.log('JSON Schema generated!');

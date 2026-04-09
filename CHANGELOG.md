@@ -1,5 +1,9 @@
 # dmptool-types CHANGELOG
 
+## v3.1.4
+- Dependency updates
+- Updates to move DMP Tool extensions so that they sit under the top level `dmp` property
+
 ## v3.1.3
 - Update override for minimatch dependency, upgrade all dependencies that needed it
 - Update `renovate` config 
