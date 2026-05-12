@@ -1,5 +1,8 @@
 # dmptool-types CHANGELOG
 
+## v3.1.5
+- Updated `zod` to `v4.4.3`. Updated `typescript` to `v6.0.3` and `typescript-eslint` to `v8.59.2`. Added new `tsconfig.scripts.json` to avoid typescript errors in `scripts` directory
+
 ## v3.1.4
 - Dependency updates
 - Updates to move DMP Tool extensions so that they sit under the top level `dmp` property
