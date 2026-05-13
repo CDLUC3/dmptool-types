@@ -37,7 +37,7 @@
     "trivy-med": "./scripts/trivy-med.sh"
   },
   "overrides": {
-    "minimatch": "10.2.4"
+    "minimatch": "10.2.5"
   },
   "dependencies": {
     "json-schema-to-ts": "^3.1.1",
@@ -47,10 +47,10 @@
     "@eslint/js": "^10.0.1",
     "@types/jest": "^30.0.0",
     "@types/node": "^25.7.0",
-    "cpy": "^13.2.1",
-    "eslint": "^10.0.3",
+    "cpy": "^13.2.2",
+    "eslint": "^10.3.0",
     "husky": "^9.1.7",
-    "jest": "^30.3.0",
+    "jest": "^30.4.2",
     "jest-expect-message": "^1.1.3",
     "jsonschema": "^1.5.0",
     "ts-jest": "^29.4.9",

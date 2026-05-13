@@ -2,7 +2,7 @@
   "compilerOptions": {
     "target": "ES2017",
     "module": "Node16",
-    "moduleResolution": "Node16",
+    "moduleResolution": "Node16",// Use Node16 module resolution - supports both CommonJS and ES modules
     "declaration": true,
     "outDir": "./dist",
     "rootDir": "./src",
