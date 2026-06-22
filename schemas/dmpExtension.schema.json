@@ -2155,14 +2155,12 @@
                             }
                           },
                           "required": [
-                            "id",
                             "json"
                           ],
                           "additionalProperties": false
                         }
                       },
                       "required": [
-                        "id",
                         "order",
                         "text"
                       ],
@@ -2171,7 +2169,6 @@
                   }
                 },
                 "required": [
-                  "id",
                   "order",
                   "title",
                   "question"
@@ -2181,7 +2178,6 @@
             }
           },
           "required": [
-            "id",
             "title",
             "section"
           ],

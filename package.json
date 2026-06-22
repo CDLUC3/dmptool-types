@@ -1,6 +1,6 @@
 {
   "name": "@dmptool/types",
-  "version": "3.1.6",
+  "version": "3.1.7",
   "description": "TypeScript types for DMPTool",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
