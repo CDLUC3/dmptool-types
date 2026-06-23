@@ -105,50 +105,46 @@ const VersionSchema = z.object({
 });
 
 const NarrativeAnswerSchema = z.object({
-  id: z.number(),
+  id: z.number().optional(),
   json: AnyAnswerSchema,
 });
 const DefaultAnswer = NarrativeAnswerSchema.parse({
-  id: 0,
   json: DefaultTextAreaAnswer
 });
 
 const NarrativeQuestionSchema = z.object({
-  id: z.number(),
+  id: z.number().optional(),
   order: z.number(),
   text: z.string(),
   answer: NarrativeAnswerSchema.optional(),
 });
 const DefaultQuestion = NarrativeQuestionSchema.parse({
-  id: 0,
   order: 0,
   text: 'Undefined question text',
   answer: DefaultAnswer
 });
 
 const NarrativeSectionSchema = z.object({
-  id: z.number(),
+  id: z.number().optional(),
   order: z.number(),
   title: z.string(),
   description: z.string().optional(),
   question: z.array(NarrativeQuestionSchema)
 });
 const DefaultSection = NarrativeSectionSchema.parse({
-  id: 0,
   order: 0,
   title: 'Undefined section',
   question: [DefaultQuestion]
 });
 
 const NarrativeTemplateSchema = z.object({
-  id: z.number(),
+  id: z.number().optional(),
   title: z.string(),
   description: z.string().optional(),
   version: z.string().optional(),
   section: z.array(NarrativeSectionSchema)
 });
 const DefaultNarrativeTemplate = NarrativeTemplateSchema.parse({
-  id: 0,
   title: 'Undefined template',
   section: [DefaultSection]
 });

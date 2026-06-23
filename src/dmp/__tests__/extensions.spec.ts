@@ -82,11 +82,9 @@ describe('extensions', () => {
             description: 'The first section of the narrative',
             order: 1,
             question: [{
-              id: 1234,
               text: 'What is the purpose of this DMP?',
               order: 1,
               answer: {
-                id: 543,
                 json: {
                   type: 'repositorySearch',
                   answer: [{

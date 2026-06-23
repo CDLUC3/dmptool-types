@@ -1,5 +1,8 @@
 # dmptool-types CHANGELOG
 
+## v3.1.7
+- Made `id` properties in `narrative` portion of the DMP Tool extensions optional
+
 ## v3.1.6
 - Updated dev dependencies
 - Removed unneeded override for minimatch
