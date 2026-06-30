@@ -566,12 +566,13 @@ describe('questions return the expected defaults', () => {
         },
         {
           heading: "Custom Column",
+          commonStandardId: 'custom',
           help: "Explanation of what we expect the user to enter.",
           required: false,
           enabled: false,
           content: {
             type: "text",
-            attributes: { maxLength: 255 },
+            attributes: {},
             meta: { schemaVersion: "1.0" },
           }
         }

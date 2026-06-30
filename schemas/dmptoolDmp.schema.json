@@ -2805,6 +2805,126 @@
                                                       "properties": {
                                                         "type": {
                                                           "type": "string",
+                                                          "const": "text"
+                                                        },
+                                                        "meta": {
+                                                          "type": "object",
+                                                          "properties": {
+                                                            "schemaVersion": {
+                                                              "default": "1.0",
+                                                              "type": "string"
+                                                            }
+                                                          },
+                                                          "required": [
+                                                            "schemaVersion"
+                                                          ],
+                                                          "additionalProperties": false
+                                                        },
+                                                        "comment": {
+                                                          "type": "string"
+                                                        },
+                                                        "answer": {
+                                                          "default": "",
+                                                          "type": "string"
+                                                        },
+                                                        "commonStandardId": {
+                                                          "type": "string",
+                                                          "const": "title"
+                                                        }
+                                                      },
+                                                      "required": [
+                                                        "type",
+                                                        "meta",
+                                                        "answer",
+                                                        "commonStandardId"
+                                                      ],
+                                                      "additionalProperties": false
+                                                    },
+                                                    {
+                                                      "type": "object",
+                                                      "properties": {
+                                                        "type": {
+                                                          "type": "string",
+                                                          "const": "textArea"
+                                                        },
+                                                        "meta": {
+                                                          "type": "object",
+                                                          "properties": {
+                                                            "schemaVersion": {
+                                                              "default": "1.0",
+                                                              "type": "string"
+                                                            }
+                                                          },
+                                                          "required": [
+                                                            "schemaVersion"
+                                                          ],
+                                                          "additionalProperties": false
+                                                        },
+                                                        "comment": {
+                                                          "type": "string"
+                                                        },
+                                                        "answer": {
+                                                          "default": "",
+                                                          "type": "string"
+                                                        },
+                                                        "commonStandardId": {
+                                                          "type": "string",
+                                                          "const": "description"
+                                                        }
+                                                      },
+                                                      "required": [
+                                                        "type",
+                                                        "meta",
+                                                        "answer",
+                                                        "commonStandardId"
+                                                      ],
+                                                      "additionalProperties": false
+                                                    },
+                                                    {
+                                                      "type": "object",
+                                                      "properties": {
+                                                        "type": {
+                                                          "type": "string",
+                                                          "const": "selectBox"
+                                                        },
+                                                        "meta": {
+                                                          "type": "object",
+                                                          "properties": {
+                                                            "schemaVersion": {
+                                                              "default": "1.0",
+                                                              "type": "string"
+                                                            }
+                                                          },
+                                                          "required": [
+                                                            "schemaVersion"
+                                                          ],
+                                                          "additionalProperties": false
+                                                        },
+                                                        "comment": {
+                                                          "type": "string"
+                                                        },
+                                                        "answer": {
+                                                          "default": "",
+                                                          "type": "string"
+                                                        },
+                                                        "commonStandardId": {
+                                                          "type": "string",
+                                                          "const": "type"
+                                                        }
+                                                      },
+                                                      "required": [
+                                                        "type",
+                                                        "meta",
+                                                        "answer",
+                                                        "commonStandardId"
+                                                      ],
+                                                      "additionalProperties": false
+                                                    },
+                                                    {
+                                                      "type": "object",
+                                                      "properties": {
+                                                        "type": {
+                                                          "type": "string",
                                                           "const": "checkBoxes"
                                                         },
                                                         "meta": {
@@ -2833,13 +2953,55 @@
                                                           }
                                                         },
                                                         "commonStandardId": {
-                                                          "type": "string"
+                                                          "type": "string",
+                                                          "const": "data_flags"
                                                         }
                                                       },
                                                       "required": [
                                                         "type",
                                                         "meta",
-                                                        "answer"
+                                                        "answer",
+                                                        "commonStandardId"
+                                                      ],
+                                                      "additionalProperties": false
+                                                    },
+                                                    {
+                                                      "type": "object",
+                                                      "properties": {
+                                                        "type": {
+                                                          "type": "string",
+                                                          "const": "radioButtons"
+                                                        },
+                                                        "meta": {
+                                                          "type": "object",
+                                                          "properties": {
+                                                            "schemaVersion": {
+                                                              "default": "1.0",
+                                                              "type": "string"
+                                                            }
+                                                          },
+                                                          "required": [
+                                                            "schemaVersion"
+                                                          ],
+                                                          "additionalProperties": false
+                                                        },
+                                                        "comment": {
+                                                          "type": "string"
+                                                        },
+                                                        "answer": {
+                                                          "default": "",
+                                                          "type": "string"
+                                                        },
+                                                        "commonStandardId": {
+                                                          "type": "string",
+                                                          "const": "data_access"
+                                                        }
+                                                      },
+                                                      "required": [
+                                                        "type",
+                                                        "meta",
+                                                        "answer",
+                                                        "commonStandardId"
                                                       ],
                                                       "additionalProperties": false
                                                     },
@@ -2871,125 +3033,15 @@
                                                           "type": "string"
                                                         },
                                                         "commonStandardId": {
-                                                          "type": "string"
-                                                        }
-                                                      },
-                                                      "required": [
-                                                        "type",
-                                                        "meta",
-                                                        "answer"
-                                                      ],
-                                                      "additionalProperties": false
-                                                    },
-                                                    {
-                                                      "type": "object",
-                                                      "properties": {
-                                                        "type": {
                                                           "type": "string",
-                                                          "const": "licenseSearch"
-                                                        },
-                                                        "meta": {
-                                                          "type": "object",
-                                                          "properties": {
-                                                            "schemaVersion": {
-                                                              "default": "1.0",
-                                                              "type": "string"
-                                                            }
-                                                          },
-                                                          "required": [
-                                                            "schemaVersion"
-                                                          ],
-                                                          "additionalProperties": false
-                                                        },
-                                                        "comment": {
-                                                          "type": "string"
-                                                        },
-                                                        "answer": {
-                                                          "default": [],
-                                                          "type": "array",
-                                                          "items": {
-                                                            "type": "object",
-                                                            "properties": {
-                                                              "licenseId": {
-                                                                "default": "",
-                                                                "type": "string"
-                                                              },
-                                                              "licenseName": {
-                                                                "default": "",
-                                                                "type": "string"
-                                                              }
-                                                            },
-                                                            "required": [
-                                                              "licenseId",
-                                                              "licenseName"
-                                                            ],
-                                                            "additionalProperties": false
-                                                          }
-                                                        },
-                                                        "commonStandardId": {
-                                                          "type": "string"
+                                                          "const": "issued"
                                                         }
                                                       },
                                                       "required": [
                                                         "type",
                                                         "meta",
-                                                        "answer"
-                                                      ],
-                                                      "additionalProperties": false
-                                                    },
-                                                    {
-                                                      "type": "object",
-                                                      "properties": {
-                                                        "type": {
-                                                          "type": "string",
-                                                          "const": "metadataStandardSearch"
-                                                        },
-                                                        "meta": {
-                                                          "type": "object",
-                                                          "properties": {
-                                                            "schemaVersion": {
-                                                              "default": "1.0",
-                                                              "type": "string"
-                                                            }
-                                                          },
-                                                          "required": [
-                                                            "schemaVersion"
-                                                          ],
-                                                          "additionalProperties": false
-                                                        },
-                                                        "comment": {
-                                                          "type": "string"
-                                                        },
-                                                        "answer": {
-                                                          "default": [],
-                                                          "type": "array",
-                                                          "items": {
-                                                            "type": "object",
-                                                            "properties": {
-                                                              "metadataStandardId": {
-                                                                "default": "",
-                                                                "type": "string"
-                                                              },
-                                                              "metadataStandardName": {
-                                                                "default": "",
-                                                                "type": "string"
-                                                              }
-                                                            },
-                                                            "required": [
-                                                              "metadataStandardId",
-                                                              "metadataStandardName"
-                                                            ],
-                                                            "additionalProperties": false
-                                                          }
-                                                        },
-                                                        "commonStandardId": {
-                                                          "type": "string"
-                                                        }
-                                                      },
-                                                      "required": [
-                                                        "type",
-                                                        "meta",
-                                                        "answer"
+                                                        "answer",
+                                                        "commonStandardId"
                                                       ],
                                                       "additionalProperties": false
                                                     },
@@ -3035,51 +3087,15 @@
                                                           "additionalProperties": false
                                                         },
                                                         "commonStandardId": {
-                                                          "type": "string"
-                                                        }
-                                                      },
-                                                      "required": [
-                                                        "type",
-                                                        "meta",
-                                                        "answer"
-                                                      ],
-                                                      "additionalProperties": false
-                                                    },
-                                                    {
-                                                      "type": "object",
-                                                      "properties": {
-                                                        "type": {
                                                           "type": "string",
-                                                          "const": "radioButtons"
-                                                        },
-                                                        "meta": {
-                                                          "type": "object",
-                                                          "properties": {
-                                                            "schemaVersion": {
-                                                              "default": "1.0",
-                                                              "type": "string"
-                                                            }
-                                                          },
-                                                          "required": [
-                                                            "schemaVersion"
-                                                          ],
-                                                          "additionalProperties": false
-                                                        },
-                                                        "comment": {
-                                                          "type": "string"
-                                                        },
-                                                        "answer": {
-                                                          "default": "",
-                                                          "type": "string"
-                                                        },
-                                                        "commonStandardId": {
-                                                          "type": "string"
+                                                          "const": "byte_size"
                                                         }
                                                       },
                                                       "required": [
                                                         "type",
                                                         "meta",
-                                                        "answer"
+                                                        "answer",
+                                                        "commonStandardId"
                                                       ],
                                                       "additionalProperties": false
                                                     },
@@ -3129,13 +3145,15 @@
                                                           }
                                                         },
                                                         "commonStandardId": {
-                                                          "type": "string"
+                                                          "type": "string",
+                                                          "const": "host"
                                                         }
                                                       },
                                                       "required": [
                                                         "type",
                                                         "meta",
-                                                        "answer"
+                                                        "answer",
+                                                        "commonStandardId"
                                                       ],
                                                       "additionalProperties": false
                                                     },
@@ -3144,7 +3162,7 @@
                                                       "properties": {
                                                         "type": {
                                                           "type": "string",
-                                                          "const": "selectBox"
+                                                          "const": "metadataStandardSearch"
                                                         },
                                                         "meta": {
                                                           "type": "object",
@@ -3163,17 +3181,95 @@
                                                           "type": "string"
                                                         },
                                                         "answer": {
-                                                          "default": "",
-                                                          "type": "string"
+                                                          "default": [],
+                                                          "type": "array",
+                                                          "items": {
+                                                            "type": "object",
+                                                            "properties": {
+                                                              "metadataStandardId": {
+                                                                "default": "",
+                                                                "type": "string"
+                                                              },
+                                                              "metadataStandardName": {
+                                                                "default": "",
+                                                                "type": "string"
+                                                              }
+                                                            },
+                                                            "required": [
+                                                              "metadataStandardId",
+                                                              "metadataStandardName"
+                                                            ],
+                                                            "additionalProperties": false
+                                                          }
                                                         },
                                                         "commonStandardId": {
-                                                          "type": "string"
+                                                          "type": "string",
+                                                          "const": "metadata"
                                                         }
                                                       },
                                                       "required": [
                                                         "type",
                                                         "meta",
-                                                        "answer"
+                                                        "answer",
+                                                        "commonStandardId"
+                                                      ],
+                                                      "additionalProperties": false
+                                                    },
+                                                    {
+                                                      "type": "object",
+                                                      "properties": {
+                                                        "type": {
+                                                          "type": "string",
+                                                          "const": "licenseSearch"
+                                                        },
+                                                        "meta": {
+                                                          "type": "object",
+                                                          "properties": {
+                                                            "schemaVersion": {
+                                                              "default": "1.0",
+                                                              "type": "string"
+                                                            }
+                                                          },
+                                                          "required": [
+                                                            "schemaVersion"
+                                                          ],
+                                                          "additionalProperties": false
+                                                        },
+                                                        "comment": {
+                                                          "type": "string"
+                                                        },
+                                                        "answer": {
+                                                          "default": [],
+                                                          "type": "array",
+                                                          "items": {
+                                                            "type": "object",
+                                                            "properties": {
+                                                              "licenseId": {
+                                                                "default": "",
+                                                                "type": "string"
+                                                              },
+                                                              "licenseName": {
+                                                                "default": "",
+                                                                "type": "string"
+                                                              }
+                                                            },
+                                                            "required": [
+                                                              "licenseId",
+                                                              "licenseName"
+                                                            ],
+                                                            "additionalProperties": false
+                                                          }
+                                                        },
+                                                        "commonStandardId": {
+                                                          "type": "string",
+                                                          "const": "license_ref"
+                                                        }
+                                                      },
+                                                      "required": [
+                                                        "type",
+                                                        "meta",
+                                                        "answer",
+                                                        "commonStandardId"
                                                       ],
                                                       "additionalProperties": false
                                                     },
@@ -3205,51 +3301,15 @@
                                                           "type": "string"
                                                         },
                                                         "commonStandardId": {
-                                                          "type": "string"
-                                                        }
-                                                      },
-                                                      "required": [
-                                                        "type",
-                                                        "meta",
-                                                        "answer"
-                                                      ],
-                                                      "additionalProperties": false
-                                                    },
-                                                    {
-                                                      "type": "object",
-                                                      "properties": {
-                                                        "type": {
                                                           "type": "string",
-                                                          "const": "textArea"
-                                                        },
-                                                        "meta": {
-                                                          "type": "object",
-                                                          "properties": {
-                                                            "schemaVersion": {
-                                                              "default": "1.0",
-                                                              "type": "string"
-                                                            }
-                                                          },
-                                                          "required": [
-                                                            "schemaVersion"
-                                                          ],
-                                                          "additionalProperties": false
-                                                        },
-                                                        "comment": {
-                                                          "type": "string"
-                                                        },
-                                                        "answer": {
-                                                          "default": "",
-                                                          "type": "string"
-                                                        },
-                                                        "commonStandardId": {
-                                                          "type": "string"
+                                                          "const": "custom"
                                                         }
                                                       },
                                                       "required": [
                                                         "type",
                                                         "meta",
-                                                        "answer"
+                                                        "answer",
+                                                        "commonStandardId"
                                                       ],
                                                       "additionalProperties": false
                                                     }

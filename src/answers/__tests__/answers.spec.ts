@@ -210,7 +210,7 @@ describe('Answer Type Validations', () => {
             meta: { schemaVersion: CURRENT_SCHEMA_VERSION }
           },
           {
-            type: 'selectBox',
+            type: 'radioButtons',
             commonStandardId: 'data_access',
             answer: 'open',
             meta: { schemaVersion: CURRENT_SCHEMA_VERSION }

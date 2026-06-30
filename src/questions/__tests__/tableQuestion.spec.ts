@@ -134,6 +134,7 @@ describe("ResearchOutputTableQuestionSchema", () => {
         },
         {
           heading: "My Custom Field",
+          commonStandardId: 'custom',
           required: false,
           enabled: true,
           content: {

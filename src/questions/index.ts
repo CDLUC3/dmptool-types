@@ -1,4 +1,4 @@
-import { z } from 'zod';
+import { z, ZodObject } from 'zod';
 import { QuestionFormatsEnum } from './question';
 import {
   CurrencyQuestionSchema,
@@ -74,7 +74,35 @@ import {
   ResearchOutputTableQuestionType,
   DefaultResearchOutputTableQuestion,
   DefaultTableQuestion,
-  DefaultResearchOutputCustomColumn,
+  DefaultResearchOutputCustomColumn, ResearchOutputTableColumnsEnum,
+  DefaultResearchOutputTitleColumn, DefaultResearchOutputDescriptionColumn,
+  DefaultResearchOutputTypeColumn, DefaultResearchOutputDataFlagsColumn,
+  DefaultResearchOutputAccessLevelColumn, DefaultResearchOutputByteSizeColumn,
+  DefaultResearchOutputRepositoryColumn,
+  DefaultResearchOutputMetadataStandardColumn,
+  DefaultResearchOutputLicenseColumn, DefaultResearchOutputReleaseDateColumn,
+  ResearchOutputTitleColumnType,
+  ResearchOutputDescriptionColumnType,
+  ResearchOutputTypeColumnType,
+  ResearchOutputDataFlagsColumnType,
+  ResearchOutputAccessLevelColumnType,
+  ResearchOutputReleaseDateColumnType,
+  ResearchOutputByteSizeColumnType,
+  ResearchOutputRepositoryColumnType,
+  ResearchOutputMetadataStandardColumnType,
+  ResearchOutputLicenseColumnType,
+  ResearchOutputCustomTableColumnType,
+  ResearchOutputTitleColumnSchema,
+  ResearchOutputDescriptionColumnSchema,
+  ResearchOutputTypeColumnSchema,
+  ResearchOutputDataFlagsColumnSchema,
+  ResearchOutputAccessLevelColumnSchema,
+  ResearchOutputReleaseDateColumnSchema,
+  ResearchOutputByteSizeColumnSchema,
+  ResearchOutputRepositoryColumnSchema,
+  ResearchOutputMetadataStandardColumnSchema,
+  ResearchOutputLicenseColumnSchema,
+  ResearchOutputCustomColumnSchema
 } from './tableQuestions';
 
 // Export all the questions
@@ -207,6 +235,61 @@ export const QuestionDefaultMap: Record<z.infer<typeof QuestionFormatsEnum>, All
   textArea: DefaultTextAreaQuestion,
   url: DefaultURLQuestion,
 };
+
+export type AllDefaultResearchOutputTableColumnTypes =
+  | typeof DefaultResearchOutputTitleColumn
+  | typeof DefaultResearchOutputDescriptionColumn
+  | typeof DefaultResearchOutputTypeColumn
+  | typeof DefaultResearchOutputDataFlagsColumn
+  | typeof DefaultResearchOutputAccessLevelColumn
+  | typeof DefaultResearchOutputReleaseDateColumn
+  | typeof DefaultResearchOutputByteSizeColumn
+  | typeof DefaultResearchOutputRepositoryColumn
+  | typeof DefaultResearchOutputMetadataStandardColumn
+  | typeof DefaultResearchOutputLicenseColumn
+  | typeof DefaultResearchOutputCustomColumn;
+
+export interface ResearchOutputTableColumnTypeMap {
+  title: ResearchOutputTitleColumnType;
+  description: ResearchOutputDescriptionColumnType;
+  type: ResearchOutputTypeColumnType;
+  data_flags: ResearchOutputDataFlagsColumnType;
+  data_access: ResearchOutputAccessLevelColumnType;
+  issued: ResearchOutputReleaseDateColumnType;
+  byte_size: ResearchOutputByteSizeColumnType;
+  host: ResearchOutputRepositoryColumnType;
+  metadata: ResearchOutputMetadataStandardColumnType;
+  license_ref: ResearchOutputLicenseColumnType;
+  custom: ResearchOutputCustomTableColumnType;
+}
+
+export const ResearchOutputTableColumnSchemaMap: Record<string, ZodObject> = {
+  title: ResearchOutputTitleColumnSchema,
+  description: ResearchOutputDescriptionColumnSchema,
+  type: ResearchOutputTypeColumnSchema,
+  data_flags: ResearchOutputDataFlagsColumnSchema,
+  data_access: ResearchOutputAccessLevelColumnSchema,
+  issued: ResearchOutputReleaseDateColumnSchema,
+  byte_size: ResearchOutputByteSizeColumnSchema,
+  host: ResearchOutputRepositoryColumnSchema,
+  metadata: ResearchOutputMetadataStandardColumnSchema,
+  license_ref: ResearchOutputLicenseColumnSchema,
+  custom: ResearchOutputCustomColumnSchema,
+}
+
+export const DefaultResearchOutputTableColumnMap: Record<z.infer<typeof ResearchOutputTableColumnsEnum>, AllDefaultResearchOutputTableColumnTypes> = {
+  title: DefaultResearchOutputTitleColumn,
+  description: DefaultResearchOutputDescriptionColumn,
+  type: DefaultResearchOutputTypeColumn,
+  data_flags: DefaultResearchOutputDataFlagsColumn,
+  data_access: DefaultResearchOutputAccessLevelColumn,
+  issued: DefaultResearchOutputReleaseDateColumn,
+  byte_size: DefaultResearchOutputByteSizeColumn,
+  host: DefaultResearchOutputRepositoryColumn,
+  metadata: DefaultResearchOutputMetadataStandardColumn,
+  license_ref: DefaultResearchOutputLicenseColumn,
+  custom: DefaultResearchOutputCustomColumn
+}
 
 // This will ensure that object validations are against the Zod schemas defined above
 export type AnyQuestionType = z.infer<typeof AnyQuestionSchema>;
