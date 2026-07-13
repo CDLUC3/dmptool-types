@@ -152,7 +152,8 @@
                 "additionalProperties": false
               },
               "commonStandardId": {
-                "type": "string"
+                "type": "string",
+                "const": "title"
               }
             },
             "required": [
@@ -160,7 +161,8 @@
               "help",
               "required",
               "enabled",
-              "content"
+              "content",
+              "commonStandardId"
             ],
             "additionalProperties": false
           },
@@ -264,7 +266,8 @@
                 "additionalProperties": false
               },
               "commonStandardId": {
-                "type": "string"
+                "type": "string",
+                "const": "description"
               }
             },
             "required": [
@@ -272,7 +275,8 @@
               "help",
               "required",
               "enabled",
-              "content"
+              "content",
+              "commonStandardId"
             ],
             "additionalProperties": false
           },
@@ -384,7 +388,8 @@
                 "additionalProperties": false
               },
               "commonStandardId": {
-                "type": "string"
+                "type": "string",
+                "const": "type"
               }
             },
             "required": [
@@ -392,7 +397,8 @@
               "help",
               "required",
               "enabled",
-              "content"
+              "content",
+              "commonStandardId"
             ],
             "additionalProperties": false
           },
@@ -497,7 +503,8 @@
                 "additionalProperties": false
               },
               "commonStandardId": {
-                "type": "string"
+                "type": "string",
+                "const": "data_flags"
               }
             },
             "required": [
@@ -505,7 +512,8 @@
               "help",
               "required",
               "enabled",
-              "content"
+              "content",
+              "commonStandardId"
             ],
             "additionalProperties": false
           },
@@ -610,7 +618,8 @@
                 "additionalProperties": false
               },
               "commonStandardId": {
-                "type": "string"
+                "type": "string",
+                "const": "data_access"
               }
             },
             "required": [
@@ -618,7 +627,8 @@
               "help",
               "required",
               "enabled",
-              "content"
+              "content",
+              "commonStandardId"
             ],
             "additionalProperties": false
           },
@@ -707,7 +717,8 @@
                 "additionalProperties": false
               },
               "commonStandardId": {
-                "type": "string"
+                "type": "string",
+                "const": "issued"
               }
             },
             "required": [
@@ -715,7 +726,8 @@
               "help",
               "required",
               "enabled",
-              "content"
+              "content",
+              "commonStandardId"
             ],
             "additionalProperties": false
           },
@@ -836,7 +848,8 @@
                 "additionalProperties": false
               },
               "commonStandardId": {
-                "type": "string"
+                "type": "string",
+                "const": "byte_size"
               }
             },
             "required": [
@@ -844,7 +857,8 @@
               "help",
               "required",
               "enabled",
-              "content"
+              "content",
+              "commonStandardId"
             ],
             "additionalProperties": false
           },
@@ -1007,7 +1021,8 @@
                 "additionalProperties": false
               },
               "commonStandardId": {
-                "type": "string"
+                "type": "string",
+                "const": "host"
               },
               "preferences": {
                 "default": [],
@@ -1038,6 +1053,7 @@
               "required",
               "enabled",
               "content",
+              "commonStandardId",
               "preferences"
             ],
             "additionalProperties": false
@@ -1202,7 +1218,8 @@
                 "additionalProperties": false
               },
               "commonStandardId": {
-                "type": "string"
+                "type": "string",
+                "const": "metadata"
               },
               "preferences": {
                 "default": [],
@@ -1233,6 +1250,7 @@
               "required",
               "enabled",
               "content",
+              "commonStandardId",
               "preferences"
             ],
             "additionalProperties": false
@@ -1396,7 +1414,8 @@
                 "additionalProperties": false
               },
               "commonStandardId": {
-                "type": "string"
+                "type": "string",
+                "const": "license_ref"
               },
               "preferences": {
                 "default": [],
@@ -1427,6 +1446,7 @@
               "required",
               "enabled",
               "content",
+              "commonStandardId",
               "preferences"
             ],
             "additionalProperties": false
@@ -1510,6 +1530,10 @@
                   "meta"
                 ],
                 "additionalProperties": false
+              },
+              "commonStandardId": {
+                "type": "string",
+                "const": "custom"
               }
             },
             "required": [
@@ -1517,7 +1541,8 @@
               "help",
               "required",
               "enabled",
-              "content"
+              "content",
+              "commonStandardId"
             ],
             "additionalProperties": false
           }

@@ -256,7 +256,7 @@ describe('Get question answer defaultJSON', () => {
           {
             type: "selectBox",
             commonStandardId: 'type',
-            answer: "",
+            answer: "dataset",
             meta: { schemaVersion: CURRENT_SCHEMA_VERSION },
           }
         ]

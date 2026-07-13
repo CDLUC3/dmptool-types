@@ -1,5 +1,12 @@
 # dmptool-types CHANGELOG
 
+## v4.0.0
+**Breaking Change**: Updated `researchOutputTable` questions and answers to include `commonStandardId` property, which is required to map entries from the `dataset` array in the RDA common standard. This change may require updates to any code that uses the `researchOutputTable` questions and answers.
+
+- Added new exports for `ResearchOutputTable` columns and mappings for commonStandardId to Types, Schemas and Defaults
+- Removed `optional` flag from the `commonStandardId` property on `researchOutputTable` questions and answers, since we need this to map entries from the `dataset` array in the RDA common standard 
+- Updated dev dependencies
+
 ## v3.1.7
 - Made `id` properties in `narrative` portion of the DMP Tool extensions optional
 

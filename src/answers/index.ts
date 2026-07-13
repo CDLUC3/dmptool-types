@@ -1,4 +1,4 @@
-import { z } from 'zod';
+import {z, ZodObject} from 'zod';
 import {
   DateAnswerSchema,
   DateAnswerType,
@@ -53,10 +53,43 @@ import {
   NumberWithContextAnswerType
 } from './numberAnswers';
 import {
+  DefaultResearchOutputAccessLevelAnswer,
+  DefaultResearchOutputByteSizeAnswer,
+  DefaultResearchOutputCustomTableAnswer,
+  DefaultResearchOutputDataFlagsAnswer,
+  DefaultResearchOutputDescriptionAnswer,
+  DefaultResearchOutputLicenseAnswer,
+  DefaultResearchOutputMetadataStandardAnswer,
+  DefaultResearchOutputReleaseDateAnswer,
+  DefaultResearchOutputRepositoryAnswer,
   DefaultResearchOutputTableAnswer,
+  DefaultResearchOutputTitleAnswer,
+  DefaultResearchOutputTypeAnswer,
   DefaultTableAnswer,
+  ResearchOutputAccessLevelAnswerSchema,
+  ResearchOutputAccessLevelColumnAnswerType,
+  ResearchOutputByteSizeAnswerSchema,
+  ResearchOutputByteSizeColumnAnswerType,
+  ResearchOutputCustomTableAnswerSchema,
+  ResearchOutputCustomTableColumnAnswerType,
+  ResearchOutputDataFlagsAnswerSchema,
+  ResearchOutputDataFlagsColumnAnswerType,
+  ResearchOutputDescriptionAnswerSchema,
+  ResearchOutputDescriptionColumnAnswerType,
+  ResearchOutputLicenseAnswerSchema,
+  ResearchOutputLicenseColumnAnswerType,
+  ResearchOutputMetadataStandardAnswerSchema,
+  ResearchOutputMetadataStandardColumnAnswerType,
+  ResearchOutputReleaseDateAnswerSchema,
+  ResearchOutputReleaseDateColumnAnswerType,
+  ResearchOutputRepositoryAnswerSchema,
+  ResearchOutputRepositoryColumnAnswerType,
   ResearchOutputTableAnswerSchema,
   ResearchOutputTableAnswerType,
+  ResearchOutputTitleAnswerSchema,
+  ResearchOutputTitleColumnAnswerType,
+  ResearchOutputTypeAnswerSchema,
+  ResearchOutputTypeColumnAnswerType,
   TableAnswerSchema,
   TableAnswerType
 } from './tableAnswers';
@@ -74,7 +107,7 @@ import {
   URLAnswerSchema,
   URLAnswerType
 } from './textAnswers';
-import { QuestionFormatsEnum } from "../questions";
+import { QuestionFormatsEnum, ResearchOutputTableColumnsEnum } from "../questions";
 
 // reexport everything
 export * from './answer';
@@ -210,3 +243,58 @@ export const AnswerDefaultMap: Record<z.infer<typeof QuestionFormatsEnum>, AllDe
   textArea: DefaultTextAreaAnswer,
   url: DefaultURLAnswer,
 };
+
+export type AllDefaultResearchOutputTableColumnAnswerTypes =
+  | typeof DefaultResearchOutputTitleAnswer
+  | typeof DefaultResearchOutputDescriptionAnswer
+  | typeof DefaultResearchOutputTypeAnswer
+  | typeof DefaultResearchOutputDataFlagsAnswer
+  | typeof DefaultResearchOutputAccessLevelAnswer
+  | typeof DefaultResearchOutputReleaseDateAnswer
+  | typeof DefaultResearchOutputByteSizeAnswer
+  | typeof DefaultResearchOutputRepositoryAnswer
+  | typeof DefaultResearchOutputMetadataStandardAnswer
+  | typeof DefaultResearchOutputLicenseAnswer
+  | typeof DefaultResearchOutputCustomTableAnswer;
+
+export interface ResearchOutputTableColumnAnswerTypeMap {
+  title: ResearchOutputTitleColumnAnswerType;
+  description: ResearchOutputDescriptionColumnAnswerType;
+  type: ResearchOutputTypeColumnAnswerType;
+  data_flags: ResearchOutputDataFlagsColumnAnswerType;
+  data_access: ResearchOutputAccessLevelColumnAnswerType;
+  issued: ResearchOutputReleaseDateColumnAnswerType;
+  byte_size: ResearchOutputByteSizeColumnAnswerType;
+  host: ResearchOutputRepositoryColumnAnswerType;
+  metadata: ResearchOutputMetadataStandardColumnAnswerType;
+  license_ref: ResearchOutputLicenseColumnAnswerType;
+  custom: ResearchOutputCustomTableColumnAnswerType;
+}
+
+export const ResearchOutputTableColumnAnswerMap: Record<string, ZodObject> = {
+  title: ResearchOutputTitleAnswerSchema,
+  description: ResearchOutputDescriptionAnswerSchema,
+  type: ResearchOutputTypeAnswerSchema,
+  data_flags: ResearchOutputDataFlagsAnswerSchema,
+  data_access: ResearchOutputAccessLevelAnswerSchema,
+  issued: ResearchOutputReleaseDateAnswerSchema,
+  byte_size: ResearchOutputByteSizeAnswerSchema,
+  host: ResearchOutputRepositoryAnswerSchema,
+  metadata: ResearchOutputMetadataStandardAnswerSchema,
+  license_ref: ResearchOutputLicenseAnswerSchema,
+  custom: ResearchOutputCustomTableAnswerSchema,
+}
+
+export const DefaultResearchOutputTableColumnAnswerMap: Record<z.infer<typeof ResearchOutputTableColumnsEnum>, AllDefaultResearchOutputTableColumnAnswerTypes> = {
+  title: DefaultResearchOutputTitleAnswer,
+  description: DefaultResearchOutputDescriptionAnswer,
+  type: DefaultResearchOutputTypeAnswer,
+  data_flags: DefaultResearchOutputDataFlagsAnswer,
+  data_access: DefaultResearchOutputAccessLevelAnswer,
+  issued: DefaultResearchOutputReleaseDateAnswer,
+  byte_size: DefaultResearchOutputByteSizeAnswer,
+  host: DefaultResearchOutputRepositoryAnswer,
+  metadata: DefaultResearchOutputMetadataStandardAnswer,
+  license_ref: DefaultResearchOutputLicenseAnswer,
+  custom: DefaultResearchOutputCustomTableAnswer
+}
