@@ -580,6 +580,26 @@
               "repositoryName": {
                 "default": "",
                 "type": "string"
+              },
+              "repositoryWebsite": {
+                "type": "string"
+              },
+              "repositoryDescription": {
+                "type": "string"
+              },
+              "repositoryType": {
+                "type": "array",
+                "items": {
+                  "default": "",
+                  "type": "string"
+                }
+              },
+              "repositoryKeywords": {
+                "type": "array",
+                "items": {
+                  "default": "",
+                  "type": "string"
+                }
               }
             },
             "required": [
