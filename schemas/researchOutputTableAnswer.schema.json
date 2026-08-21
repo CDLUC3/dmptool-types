@@ -818,6 +818,124 @@
                                                   "defaultValue": ""
                                                 },
                                                 "type": "default"
+                                              },
+                                              "repositoryWebsite": {
+                                                "def": {
+                                                  "type": "optional",
+                                                  "innerType": {
+                                                    "def": {
+                                                      "type": "string"
+                                                    },
+                                                    "type": "string",
+                                                    "format": null,
+                                                    "minLength": null,
+                                                    "maxLength": null
+                                                  }
+                                                },
+                                                "type": "optional"
+                                              },
+                                              "repositoryDescription": {
+                                                "def": {
+                                                  "type": "optional",
+                                                  "innerType": {
+                                                    "def": {
+                                                      "type": "string"
+                                                    },
+                                                    "type": "string",
+                                                    "format": null,
+                                                    "minLength": null,
+                                                    "maxLength": null
+                                                  }
+                                                },
+                                                "type": "optional"
+                                              },
+                                              "repositoryType": {
+                                                "def": {
+                                                  "type": "optional",
+                                                  "innerType": {
+                                                    "def": {
+                                                      "type": "array",
+                                                      "element": {
+                                                        "def": {
+                                                          "type": "default",
+                                                          "innerType": {
+                                                            "def": {
+                                                              "type": "string"
+                                                            },
+                                                            "type": "string",
+                                                            "format": null,
+                                                            "minLength": null,
+                                                            "maxLength": null
+                                                          },
+                                                          "defaultValue": ""
+                                                        },
+                                                        "type": "default"
+                                                      }
+                                                    },
+                                                    "type": "array",
+                                                    "element": {
+                                                      "def": {
+                                                        "type": "default",
+                                                        "innerType": {
+                                                          "def": {
+                                                            "type": "string"
+                                                          },
+                                                          "type": "string",
+                                                          "format": null,
+                                                          "minLength": null,
+                                                          "maxLength": null
+                                                        },
+                                                        "defaultValue": ""
+                                                      },
+                                                      "type": "default"
+                                                    }
+                                                  }
+                                                },
+                                                "type": "optional"
+                                              },
+                                              "repositoryKeywords": {
+                                                "def": {
+                                                  "type": "optional",
+                                                  "innerType": {
+                                                    "def": {
+                                                      "type": "array",
+                                                      "element": {
+                                                        "def": {
+                                                          "type": "default",
+                                                          "innerType": {
+                                                            "def": {
+                                                              "type": "string"
+                                                            },
+                                                            "type": "string",
+                                                            "format": null,
+                                                            "minLength": null,
+                                                            "maxLength": null
+                                                          },
+                                                          "defaultValue": ""
+                                                        },
+                                                        "type": "default"
+                                                      }
+                                                    },
+                                                    "type": "array",
+                                                    "element": {
+                                                      "def": {
+                                                        "type": "default",
+                                                        "innerType": {
+                                                          "def": {
+                                                            "type": "string"
+                                                          },
+                                                          "type": "string",
+                                                          "format": null,
+                                                          "minLength": null,
+                                                          "maxLength": null
+                                                        },
+                                                        "defaultValue": ""
+                                                      },
+                                                      "type": "default"
+                                                    }
+                                                  }
+                                                },
+                                                "type": "optional"
                                               }
                                             }
                                           },
@@ -860,6 +978,124 @@
                                                 "defaultValue": ""
                                               },
                                               "type": "default"
+                                            },
+                                            "repositoryWebsite": {
+                                              "def": {
+                                                "type": "optional",
+                                                "innerType": {
+                                                  "def": {
+                                                    "type": "string"
+                                                  },
+                                                  "type": "string",
+                                                  "format": null,
+                                                  "minLength": null,
+                                                  "maxLength": null
+                                                }
+                                              },
+                                              "type": "optional"
+                                            },
+                                            "repositoryDescription": {
+                                              "def": {
+                                                "type": "optional",
+                                                "innerType": {
+                                                  "def": {
+                                                    "type": "string"
+                                                  },
+                                                  "type": "string",
+                                                  "format": null,
+                                                  "minLength": null,
+                                                  "maxLength": null
+                                                }
+                                              },
+                                              "type": "optional"
+                                            },
+                                            "repositoryType": {
+                                              "def": {
+                                                "type": "optional",
+                                                "innerType": {
+                                                  "def": {
+                                                    "type": "array",
+                                                    "element": {
+                                                      "def": {
+                                                        "type": "default",
+                                                        "innerType": {
+                                                          "def": {
+                                                            "type": "string"
+                                                          },
+                                                          "type": "string",
+                                                          "format": null,
+                                                          "minLength": null,
+                                                          "maxLength": null
+                                                        },
+                                                        "defaultValue": ""
+                                                      },
+                                                      "type": "default"
+                                                    }
+                                                  },
+                                                  "type": "array",
+                                                  "element": {
+                                                    "def": {
+                                                      "type": "default",
+                                                      "innerType": {
+                                                        "def": {
+                                                          "type": "string"
+                                                        },
+                                                        "type": "string",
+                                                        "format": null,
+                                                        "minLength": null,
+                                                        "maxLength": null
+                                                      },
+                                                      "defaultValue": ""
+                                                    },
+                                                    "type": "default"
+                                                  }
+                                                }
+                                              },
+                                              "type": "optional"
+                                            },
+                                            "repositoryKeywords": {
+                                              "def": {
+                                                "type": "optional",
+                                                "innerType": {
+                                                  "def": {
+                                                    "type": "array",
+                                                    "element": {
+                                                      "def": {
+                                                        "type": "default",
+                                                        "innerType": {
+                                                          "def": {
+                                                            "type": "string"
+                                                          },
+                                                          "type": "string",
+                                                          "format": null,
+                                                          "minLength": null,
+                                                          "maxLength": null
+                                                        },
+                                                        "defaultValue": ""
+                                                      },
+                                                      "type": "default"
+                                                    }
+                                                  },
+                                                  "type": "array",
+                                                  "element": {
+                                                    "def": {
+                                                      "type": "default",
+                                                      "innerType": {
+                                                        "def": {
+                                                          "type": "string"
+                                                        },
+                                                        "type": "string",
+                                                        "format": null,
+                                                        "minLength": null,
+                                                        "maxLength": null
+                                                      },
+                                                      "defaultValue": ""
+                                                    },
+                                                    "type": "default"
+                                                  }
+                                                }
+                                              },
+                                              "type": "optional"
                                             }
                                           }
                                         },
@@ -2012,6 +2248,124 @@
                                                 "defaultValue": ""
                                               },
                                               "type": "default"
+                                            },
+                                            "repositoryWebsite": {
+                                              "def": {
+                                                "type": "optional",
+                                                "innerType": {
+                                                  "def": {
+                                                    "type": "string"
+                                                  },
+                                                  "type": "string",
+                                                  "format": null,
+                                                  "minLength": null,
+                                                  "maxLength": null
+                                                }
+                                              },
+                                              "type": "optional"
+                                            },
+                                            "repositoryDescription": {
+                                              "def": {
+                                                "type": "optional",
+                                                "innerType": {
+                                                  "def": {
+                                                    "type": "string"
+                                                  },
+                                                  "type": "string",
+                                                  "format": null,
+                                                  "minLength": null,
+                                                  "maxLength": null
+                                                }
+                                              },
+                                              "type": "optional"
+                                            },
+                                            "repositoryType": {
+                                              "def": {
+                                                "type": "optional",
+                                                "innerType": {
+                                                  "def": {
+                                                    "type": "array",
+                                                    "element": {
+                                                      "def": {
+                                                        "type": "default",
+                                                        "innerType": {
+                                                          "def": {
+                                                            "type": "string"
+                                                          },
+                                                          "type": "string",
+                                                          "format": null,
+                                                          "minLength": null,
+                                                          "maxLength": null
+                                                        },
+                                                        "defaultValue": ""
+                                                      },
+                                                      "type": "default"
+                                                    }
+                                                  },
+                                                  "type": "array",
+                                                  "element": {
+                                                    "def": {
+                                                      "type": "default",
+                                                      "innerType": {
+                                                        "def": {
+                                                          "type": "string"
+                                                        },
+                                                        "type": "string",
+                                                        "format": null,
+                                                        "minLength": null,
+                                                        "maxLength": null
+                                                      },
+                                                      "defaultValue": ""
+                                                    },
+                                                    "type": "default"
+                                                  }
+                                                }
+                                              },
+                                              "type": "optional"
+                                            },
+                                            "repositoryKeywords": {
+                                              "def": {
+                                                "type": "optional",
+                                                "innerType": {
+                                                  "def": {
+                                                    "type": "array",
+                                                    "element": {
+                                                      "def": {
+                                                        "type": "default",
+                                                        "innerType": {
+                                                          "def": {
+                                                            "type": "string"
+                                                          },
+                                                          "type": "string",
+                                                          "format": null,
+                                                          "minLength": null,
+                                                          "maxLength": null
+                                                        },
+                                                        "defaultValue": ""
+                                                      },
+                                                      "type": "default"
+                                                    }
+                                                  },
+                                                  "type": "array",
+                                                  "element": {
+                                                    "def": {
+                                                      "type": "default",
+                                                      "innerType": {
+                                                        "def": {
+                                                          "type": "string"
+                                                        },
+                                                        "type": "string",
+                                                        "format": null,
+                                                        "minLength": null,
+                                                        "maxLength": null
+                                                      },
+                                                      "defaultValue": ""
+                                                    },
+                                                    "type": "default"
+                                                  }
+                                                }
+                                              },
+                                              "type": "optional"
                                             }
                                           }
                                         },
@@ -2054,6 +2408,124 @@
                                               "defaultValue": ""
                                             },
                                             "type": "default"
+                                          },
+                                          "repositoryWebsite": {
+                                            "def": {
+                                              "type": "optional",
+                                              "innerType": {
+                                                "def": {
+                                                  "type": "string"
+                                                },
+                                                "type": "string",
+                                                "format": null,
+                                                "minLength": null,
+                                                "maxLength": null
+                                              }
+                                            },
+                                            "type": "optional"
+                                          },
+                                          "repositoryDescription": {
+                                            "def": {
+                                              "type": "optional",
+                                              "innerType": {
+                                                "def": {
+                                                  "type": "string"
+                                                },
+                                                "type": "string",
+                                                "format": null,
+                                                "minLength": null,
+                                                "maxLength": null
+                                              }
+                                            },
+                                            "type": "optional"
+                                          },
+                                          "repositoryType": {
+                                            "def": {
+                                              "type": "optional",
+                                              "innerType": {
+                                                "def": {
+                                                  "type": "array",
+                                                  "element": {
+                                                    "def": {
+                                                      "type": "default",
+                                                      "innerType": {
+                                                        "def": {
+                                                          "type": "string"
+                                                        },
+                                                        "type": "string",
+                                                        "format": null,
+                                                        "minLength": null,
+                                                        "maxLength": null
+                                                      },
+                                                      "defaultValue": ""
+                                                    },
+                                                    "type": "default"
+                                                  }
+                                                },
+                                                "type": "array",
+                                                "element": {
+                                                  "def": {
+                                                    "type": "default",
+                                                    "innerType": {
+                                                      "def": {
+                                                        "type": "string"
+                                                      },
+                                                      "type": "string",
+                                                      "format": null,
+                                                      "minLength": null,
+                                                      "maxLength": null
+                                                    },
+                                                    "defaultValue": ""
+                                                  },
+                                                  "type": "default"
+                                                }
+                                              }
+                                            },
+                                            "type": "optional"
+                                          },
+                                          "repositoryKeywords": {
+                                            "def": {
+                                              "type": "optional",
+                                              "innerType": {
+                                                "def": {
+                                                  "type": "array",
+                                                  "element": {
+                                                    "def": {
+                                                      "type": "default",
+                                                      "innerType": {
+                                                        "def": {
+                                                          "type": "string"
+                                                        },
+                                                        "type": "string",
+                                                        "format": null,
+                                                        "minLength": null,
+                                                        "maxLength": null
+                                                      },
+                                                      "defaultValue": ""
+                                                    },
+                                                    "type": "default"
+                                                  }
+                                                },
+                                                "type": "array",
+                                                "element": {
+                                                  "def": {
+                                                    "type": "default",
+                                                    "innerType": {
+                                                      "def": {
+                                                        "type": "string"
+                                                      },
+                                                      "type": "string",
+                                                      "format": null,
+                                                      "minLength": null,
+                                                      "maxLength": null
+                                                    },
+                                                    "defaultValue": ""
+                                                  },
+                                                  "type": "default"
+                                                }
+                                              }
+                                            },
+                                            "type": "optional"
                                           }
                                         }
                                       },
@@ -3208,6 +3680,124 @@
                                                 "defaultValue": ""
                                               },
                                               "type": "default"
+                                            },
+                                            "repositoryWebsite": {
+                                              "def": {
+                                                "type": "optional",
+                                                "innerType": {
+                                                  "def": {
+                                                    "type": "string"
+                                                  },
+                                                  "type": "string",
+                                                  "format": null,
+                                                  "minLength": null,
+                                                  "maxLength": null
+                                                }
+                                              },
+                                              "type": "optional"
+                                            },
+                                            "repositoryDescription": {
+                                              "def": {
+                                                "type": "optional",
+                                                "innerType": {
+                                                  "def": {
+                                                    "type": "string"
+                                                  },
+                                                  "type": "string",
+                                                  "format": null,
+                                                  "minLength": null,
+                                                  "maxLength": null
+                                                }
+                                              },
+                                              "type": "optional"
+                                            },
+                                            "repositoryType": {
+                                              "def": {
+                                                "type": "optional",
+                                                "innerType": {
+                                                  "def": {
+                                                    "type": "array",
+                                                    "element": {
+                                                      "def": {
+                                                        "type": "default",
+                                                        "innerType": {
+                                                          "def": {
+                                                            "type": "string"
+                                                          },
+                                                          "type": "string",
+                                                          "format": null,
+                                                          "minLength": null,
+                                                          "maxLength": null
+                                                        },
+                                                        "defaultValue": ""
+                                                      },
+                                                      "type": "default"
+                                                    }
+                                                  },
+                                                  "type": "array",
+                                                  "element": {
+                                                    "def": {
+                                                      "type": "default",
+                                                      "innerType": {
+                                                        "def": {
+                                                          "type": "string"
+                                                        },
+                                                        "type": "string",
+                                                        "format": null,
+                                                        "minLength": null,
+                                                        "maxLength": null
+                                                      },
+                                                      "defaultValue": ""
+                                                    },
+                                                    "type": "default"
+                                                  }
+                                                }
+                                              },
+                                              "type": "optional"
+                                            },
+                                            "repositoryKeywords": {
+                                              "def": {
+                                                "type": "optional",
+                                                "innerType": {
+                                                  "def": {
+                                                    "type": "array",
+                                                    "element": {
+                                                      "def": {
+                                                        "type": "default",
+                                                        "innerType": {
+                                                          "def": {
+                                                            "type": "string"
+                                                          },
+                                                          "type": "string",
+                                                          "format": null,
+                                                          "minLength": null,
+                                                          "maxLength": null
+                                                        },
+                                                        "defaultValue": ""
+                                                      },
+                                                      "type": "default"
+                                                    }
+                                                  },
+                                                  "type": "array",
+                                                  "element": {
+                                                    "def": {
+                                                      "type": "default",
+                                                      "innerType": {
+                                                        "def": {
+                                                          "type": "string"
+                                                        },
+                                                        "type": "string",
+                                                        "format": null,
+                                                        "minLength": null,
+                                                        "maxLength": null
+                                                      },
+                                                      "defaultValue": ""
+                                                    },
+                                                    "type": "default"
+                                                  }
+                                                }
+                                              },
+                                              "type": "optional"
                                             }
                                           }
                                         },
@@ -3250,6 +3840,124 @@
                                               "defaultValue": ""
                                             },
                                             "type": "default"
+                                          },
+                                          "repositoryWebsite": {
+                                            "def": {
+                                              "type": "optional",
+                                              "innerType": {
+                                                "def": {
+                                                  "type": "string"
+                                                },
+                                                "type": "string",
+                                                "format": null,
+                                                "minLength": null,
+                                                "maxLength": null
+                                              }
+                                            },
+                                            "type": "optional"
+                                          },
+                                          "repositoryDescription": {
+                                            "def": {
+                                              "type": "optional",
+                                              "innerType": {
+                                                "def": {
+                                                  "type": "string"
+                                                },
+                                                "type": "string",
+                                                "format": null,
+                                                "minLength": null,
+                                                "maxLength": null
+                                              }
+                                            },
+                                            "type": "optional"
+                                          },
+                                          "repositoryType": {
+                                            "def": {
+                                              "type": "optional",
+                                              "innerType": {
+                                                "def": {
+                                                  "type": "array",
+                                                  "element": {
+                                                    "def": {
+                                                      "type": "default",
+                                                      "innerType": {
+                                                        "def": {
+                                                          "type": "string"
+                                                        },
+                                                        "type": "string",
+                                                        "format": null,
+                                                        "minLength": null,
+                                                        "maxLength": null
+                                                      },
+                                                      "defaultValue": ""
+                                                    },
+                                                    "type": "default"
+                                                  }
+                                                },
+                                                "type": "array",
+                                                "element": {
+                                                  "def": {
+                                                    "type": "default",
+                                                    "innerType": {
+                                                      "def": {
+                                                        "type": "string"
+                                                      },
+                                                      "type": "string",
+                                                      "format": null,
+                                                      "minLength": null,
+                                                      "maxLength": null
+                                                    },
+                                                    "defaultValue": ""
+                                                  },
+                                                  "type": "default"
+                                                }
+                                              }
+                                            },
+                                            "type": "optional"
+                                          },
+                                          "repositoryKeywords": {
+                                            "def": {
+                                              "type": "optional",
+                                              "innerType": {
+                                                "def": {
+                                                  "type": "array",
+                                                  "element": {
+                                                    "def": {
+                                                      "type": "default",
+                                                      "innerType": {
+                                                        "def": {
+                                                          "type": "string"
+                                                        },
+                                                        "type": "string",
+                                                        "format": null,
+                                                        "minLength": null,
+                                                        "maxLength": null
+                                                      },
+                                                      "defaultValue": ""
+                                                    },
+                                                    "type": "default"
+                                                  }
+                                                },
+                                                "type": "array",
+                                                "element": {
+                                                  "def": {
+                                                    "type": "default",
+                                                    "innerType": {
+                                                      "def": {
+                                                        "type": "string"
+                                                      },
+                                                      "type": "string",
+                                                      "format": null,
+                                                      "minLength": null,
+                                                      "maxLength": null
+                                                    },
+                                                    "defaultValue": ""
+                                                  },
+                                                  "type": "default"
+                                                }
+                                              }
+                                            },
+                                            "type": "optional"
                                           }
                                         }
                                       },
@@ -4402,6 +5110,124 @@
                                               "defaultValue": ""
                                             },
                                             "type": "default"
+                                          },
+                                          "repositoryWebsite": {
+                                            "def": {
+                                              "type": "optional",
+                                              "innerType": {
+                                                "def": {
+                                                  "type": "string"
+                                                },
+                                                "type": "string",
+                                                "format": null,
+                                                "minLength": null,
+                                                "maxLength": null
+                                              }
+                                            },
+                                            "type": "optional"
+                                          },
+                                          "repositoryDescription": {
+                                            "def": {
+                                              "type": "optional",
+                                              "innerType": {
+                                                "def": {
+                                                  "type": "string"
+                                                },
+                                                "type": "string",
+                                                "format": null,
+                                                "minLength": null,
+                                                "maxLength": null
+                                              }
+                                            },
+                                            "type": "optional"
+                                          },
+                                          "repositoryType": {
+                                            "def": {
+                                              "type": "optional",
+                                              "innerType": {
+                                                "def": {
+                                                  "type": "array",
+                                                  "element": {
+                                                    "def": {
+                                                      "type": "default",
+                                                      "innerType": {
+                                                        "def": {
+                                                          "type": "string"
+                                                        },
+                                                        "type": "string",
+                                                        "format": null,
+                                                        "minLength": null,
+                                                        "maxLength": null
+                                                      },
+                                                      "defaultValue": ""
+                                                    },
+                                                    "type": "default"
+                                                  }
+                                                },
+                                                "type": "array",
+                                                "element": {
+                                                  "def": {
+                                                    "type": "default",
+                                                    "innerType": {
+                                                      "def": {
+                                                        "type": "string"
+                                                      },
+                                                      "type": "string",
+                                                      "format": null,
+                                                      "minLength": null,
+                                                      "maxLength": null
+                                                    },
+                                                    "defaultValue": ""
+                                                  },
+                                                  "type": "default"
+                                                }
+                                              }
+                                            },
+                                            "type": "optional"
+                                          },
+                                          "repositoryKeywords": {
+                                            "def": {
+                                              "type": "optional",
+                                              "innerType": {
+                                                "def": {
+                                                  "type": "array",
+                                                  "element": {
+                                                    "def": {
+                                                      "type": "default",
+                                                      "innerType": {
+                                                        "def": {
+                                                          "type": "string"
+                                                        },
+                                                        "type": "string",
+                                                        "format": null,
+                                                        "minLength": null,
+                                                        "maxLength": null
+                                                      },
+                                                      "defaultValue": ""
+                                                    },
+                                                    "type": "default"
+                                                  }
+                                                },
+                                                "type": "array",
+                                                "element": {
+                                                  "def": {
+                                                    "type": "default",
+                                                    "innerType": {
+                                                      "def": {
+                                                        "type": "string"
+                                                      },
+                                                      "type": "string",
+                                                      "format": null,
+                                                      "minLength": null,
+                                                      "maxLength": null
+                                                    },
+                                                    "defaultValue": ""
+                                                  },
+                                                  "type": "default"
+                                                }
+                                              }
+                                            },
+                                            "type": "optional"
                                           }
                                         }
                                       },
@@ -4444,6 +5270,124 @@
                                             "defaultValue": ""
                                           },
                                           "type": "default"
+                                        },
+                                        "repositoryWebsite": {
+                                          "def": {
+                                            "type": "optional",
+                                            "innerType": {
+                                              "def": {
+                                                "type": "string"
+                                              },
+                                              "type": "string",
+                                              "format": null,
+                                              "minLength": null,
+                                              "maxLength": null
+                                            }
+                                          },
+                                          "type": "optional"
+                                        },
+                                        "repositoryDescription": {
+                                          "def": {
+                                            "type": "optional",
+                                            "innerType": {
+                                              "def": {
+                                                "type": "string"
+                                              },
+                                              "type": "string",
+                                              "format": null,
+                                              "minLength": null,
+                                              "maxLength": null
+                                            }
+                                          },
+                                          "type": "optional"
+                                        },
+                                        "repositoryType": {
+                                          "def": {
+                                            "type": "optional",
+                                            "innerType": {
+                                              "def": {
+                                                "type": "array",
+                                                "element": {
+                                                  "def": {
+                                                    "type": "default",
+                                                    "innerType": {
+                                                      "def": {
+                                                        "type": "string"
+                                                      },
+                                                      "type": "string",
+                                                      "format": null,
+                                                      "minLength": null,
+                                                      "maxLength": null
+                                                    },
+                                                    "defaultValue": ""
+                                                  },
+                                                  "type": "default"
+                                                }
+                                              },
+                                              "type": "array",
+                                              "element": {
+                                                "def": {
+                                                  "type": "default",
+                                                  "innerType": {
+                                                    "def": {
+                                                      "type": "string"
+                                                    },
+                                                    "type": "string",
+                                                    "format": null,
+                                                    "minLength": null,
+                                                    "maxLength": null
+                                                  },
+                                                  "defaultValue": ""
+                                                },
+                                                "type": "default"
+                                              }
+                                            }
+                                          },
+                                          "type": "optional"
+                                        },
+                                        "repositoryKeywords": {
+                                          "def": {
+                                            "type": "optional",
+                                            "innerType": {
+                                              "def": {
+                                                "type": "array",
+                                                "element": {
+                                                  "def": {
+                                                    "type": "default",
+                                                    "innerType": {
+                                                      "def": {
+                                                        "type": "string"
+                                                      },
+                                                      "type": "string",
+                                                      "format": null,
+                                                      "minLength": null,
+                                                      "maxLength": null
+                                                    },
+                                                    "defaultValue": ""
+                                                  },
+                                                  "type": "default"
+                                                }
+                                              },
+                                              "type": "array",
+                                              "element": {
+                                                "def": {
+                                                  "type": "default",
+                                                  "innerType": {
+                                                    "def": {
+                                                      "type": "string"
+                                                    },
+                                                    "type": "string",
+                                                    "format": null,
+                                                    "minLength": null,
+                                                    "maxLength": null
+                                                  },
+                                                  "defaultValue": ""
+                                                },
+                                                "type": "default"
+                                              }
+                                            }
+                                          },
+                                          "type": "optional"
                                         }
                                       }
                                     },
@@ -5610,6 +6554,124 @@
                                                 "defaultValue": ""
                                               },
                                               "type": "default"
+                                            },
+                                            "repositoryWebsite": {
+                                              "def": {
+                                                "type": "optional",
+                                                "innerType": {
+                                                  "def": {
+                                                    "type": "string"
+                                                  },
+                                                  "type": "string",
+                                                  "format": null,
+                                                  "minLength": null,
+                                                  "maxLength": null
+                                                }
+                                              },
+                                              "type": "optional"
+                                            },
+                                            "repositoryDescription": {
+                                              "def": {
+                                                "type": "optional",
+                                                "innerType": {
+                                                  "def": {
+                                                    "type": "string"
+                                                  },
+                                                  "type": "string",
+                                                  "format": null,
+                                                  "minLength": null,
+                                                  "maxLength": null
+                                                }
+                                              },
+                                              "type": "optional"
+                                            },
+                                            "repositoryType": {
+                                              "def": {
+                                                "type": "optional",
+                                                "innerType": {
+                                                  "def": {
+                                                    "type": "array",
+                                                    "element": {
+                                                      "def": {
+                                                        "type": "default",
+                                                        "innerType": {
+                                                          "def": {
+                                                            "type": "string"
+                                                          },
+                                                          "type": "string",
+                                                          "format": null,
+                                                          "minLength": null,
+                                                          "maxLength": null
+                                                        },
+                                                        "defaultValue": ""
+                                                      },
+                                                      "type": "default"
+                                                    }
+                                                  },
+                                                  "type": "array",
+                                                  "element": {
+                                                    "def": {
+                                                      "type": "default",
+                                                      "innerType": {
+                                                        "def": {
+                                                          "type": "string"
+                                                        },
+                                                        "type": "string",
+                                                        "format": null,
+                                                        "minLength": null,
+                                                        "maxLength": null
+                                                      },
+                                                      "defaultValue": ""
+                                                    },
+                                                    "type": "default"
+                                                  }
+                                                }
+                                              },
+                                              "type": "optional"
+                                            },
+                                            "repositoryKeywords": {
+                                              "def": {
+                                                "type": "optional",
+                                                "innerType": {
+                                                  "def": {
+                                                    "type": "array",
+                                                    "element": {
+                                                      "def": {
+                                                        "type": "default",
+                                                        "innerType": {
+                                                          "def": {
+                                                            "type": "string"
+                                                          },
+                                                          "type": "string",
+                                                          "format": null,
+                                                          "minLength": null,
+                                                          "maxLength": null
+                                                        },
+                                                        "defaultValue": ""
+                                                      },
+                                                      "type": "default"
+                                                    }
+                                                  },
+                                                  "type": "array",
+                                                  "element": {
+                                                    "def": {
+                                                      "type": "default",
+                                                      "innerType": {
+                                                        "def": {
+                                                          "type": "string"
+                                                        },
+                                                        "type": "string",
+                                                        "format": null,
+                                                        "minLength": null,
+                                                        "maxLength": null
+                                                      },
+                                                      "defaultValue": ""
+                                                    },
+                                                    "type": "default"
+                                                  }
+                                                }
+                                              },
+                                              "type": "optional"
                                             }
                                           }
                                         },
@@ -5652,6 +6714,124 @@
                                               "defaultValue": ""
                                             },
                                             "type": "default"
+                                          },
+                                          "repositoryWebsite": {
+                                            "def": {
+                                              "type": "optional",
+                                              "innerType": {
+                                                "def": {
+                                                  "type": "string"
+                                                },
+                                                "type": "string",
+                                                "format": null,
+                                                "minLength": null,
+                                                "maxLength": null
+                                              }
+                                            },
+                                            "type": "optional"
+                                          },
+                                          "repositoryDescription": {
+                                            "def": {
+                                              "type": "optional",
+                                              "innerType": {
+                                                "def": {
+                                                  "type": "string"
+                                                },
+                                                "type": "string",
+                                                "format": null,
+                                                "minLength": null,
+                                                "maxLength": null
+                                              }
+                                            },
+                                            "type": "optional"
+                                          },
+                                          "repositoryType": {
+                                            "def": {
+                                              "type": "optional",
+                                              "innerType": {
+                                                "def": {
+                                                  "type": "array",
+                                                  "element": {
+                                                    "def": {
+                                                      "type": "default",
+                                                      "innerType": {
+                                                        "def": {
+                                                          "type": "string"
+                                                        },
+                                                        "type": "string",
+                                                        "format": null,
+                                                        "minLength": null,
+                                                        "maxLength": null
+                                                      },
+                                                      "defaultValue": ""
+                                                    },
+                                                    "type": "default"
+                                                  }
+                                                },
+                                                "type": "array",
+                                                "element": {
+                                                  "def": {
+                                                    "type": "default",
+                                                    "innerType": {
+                                                      "def": {
+                                                        "type": "string"
+                                                      },
+                                                      "type": "string",
+                                                      "format": null,
+                                                      "minLength": null,
+                                                      "maxLength": null
+                                                    },
+                                                    "defaultValue": ""
+                                                  },
+                                                  "type": "default"
+                                                }
+                                              }
+                                            },
+                                            "type": "optional"
+                                          },
+                                          "repositoryKeywords": {
+                                            "def": {
+                                              "type": "optional",
+                                              "innerType": {
+                                                "def": {
+                                                  "type": "array",
+                                                  "element": {
+                                                    "def": {
+                                                      "type": "default",
+                                                      "innerType": {
+                                                        "def": {
+                                                          "type": "string"
+                                                        },
+                                                        "type": "string",
+                                                        "format": null,
+                                                        "minLength": null,
+                                                        "maxLength": null
+                                                      },
+                                                      "defaultValue": ""
+                                                    },
+                                                    "type": "default"
+                                                  }
+                                                },
+                                                "type": "array",
+                                                "element": {
+                                                  "def": {
+                                                    "type": "default",
+                                                    "innerType": {
+                                                      "def": {
+                                                        "type": "string"
+                                                      },
+                                                      "type": "string",
+                                                      "format": null,
+                                                      "minLength": null,
+                                                      "maxLength": null
+                                                    },
+                                                    "defaultValue": ""
+                                                  },
+                                                  "type": "default"
+                                                }
+                                              }
+                                            },
+                                            "type": "optional"
                                           }
                                         }
                                       },
@@ -6804,6 +7984,124 @@
                                               "defaultValue": ""
                                             },
                                             "type": "default"
+                                          },
+                                          "repositoryWebsite": {
+                                            "def": {
+                                              "type": "optional",
+                                              "innerType": {
+                                                "def": {
+                                                  "type": "string"
+                                                },
+                                                "type": "string",
+                                                "format": null,
+                                                "minLength": null,
+                                                "maxLength": null
+                                              }
+                                            },
+                                            "type": "optional"
+                                          },
+                                          "repositoryDescription": {
+                                            "def": {
+                                              "type": "optional",
+                                              "innerType": {
+                                                "def": {
+                                                  "type": "string"
+                                                },
+                                                "type": "string",
+                                                "format": null,
+                                                "minLength": null,
+                                                "maxLength": null
+                                              }
+                                            },
+                                            "type": "optional"
+                                          },
+                                          "repositoryType": {
+                                            "def": {
+                                              "type": "optional",
+                                              "innerType": {
+                                                "def": {
+                                                  "type": "array",
+                                                  "element": {
+                                                    "def": {
+                                                      "type": "default",
+                                                      "innerType": {
+                                                        "def": {
+                                                          "type": "string"
+                                                        },
+                                                        "type": "string",
+                                                        "format": null,
+                                                        "minLength": null,
+                                                        "maxLength": null
+                                                      },
+                                                      "defaultValue": ""
+                                                    },
+                                                    "type": "default"
+                                                  }
+                                                },
+                                                "type": "array",
+                                                "element": {
+                                                  "def": {
+                                                    "type": "default",
+                                                    "innerType": {
+                                                      "def": {
+                                                        "type": "string"
+                                                      },
+                                                      "type": "string",
+                                                      "format": null,
+                                                      "minLength": null,
+                                                      "maxLength": null
+                                                    },
+                                                    "defaultValue": ""
+                                                  },
+                                                  "type": "default"
+                                                }
+                                              }
+                                            },
+                                            "type": "optional"
+                                          },
+                                          "repositoryKeywords": {
+                                            "def": {
+                                              "type": "optional",
+                                              "innerType": {
+                                                "def": {
+                                                  "type": "array",
+                                                  "element": {
+                                                    "def": {
+                                                      "type": "default",
+                                                      "innerType": {
+                                                        "def": {
+                                                          "type": "string"
+                                                        },
+                                                        "type": "string",
+                                                        "format": null,
+                                                        "minLength": null,
+                                                        "maxLength": null
+                                                      },
+                                                      "defaultValue": ""
+                                                    },
+                                                    "type": "default"
+                                                  }
+                                                },
+                                                "type": "array",
+                                                "element": {
+                                                  "def": {
+                                                    "type": "default",
+                                                    "innerType": {
+                                                      "def": {
+                                                        "type": "string"
+                                                      },
+                                                      "type": "string",
+                                                      "format": null,
+                                                      "minLength": null,
+                                                      "maxLength": null
+                                                    },
+                                                    "defaultValue": ""
+                                                  },
+                                                  "type": "default"
+                                                }
+                                              }
+                                            },
+                                            "type": "optional"
                                           }
                                         }
                                       },
@@ -6846,6 +8144,124 @@
                                             "defaultValue": ""
                                           },
                                           "type": "default"
+                                        },
+                                        "repositoryWebsite": {
+                                          "def": {
+                                            "type": "optional",
+                                            "innerType": {
+                                              "def": {
+                                                "type": "string"
+                                              },
+                                              "type": "string",
+                                              "format": null,
+                                              "minLength": null,
+                                              "maxLength": null
+                                            }
+                                          },
+                                          "type": "optional"
+                                        },
+                                        "repositoryDescription": {
+                                          "def": {
+                                            "type": "optional",
+                                            "innerType": {
+                                              "def": {
+                                                "type": "string"
+                                              },
+                                              "type": "string",
+                                              "format": null,
+                                              "minLength": null,
+                                              "maxLength": null
+                                            }
+                                          },
+                                          "type": "optional"
+                                        },
+                                        "repositoryType": {
+                                          "def": {
+                                            "type": "optional",
+                                            "innerType": {
+                                              "def": {
+                                                "type": "array",
+                                                "element": {
+                                                  "def": {
+                                                    "type": "default",
+                                                    "innerType": {
+                                                      "def": {
+                                                        "type": "string"
+                                                      },
+                                                      "type": "string",
+                                                      "format": null,
+                                                      "minLength": null,
+                                                      "maxLength": null
+                                                    },
+                                                    "defaultValue": ""
+                                                  },
+                                                  "type": "default"
+                                                }
+                                              },
+                                              "type": "array",
+                                              "element": {
+                                                "def": {
+                                                  "type": "default",
+                                                  "innerType": {
+                                                    "def": {
+                                                      "type": "string"
+                                                    },
+                                                    "type": "string",
+                                                    "format": null,
+                                                    "minLength": null,
+                                                    "maxLength": null
+                                                  },
+                                                  "defaultValue": ""
+                                                },
+                                                "type": "default"
+                                              }
+                                            }
+                                          },
+                                          "type": "optional"
+                                        },
+                                        "repositoryKeywords": {
+                                          "def": {
+                                            "type": "optional",
+                                            "innerType": {
+                                              "def": {
+                                                "type": "array",
+                                                "element": {
+                                                  "def": {
+                                                    "type": "default",
+                                                    "innerType": {
+                                                      "def": {
+                                                        "type": "string"
+                                                      },
+                                                      "type": "string",
+                                                      "format": null,
+                                                      "minLength": null,
+                                                      "maxLength": null
+                                                    },
+                                                    "defaultValue": ""
+                                                  },
+                                                  "type": "default"
+                                                }
+                                              },
+                                              "type": "array",
+                                              "element": {
+                                                "def": {
+                                                  "type": "default",
+                                                  "innerType": {
+                                                    "def": {
+                                                      "type": "string"
+                                                    },
+                                                    "type": "string",
+                                                    "format": null,
+                                                    "minLength": null,
+                                                    "maxLength": null
+                                                  },
+                                                  "defaultValue": ""
+                                                },
+                                                "type": "default"
+                                              }
+                                            }
+                                          },
+                                          "type": "optional"
                                         }
                                       }
                                     },
@@ -8000,6 +9416,124 @@
                                               "defaultValue": ""
                                             },
                                             "type": "default"
+                                          },
+                                          "repositoryWebsite": {
+                                            "def": {
+                                              "type": "optional",
+                                              "innerType": {
+                                                "def": {
+                                                  "type": "string"
+                                                },
+                                                "type": "string",
+                                                "format": null,
+                                                "minLength": null,
+                                                "maxLength": null
+                                              }
+                                            },
+                                            "type": "optional"
+                                          },
+                                          "repositoryDescription": {
+                                            "def": {
+                                              "type": "optional",
+                                              "innerType": {
+                                                "def": {
+                                                  "type": "string"
+                                                },
+                                                "type": "string",
+                                                "format": null,
+                                                "minLength": null,
+                                                "maxLength": null
+                                              }
+                                            },
+                                            "type": "optional"
+                                          },
+                                          "repositoryType": {
+                                            "def": {
+                                              "type": "optional",
+                                              "innerType": {
+                                                "def": {
+                                                  "type": "array",
+                                                  "element": {
+                                                    "def": {
+                                                      "type": "default",
+                                                      "innerType": {
+                                                        "def": {
+                                                          "type": "string"
+                                                        },
+                                                        "type": "string",
+                                                        "format": null,
+                                                        "minLength": null,
+                                                        "maxLength": null
+                                                      },
+                                                      "defaultValue": ""
+                                                    },
+                                                    "type": "default"
+                                                  }
+                                                },
+                                                "type": "array",
+                                                "element": {
+                                                  "def": {
+                                                    "type": "default",
+                                                    "innerType": {
+                                                      "def": {
+                                                        "type": "string"
+                                                      },
+                                                      "type": "string",
+                                                      "format": null,
+                                                      "minLength": null,
+                                                      "maxLength": null
+                                                    },
+                                                    "defaultValue": ""
+                                                  },
+                                                  "type": "default"
+                                                }
+                                              }
+                                            },
+                                            "type": "optional"
+                                          },
+                                          "repositoryKeywords": {
+                                            "def": {
+                                              "type": "optional",
+                                              "innerType": {
+                                                "def": {
+                                                  "type": "array",
+                                                  "element": {
+                                                    "def": {
+                                                      "type": "default",
+                                                      "innerType": {
+                                                        "def": {
+                                                          "type": "string"
+                                                        },
+                                                        "type": "string",
+                                                        "format": null,
+                                                        "minLength": null,
+                                                        "maxLength": null
+                                                      },
+                                                      "defaultValue": ""
+                                                    },
+                                                    "type": "default"
+                                                  }
+                                                },
+                                                "type": "array",
+                                                "element": {
+                                                  "def": {
+                                                    "type": "default",
+                                                    "innerType": {
+                                                      "def": {
+                                                        "type": "string"
+                                                      },
+                                                      "type": "string",
+                                                      "format": null,
+                                                      "minLength": null,
+                                                      "maxLength": null
+                                                    },
+                                                    "defaultValue": ""
+                                                  },
+                                                  "type": "default"
+                                                }
+                                              }
+                                            },
+                                            "type": "optional"
                                           }
                                         }
                                       },
@@ -8042,6 +9576,124 @@
                                             "defaultValue": ""
                                           },
                                           "type": "default"
+                                        },
+                                        "repositoryWebsite": {
+                                          "def": {
+                                            "type": "optional",
+                                            "innerType": {
+                                              "def": {
+                                                "type": "string"
+                                              },
+                                              "type": "string",
+                                              "format": null,
+                                              "minLength": null,
+                                              "maxLength": null
+                                            }
+                                          },
+                                          "type": "optional"
+                                        },
+                                        "repositoryDescription": {
+                                          "def": {
+                                            "type": "optional",
+                                            "innerType": {
+                                              "def": {
+                                                "type": "string"
+                                              },
+                                              "type": "string",
+                                              "format": null,
+                                              "minLength": null,
+                                              "maxLength": null
+                                            }
+                                          },
+                                          "type": "optional"
+                                        },
+                                        "repositoryType": {
+                                          "def": {
+                                            "type": "optional",
+                                            "innerType": {
+                                              "def": {
+                                                "type": "array",
+                                                "element": {
+                                                  "def": {
+                                                    "type": "default",
+                                                    "innerType": {
+                                                      "def": {
+                                                        "type": "string"
+                                                      },
+                                                      "type": "string",
+                                                      "format": null,
+                                                      "minLength": null,
+                                                      "maxLength": null
+                                                    },
+                                                    "defaultValue": ""
+                                                  },
+                                                  "type": "default"
+                                                }
+                                              },
+                                              "type": "array",
+                                              "element": {
+                                                "def": {
+                                                  "type": "default",
+                                                  "innerType": {
+                                                    "def": {
+                                                      "type": "string"
+                                                    },
+                                                    "type": "string",
+                                                    "format": null,
+                                                    "minLength": null,
+                                                    "maxLength": null
+                                                  },
+                                                  "defaultValue": ""
+                                                },
+                                                "type": "default"
+                                              }
+                                            }
+                                          },
+                                          "type": "optional"
+                                        },
+                                        "repositoryKeywords": {
+                                          "def": {
+                                            "type": "optional",
+                                            "innerType": {
+                                              "def": {
+                                                "type": "array",
+                                                "element": {
+                                                  "def": {
+                                                    "type": "default",
+                                                    "innerType": {
+                                                      "def": {
+                                                        "type": "string"
+                                                      },
+                                                      "type": "string",
+                                                      "format": null,
+                                                      "minLength": null,
+                                                      "maxLength": null
+                                                    },
+                                                    "defaultValue": ""
+                                                  },
+                                                  "type": "default"
+                                                }
+                                              },
+                                              "type": "array",
+                                              "element": {
+                                                "def": {
+                                                  "type": "default",
+                                                  "innerType": {
+                                                    "def": {
+                                                      "type": "string"
+                                                    },
+                                                    "type": "string",
+                                                    "format": null,
+                                                    "minLength": null,
+                                                    "maxLength": null
+                                                  },
+                                                  "defaultValue": ""
+                                                },
+                                                "type": "default"
+                                              }
+                                            }
+                                          },
+                                          "type": "optional"
                                         }
                                       }
                                     },
@@ -9194,6 +10846,124 @@
                                             "defaultValue": ""
                                           },
                                           "type": "default"
+                                        },
+                                        "repositoryWebsite": {
+                                          "def": {
+                                            "type": "optional",
+                                            "innerType": {
+                                              "def": {
+                                                "type": "string"
+                                              },
+                                              "type": "string",
+                                              "format": null,
+                                              "minLength": null,
+                                              "maxLength": null
+                                            }
+                                          },
+                                          "type": "optional"
+                                        },
+                                        "repositoryDescription": {
+                                          "def": {
+                                            "type": "optional",
+                                            "innerType": {
+                                              "def": {
+                                                "type": "string"
+                                              },
+                                              "type": "string",
+                                              "format": null,
+                                              "minLength": null,
+                                              "maxLength": null
+                                            }
+                                          },
+                                          "type": "optional"
+                                        },
+                                        "repositoryType": {
+                                          "def": {
+                                            "type": "optional",
+                                            "innerType": {
+                                              "def": {
+                                                "type": "array",
+                                                "element": {
+                                                  "def": {
+                                                    "type": "default",
+                                                    "innerType": {
+                                                      "def": {
+                                                        "type": "string"
+                                                      },
+                                                      "type": "string",
+                                                      "format": null,
+                                                      "minLength": null,
+                                                      "maxLength": null
+                                                    },
+                                                    "defaultValue": ""
+                                                  },
+                                                  "type": "default"
+                                                }
+                                              },
+                                              "type": "array",
+                                              "element": {
+                                                "def": {
+                                                  "type": "default",
+                                                  "innerType": {
+                                                    "def": {
+                                                      "type": "string"
+                                                    },
+                                                    "type": "string",
+                                                    "format": null,
+                                                    "minLength": null,
+                                                    "maxLength": null
+                                                  },
+                                                  "defaultValue": ""
+                                                },
+                                                "type": "default"
+                                              }
+                                            }
+                                          },
+                                          "type": "optional"
+                                        },
+                                        "repositoryKeywords": {
+                                          "def": {
+                                            "type": "optional",
+                                            "innerType": {
+                                              "def": {
+                                                "type": "array",
+                                                "element": {
+                                                  "def": {
+                                                    "type": "default",
+                                                    "innerType": {
+                                                      "def": {
+                                                        "type": "string"
+                                                      },
+                                                      "type": "string",
+                                                      "format": null,
+                                                      "minLength": null,
+                                                      "maxLength": null
+                                                    },
+                                                    "defaultValue": ""
+                                                  },
+                                                  "type": "default"
+                                                }
+                                              },
+                                              "type": "array",
+                                              "element": {
+                                                "def": {
+                                                  "type": "default",
+                                                  "innerType": {
+                                                    "def": {
+                                                      "type": "string"
+                                                    },
+                                                    "type": "string",
+                                                    "format": null,
+                                                    "minLength": null,
+                                                    "maxLength": null
+                                                  },
+                                                  "defaultValue": ""
+                                                },
+                                                "type": "default"
+                                              }
+                                            }
+                                          },
+                                          "type": "optional"
                                         }
                                       }
                                     },
@@ -9236,6 +11006,124 @@
                                           "defaultValue": ""
                                         },
                                         "type": "default"
+                                      },
+                                      "repositoryWebsite": {
+                                        "def": {
+                                          "type": "optional",
+                                          "innerType": {
+                                            "def": {
+                                              "type": "string"
+                                            },
+                                            "type": "string",
+                                            "format": null,
+                                            "minLength": null,
+                                            "maxLength": null
+                                          }
+                                        },
+                                        "type": "optional"
+                                      },
+                                      "repositoryDescription": {
+                                        "def": {
+                                          "type": "optional",
+                                          "innerType": {
+                                            "def": {
+                                              "type": "string"
+                                            },
+                                            "type": "string",
+                                            "format": null,
+                                            "minLength": null,
+                                            "maxLength": null
+                                          }
+                                        },
+                                        "type": "optional"
+                                      },
+                                      "repositoryType": {
+                                        "def": {
+                                          "type": "optional",
+                                          "innerType": {
+                                            "def": {
+                                              "type": "array",
+                                              "element": {
+                                                "def": {
+                                                  "type": "default",
+                                                  "innerType": {
+                                                    "def": {
+                                                      "type": "string"
+                                                    },
+                                                    "type": "string",
+                                                    "format": null,
+                                                    "minLength": null,
+                                                    "maxLength": null
+                                                  },
+                                                  "defaultValue": ""
+                                                },
+                                                "type": "default"
+                                              }
+                                            },
+                                            "type": "array",
+                                            "element": {
+                                              "def": {
+                                                "type": "default",
+                                                "innerType": {
+                                                  "def": {
+                                                    "type": "string"
+                                                  },
+                                                  "type": "string",
+                                                  "format": null,
+                                                  "minLength": null,
+                                                  "maxLength": null
+                                                },
+                                                "defaultValue": ""
+                                              },
+                                              "type": "default"
+                                            }
+                                          }
+                                        },
+                                        "type": "optional"
+                                      },
+                                      "repositoryKeywords": {
+                                        "def": {
+                                          "type": "optional",
+                                          "innerType": {
+                                            "def": {
+                                              "type": "array",
+                                              "element": {
+                                                "def": {
+                                                  "type": "default",
+                                                  "innerType": {
+                                                    "def": {
+                                                      "type": "string"
+                                                    },
+                                                    "type": "string",
+                                                    "format": null,
+                                                    "minLength": null,
+                                                    "maxLength": null
+                                                  },
+                                                  "defaultValue": ""
+                                                },
+                                                "type": "default"
+                                              }
+                                            },
+                                            "type": "array",
+                                            "element": {
+                                              "def": {
+                                                "type": "default",
+                                                "innerType": {
+                                                  "def": {
+                                                    "type": "string"
+                                                  },
+                                                  "type": "string",
+                                                  "format": null,
+                                                  "minLength": null,
+                                                  "maxLength": null
+                                                },
+                                                "defaultValue": ""
+                                              },
+                                              "type": "default"
+                                            }
+                                          }
+                                        },
+                                        "type": "optional"
                                       }
                                     }
                                   },
