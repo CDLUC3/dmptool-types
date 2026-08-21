@@ -60,7 +60,11 @@ export const RepositorySearchAnswerSchema = z.object({
   type: z.literal('repositorySearch'),
   answer: z.array(z.object({
     repositoryId: z.string().default(''),   // The unique id of the repository
-    repositoryName: z.string().default('')  // The name of the repository
+    repositoryName: z.string().default(''), // The name of the repository
+    repositoryWebsite: z.string().optional(), // The website of the repository
+    repositoryDescription: z.string().optional(), // The description of the repository
+    repositoryType: z.array(z.string().default('')).optional(), // The type of the repository (e.g. institutional, disciplinary, etc.)
+    repositoryKeywords: z.array(z.string().default('')).optional() // The keywords associated with the repository
   })).default([])
 });
 export const DefaultRepositorySearchAnswer = RepositorySearchAnswerSchema.parse({

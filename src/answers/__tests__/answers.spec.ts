@@ -171,7 +171,14 @@ describe('Answer Type Validations', () => {
       type: 'repositorySearch',
       answer: [
         { repositoryId: 'repo1', repositoryName: 'Repository One' },
-        { repositoryId: 'repo2', repositoryName: 'Repository Two' }
+        {
+          repositoryId: 'repo2',
+          repositoryName: 'Repository Two',
+          repositoryDescription: 'This is a test',
+          repositoryType: ['institutional'],
+          repositoryKeywords: ['test', 'example'],
+          repositoryWebsite: 'https://example.com'
+        }
       ],
       meta: { schemaVersion: CURRENT_SCHEMA_VERSION } };
     expect(() => RepositorySearchAnswerSchema.parse(validData)).not.toThrow();
@@ -230,7 +237,14 @@ describe('Answer Type Validations', () => {
           {
             type: 'repositorySearch',
             commonStandardId: 'host',
-            answer: [{ repositoryId: 'repo1', repositoryName: 'Repository One' }],
+            answer: [{
+              repositoryId: 'repo1',
+              repositoryName: 'Repository One',
+              repositoryDescription: 'This is a test',
+              repositoryType: ['institutional'],
+              repositoryKeywords: ['test', 'example'],
+              repositoryWebsite: 'https://example.com'
+            }],
             meta: { schemaVersion: CURRENT_SCHEMA_VERSION }
           },
           {

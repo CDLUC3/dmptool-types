@@ -1,5 +1,8 @@
 # dmptool-types CHANGELOG
 
+## v4.0.1
+- Added additional properties to the `repositorySearch` answer column to align with UI needs 
+
 ## v4.0.0
 **Breaking Change**: Updated `researchOutputTable` questions and answers to include `commonStandardId` property, which is required to map entries from the `dataset` array in the RDA common standard. This change may require updates to any code that uses the `researchOutputTable` questions and answers.
 
