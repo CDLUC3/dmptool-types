@@ -1,6 +1,6 @@
 {
   "name": "@dmptool/types",
-  "version": "4.0.1",
+  "version": "4.1.0",
   "description": "TypeScript types for DMPTool",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -37,7 +37,7 @@
     "trivy-med": "./scripts/trivy-med.sh"
   },
   "overrides": {
-    "@babel/core": "8.0.1",
+    "@babel/core": "8.0.6",
     "js-yaml": "5.2.0"
   },
   "dependencies": {
