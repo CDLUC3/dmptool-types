@@ -48,7 +48,7 @@ import {
   NumberWithContextAnswerJSONSchema,
   RadioButtonsAnswerJSONSchema,
   RepositorySearchAnswerJSONSchema,
-  ResearchOutputTableAnswerSchema,
+  ResearchOutputTableAnswerJSONSchema,
   SelectBoxAnswerJSONSchema,
   TableAnswerJSONSchema,
   TextAreaAnswerJSONSchema,
@@ -110,7 +110,7 @@ fs.writeFileSync('./schemas/repositorySearchQuestion.schema.json', JSON.stringif
 fs.writeFileSync('./schemas/repositorySearchAnswer.schema.json', JSON.stringify(RepositorySearchAnswerJSONSchema, null, 2));
 
 fs.writeFileSync('./schemas/researchOutputTableQuestion.schema.json', JSON.stringify(ResearchOutputTableQuestionJSONSchema, null, 2));
-fs.writeFileSync('./schemas/researchOutputTableAnswer.schema.json', JSON.stringify(ResearchOutputTableAnswerSchema, null, 2));
+fs.writeFileSync('./schemas/researchOutputTableAnswer.schema.json', JSON.stringify(ResearchOutputTableAnswerJSONSchema, null, 2));
 
 fs.writeFileSync('./schemas/selectBoxQuestion.schema.json', JSON.stringify(SelectBoxQuestionJSONSchema, null, 2));
 fs.writeFileSync('./schemas/selectBoxAnswer.schema.json', JSON.stringify(SelectBoxAnswerJSONSchema, null, 2));

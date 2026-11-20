@@ -64,7 +64,8 @@ export const RepositorySearchAnswerSchema = z.object({
     repositoryWebsite: z.string().optional(), // The website of the repository
     repositoryDescription: z.string().optional(), // The description of the repository
     repositoryType: z.array(z.string().default('')).optional(), // The type of the repository (e.g. institutional, disciplinary, etc.)
-    repositoryKeywords: z.array(z.string().default('')).optional() // The keywords associated with the repository
+    repositoryKeywords: z.array(z.string().default('')).optional(), // The keywords associated with the repository
+    repositoryLocation: z.string().optional() // Where in the repository this output is (a folder, collection, project or record)
   })).default([])
 });
 export const DefaultRepositorySearchAnswer = RepositorySearchAnswerSchema.parse({

@@ -600,6 +600,9 @@
                   "default": "",
                   "type": "string"
                 }
+              },
+              "repositoryLocation": {
+                "type": "string"
               }
             },
             "required": [
