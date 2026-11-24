@@ -1,5 +1,9 @@
 # dmptool-types CHANGELOG
 
+## v4.0.2
+- Fixed `researchOutputTableAnswer.schema.json`, which held the Zod object instead of the JSON Schema
+- Added an optional `repositoryLocation` to the `repositorySearch` answer, for where in the repository an output is, such as a folder or collection
+
 ## v4.0.1
 - Added additional properties to the `repositorySearch` answer column to align with UI needs 
 
